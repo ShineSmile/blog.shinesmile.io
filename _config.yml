@@ -71,3 +71,9 @@ deploy:
   type: git
   repo: git@github.com:ShineSmile/HeavensFeel.git
   branch: gh-pages
+
+# sitemap
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml

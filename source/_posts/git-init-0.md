@@ -1,12 +1,12 @@
 ---
-title: Enjoy Git 0
+title: Git init 0：版本控制的历史及Git的产生
 date: 2017-02-19 20:23:39
 tags: 
 ---
 
->本文主要整理自《Pro Git》和《Got Git》。
+Git读作/ɡɪt/，而不是/dʒ/，其中字母G的发音与Got中的G相同。
 
-# 版本控制概念及工具的产生
+## 版本控制概念及工具的产生
 
 版本控制的概念产生自工作中的实际需求。我们希望在保存工作进度的同时能把文件编辑的历史保存下来，并且允许我们可以随时可以返回到文档的任意时间节点。
 
@@ -14,13 +14,17 @@ tags:
 
 版本控制工具的产生经历了一下三个时期：
 
-1.本地版本控制系统：如：RCS（修订控制系统RevisionControlSystem）
+### 本地版本控制系统
+
+如：RCS（Revision Control System）
 
 * RCS:实现了文件的自动存储、检索、日志记录、识别、合并修订等功能。然而对单个文件的跟踪使其无法对大型项目进行整体的追踪，本地的特性也导致其对团队协作的支持不够友好。
 
-![本地版本控制系统](enjoy-git-0/local.png)
+![本地版本控制系统](git-init-0/local.png)
 
-2.集中式版本控制系统，如：CVS（Concurrent Versions System）、SVN（Subversion）、TFS（Team Foundation Server）。
+### 集中式版本控制系统
+
+如：CVS（Concurrent Versions System）、SVN（Subversion）、TFS（Team Foundation Server）。
 
 * CVS是基于脚本语言对RCS的封装，之后经过C的重写来保证其性能。CVS提出的提交、说明、检入、检出、标签、分支给后续的版本工具间接制定了标准。其缺陷是文件在提交后不能进行删除、重命名等操作。
 
@@ -28,19 +32,21 @@ tags:
 
 * TFS是基于SharePoint的扩展，因此其不仅仅能作为版本控制工具使用还包括工程管理的功能。TFS的早期版本要求全程联网，为避免冲突，编辑前需要与服务端的文件进行锁定，一旦脱机需要重新与服务端进行绑定。基于SharePoint和SQL Server的TFS过于复杂臃肿，除了使用微软服务的大客户外，TFS已经不是版本控制的首选。后续微软提供了基于Azure的Visual Studio Team Service。国内网络状况所限，使用体验并不理想。
 
-![本地版本控制系统](enjoy-git-0/centralized.png)
+![本地版本控制系统](git-init-0/centralized.png)
 
-3.分布式版本控制系统，如：Git、Mercurial、Bazaar
+### 分布式版本控制系统
+
+如：Git、Mercurial、Bazaar
 
 * Git使用`.git`文件夹作为本地仓库使用。此架构使git的离线提交、回滚等操作提供了基础。另外我们可以不局限于一个远端仓库。通过增加远端仓库来消除远端的单点隐患保证代码的安全。git的分支管理也是一大亮点，我们不在需要将分支建立在一个新的文件夹下，git允许我们将当前工作区切换到任意分支上。廉价的分支管理与合并也会在工作中提供便利。
 
 * 由于后两者没有实际使用过，没办法做详细的功能对比。感兴趣的朋友可以参见[知乎：Git、Mercurial、Bazaar 有什么区别？](https://www.zhihu.com/question/19877652)
 
-![本地版本控制系统](enjoy-git-0/distributed.png)
+![本地版本控制系统](git-init-0/distributed.png)
 
-# Git的产生
+## Git的产生
 
-Linux的源代码曾免费托管在BitKeeper上，有逸闻说Samba之父Andrew Tridgell对BitKeeper进行反向工程试图开发一款与BitKeeper交互的开源工具。此举导致BitKeeper的所有者BitMover与Linux社区翻脸，不再继续提供服务。于是Linus像当年一怒之下写出Linux内核一样写出了Git。Git开发的主要历程如下：
+Linux的源代码在2002-2005年间免费托管在BitKeeper上，有逸闻说Samba之父Andrew Tridgell对BitKeeper进行反向工程试图开发一款与BitKeeper交互的开源工具。此举导致BitKeeper的所有者BitMover与Linux社区翻脸，不再继续提供服务。于是Linus像当年一怒之下写出Linux内核一样写出了Git。Git开发的主要历程如下：
 
 * 2005年4月3日，开始开发Git。
 * 2005年4月6日，项目发布。
@@ -50,7 +56,7 @@ Linux的源代码曾免费托管在BitKeeper上，有逸闻说Samba之父Andrew 
 * 2005年6月16 日，Linux内核2.6.12 发布，那时Git已经在维护Linux核心的源代码了。
 * 后续的版本则被Linus交给另外一个Git的主要贡献者 Junio C Hamano。
 
-# 为什么使用Git
+## 为什么使用Git
 
 1. 容灾。任何系统都有可能在任何方面产生任何故障。**多个远端+本地副本保证了版本库的稳定和高可用。**即便托管在[GitLab上的代码被误删](https://www.oschina.net/news/81493/gitlab-com-back)，其他远端的仓库仍然是完整的。
 
@@ -58,6 +64,6 @@ Linux的源代码曾免费托管在BitKeeper上，有逸闻说Samba之父Andrew 
 
 3. 廉价易用的分支、标签管理。通过分支我们可以实现**代码审核**、**发布历史管理**以及**现场热修复**等。
 
-# 相关链接
+## 相关链接
 
 Git的教程有很多，在这里首推官方的[《Pro Git》（中文）](https://git-scm.com/book/zh/v2)，包括Git的使用、基于Git的团队协作软件和Git的内部原理等。还有读起来比较轻松的[《Git权威指南》](https://www.amazon.cn/Git权威指南-蒋鑫/dp/B009WMC3QQ/ref=sr_1_1?ie=UTF8&qid=1487507209&sr=8-1&keywords=git权威指南)（即《Got Git》）。
