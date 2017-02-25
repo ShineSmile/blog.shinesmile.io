@@ -1,6 +1,6 @@
 ---
-title: git-init-6：DevOps——开发运维一体化
-date: 2017-02-20 22:24:10
+title: git init 6：DevOps——开发运维一体化
+date: 2017-02-25 12:00:00
 tags:
 ---
 

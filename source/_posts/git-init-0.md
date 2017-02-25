@@ -1,10 +1,12 @@
 ---
 title: Git init 0：版本控制的历史及Git的产生
-date: 2017-02-19 20:23:39
+date: 2017-02-19 12:00:00
 tags: 
 ---
 
-Git读作/ɡɪt/，而不是/dʒ/，其中字母G的发音与Got中的G相同。
+Git读作/ɡɪt/，其中字母G的发音与Got中的G相同。
+
+------
 
 ## 版本控制概念及工具的产生
 
@@ -22,6 +24,9 @@ Git读作/ɡɪt/，而不是/dʒ/，其中字母G的发音与Got中的G相同。
 
 ![本地版本控制系统](git-init-0/local.png)
 
+------
+
+
 ### 集中式版本控制系统
 
 如：CVS（Concurrent Versions System）、SVN（Subversion）、TFS（Team Foundation Server）。
@@ -34,6 +39,8 @@ Git读作/ɡɪt/，而不是/dʒ/，其中字母G的发音与Got中的G相同。
 
 ![本地版本控制系统](git-init-0/centralized.png)
 
+------
+
 ### 分布式版本控制系统
 
 如：Git、Mercurial、Bazaar
@@ -43,6 +50,8 @@ Git读作/ɡɪt/，而不是/dʒ/，其中字母G的发音与Got中的G相同。
 * 由于后两者没有实际使用过，没办法做详细的功能对比。感兴趣的朋友可以参见[知乎：Git、Mercurial、Bazaar 有什么区别？](https://www.zhihu.com/question/19877652)
 
 ![本地版本控制系统](git-init-0/distributed.png)
+
+------
 
 ## Git的产生
 
@@ -56,6 +65,8 @@ Linux的源代码在2002-2005年间免费托管在BitKeeper上，有逸闻说Sam
 * 2005年6月16 日，Linux内核2.6.12 发布，那时Git已经在维护Linux核心的源代码了。
 * 后续的版本则被Linus交给另外一个Git的主要贡献者 Junio C Hamano。
 
+------
+
 ## 为什么使用Git
 
 1. 容灾。任何系统都有可能在任何方面产生任何故障。**多个远端+本地副本保证了版本库的稳定和高可用。**即便托管在[GitLab上的代码被误删](https://www.oschina.net/news/81493/gitlab-com-back)，其他远端的仓库仍然是完整的。
@@ -64,6 +75,9 @@ Linux的源代码在2002-2005年间免费托管在BitKeeper上，有逸闻说Sam
 
 3. 廉价易用的分支、标签管理。通过分支我们可以实现**代码审核**、**发布历史管理**以及**现场热修复**等。
 
+------
 ## 相关链接
 
 Git的教程有很多，在这里首推官方的[《Pro Git》（中文）](https://git-scm.com/book/zh/v2)，包括Git的使用、基于Git的团队协作软件和Git的内部原理等。还有读起来比较轻松的[《Git权威指南》](https://www.amazon.cn/Git权威指南-蒋鑫/dp/B009WMC3QQ/ref=sr_1_1?ie=UTF8&qid=1487507209&sr=8-1&keywords=git权威指南)（即《Got Git》）。
+
+------

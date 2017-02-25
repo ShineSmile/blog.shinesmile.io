@@ -1,10 +1,12 @@
 ---
 title: Git init 1：Git的安装
-date: 2017-02-20 14:18:40
+date: 2017-02-20 12:00:00
 tags:
 ---
 
 [git-scm](https://git-scm.com/downloads)提供了各个平台的Git的安装方式，在这里只介绍Windows下安装流程与配置。
+
+------
 
 ## 获取 Git for Windows
 
@@ -16,19 +18,27 @@ tags:
 
 **注意：这是一个名为Git for Windows的项目，也叫做msysGit，它是Git基于[MSYS](http://www.mingw.org/wiki/MSYS)在Windows 上的一个实现，但不等同于Git本身。另一个是基于[CygWin](https://cygwin.com/git.html)来实现的。由此也能看出Git是比较依赖Linux系统的。**
 
+------
+
 ## 安装
 
 ### 开源协议和条款，简单翻阅下一步即可。
 
 ![开原协议及用户条款](git-init-1/information.png)
 
+------
+
 ### 安装路径
 
 ![安装路径](git-init-1/path.png)
 
+------
+
 ### 开始菜单文件夹
 
 ![开始菜单文件夹](git-init-1/start_menu.png)
+
+------
 
 ### 选择组件:
 
@@ -50,6 +60,8 @@ tags:
 
 ![选择组件](git-init-1/component.png)
 
+------
+
 ### 配置PATH环境变量
 
 ```
@@ -61,6 +73,8 @@ tags:
 此选项可能会波及使用MSYS和MinGW、Cygwin的开发人员，后两者可能会导致命令冲突，影响某些软件的使用。
 
 ![配置PATH环境变量](git-init-1/path_env.png)
+
+------
 
 ### 行尾配置
 
@@ -74,6 +88,8 @@ tags:
 
 ![行尾配置](git-init-1/line_ending.png)
 
+------
+
 ### 配置终端模拟器
 
 * 选择MinTTY作为Git命令的终端界面。
@@ -83,6 +99,8 @@ tags:
 Windows自带默认界面存在字符集、更新窗口大小等问题。**默认选择第一项即可，使用Vim工具进行提交的用户请务必选择第一项。**
 
 ![配置终端模拟器](git-init-1/terminal.png)
+
+------
 
 ### 配置特性
 
@@ -95,11 +113,15 @@ Windows自带默认界面存在字符集、更新窗口大小等问题。**默�
 
 ![配置特性](git-init-1/extra.png)
 
+------
+
 ### 实验组件
 
 * 是否启用公测中的内嵌diff工具。
 
 ![实验组件](git-init-1/experimental.png)
+
+------
 
 ### 安装成功
 
@@ -114,6 +136,8 @@ Windows自带默认界面存在字符集、更新窗口大小等问题。**默�
 * Git CMD使用的是Windows命令提示符。
 
 * Git GUI是Git自带的一个简单的图形用户交互界面。
+
+------
 
 ## 安装后的配置
 
@@ -136,6 +160,8 @@ git config user.email ShineSmile@outlook.com
 ```
 
 至此，Git的安装过程告一段落。
+
+------
 
 
 
