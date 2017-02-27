@@ -49,6 +49,8 @@ Git读作/ɡɪt/，其中字母G的发音与Got中的G相同。
 
 * 由于后两者没有实际使用过，没办法做详细的功能对比。感兴趣的朋友可以参见[知乎：Git、Mercurial、Bazaar 有什么区别？](https://www.zhihu.com/question/19877652)
 
+* 严格的讲，Git并不是一套完整的版本控制系统，而是一组版本控制的底层应用集。
+
 ![本地版本控制系统](git-init-0/distributed.png)
 
 ------

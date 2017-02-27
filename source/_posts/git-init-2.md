@@ -1,6 +1,6 @@
 ---
 title: Git init 2：Git基础
-date: 2017-02-21 12:00:00
+date: 2017-02-25 12:00:00
 tags:
 ---
 
@@ -98,6 +98,8 @@ git commit -m "提交信息"
 ``` bash
 git log
 ```
+
+图中`a66c1569559..`是版本提交的记录，默认情况下取其**前7位**进行展示，即`a66c156`。
 
 ![查看提交历史](git-init-2/git_log.png)
 
@@ -207,6 +209,34 @@ git remote -rd <remote_branch_name>
 `-r`参数表示远端分支。
 
 ![管理远端分支](git-init-2/git_remote_branch.png)
+
+## 打标签：git tag
+
+### 在提交记录中打标签
+
+``` bash
+git tag -a <tag-name> -m <tag-message> <commit-hash>
+```
+
+`<tag-name>`为标签名称，例如：*ver.1.0*。`<tag-message>`为标签信息，可以省略。`<commit-hash>`为提交版本号，如果省略则为当前所在分支打TAG。
+
+### 推送本地标签至远端
+
+``` bash
+git push <remote_name> <tag_name>
+```
+
+### 迁出远端的标签
+
+``` bash
+git checkout -b <branch_name> <tag_name>
+```
+
+`git tag`可以用于版本的发布，问题版本的标记。
+
+分支的实质与指针类似。分支指向某一次具体的提交记录，在此提交记录的基础上进行修改，进行新的提交后，分支将跟随指向新的提交记录。标签是不会跟随新的提交而移动的。
+
+![Git标签](git-init-2/git_tag.png)
 
 ## 获取远端仓库至本地仓库：git fetch
 
