@@ -16,7 +16,7 @@ tags:
 
 点击上面的链接后下载会自动开始。`由于数据是托管在AWS的S3储存中，翻墙可提高下载过程的稳定性。`
 
-**注意：这是一个名为Git for Windows的项目，也叫做msysGit，它是Git基于[MSYS](http://www.mingw.org/wiki/MSYS)在Windows 上的一个实现，但不等同于Git本身。另一个是基于[CygWin](https://cygwin.com/git.html)来实现的。由此也能看出Git是比较依赖Linux系统的。**
+**注意：这是一个名为Git for Windows的项目，也叫做msysGit，它是Git基于[MSYS](http://www.mingw.org/wiki/MSYS)在Windows 上的一个实现，但不等同于Git本身。另一个是基于[CygWin](https://cygwin.com/git.html)来实现的。由此也能v看出Git是比较依赖Linux系统的。**
 
 ------
 
@@ -144,8 +144,8 @@ Windows自带默认界面存在字符集、更新窗口大小等问题。**默�
 安装后，需要使用Git命令对用户信息进行初始化，初始化内容包括用户名及邮箱，此过程不需要凭据，仅作为区别用户的标识。设置命令如下
 
 ``` bash
-git config --global user.username ZhengHui
-git config --global user.email zhengh@northloong.com
+git config --global user.username ZH
+git config --global user.email zh@heavensfeel.net
 ```
 
 在Git Bash的演示效果如下：
