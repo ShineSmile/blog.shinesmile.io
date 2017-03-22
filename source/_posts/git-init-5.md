@@ -1,5 +1,5 @@
 ---
-title: git init 5：Gitlab的使用
+title: Git init 5：GitLab的使用
 date: 2017-02-28 12:00:00
 tags:
 ---
