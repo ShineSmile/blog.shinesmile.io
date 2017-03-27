@@ -54,3 +54,20 @@ nameserver 8.8.4.4
 ## 查看Ubuntu版本
 
 `cat /etc/issue`
+
+## 防火墙管理
+
+``` bash
+sudo apt-get install ufw #安装ubuntu firewall
+sudo ufw allow 2375/tcp #仅允许TCP方式访问5000端口
+sudo ufw allow 5000 #允许外部允许5000 tcp/udp方式访问
+sudo ufw status #查看防火墙状态及端口号
+sudo ufw delete 3 #删除第三条ufw规则
+```
+
+## perl: warning: Setting locale failed
+
+``` bash
+echo "export LC_ALL=C" >> ~/.bashrc
+source ~/.bashrc
+```
