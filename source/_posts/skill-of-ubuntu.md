@@ -1,7 +1,7 @@
 ---
 title: Ubuntu使用技巧
 date: 2017-03-22 20:14:31
-tags:
+tags: ubuntu
 ---
 # 背景
 

@@ -1,7 +1,7 @@
 ---
 title: Git init 4：SourceTree的使用
 date: 2017-02-27 12:00:00
-tags:
+tags: git
 ---
 
 ## 简介

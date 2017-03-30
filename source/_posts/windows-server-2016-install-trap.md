@@ -1,7 +1,7 @@
 ---
 title: 使用U盘安装Windows Server 2016时的问题
 date: 2017-03-22 13:04:38
-tags:
+tags: windows server
 ---
 # 背景
 

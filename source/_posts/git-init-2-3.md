@@ -1,7 +1,7 @@
 ---
 title: Git init 2.3：提交至本地仓库
 date: 2017-02-25 14:00:00
-tags:
+tags: git
 ---
 
 ## 查看变更的文件：git status

@@ -1,7 +1,7 @@
 ---
 title: Mac使用技巧
 date: 2017-03-23 19:19:47
-tags:
+tags: mac
 ---
 # 背景
 

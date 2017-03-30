@@ -1,7 +1,7 @@
 ---
 title: Git init 2.4：分支与远端管理
 date: 2017-02-25 15:00:00
-tags:
+tags: git
 ---
 
 ## 本地分支管理：git branch
