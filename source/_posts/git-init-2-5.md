@@ -3,6 +3,7 @@ title: Git init 2.5：代码的获取与分支的合并
 date: 2017-02-25 16:00:00
 tags: git
 ---
+# Git init 2.5：代码的获取与分支的合并
 
 ## 获取远端仓库至本地仓库：git fetch
 

@@ -3,6 +3,7 @@ title: Git init 1：Git的安装
 date: 2017-02-20 12:00:00
 tags: git
 ---
+# Git init 1：Git的安装
 
 [git-scm](https://git-scm.com/downloads)提供了各个平台的Git的安装方式，在这里只介绍Windows下安装流程与配置。
 

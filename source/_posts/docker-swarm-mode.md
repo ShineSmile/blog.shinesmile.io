@@ -1,7 +1,7 @@
 ---
 title: Docker Swarm模式概述
 date: 2017-03-29 15:11:28
-tags: docker swarm cluster
+tags: [docker,swarm,cluster]
 ---
 # Docker Swarm模式概述
 

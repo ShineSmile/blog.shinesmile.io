@@ -1,9 +1,9 @@
 ---
 title: 使用U盘安装Windows Server 2016时的问题
 date: 2017-03-22 13:04:38
-tags: windows server
+tags: [windows,server]
 ---
-# 背景
+# 使用U盘安装Windows Server 2016时的问题
 
 Windows Server 2016的安装镜像中，`install.wim`文件大小为4.79 GB。使用UltraISO将server2016的ISO镜像刻录过程使用的是FAT32文件系统。此文件系统最大支持文件大小为4GB。因此在安装过程中会出现校验失败等问题。
 

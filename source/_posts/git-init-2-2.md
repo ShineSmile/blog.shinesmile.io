@@ -3,7 +3,7 @@ title: Git init 2.2：忽略文件
 date: 2017-02-25 13:00:00
 tags: git
 ---
-
+# Git init 2.2：忽略文件
 
 ## 忽略文件 .gitignore
 
