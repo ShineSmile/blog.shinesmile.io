@@ -1,6 +1,0 @@
-docker run -d -p 15000:5000 --restart=always --name registry \
-  -v /opt/registry:/var/lib/registry \
-  -v /home/shine/certs:/certs \
-  -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt \
-  -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key \
-  registry

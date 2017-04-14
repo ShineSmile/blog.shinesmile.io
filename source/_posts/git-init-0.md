@@ -3,7 +3,6 @@ title: Git init 0：版本控制的历史及Git的产生
 date: 2017-02-19 12:00:00
 tags: git 
 ---
-# Git init 0：版本控制的历史及Git的产生
 
 Git读作/ɡɪt/，其中字母G的发音与Got中的G相同。
 

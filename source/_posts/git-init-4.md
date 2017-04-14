@@ -3,7 +3,6 @@ title: Git init 4：SourceTree的使用
 date: 2017-02-27 12:00:00
 tags: git
 ---
-# Git init 4：SourceTree的使用
 
 GUI可以直观的展现出Git仓库的各种状态以及命令。但需要一定的Git基础才能熟练运用。
 

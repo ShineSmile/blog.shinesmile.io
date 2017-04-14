@@ -3,7 +3,6 @@ title: Docker Swarm模式概述
 date: 2017-03-29 15:11:28
 tags: [docker,swarm,cluster]
 ---
-# Docker Swarm模式概述
 
 本文翻译自：[Swarm mode overview](https://docs.docker.com/engine/swarm/)
 

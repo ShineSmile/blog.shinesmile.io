@@ -3,7 +3,6 @@ title: Git init 5：GitLab的使用
 date: 2017-02-28 12:00:00
 tags: git
 ---
-# Git init 5：GitLab的使用
 
 [GitLab](https://about.gitlab.com/)是一款基于Git的版本控制及工程管理工具。其提供收费的企业版及免费的社区版。除了Git远端的管理、用户授权管理外，还提供了实现持续集成、持续发布的[Runner](https://docs.gitlab.com/runner/)等等。其UI元素、Issue管理是仿照GitHub进行设计的。界面简洁容易上手。可以从[这里](https://about.gitlab.com/downloads/)了解GitLab的安装流程。
 

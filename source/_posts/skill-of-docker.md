@@ -3,7 +3,6 @@ title: Docker使用技巧
 date: 2017-03-23 11:08:52
 tags: docker
 ---
-# Docker使用技巧
 
 同[Ubuntu使用技巧](http://heavensfeel.net/2017/03/22/skill-of-ubuntu/)一样，这篇文章也是积累在学习docker中遇到的各种问题及解决方法（可能是临时）。
 

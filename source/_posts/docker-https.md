@@ -3,7 +3,6 @@ title: 使用TLS对Docker Socket进行授权限制
 date: 2017-03-27 15:20:23
 tags: [docker,https,tls]
 ---
-# 使用TLS对Docker Socket进行授权限制
 
 本文翻译自：[Protect the Docker daemon socket](https://docs.docker.com/engine/security/https/)
 

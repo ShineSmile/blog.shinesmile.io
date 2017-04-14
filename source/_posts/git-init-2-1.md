@@ -3,7 +3,6 @@ title: Git init 2.1：Git仓库的初始化
 date: 2017-02-25 12:00:00
 tags: git
 ---
-# Git init 2.1：Git仓库的初始化
 
 ## 初始化本地仓库
 
