@@ -70,3 +70,11 @@ sudo ufw delete 3 #删除第三条ufw规则
 echo "export LC_ALL=C" >> ~/.bashrc
 source ~/.bashrc
 ```
+
+## 设置API及相关命令的代理服务器
+
+ 如果只是希望apt-get使用代理，可以在终端下编辑`/etc/apt/apt.conf`加入下面这行，
+```
+Acquire::http::Proxy "http://yourproxyaddress:proxyport";
+```
+然后保存退出。
