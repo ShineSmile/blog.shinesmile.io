@@ -1,7 +1,7 @@
 ---
 title: 格式化git commit message
 date: 2017-07-18 18:46:11
-tags:
+tags: ["git","commit","message"]
 ---
 
 ``` bash
@@ -12,6 +12,6 @@ tags:
 ```
 安装成功后将`git commit <option>` 换为 `git cz <option>`。
 
-![git cz -a](format-git-commit-message/git_cz.png)
+**注意：**在Windows系统下，第三行命令会以UTF16的方式将内容写进文件中。这会导致调用commitizen时反序列话异常。可以通过VSCode对此文件以UTF-8进行Resave。然后在Windows下也能可以愉快的使用了。
 
-Windows用户若在使用npm过程中出现全局包无法访问的问题可以直接[在Windows下使用Linux bash并且使用vscode作为默认终端WSL](../use-vscode-terminal-for-windows-subsystem-for-linux)。
+![git cz -a](format-git-commit-message/git_cz.png)
