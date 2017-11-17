@@ -78,3 +78,17 @@ source ~/.bashrc
 Acquire::http::Proxy "http://yourproxyaddress:proxyport";
 ```
 然后保存退出。
+
+## 挂起正在执行的任务
+
+* 挂起任务的快捷键为*Ctrl+Z*
+* 使用*bg %jobnumber*将从后台执行指定任务
+* 使用*fg %jobnumber*将任务切换回前台执行
+* 使用*jobs*查询挂起的任务
+
+## 查询线程数
+``` bash
+cat /proc/sys/kernel/pid_max #进程数
+cat /proc/sys/kernel/threads-max #线程数
+ulimit -u #用户进程数
+```

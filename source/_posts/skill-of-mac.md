@@ -35,3 +35,9 @@ eval $(/usr/libexec/path_helper -s)
 ``` bash
 source ~/.bash_profile
 ```
+
+### 查询最大线程数
+```bash
+sysctl kern.num_threadsd
+sysctl kern.num_taskthreads
+```

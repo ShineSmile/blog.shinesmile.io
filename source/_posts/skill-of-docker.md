@@ -104,11 +104,13 @@ sudo systemctl restart docker
 * create 通过容器创建镜像
 * start 运行制定容器
 * stop 停止容器
+* attach 将终端重新绑定至指定容器
 * kill 强制停止容器
 * run 获取镜像，通过镜像创建容器并运行
 * rm 删除容器
 * export 导出容器
 * import 导入容器
+* inspect 查询容器状态：`docker inspect --format "{{.State.Running}}" wp`
 
 ### 仓库相关
 
@@ -125,6 +127,9 @@ sudo docker pull dl.dockerpool.com:5000/ubuntu:12.04
 * -d 让容器以守护态在后台运行
 * -p 开放容器的端口并映射至本机：`本机端口:容器端口`。
 * -v 映射目标卷宗至本地：`本机路径:容器路径`
+* --link 将目标容器与当前容器进行关联：`目标容器名或id:相对于当前容器的名称`
+* --read-only 只读容器
+* -e 环境变量`docker run -d -e MYSQL_ROOT_PASSWORD=root mysql`
 
 ## 无法通过映射的端口访问容器的端口
 
