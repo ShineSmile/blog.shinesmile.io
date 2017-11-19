@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Git读作/ɡɪt/，其中字母G的发音与Got中的G相同。  版本控制概念及工具的产生版本控制的概念产生自工作中的实际需求。我们希望在保存工作进度的同时能把文件编辑的历史保存下来，并且允许我们可以随时可以返回到文档的任意时间节点。 在版本控制工具出现之前，我们可以使用文件副本将文件保存到不同的路径进行备份。通过diff">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git init 0：版本控制的历史及Git的产生">
+<meta property="og:url" content="http://heavensfeel.net/2017/02/19/git-init-0/index.html">
+<meta property="og:site_name" content="宛若天堂">
+<meta property="og:description" content="Git读作/ɡɪt/，其中字母G的发音与Got中的G相同。  版本控制概念及工具的产生版本控制的概念产生自工作中的实际需求。我们希望在保存工作进度的同时能把文件编辑的历史保存下来，并且允许我们可以随时可以返回到文档的任意时间节点。 在版本控制工具出现之前，我们可以使用文件副本将文件保存到不同的路径进行备份。通过diff命令查看两个文件之间的差异，通过patch进行更新。1991-2002年间，Li">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="http://heavensfeel.net/2017/02/19/git-init-0/local.png">
+<meta property="og:image" content="http://heavensfeel.net/2017/02/19/git-init-0/centralized.png">
+<meta property="og:image" content="http://heavensfeel.net/2017/02/19/git-init-0/distributed.png">
+<meta property="og:updated_time" content="2017-11-19T09:53:49.571Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git init 0：版本控制的历史及Git的产生">
+<meta name="twitter:description" content="Git读作/ɡɪt/，其中字母G的发音与Got中的G相同。  版本控制概念及工具的产生版本控制的概念产生自工作中的实际需求。我们希望在保存工作进度的同时能把文件编辑的历史保存下来，并且允许我们可以随时可以返回到文档的任意时间节点。 在版本控制工具出现之前，我们可以使用文件副本将文件保存到不同的路径进行备份。通过diff命令查看两个文件之间的差异，通过patch进行更新。1991-2002年间，Li">
+<meta name="twitter:image" content="http://heavensfeel.net/2017/02/19/git-init-0/local.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Git init 0：版本控制的历史及Git的产生</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2017/02/20/git-init-1/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/02/19/git-init-0/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/02/19/git-init-0/&text=Git init 0：版本控制的历史及Git的产生"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/02/19/git-init-0/&title=Git init 0：版本控制的历史及Git的产生"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/02/19/git-init-0/&is_video=false&description=Git init 0：版本控制的历史及Git的产生"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Git init 0：版本控制的历史及Git的产生&body=Check out this article: http://heavensfeel.net/2017/02/19/git-init-0/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/02/19/git-init-0/&title=Git init 0：版本控制的历史及Git的产生"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/02/19/git-init-0/&title=Git init 0：版本控制的历史及Git的产生"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/02/19/git-init-0/&title=Git init 0：版本控制的历史及Git的产生"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/02/19/git-init-0/&title=Git init 0：版本控制的历史及Git的产生"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/02/19/git-init-0/&name=Git init 0：版本控制的历史及Git的产生&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#版本控制概念及工具的产生"><span class="toc-number">1.</span> <span class="toc-text">版本控制概念及工具的产生</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#本地版本控制系统"><span class="toc-number">1.1.</span> <span class="toc-text">本地版本控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集中式版本控制系统"><span class="toc-number">1.2.</span> <span class="toc-text">集中式版本控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分布式版本控制系统"><span class="toc-number">1.3.</span> <span class="toc-text">分布式版本控制系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git的产生"><span class="toc-number">2.</span> <span class="toc-text">Git的产生</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么使用Git"><span class="toc-number">3.</span> <span class="toc-text">为什么使用Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关链接"><span class="toc-number">4.</span> <span class="toc-text">相关链接</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Git init 0：版本控制的历史及Git的产生
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">宛若天堂</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-02-19T04:00:00.000Z" itemprop="datePublished">2017-02-19</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/git/">git</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>Git读作/ɡɪt/，其中字母G的发音与Got中的G相同。</p>
+<hr>
+<h2 id="版本控制概念及工具的产生"><a href="#版本控制概念及工具的产生" class="headerlink" title="版本控制概念及工具的产生"></a>版本控制概念及工具的产生</h2><p>版本控制的概念产生自工作中的实际需求。我们希望在保存工作进度的同时能把文件编辑的历史保存下来，并且允许我们可以随时可以返回到文档的任意时间节点。</p>
+<p>在版本控制工具出现之前，我们可以使用文件副本将文件保存到不同的路径进行备份。通过diff命令查看两个文件之间的差异，通过patch进行更新。1991-2002年间，Linux内核的代码就是靠这种方法进行维护的。</p>
+<p>版本控制工具的产生经历了一下三个时期：</p>
+<h3 id="本地版本控制系统"><a href="#本地版本控制系统" class="headerlink" title="本地版本控制系统"></a>本地版本控制系统</h3><p>如：RCS（Revision Control System）</p>
+<ul>
+<li>RCS:实现了文件的自动存储、检索、日志记录、识别、合并修订等功能。然而对单个文件的跟踪使其无法对大型项目进行整体的追踪，本地的特性也导致其对团队协作的支持不够友好。</li>
+</ul>
+<p><img src="/2017/02/19/git-init-0/local.png" alt="本地版本控制系统"></p>
+<hr>
+<h3 id="集中式版本控制系统"><a href="#集中式版本控制系统" class="headerlink" title="集中式版本控制系统"></a>集中式版本控制系统</h3><p>如：CVS（Concurrent Versions System）、SVN（Subversion）、TFS（Team Foundation Server）。</p>
+<ul>
+<li><p>CVS是基于脚本语言对RCS的封装，之后经过C的重写来保证其性能。CVS提出的提交、说明、检入、检出、标签、分支给后续的版本工具间接制定了标准。其缺陷是文件在提交后不能进行删除、重命名等操作。</p>
+</li>
+<li><p>SVN是这个时期工具中的集大成者，优化了CVS在文件名问题上的缺陷后，提供全局版本号，<code>.svn</code>文件夹的引入使其部分命令可以离线进行（如：revert）。但SVN在授权、分支以及提交需要联网方面强差人意。</p>
+</li>
+<li><p>TFS是基于SharePoint的扩展，因此其不仅仅能作为版本控制工具,还可以用于工程管理。TFS的早期版本要求全程联网，为避免冲突，编辑前需要与服务端的文件进行锁定，一旦脱机需要重新与服务端进行绑定。基于SharePoint和SQL Server的TFS过于复杂臃肿，除了使用微软服务的大客户外，TFS已经不是版本控制的首选。后续微软提供了基于Azure的Visual Studio Team Service。国内网络状况所限，使用体验并不理想。</p>
+</li>
+</ul>
+<p><img src="/2017/02/19/git-init-0/centralized.png" alt="本地版本控制系统"></p>
+<hr>
+<h3 id="分布式版本控制系统"><a href="#分布式版本控制系统" class="headerlink" title="分布式版本控制系统"></a>分布式版本控制系统</h3><p>如：Git、Mercurial、Bazaar</p>
+<ul>
+<li><p>Git使用<code>.git</code>文件夹作为本地仓库使用。此架构使git的离线提交、回滚等操作提供了基础。另外我们可以不局限于一个远端仓库。通过增加远端仓库来消除远端的单点隐患保证代码的安全。git的分支管理也是一大亮点，我们不在需要将分支建立在一个新的文件夹下，git允许我们将当前工作区切换到任意分支上。廉价的分支管理与合并也会在工作中提供便利。</p>
+</li>
+<li><p>由于后两者没有实际使用过，没办法做详细的功能对比。感兴趣的朋友可以参见<a href="https://www.zhihu.com/question/19877652" target="_blank" rel="noopener">知乎：Git、Mercurial、Bazaar 有什么区别？</a></p>
+</li>
+<li><p>严格的讲，Git并不是一套完整的版本控制系统，而是一组版本控制的底层应用集。</p>
+</li>
+</ul>
+<p><img src="/2017/02/19/git-init-0/distributed.png" alt="本地版本控制系统"></p>
+<hr>
+<h2 id="Git的产生"><a href="#Git的产生" class="headerlink" title="Git的产生"></a>Git的产生</h2><p>Linux的源代码在2002-2005年间免费托管在BitKeeper上，有逸闻说Samba之父Andrew Tridgell对BitKeeper进行反向工程试图开发一款与BitKeeper交互的开源工具。此举导致BitKeeper的所有者BitMover与Linux社区翻脸，不再继续提供服务。于是Linus像当年一怒之下写出Linux内核一样写出了Git。Git开发的主要历程如下：</p>
+<ul>
+<li>2005年4月3日，开始开发Git。</li>
+<li>2005年4月6日，项目发布。</li>
+<li>2005年4月7日，Git就可以作为自身的版本控制工具了。</li>
+<li>2005年4月18日，发生第一个多分支合并。</li>
+<li>2005年4月29日，Git的性能达到了Linus的预期。 </li>
+<li>2005年6月16 日，Linux内核2.6.12 发布，那时Git已经在维护Linux核心的源代码了。</li>
+<li>后续的版本则被Linus交给另外一个Git的主要贡献者 Junio C Hamano。</li>
+</ul>
+<hr>
+<h2 id="为什么使用Git"><a href="#为什么使用Git" class="headerlink" title="为什么使用Git"></a>为什么使用Git</h2><ol>
+<li><p>容灾。任何系统都有可能在任何方面产生任何故障。<strong>多个远端+本地副本保证了版本库的稳定和高可用。</strong>即便托管在<a href="https://www.oschina.net/news/81493/gitlab-com-back" target="_blank" rel="noopener">GitLab上的代码被误删</a>，其他远端的仓库仍然是完整的。</p>
+</li>
+<li><p>离线操作。虽然不是每天都在飞机上办公，但偶尔的网络丢失导致无法提交这种情况还是常见的。离线操作拓展了版本控制的环境，使版本控制的历史更加完善。</p>
+</li>
+<li><p>廉价易用的分支、标签管理。通过分支我们可以实现<strong>代码审核</strong>、<strong>发布历史管理</strong>以及<strong>现场热修复</strong>等。</p>
+</li>
+</ol>
+<hr>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><p>Git的教程有很多，在这里首推官方的<a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">《Pro Git》（中文）</a>，包括Git的使用、基于Git的团队协作软件和Git的内部原理等。还有读起来比较轻松的<a href="https://www.amazon.cn/Git权威指南-蒋鑫/dp/B009WMC3QQ/ref=sr_1_1?ie=UTF8&amp;qid=1487507209&amp;sr=8-1&amp;keywords=git权威指南" target="_blank" rel="noopener">《Git权威指南》</a>（即《Got Git》）。</p>
+<hr>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#版本控制概念及工具的产生"><span class="toc-number">1.</span> <span class="toc-text">版本控制概念及工具的产生</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#本地版本控制系统"><span class="toc-number">1.1.</span> <span class="toc-text">本地版本控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集中式版本控制系统"><span class="toc-number">1.2.</span> <span class="toc-text">集中式版本控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分布式版本控制系统"><span class="toc-number">1.3.</span> <span class="toc-text">分布式版本控制系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git的产生"><span class="toc-number">2.</span> <span class="toc-text">Git的产生</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么使用Git"><span class="toc-number">3.</span> <span class="toc-text">为什么使用Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关链接"><span class="toc-number">4.</span> <span class="toc-text">相关链接</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/02/19/git-init-0/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/02/19/git-init-0/&text=Git init 0：版本控制的历史及Git的产生"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/02/19/git-init-0/&title=Git init 0：版本控制的历史及Git的产生"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/02/19/git-init-0/&is_video=false&description=Git init 0：版本控制的历史及Git的产生"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Git init 0：版本控制的历史及Git的产生&body=Check out this article: http://heavensfeel.net/2017/02/19/git-init-0/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/02/19/git-init-0/&title=Git init 0：版本控制的历史及Git的产生"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/02/19/git-init-0/&title=Git init 0：版本控制的历史及Git的产生"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/02/19/git-init-0/&title=Git init 0：版本控制的历史及Git的产生"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/02/19/git-init-0/&title=Git init 0：版本控制的历史及Git的产生"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/02/19/git-init-0/&name=Git init 0：版本控制的历史及Git的产生&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2017 Shine
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+
