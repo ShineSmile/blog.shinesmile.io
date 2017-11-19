@@ -110,7 +110,11 @@ sudo systemctl restart docker
 * rm 删除容器
 * export 导出容器
 * import 导入容器
-* inspect 查询容器状态：`docker inspect --format "{{.State.Running}}" wp`
+* inspect 查询容器状态
+
+``` bash
+docker inspect --format "{{.State.Running}}" wp
+```
 
 ### 仓库相关
 
