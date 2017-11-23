@@ -33,14 +33,14 @@ Server:
 
 ## 概述
 
-* 两端：客户端和服务端
+* 两端：docker命令客户端和docker守护进程
 * 三核心：镜像、容器、仓库
 
 ## 执行docker命令时不使用sudo
 
 > docker daemon使用的是Unix socket而不是TCP端口，而属于root的Unix socket在其他用户调用时必须通过sudo来提升用户的权限。[摘自](https://docs.docker.com/engine/installation/linux/linux-postinstall/)
 
-解决方案是添加一个docker用户组，并为当前用户添加此次要用户组。
+解决方案是添加一个docker用户组，并为当前用户添加至此用户组。
 
 ``` bash
 sudo groupadd docker
@@ -92,12 +92,13 @@ sudo systemctl restart docker
 * pull 拉取镜像至本地
 * search 查询远端仓库的共享镜像
 * rmi remove image 删除镜像
-* commit 创建镜像
+* commit 从容器的改变创建镜像
 * images 查看本地镜像
 * commit 提交新的镜像至本地
 * save 将镜像存储为tar包
 * load 载入tar包中的镜像
 * push 推送镜像
+* create 从Dockerfile创建镜像
 
 ### 容器相关
 
@@ -113,7 +114,7 @@ sudo systemctl restart docker
 * inspect 查询容器状态
 
 ``` bash
-docker inspect --format "{{.State.Running}}" wp
+docker inspect --format "{{.State.Running}}" wordpress
 ```
 
 ### 仓库相关
@@ -130,7 +131,8 @@ sudo docker pull dl.dockerpool.com:5000/ubuntu:12.04
 * -i 让容器的标准输入保持打开
 * -d 让容器以守护态在后台运行
 * -p 开放容器的端口并映射至本机：`本机端口:容器端口`。
-* -v 映射目标卷宗至本地：`本机路径:容器路径`
+* -v 绑定挂在卷：`本机绝对路径:容器路径(:ro)` 如果本地路径不存在docker守护进程会创建指定目录，以这种方式创建的目录可能会有权限问题的风险。
+* -v 指定管理卷的挂载点：`-v /var/lib/cassandra/data`
 * --link 将目标容器与当前容器进行关联：`目标容器名或id:相对于当前容器的名称`
 * --read-only 只读容器
 * -e 环境变量`docker run -d -e MYSQL_ROOT_PASSWORD=root mysql`
@@ -139,7 +141,7 @@ sudo docker pull dl.dockerpool.com:5000/ubuntu:12.04
 
 这个问题很可能不是docker自身导致的，首先要核实服务建立时绑定的IP地址是否是`127.0.0.1`或者`localhost`，如果是，尝试将地址更换为`0.0.0.0`再试。
 
-这可能是我见过最简单无情的坑。
+在使用ASP.NET core时可能会遇到此问题。（绑定由IIS转移至代码及配置文件中。）
 
 ## 通过Remote API访问其他主机中的Docker Daemon
 
