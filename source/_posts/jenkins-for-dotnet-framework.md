@@ -3,46 +3,60 @@ title: 使用Jenkins对.NET Framework工程进行持续集成
 date: 2017-12-04 16:17:46
 tags: [jenkins, dotnet, ci, msbuild]
 ---
-## 安装Jenkins
-本文档直接使用Windows平台上的Jenkins完成.NET Framework平台的持续集成相关工作。[Windows平台Jenkins下载地址](https://jenkins.io/download/thank-you-downloading-windows-installer-stable)，解压后双击安装MSI软件包即可成功安装服务。服务的默认端口为8080，首次登陆时jenkins会要求在服务端指定路径找到秘钥文件对所有权进行验证。
-## MSBuild
-> The Microsoft Build Engine is a platform for building applications. This engine, which is also known as MSBuild, provides an XML schema for a project file that controls how the build platform processes and builds software. Visual Studio uses MSBuild, but it doesn't depend on Visual Studio. By invoking msbuild.exe on your project or solution file, you can orchestrate and build products in environments where Visual Studio isn't installed.
->微软生成引擎，即MSBuild，是应用程序的构建平台。MSbuild提供了一种用来描述工程的XML纲要，用来声明使用的编译工具及编译过程。MSBuild不依赖于Visual Studio，相反Visual Studio需要MSBuild才能工作。在未安装Visual Studio的环境中，通过调用MSBuild.exe并指明具体的工程或解决方案文件，即可对产品进行编译及构建。
->——摘自[Microsoft Offical Document](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild)
-MSBuild现已开源，代码在[Github](https://github.com/Microsoft/msbuild)进行托管。
-### MSBuild的版本
-早期的MSbuild的通常随.NET SDK一同安装在在全局程序集缓存（Global Assembly Cache）下，其路径为:`C:\Windows\Microsoft.NET\Framework\<version>\MSBuild.exe`。
-![不同版本.NET Framwork使用的MSBuild版本](jenkins-for-dotnet-framework/msbuild_legacy_version.png)
-新版的MSBuild版本号为15.4.8.50001，随dotnet core SDK其路径变更为：`C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild`
-![MSBuild ver.15.4.8](jenkins-for-dotnet-framework/msbuid_v15.png)
-### 常用参数
-|Switch|Short form|Description|  
-|------------|----------------|-----------------|  
-|/help|/? or /h|显示可用的帮助信息. 例:<br /> `msbuild.exe /?`|
-|/nologo||不显示MSBuild的启动信息|
-|/maxcpucount[:`number`]|/m[:`number`]|显示构建时同时使用的CPU个数的最大值。不附加此标识时默认值为1，附加此标识且不指定数目时，MSBuild将尽可能多的使用CPU核心运行。更多信息请参阅[并行编译多个工程](https://docs.microsoft.com/en-us/visualstudio/msbuild/building-multiple-projects-in-parallel-with-msbuild).<br />下面的例子表示MSBuild将同时使用三个进程实现三个工程同时编译的效果。<br /> `msbuild myproject.proj /maxcpucount:3`|
-|/property:`name`=`value`|/p:`name`=`value`|设置或重写工程级别的属性，其形式为`name`:`value`键值对。多个键值对需要分开声明，或者使用分号或者逗号隔开。例如:<br /> `/property:WarningLevel=2;OutDir=bin\Debug`|  
-|/toolsversion:`version`|/tv:`version`|用来制定构建构成时使用的工具集版本。例如: `/toolsversion:3.5`<br /><br /> 特别注意：工具集版本号不与工程的目标平台不能等同而视，目标平台版本指工程构建后运行的.NET Framework平台。Note: The toolset version isn’t the same as the target framework, which is the version of the .NET Framework on which a project is built to run. |  
-
-## 准备工作
-
-安装的默认路径为`C:\Program Files\Jenkins`文件夹下，工作目录默认在此文件夹的子目录中。此路径可能存在文件夹权限相关问题，建议修改。
-
-具体操作如下：
-
-1. 在服务管理中停止Jenkins服务。
-1. 使用管理员权限编辑Jenkins根目录中的*config.xml*文件，修改*  <workspaceDir>D:\JENKINS</workspaceDir>*项为指定路径。
-1. 启动jenkins服务。
-
-### Jenkins相关准备
-
-* 在Jenkins配置页面选择`Configure Credentials`添加版本控制工具使用的验证信息。
-* 在Jenkins配置页面选择`插件管理-可选插件`搜索`MSBuild Plugin`进行安装并重启。
-* 【可选】`Blue Ocean Plugin`提供了一些比较美观的视图，根据需要选择安装。
-* 配置MSBUILD：在Jenkins的配置页面，选择`Global Tool Configuration`。如下图所示配置MSBUILD工具
-
-![MSBuild配置](jenkins-for-dotnet-framework/msbuild_config.png)
-图中指定了`.NET 4.0`版本，可以根据实际需求修正路径至指定版本。也可点击`新增MSBuild`按钮同时添加多个版本备用。
-
-## 
-
+本文使用Windows平台上的Jenkins完成.NET Framework平台的CICD相关工作。
+**注意:本文通过多次修改调整，示例图片中的路径、配置可能过期，仅供参考，待图片更新后将删除此提示。**
+## 安装及配置Jenkins
+[Windows平台Jenkins下载地址](https://jenkins.io/download/thank-you-downloading-windows-installer-stable)
+解压后双击安装MSI软件包即可开始安装。安装过程中的设置路径为**%JENKINS_HOME%**的位置，也是服务的安装位置，此路径在不重装的前提下很难修改，建议谨慎选择。Jenkins服务可以通过服务Windows管理工具进行停止及重启。
+![Jenkins_Home](jenkins-for-dotnet-framework/jenkins_home.png)
+## 首次登陆
+服务的默认端口为8080，首次登陆时jenkins会要求在服务端指定路径找到秘钥文件对所有权进行验证。
+![Jenkins授权认证](jenkins-for-dotnet-framework/jenkins_init.png)
+通过验证后可以选择是否调整默认插件集并进行安装。
+## Jenkins插件
+![插件集初始化](jenkins-for-dotnet-framework/plugin_init.png)
+新插件可以在`系统管理-插件管理-可用插件`进行安装。
+部分插件的配置在`系统管理-全局工具配置（Global Tool Configuration）`下。
+### 补充安装
+* **MSBuild Plugin**：在可视化界面配置和管理MSBuild构建工具版本的插件。
+* **MSTest Plugin**：可以在单元测试执行后将测试报告归档。建议安装。
+* **MSTestRunner Plugin**：在可视化界面配置和管理MSTest构建工具版本的插件。
+**注意:当前版本MSTestRunner存在路径权限问题，已改用Windows批处理替代。**
+* **Blue Ocean**:可以根据构建阶段将构建日志拆分成不同的阶段。可酌情安装。
+### MSbuild插件配置
+![MSBuild插件配置](jenkins-for-dotnet-framework/msbuild_plugin_config.png)
+### MSTestRunner插件配置
+![MSTest插件配置](jenkins-for-dotnet-framework/mstest_plugin_config.png)
+## 持续集成
+Jenkins通过**工作 Jobs**来管理任务。
+点击`create new jobs`
+![创建新任务](jenkins-for-dotnet-framework/create_new_job.png)
+初次使用选择自由风格的工程
+![自由风格的任务](jenkins-for-dotnet-framework/free_style_project.png)
+### 源代码迁出
+如图配置需要迁出的工程，
+* Repository Url：仓库地址。
+* Credentials：需要拥有此仓库迁出权限的用户名密码。可以通过后面的Add按钮添加。
+* Local module directory：建议使用默认值。
+* Repository Depth：`infinity`表示完整迁出，`empty`表示指迁出指定项。empty深度会在后续迁出jenkinsfile时用到。
+* Check-out Strategy：迁出策略，这里选择迁出前回滚代码，防止上次的编译过程对工程造成影响。
+![迁出源码](jenkins-for-dotnet-framework/check_from_source.png)
+### 修复
+*Tip:使用`cmd /c "path/to/command"`执行可能出现歧义的命令。*
+![迁出源码](jenkins-for-dotnet-framework/nuget_restore.png)
+### 构建
+![构建工程](jenkins-for-dotnet-framework/jenkins_build.png)
+### 测试
+由于MSTest插件存在权限bug，使用批处理代替：
+![单元测试](jenkins-for-dotnet-framework/jenkins_test.png)
+### 归档
+归档测试
+![归档测试](jenkins-for-dotnet-framework/jenkins_test_result.png)
+归档测试结果
+![归档构建结果](jenkins-for-dotnet-framework/jenkins_archive.png)
+测试及构建结果可以通过在构建详情中查看下载。
+![查询历史归档结果](jenkins-for-dotnet-framework/archive_and_test_result.png)
+## 更改工作空间及构建历史的位置
+可以根据工程需要在Jenkins的系统设置中变更工作空间及构建历史的位置。
+位置变更后，变更前的构建历史在Jenkins中可能不可用，可以通过文件系统在原来的位置进行查找。执行新的任务时，工程需要在新的工作空间重新迁出。
+![更改工作空间及构建历史路径](jenkins-for-dotnet-framework/jenkins_config_path.png)
