@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="The Microsoft Build Engine is a platform for building applications. This engine, which is also known as MSBuild, provides an XML schema for a project file that ">
+<meta name="keywords" content="msbuild">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MSBuild概述">
+<meta property="og:url" content="http://heavensfeel.net/2017/12/06/summary-for-msbuild/index.html">
+<meta property="og:site_name" content="宛若天堂">
+<meta property="og:description" content="The Microsoft Build Engine is a platform for building applications. This engine, which is also known as MSBuild, provides an XML schema for a project file that controls how the build platform process">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="http://heavensfeel.net/2017/12/06/summary-for-msbuild/msbuild_legacy_version.png">
+<meta property="og:image" content="http://heavensfeel.net/2017/12/06/summary-for-msbuild/msbuid_v15.png">
+<meta property="og:image" content="http://heavensfeel.net/2017/12/06/summary-for-msbuild/msbuid_install_example.png">
+<meta property="og:updated_time" content="2017-12-08T05:45:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MSBuild概述">
+<meta name="twitter:description" content="The Microsoft Build Engine is a platform for building applications. This engine, which is also known as MSBuild, provides an XML schema for a project file that controls how the build platform process">
+<meta name="twitter:image" content="http://heavensfeel.net/2017/12/06/summary-for-msbuild/msbuild_legacy_version.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+          
+        
+    
+    <!-- title -->
+    <title>MSBuild概述</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2017/12/04/jenkins-for-dotnet-framework/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/12/06/summary-for-msbuild/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/12/06/summary-for-msbuild/&text=MSBuild概述"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/12/06/summary-for-msbuild/&title=MSBuild概述"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/12/06/summary-for-msbuild/&is_video=false&description=MSBuild概述"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=MSBuild概述&body=Check out this article: http://heavensfeel.net/2017/12/06/summary-for-msbuild/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/12/06/summary-for-msbuild/&title=MSBuild概述"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/12/06/summary-for-msbuild/&title=MSBuild概述"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/12/06/summary-for-msbuild/&title=MSBuild概述"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/12/06/summary-for-msbuild/&title=MSBuild概述"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/12/06/summary-for-msbuild/&name=MSBuild概述&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#MSBuild的版本及路径"><span class="toc-number">1.</span> <span class="toc-text">MSBuild的版本及路径</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MSbuild-without-Visual-Studio"><span class="toc-number"></span> <span class="toc-text">MSbuild without Visual Studio</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MSBuild常用参数"><span class="toc-number">1.</span> <span class="toc-text">MSBuild常用参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装示例"><span class="toc-number"></span> <span class="toc-text">安装示例</span></a>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        MSBuild概述
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">宛若天堂</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-12-06T07:37:06.000Z" itemprop="datePublished">2017-12-06</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/msbuild/">msbuild</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <blockquote>
+<p>The Microsoft Build Engine is a platform for building applications. This engine, which is also known as MSBuild, provides an XML schema for a project file that controls how the build platform processes and builds software. Visual Studio uses MSBuild, but it doesn’t depend on Visual Studio. By invoking msbuild.exe on your project or solution file, you can orchestrate and build products in environments where Visual Studio isn’t installed.<br>微软构建引擎，即MSBuild，是应用程序的构建平台。MSbuild提供了一种用来描述工程的XML纲要，用来声明使用的编译工具及编译过程。MSBuild不依赖于Visual Studio，相反Visual Studio需要MSBuild才能进行构建。在未安装Visual Studio的环境中，通过调用MSBuild.exe并指明具体的工程或解决方案文件，即可对产品进行编译及构建。<br>——摘自<a href="https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild" target="_blank" rel="noopener">Microsoft Offical Document</a><br><br><br>MSBuild is now available as part of the .NET Core SDK and can build .NET Core projects on Windows, macOS, and Linux.<br>MSBuild现已成为.NET CORE SDK的组件，并且可以在Windows、macOS及Linux平台构建<strong>.NET CORE</strong>工程。<br>——摘自<a href="https://docs.microsoft.com/en-us/visualstudio/msbuild/what-s-new-in-msbuild-15-0" target="_blank" rel="noopener">What’s New in MSBuild 15</a></p>
+</blockquote>
+<h3 id="MSBuild的版本及路径"><a href="#MSBuild的版本及路径" class="headerlink" title="MSBuild的版本及路径"></a>MSBuild的版本及路径</h3><ul>
+<li>早期的MSbuild的通常随.NET SDK一同安装在在<strong>程序集全局缓存Global Assembly Cache</strong>下，其路径为:<code>C:\Windows\Microsoft.NET\&lt;架构&gt;\&lt;version&gt;\MSBuild.exe</code>。<br><img src="/2017/12/06/summary-for-msbuild/msbuild_legacy_version.png" alt="不同版本.NET Framwork使用的MSBuild版本"></li>
+<li>后续的MSBuild通常随Visual Studio一同发布，其路径被合并至Visual Stuio的安装路径中，例如VS2017中的MSBuild路径为：<code>C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin</code><br><img src="/2017/12/06/summary-for-msbuild/msbuid_v15.png" alt="MSBuild ver.15"></li>
+</ul>
+<h2 id="MSbuild-without-Visual-Studio"><a href="#MSbuild-without-Visual-Studio" class="headerlink" title="MSbuild without Visual Studio"></a>MSbuild without Visual Studio</h2><p>MSBuild Tool 2017：<a href="https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=15" target="_blank" rel="noopener">下载地址</a></p>
+<h3 id="MSBuild常用参数"><a href="#MSBuild常用参数" class="headerlink" title="MSBuild常用参数"></a>MSBuild常用参数</h3><table>
+<thead>
+<tr>
+<th>编译开关</th>
+<th>缩略形式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/help</td>
+<td>/? or /h</td>
+<td>显示可用的帮助信息. 例:<br> <code>msbuild.exe /?</code></td>
+</tr>
+<tr>
+<td>/maxcpucount[:<code>number</code>]</td>
+<td>/m[:<code>number</code>]</td>
+<td>显示构建时同时使用的CPU个数的最大值。不附加此标识时默认值为1，附加此标识且不指定数目时，MSBuild将尽可能多的使用CPU核心运行。更多信息请参阅<a href="https://docs.microsoft.com/en-us/visualstudio/msbuild/building-multiple-projects-in-parallel-with-msbuild" target="_blank" rel="noopener">并行编译多个工程</a>.<br>下面的例子表示MSBuild将同时使用三个进程实现三个工程同时编译的效果。<br><code>msbuild myproject.proj /maxcpucount:3</code></td>
+</tr>
+<tr>
+<td>/property:<code>name</code>=<code>value</code></td>
+<td>/p:<code>name</code>=<code>value</code></td>
+<td>设置或重写工程级别的属性，其形式为<code>name</code>:<code>value</code>键值对。多个键值对需要分开声明，或者使用分号或者逗号隔开。例如:<br> <code>/property:WarningLevel=2;OutDir=bin\Release;Configuration=Release</code></td>
+</tr>
+<tr>
+<td>/toolsversion:<code>version</code></td>
+<td>/tv:<code>version</code></td>
+<td>用来制定构建构成时使用的工具集版本。例如:<br><code>/toolsversion:3.5</code><br> 特别注意：工具集版本号不与工程的目标平台不能等同而视，目标平台指工程构建后运行的.NET Framework平台。</td>
+</tr>
+<tr>
+<td>/verbosity:<code>level</code></td>
+<td>/v:<code>level</code></td>
+<td><br> 可选的信息量参数如下: 安静<code>q[uiet]</code>, 最小输出<code>m[inimal]</code>, 普通<code>n[ormal]</code>, 详细<code>d[etailed]</code>, and 诊断<code>diag[nostic]</code>.<br> 例如: <code>/verbosity:quiet</code></td>
+</tr>
+<tr>
+<td>/nologo</td>
+<td></td>
+<td>不显示MSBuild的启动信息</td>
+</tr>
+</tbody>
+</table>
+<p>有关构建参数的详细文档在<a href="https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference" target="_blank" rel="noopener">这里</a>。</p>
+<h2 id="安装示例"><a href="#安装示例" class="headerlink" title="安装示例"></a>安装示例</h2><p><img src="/2017/12/06/summary-for-msbuild/msbuid_install_example.png" alt="安装示例"></p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#MSBuild的版本及路径"><span class="toc-number">1.</span> <span class="toc-text">MSBuild的版本及路径</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MSbuild-without-Visual-Studio"><span class="toc-number"></span> <span class="toc-text">MSbuild without Visual Studio</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MSBuild常用参数"><span class="toc-number">1.</span> <span class="toc-text">MSBuild常用参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装示例"><span class="toc-number"></span> <span class="toc-text">安装示例</span></a>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/12/06/summary-for-msbuild/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/12/06/summary-for-msbuild/&text=MSBuild概述"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/12/06/summary-for-msbuild/&title=MSBuild概述"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/12/06/summary-for-msbuild/&is_video=false&description=MSBuild概述"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=MSBuild概述&body=Check out this article: http://heavensfeel.net/2017/12/06/summary-for-msbuild/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/12/06/summary-for-msbuild/&title=MSBuild概述"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/12/06/summary-for-msbuild/&title=MSBuild概述"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/12/06/summary-for-msbuild/&title=MSBuild概述"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/12/06/summary-for-msbuild/&title=MSBuild概述"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/12/06/summary-for-msbuild/&name=MSBuild概述&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2017 Shine
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+

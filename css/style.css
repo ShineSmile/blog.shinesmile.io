@@ -650,7 +650,7 @@ body {
 #header-post {
   position: fixed;
   top: 2rem;
-  right: 2rem;
+  right: 0;
   display: inline-block;
   float: right;
 }
@@ -685,6 +685,7 @@ body {
 #header-post #menu-icon {
   float: right;
   margin-left: 15px;
+  margin-right: 2rem;
 }
 #header-post #menu-icon:hover {
   color: #2bbc8a;
@@ -692,12 +693,14 @@ body {
 #header-post #menu-icon-tablet {
   float: right;
   margin-left: 15px;
+  margin-right: 2rem;
 }
 #header-post #menu-icon-tablet:hover {
   color: #2bbc8a;
 }
 #header-post #top-icon-tablet {
   margin-left: 15px;
+  margin-right: 2rem;
   bottom: 2rem;
   right: 2rem;
   position: fixed;
@@ -710,6 +713,7 @@ body {
 }
 #header-post #menu {
   visibility: hidden;
+  margin-right: 2rem;
 }
 #header-post #nav {
   letter-spacing: 0.01em;
@@ -744,6 +748,7 @@ body {
 #header-post #actions {
   float: right;
   margin-top: 2rem;
+  margin-right: 2rem;
   width: 100%;
   text-align: right;
 }
@@ -766,12 +771,17 @@ body {
 #header-post #toc {
   clear: both;
   text-align: right;
-  padding-top: 1rem;
+  margin-top: 1rem;
+  padding-right: 2rem;
+  max-width: 20em;
+  float: right;
+  overflow: auto;
+  max-height: calc(95vh - 7rem);
 }
 #header-post #toc a:hover {
   color: #d480aa;
 }
-#header-post #toc .toc-level-1 {
+#header-post #toc .toc-level-1 > .toc-link {
   display: none;
 }
 #header-post #toc .toc-level-2 {
@@ -943,7 +953,7 @@ body {
 #footer-post #toc-footer a:hover {
   color: #d480aa;
 }
-#footer-post #toc-footer .toc-level-1 {
+#footer-post #toc-footer .toc-level-1 > .toc-link {
   display: none;
 }
 #footer-post #toc-footer .toc-level-2 {
@@ -977,22 +987,22 @@ body {
     display: none;
   }
 }
-#sociallinks {
+#socialinfo {
   display: inline-block;
   list-style: none;
   padding: 0;
   margin: 0;
 }
-#sociallinks li {
+#socialinfo li {
   display: inline-block;
 }
-#sociallinks li:after {
+#socialinfo li:after {
   content: ", ";
 }
-#sociallinks li:last-child:after {
+#socialinfo li:last-child:after {
   content: "";
 }
-#sociallinks li:nth-last-child(2):after {
+#socialinfo li:nth-last-child(2):after {
   content: " and ";
 }
 .post-list {
@@ -1154,6 +1164,31 @@ article .content .caption {
     content: "|";
   }
 }
+#archive .post-list {
+  padding: 0;
+}
+#archive .post-list .post-item {
+  list-style-type: none;
+  margin-left: 0;
+  margin-bottom: 1rem;
+}
+#archive .post-list .post-item .meta {
+  display: block;
+  font-size: 14px;
+  color: #666;
+  min-width: 100px;
+  margin-right: 16px;
+}
+@media (min-width: 480px) {
+  #archive .post-list .post-item {
+    display: flex;
+    margin-left: 1rem;
+    margin-bottom: 5px;
+  }
+  #archive .post-list .post-item .meta {
+    text-align: left;
+  }
+}
 .blog-post-comments {
   margin-top: 4rem;
 }
@@ -1211,6 +1246,77 @@ article .content .caption {
   #footer .footer-right {
     float: right;
   }
+}
+.pagination {
+  display: inline-block;
+  margin-top: 2rem;
+  text-align: center;
+  width: 100%;
+}
+.pagination .page-number {
+  color: #c9cacc;
+  font-size: 0.8rem;
+}
+.pagination a {
+  color: #c9cacc;
+  padding: 4px 6px;
+  text-decoration: none;
+  border-radius: 5px;
+  background-color: #2bbc8a;
+  background-image: none;
+}
+.pagination a:hover {
+  background-image: none;
+}
+.pagination a:hover:not(.active) {
+  color: #eee;
+}
+.search-input {
+  width: 100%;
+  font-size: 1.2rem;
+  color: #1d1f21;
+  background-color: #eee;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: solid 1px #ccc;
+  padding: 4px 7px;
+  outline: none;
+  -webkit-appearance: none;
+}
+.search-input:focus {
+  border: solid 1px #2bbc8a;
+}
+#search-result ul.search-result-list {
+  list-style-type: none;
+  padding: 0px;
+}
+#search-result li {
+  margin: 2em auto;
+}
+#search-result a.search-result-title {
+  line-height: 1.2;
+  font-weight: bold;
+  color: #c9cacc;
+  text-transform: capitalize;
+  background-image: none;
+}
+#search-result p.search-result {
+  margin: 0.4em auto;
+  max-height: 13em;
+  overflow: hidden;
+  font-size: 0.8em;
+  text-align: justify;
+}
+#search-result em.search-keyword {
+  color: #d480aa;
+  border-bottom: 1px dashed #d480aa;
+  font-weight: bold;
+}
+.search-no-result {
+  display: none;
+  padding-bottom: 0.5em;
+  color: #c9cacc;
 }
 .highlight {
   color: #d1d9e1;
@@ -1332,6 +1438,7 @@ pre code {
 }
 .highlight td.gutter {
   text-align: right;
-  padding-right: 20px;
-  display: none;
+}
+.highlight .line {
+  height: 22px;
 }

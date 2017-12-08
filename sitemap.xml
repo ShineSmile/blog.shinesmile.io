@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/</loc>
+    
+    <lastmod>2017-12-08T06:05:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://heavensfeel.net/2017/12/06/summary-for-msbuild/</loc>
+    
+    <lastmod>2017-12-08T05:45:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/</loc>
+    
+    <lastmod>2017-12-08T05:44:06.253Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://heavensfeel.net/2017/12/04/iproute2/</loc>
     
     <lastmod>2017-12-04T02:22:37.861Z</lastmod>
@@ -37,13 +58,6 @@
   </url>
   
   <url>
-    <loc>http://heavensfeel.net/2017/03/23/skill-of-mac/</loc>
-    
-    <lastmod>2017-11-23T16:51:52.787Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://heavensfeel.net/2017/07/18/use-vscode-terminal-for-windows-subsystem-for-linux/</loc>
     
     <lastmod>2017-11-23T16:51:52.787Z</lastmod>
@@ -51,14 +65,21 @@
   </url>
   
   <url>
-    <loc>http://heavensfeel.net/2017/03/23/skill-of-docker/</loc>
+    <loc>http://heavensfeel.net/2017/03/22/skill-of-ubuntu/</loc>
     
     <lastmod>2017-11-23T16:51:52.787Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://heavensfeel.net/2017/03/22/skill-of-ubuntu/</loc>
+    <loc>http://heavensfeel.net/2017/03/23/skill-of-mac/</loc>
+    
+    <lastmod>2017-11-23T16:51:52.787Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://heavensfeel.net/2017/03/23/skill-of-docker/</loc>
     
     <lastmod>2017-11-23T16:51:52.787Z</lastmod>
     
@@ -142,14 +163,14 @@
   </url>
   
   <url>
-    <loc>http://heavensfeel.net/2017/03/29/docker-swarm-mode/</loc>
+    <loc>http://heavensfeel.net/2017/03/27/docker-https/</loc>
     
     <lastmod>2017-11-23T16:51:52.748Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://heavensfeel.net/2017/03/27/docker-https/</loc>
+    <loc>http://heavensfeel.net/2017/03/29/docker-swarm-mode/</loc>
     
     <lastmod>2017-11-23T16:51:52.748Z</lastmod>
     
