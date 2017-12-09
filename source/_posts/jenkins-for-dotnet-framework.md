@@ -38,7 +38,7 @@ Jenkins通过**工作 Jobs**来管理任务。
 * Repository Url：仓库地址。
 * Credentials：需要拥有此仓库迁出权限的用户名密码。可以通过后面的Add按钮添加。
 * Local module directory：建议使用默认值。
-* Repository Depth：`infinity`表示完整迁出，`empty`表示指迁出指定项。empty深度会在后续迁出jenkinsfile时用到。
+* Repository Depth：`infinity`表示完整迁出，`empty`表示不迁出任何内容。files只迁出当前目录的文件，这种迁出方式会在后续迁出jenkinsfile时用到。
 * Check-out Strategy：迁出策略，这里选择迁出前回滚代码，防止上次的编译过程对工程造成影响。
 ![迁出源码](jenkins-for-dotnet-framework/check_from_source.png)
 ### 修复

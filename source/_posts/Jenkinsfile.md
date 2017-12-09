@@ -1,5 +1,5 @@
 ---
-title: Jenkinsfile
+title: Jenkinsfile基础
 date: 2017-12-08 14:06:55
 tags: [jenkins, jenkinsfile]
 ---
