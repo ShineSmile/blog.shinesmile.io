@@ -6,9 +6,7 @@ tags: [jenkins, jenkinsfile]
 
 除了使用Jenkins自由风格构建方式通过Web GUI进行配置外，还可以使用Jenkinsfile将构建过程校本化。
 JenkinsFile通常保存在工程的根目录并将其添加至版本控制系统，还可以通过建立新的仓库对Jenkinsfile统一管理。
-## 添加Pipeline构建任务
-## 迁出JenkinsFile
-## 执行JenkinsFile
+
 ## 简介Jenkinsfile的语法
 ```jenkinsfile
 node ("Windows"){

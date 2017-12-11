@@ -11,6 +11,7 @@ jenkins slave节点可以用来扩展jenkins的性能，提高工程编译的并
 * 图中模糊的地方分别是指定该节点的标签（Lables）以及使用强度（Usage：尽可能多的使用，只执行标签匹配的任务）.
 * 图中Host Key Verification Strategy有四个选项，分别是已知服务器、使用ssh key pair、使用ssh用户名密码、无需认证。连接时需要注意防止中间人攻击。
 * 图中的Lables就是节点的标签，若在jenkinsfile中指定了节点的名称，jenkins会在指定的节点执行节点中的任务。
+
 ## 添加Windows slave节点：
-这里有一篇使用jnlp文件的方式添加windows slave节点的官方文档。 在master节点配置好后下载一个slave-agent.jnpl的文件在指定的windows机器上执行即可，非常简单。
+[这里](https://wiki.jenkins.io/display/JENKINS/Step+by+step+guide+to+set+up+master+and+slave+machines+on+Windows)有一篇使用jnlp文件的方式添加windows slave节点的官方文档。 在master节点配置好后下载一个slave-agent.jnpl的文件在指定的windows机器上执行即可，非常简单。
 **注意：windows slave节点添加好后，在尝试添加新服务时出现了问题，因此此节点暂时只能通过手动的方式启动。(Jave ver.9.01)**
