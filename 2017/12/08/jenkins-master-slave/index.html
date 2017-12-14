@@ -9,15 +9,15 @@
     <meta name="description" content="jenkins slave节点可以用来扩展jenkins的性能，提高工程编译的并发性。更重要的一点，可以对平台进行扩展，完成master所在节点无法完成的编译工作。注意：添加slave节点无需在目标服务器安装完整的jenkins服务，连接到slave节点后，master会将slave.jar发送至目标服务器。 添加新的">
 <meta name="keywords" content="jenkins">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jenkins-master-slave">
+<meta property="og:title" content="添加Jenkins slave节点">
 <meta property="og:url" content="http://heavensfeel.net/2017/12/08/jenkins-master-slave/index.html">
 <meta property="og:site_name" content="宛若天堂">
 <meta property="og:description" content="jenkins slave节点可以用来扩展jenkins的性能，提高工程编译的并发性。更重要的一点，可以对平台进行扩展，完成master所在节点无法完成的编译工作。注意：添加slave节点无需在目标服务器安装完整的jenkins服务，连接到slave节点后，master会将slave.jar发送至目标服务器。 添加新的Linux slave节点：添加linux节点的方式非常简单，只要能通过ssh的">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://heavensfeel.net/2017/12/08/jenkins-master-slave/linux_slave_node_config.png">
-<meta property="og:updated_time" content="2017-12-09T11:27:18.151Z">
+<meta property="og:updated_time" content="2017-12-11T02:27:44.819Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jenkins-master-slave">
+<meta name="twitter:title" content="添加Jenkins slave节点">
 <meta name="twitter:description" content="jenkins slave节点可以用来扩展jenkins的性能，提高工程编译的并发性。更重要的一点，可以对平台进行扩展，完成master所在节点无法完成的编译工作。注意：添加slave节点无需在目标服务器安装完整的jenkins服务，连接到slave节点后，master会将slave.jar发送至目标服务器。 添加新的Linux slave节点：添加linux节点的方式非常简单，只要能通过ssh的">
 <meta name="twitter:image" content="http://heavensfeel.net/2017/12/08/jenkins-master-slave/linux_slave_node_config.png">
     
@@ -39,7 +39,7 @@
         
     
     <!-- title -->
-    <title>jenkins-master-slave</title>
+    <title>添加Jenkins slave节点</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss -->
@@ -71,6 +71,8 @@
     <span id="actions">
       <ul>
         
+        <li><a class="icon" href="/2017/12/12/windows-server-2016-install-trap/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
         
         <li><a class="icon" href="/2017/12/08/Jenkinsfile/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
@@ -86,15 +88,15 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/12/08/jenkins-master-slave/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&text=jenkins-master-slave"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&title=jenkins-master-slave"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&is_video=false&description=jenkins-master-slave"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=jenkins-master-slave&body=Check out this article: http://heavensfeel.net/2017/12/08/jenkins-master-slave/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&title=jenkins-master-slave"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&title=jenkins-master-slave"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&title=jenkins-master-slave"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&title=jenkins-master-slave"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&name=jenkins-master-slave&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&text=添加Jenkins slave节点"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&title=添加Jenkins slave节点"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&is_video=false&description=添加Jenkins slave节点"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=添加Jenkins slave节点&body=Check out this article: http://heavensfeel.net/2017/12/08/jenkins-master-slave/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&title=添加Jenkins slave节点"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&title=添加Jenkins slave节点"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&title=添加Jenkins slave节点"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&title=添加Jenkins slave节点"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&name=添加Jenkins slave节点&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -111,7 +113,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        jenkins-master-slave
+        添加Jenkins slave节点
     </h1>
 
 
@@ -143,8 +145,9 @@
 <ul>
 <li>图中模糊的地方分别是指定该节点的标签（Lables）以及使用强度（Usage：尽可能多的使用，只执行标签匹配的任务）.</li>
 <li>图中Host Key Verification Strategy有四个选项，分别是已知服务器、使用ssh key pair、使用ssh用户名密码、无需认证。连接时需要注意防止中间人攻击。</li>
-<li>图中的Lables就是节点的标签，若在jenkinsfile中指定了节点的名称，jenkins会在指定的节点执行节点中的任务。<h2 id="添加Windows-slave节点："><a href="#添加Windows-slave节点：" class="headerlink" title="添加Windows slave节点："></a>添加Windows slave节点：</h2>这里有一篇使用jnlp文件的方式添加windows slave节点的官方文档。 在master节点配置好后下载一个slave-agent.jnpl的文件在指定的windows机器上执行即可，非常简单。<br><strong>注意：windows slave节点添加好后，在尝试添加新服务时出现了问题，因此此节点暂时只能通过手动的方式启动。(Jave ver.9.01)</strong></li>
+<li>图中的Lables就是节点的标签，若在jenkinsfile中指定了节点的名称，jenkins会在指定的节点执行节点中的任务。</li>
 </ul>
+<h2 id="添加Windows-slave节点："><a href="#添加Windows-slave节点：" class="headerlink" title="添加Windows slave节点："></a>添加Windows slave节点：</h2><p><a href="https://wiki.jenkins.io/display/JENKINS/Step+by+step+guide+to+set+up+master+and+slave+machines+on+Windows" target="_blank" rel="noopener">这里</a>有一篇使用jnlp文件的方式添加windows slave节点的官方文档。 在master节点配置好后下载一个slave-agent.jnpl的文件在指定的windows机器上执行即可，非常简单。<br><strong>注意：windows slave节点添加好后，在尝试添加新服务时出现了问题，因此此节点暂时只能通过手动的方式启动。(Jave ver.9.01)</strong></p>
 
   </div>
 </article>
@@ -177,15 +180,15 @@
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/12/08/jenkins-master-slave/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&text=jenkins-master-slave"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&title=jenkins-master-slave"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&is_video=false&description=jenkins-master-slave"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=jenkins-master-slave&body=Check out this article: http://heavensfeel.net/2017/12/08/jenkins-master-slave/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&title=jenkins-master-slave"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&title=jenkins-master-slave"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&title=jenkins-master-slave"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&title=jenkins-master-slave"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&name=jenkins-master-slave&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&text=添加Jenkins slave节点"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&title=添加Jenkins slave节点"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&is_video=false&description=添加Jenkins slave节点"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=添加Jenkins slave节点&body=Check out this article: http://heavensfeel.net/2017/12/08/jenkins-master-slave/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&title=添加Jenkins slave节点"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&title=添加Jenkins slave节点"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&title=添加Jenkins slave节点"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&title=添加Jenkins slave节点"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/12/08/jenkins-master-slave/&name=添加Jenkins slave节点&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

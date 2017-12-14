@@ -2,37 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://heavensfeel.net/2017/12/08/jenkins-master-slave/</loc>
+    <loc>http://heavensfeel.net/2017/12/12/install-confluence-on-windows/</loc>
     
-    <lastmod>2017-12-09T11:27:18.151Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/</loc>
-    
-    <lastmod>2017-12-09T10:21:03.000Z</lastmod>
+    <lastmod>2017-12-12T08:28:55.057Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://heavensfeel.net/2017/12/08/Jenkinsfile/</loc>
+    <loc>http://heavensfeel.net/2017/12/12/windows-server-2016-install-trap/</loc>
     
-    <lastmod>2017-12-08T07:07:45.674Z</lastmod>
+    <lastmod>2017-12-12T08:18:39.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://heavensfeel.net/2017/12/06/summary-for-msbuild/</loc>
     
-    <lastmod>2017-12-08T05:45:30.000Z</lastmod>
+    <lastmod>2017-12-11T02:31:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://heavensfeel.net/2017/12/03/install-jenkins-on-centos/</loc>
+    
+    <lastmod>2017-12-11T02:30:59.711Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/</loc>
     
-    <lastmod>2017-12-08T05:44:06.253Z</lastmod>
+    <lastmod>2017-12-11T02:28:49.538Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://heavensfeel.net/2017/12/08/Jenkinsfile/</loc>
+    
+    <lastmod>2017-12-11T02:28:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/</loc>
+    
+    <lastmod>2017-12-11T02:28:24.851Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://heavensfeel.net/2017/12/08/jenkins-master-slave/</loc>
+    
+    <lastmod>2017-12-11T02:27:44.819Z</lastmod>
     
   </url>
   
@@ -40,13 +61,6 @@
     <loc>http://heavensfeel.net/2017/12/04/iproute2/</loc>
     
     <lastmod>2017-12-04T02:22:37.861Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://heavensfeel.net/2017/12/03/install-jenkins-on-centos/</loc>
-    
-    <lastmod>2017-12-03T08:25:29.580Z</lastmod>
     
   </url>
   
@@ -65,13 +79,6 @@
   </url>
   
   <url>
-    <loc>http://heavensfeel.net/2017/03/22/windows-server-2016-install-trap/</loc>
-    
-    <lastmod>2017-11-23T16:51:52.787Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://heavensfeel.net/2017/07/18/use-vscode-terminal-for-windows-subsystem-for-linux/</loc>
     
     <lastmod>2017-11-23T16:51:52.787Z</lastmod>
@@ -86,14 +93,14 @@
   </url>
   
   <url>
-    <loc>http://heavensfeel.net/2017/03/23/skill-of-docker/</loc>
+    <loc>http://heavensfeel.net/2017/03/23/skill-of-mac/</loc>
     
     <lastmod>2017-11-23T16:51:52.787Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://heavensfeel.net/2017/03/23/skill-of-mac/</loc>
+    <loc>http://heavensfeel.net/2017/03/23/skill-of-docker/</loc>
     
     <lastmod>2017-11-23T16:51:52.787Z</lastmod>
     
