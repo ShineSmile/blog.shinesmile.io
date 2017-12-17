@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="宛若天堂">
 <meta property="og:description" content="文件大小超过4GBWindows Server 2016的安装镜像中，install.wim文件大小为4.79 GB。使用UltraISO将server2016的ISO镜像刻录过程使用的是FAT32文件系统。此文件系统最大支持文件大小为4GB。因此在安装过程中会出现校验失败等问题。 解决方案刻录完镜像后，可以使用下述命令将U盘的文件系统从FAT32转换为NTFS，解除单个文件大小的限制。1conv">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2017-12-12T08:18:39.000Z">
+<meta property="og:updated_time" content="2017-12-17T13:55:42.683Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用U盘安装Windows Server 2016时的问题">
 <meta name="twitter:description" content="文件大小超过4GBWindows Server 2016的安装镜像中，install.wim文件大小为4.79 GB。使用UltraISO将server2016的ISO镜像刻录过程使用的是FAT32文件系统。此文件系统最大支持文件大小为4GB。因此在安装过程中会出现校验失败等问题。 解决方案刻录完镜像后，可以使用下述命令将U盘的文件系统从FAT32转换为NTFS，解除单个文件大小的限制。1conv">
@@ -69,7 +69,7 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2017/12/12/install-confluence-on-windows/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/2017/12/14/ftp-command-in-windows/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" href="/2017/12/08/jenkins-master-slave/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -99,7 +99,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#文件大小超过4GB"><span class="toc-number">1.</span> <span class="toc-text">文件大小超过4GB</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案"><span class="toc-number">1.1.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事项"><span class="toc-number">1.2.</span> <span class="toc-text">注意事项</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件大小超过4GB"><span class="toc-number">1.</span> <span class="toc-text">文件大小超过4GB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案"><span class="toc-number">2.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事项"><span class="toc-number">3.</span> <span class="toc-text">注意事项</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -138,7 +138,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h1 id="文件大小超过4GB"><a href="#文件大小超过4GB" class="headerlink" title="文件大小超过4GB"></a>文件大小超过4GB</h1><p>Windows Server 2016的安装镜像中，<code>install.wim</code>文件大小为4.79 GB。使用UltraISO将server2016的ISO镜像刻录过程使用的是FAT32文件系统。此文件系统最大支持文件大小为4GB。因此在安装过程中会出现校验失败等问题。</p>
+    <h2 id="文件大小超过4GB"><a href="#文件大小超过4GB" class="headerlink" title="文件大小超过4GB"></a>文件大小超过4GB</h2><p>Windows Server 2016的安装镜像中，<code>install.wim</code>文件大小为4.79 GB。使用UltraISO将server2016的ISO镜像刻录过程使用的是FAT32文件系统。此文件系统最大支持文件大小为4GB。因此在安装过程中会出现校验失败等问题。</p>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>刻录完镜像后，可以使用下述命令将U盘的文件系统从FAT32转换为NTFS，解除单个文件大小的限制。<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">convert</span> X: /<span class="built_in">fs</span>:ntfs</span><br></pre></td></tr></table></figure></p>
 <p>其中<code>X</code>为目标磁盘的盘符。<br>执行此命令后，通过挂载光盘镜像，将<code>/sources/install.wim</code>文件拷贝到U盘对应的目录覆盖即可。</p>
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
@@ -174,7 +174,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#文件大小超过4GB"><span class="toc-number">1.</span> <span class="toc-text">文件大小超过4GB</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案"><span class="toc-number">1.1.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事项"><span class="toc-number">1.2.</span> <span class="toc-text">注意事项</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件大小超过4GB"><span class="toc-number">1.</span> <span class="toc-text">文件大小超过4GB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案"><span class="toc-number">2.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事项"><span class="toc-number">3.</span> <span class="toc-text">注意事项</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
