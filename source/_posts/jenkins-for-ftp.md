@@ -1,5 +1,5 @@
 ---
-title: 在windows下使用ftp命令行工具上传文件
+title: 使用Jenkins通过FTP进行持续发布
 date: 2017-12-14 17:29:03
 tags: [windows,ftp]
 ---
@@ -21,11 +21,11 @@ ftp [-v] [-d] [-i] [-n] [-g] [-s:FileName] [-a] [-w:WindowSize] [-A] [Host]
 |-d|启动调试，显示所有FTP客户端与服务器之间的命令。|
 |-s:*FileName*|指定一个包括FTP命令的文本文件，文件中的命令会在ftp命令执行时逐个调用。参数中不能包含空格。可以使用此参数代替流重定向**(<)**。|
 |Host|指定FTP的服务器的计算机名、IP地址。此参数可选且必须作为最后一个参数。|
-![FTP工具参数](ftp-command-in-windows/ftp_help.png)
+![FTP工具参数](jenkins-for-ftp/ftp_help.png)
 
 ### 子命令
 启动ftp工具后，会进入ftp的命令行界面，这是输入*?*会显示命令的提示：
-![FTP工具参数](ftp-command-in-windows/ftp_subcommand_help.png)
+![FTP工具参数](jenkins-for-ftp/ftp_subcommand_help.png)
 
 |参数|说明|
 |---|---|
