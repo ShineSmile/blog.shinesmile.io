@@ -6,25 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="提到ASP.NET的项目就不得不提Web Deploy，此工具被Visual Studio集成（需要安装Web开发相关功能）。若想脱离Visual Studio使用相关功能可以在这里下载。当然也可通过微软的Web开发平台进行安装。 IIS管理服务的安装若要使用Web Deploy相关功能。需要安装IIS的管理服务：安装">
+    <meta name="description" content="提到ASP.NET的项目就不得不提Web Deploy，此工具被Visual Studio集成（需要安装Web开发相关功能）。若想脱离Visual Studio使用相关功能可以在这里下载。当然也可通过微软的Web平台安装程序进行安装。 IIS管理服务的安装若要使用Web Deploy相关功能。需要安装IIS的管理服务：">
 <meta name="keywords" content="jenkins,web deploy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Jenkins通过Web Deploy进行持续集成">
 <meta property="og:url" content="http://heavensfeel.net/2017/12/14/jenkins-for-ms-webdeploy/index.html">
 <meta property="og:site_name" content="宛若天堂">
-<meta property="og:description" content="提到ASP.NET的项目就不得不提Web Deploy，此工具被Visual Studio集成（需要安装Web开发相关功能）。若想脱离Visual Studio使用相关功能可以在这里下载。当然也可通过微软的Web开发平台进行安装。 IIS管理服务的安装若要使用Web Deploy相关功能。需要安装IIS的管理服务：安装完成后需要配置相关权限，建议使用独立的IIS管理账户进行配置，本文档将直接使用A">
+<meta property="og:description" content="提到ASP.NET的项目就不得不提Web Deploy，此工具被Visual Studio集成（需要安装Web开发相关功能）。若想脱离Visual Studio使用相关功能可以在这里下载。当然也可通过微软的Web平台安装程序进行安装。 IIS管理服务的安装若要使用Web Deploy相关功能。需要安装IIS的管理服务：安装完成后需要配置相关权限，建议使用独立的IIS管理账户进行配置，本文档将直接使">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="http://heavensfeel.net/2017/12/14/jenkins-for-ms-webdeploy/web_deploy_install.png">
 <meta property="og:image" content="http://heavensfeel.net/2017/12/14/jenkins-for-ms-webdeploy/iis_management_service_install.png">
 <meta property="og:image" content="http://heavensfeel.net/2017/12/14/jenkins-for-ms-webdeploy/web_deploy_authorization.png">
 <meta property="og:image" content="http://heavensfeel.net/2017/12/14/jenkins-for-ms-webdeploy/authorization_account.png">
 <meta property="og:image" content="http://heavensfeel.net/2017/12/14/jenkins-for-ms-webdeploy/web_management_service.png">
 <meta property="og:image" content="http://heavensfeel.net/2017/12/14/jenkins-for-ms-webdeploy/project_configuration.png">
 <meta property="og:image" content="http://heavensfeel.net/2017/12/14/jenkins-for-ms-webdeploy/publish_configuration.png">
-<meta property="og:updated_time" content="2017-12-17T14:49:57.103Z">
+<meta property="og:updated_time" content="2017-12-18T01:36:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Jenkins通过Web Deploy进行持续集成">
-<meta name="twitter:description" content="提到ASP.NET的项目就不得不提Web Deploy，此工具被Visual Studio集成（需要安装Web开发相关功能）。若想脱离Visual Studio使用相关功能可以在这里下载。当然也可通过微软的Web开发平台进行安装。 IIS管理服务的安装若要使用Web Deploy相关功能。需要安装IIS的管理服务：安装完成后需要配置相关权限，建议使用独立的IIS管理账户进行配置，本文档将直接使用A">
-<meta name="twitter:image" content="http://heavensfeel.net/2017/12/14/jenkins-for-ms-webdeploy/iis_management_service_install.png">
+<meta name="twitter:description" content="提到ASP.NET的项目就不得不提Web Deploy，此工具被Visual Studio集成（需要安装Web开发相关功能）。若想脱离Visual Studio使用相关功能可以在这里下载。当然也可通过微软的Web平台安装程序进行安装。 IIS管理服务的安装若要使用Web Deploy相关功能。需要安装IIS的管理服务：安装完成后需要配置相关权限，建议使用独立的IIS管理账户进行配置，本文档将直接使">
+<meta name="twitter:image" content="http://heavensfeel.net/2017/12/14/jenkins-for-ms-webdeploy/web_deploy_install.png">
     
     
         
@@ -143,14 +144,51 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>提到ASP.NET的项目就不得不提Web Deploy，此工具被Visual Studio集成（需要安装Web开发相关功能）。若想脱离Visual Studio使用相关功能可以在这里<a href="https://www.iis.net/downloads/microsoft/web-deploy" target="_blank" rel="noopener">下载</a>。当然也可通过微软的Web开发平台进行安装。</p>
+    <p>提到ASP.NET的项目就不得不提Web Deploy，此工具被Visual Studio集成（需要安装Web开发相关功能）。若想脱离Visual Studio使用相关功能可以在这里<a href="https://www.iis.net/downloads/microsoft/web-deploy" target="_blank" rel="noopener">下载</a>。当然也可通过微软的Web平台安装程序进行安装。<br><img src="/2017/12/14/jenkins-for-ms-webdeploy/web_deploy_install.png" alt="通过Web平台安装程序进行安装"></p>
 <h2 id="IIS管理服务的安装"><a href="#IIS管理服务的安装" class="headerlink" title="IIS管理服务的安装"></a>IIS管理服务的安装</h2><p>若要使用Web Deploy相关功能。需要安装IIS的管理服务：<br><img src="/2017/12/14/jenkins-for-ms-webdeploy/iis_management_service_install.png" alt="IIS管理服务的安装"><br>安装完成后需要配置相关权限，建议使用独立的IIS管理账户进行配置，本文档将直接使用Administrator账户进行演示。</p>
 <h2 id="Web-Deploy权限设置"><a href="#Web-Deploy权限设置" class="headerlink" title="Web Deploy权限设置"></a>Web Deploy权限设置</h2><p><img src="/2017/12/14/jenkins-for-ms-webdeploy/web_deploy_authorization.png" alt="配置权限"><br>双击权限管理添加相应用户后即可对此Web服务进行发布。<br><img src="/2017/12/14/jenkins-for-ms-webdeploy/authorization_account.png" alt="添加用户"></p>
 <ul>
-<li>注意右上角<strong>只接受具有Windows凭据的账户</strong>的提示。<br>安装完毕后需要通过服务管理确定<strong>Web Management Service</strong>已正常启动。<br><img src="/2017/12/14/jenkins-for-ms-webdeploy/web_management_service.png" alt="服务管理"></li>
+<li>注意右上角<strong>只接受具有Windows凭据的账户</strong>的提示。</li>
 </ul>
-<h2 id="工程相关配置"><a href="#工程相关配置" class="headerlink" title="工程相关配置"></a>工程相关配置</h2><p>可以通过右键工程-发布根据发布向导完成相关的配置：<br><img src="/2017/12/14/jenkins-for-ms-webdeploy/project_configuration.png" alt="发布设置"><br>相关信息添加好后，点击Validate Connection会对链接进行测试。为防止中间人攻击，需要人工对证书进行校验。<br><img src="/2017/12/14/jenkins-for-ms-webdeploy/publish_configuration.png" alt="发布设置"><br>Setting页面会对编译选项、是否移除目标路径现有的文件、预编译、是否排除App_Data文件夹中的内容以及数据库链接进行配置。<br>设置好后可以进行保存，并通过发布按钮发布进行测试。</p>
-<h2 id="Jenkins集成"><a href="#Jenkins集成" class="headerlink" title="Jenkins集成"></a>Jenkins集成</h2><p>若要通过命令行调用Web Deploy相关功能，只需在MSBuild工具附加下述参数：<br>在编译成功后，MSBuild会直接调用Web Deploy相关的功能进行发布。</p>
+<p>安装完毕后需要通过服务管理确定<strong>Web Management Service</strong>已正常启动。<br><img src="/2017/12/14/jenkins-for-ms-webdeploy/web_management_service.png" alt="服务管理"></p>
+<h2 id="工程相关配置"><a href="#工程相关配置" class="headerlink" title="工程相关配置"></a>工程相关配置</h2><p>可以通过右键工程-发布根据发布向导完成相关的配置：<br><img src="/2017/12/14/jenkins-for-ms-webdeploy/project_configuration.png" alt="发布设置"><br>相关信息添加好后，点击Validate Connection会对链接进行测试。为防止中间人攻击，需要人工对证书进行校验。</p>
+<ul>
+<li>如在<em>Server</em>处添加<em>localhost</em>地址，Visual Studio会要求使用管理员账户启动且无需添加用户名等信息，否则无法发布。本人对此策略感到疑惑：同样是通过服务发布，远程发布只要拥有IIS服务管理权限即可，而向本机发布却需要完整的管理员权限。向本机发布的严苛程度甚至高过远程发布。莫名其妙，望高手拍砖。</li>
+</ul>
+<p><img src="/2017/12/14/jenkins-for-ms-webdeploy/publish_configuration.png" alt="发布设置"><br>Setting页面会对编译选项、是否移除目标路径现有的文件、预编译、是否排除App_Data文件夹中的内容以及数据库链接进行配置。<br>设置好后可以进行保存，并通过发布按钮发布进行测试。</p>
+<h2 id="Jenkins集成"><a href="#Jenkins集成" class="headerlink" title="Jenkins集成"></a>Jenkins集成</h2><p>若要通过命令行调用Web Deploy相关功能，只需在MSBuild工具附加下述参数：<em>p:DeployOnBuild=True;PublishProfile=WebDeploy-Demo;Password=Dawn233+;AllowUntrustedCertificate=true</em></p>
+<table>
+<thead>
+<tr>
+<th>键</th>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DeployOnBuild</td>
+<td><em>True</em> or <em>False</em></td>
+<td>编译后是否发布</td>
+</tr>
+<tr>
+<td>PublishProfile</td>
+<td><em>ProfileName</em></td>
+<td>使用的发布文件。<strong>注意：不需要添加发布文件的扩展名。</strong></td>
+</tr>
+<tr>
+<td>Password</td>
+<td><em>发布用户的密码</em></td>
+<td><strong>此方式会在脚本中暴露对应用户的密码，建议使用证书进行用户认证。</strong></td>
+</tr>
+<tr>
+<td>AllowUntrustedCertificate</td>
+<td><em>True</em> or <em>False</em></td>
+<td><strong>具有中间人攻击的安全风险，建议使用证书进行用户认证。</strong></td>
+</tr>
+</tbody>
+</table>
+<p>在编译成功后，MSBuild会直接调用Web Deploy相关的功能进行发布。<br>JenkinsFile脚本示例如下：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">node(<span class="string">'windows'</span>)&#123;</span><br><span class="line">    stage (<span class="string">'Deploy AsGet API'</span>)&#123;</span><br><span class="line">        timeout (<span class="number">3</span>)&#123;</span><br><span class="line">            <span class="keyword">def</span> IsDeploy = </span><br><span class="line">            input(</span><br><span class="line"><span class="symbol">                id:</span> <span class="string">'IsDeploy'</span>,</span><br><span class="line"><span class="symbol">                message:</span> <span class="string">"Check service to deploy:"</span>, </span><br><span class="line"><span class="symbol">                parameters:</span> </span><br><span class="line">                    [</span><br><span class="line">                        booleanParam(<span class="string">defaultValue:</span> <span class="literal">false</span>, <span class="string">name:</span> <span class="string">'ProjectName'</span>)</span><br><span class="line">                    ]</span><br><span class="line">            )</span><br><span class="line">            <span class="keyword">if</span>(IsDeploy == <span class="string">"true"</span>  || IsDeploy)&#123;</span><br><span class="line">                bat <span class="string">'msbuild Project.To.Build.csproj /m /t:Rebuild /p:Configuration=Release;DeployOnBuild=True;PublishProfile=WebDeploy-Demo;Password=Dawn233+;AllowUntrustedCertificate=true'</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                echo <span class="string">'Input Time out(3min).'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
   </div>
 </article>

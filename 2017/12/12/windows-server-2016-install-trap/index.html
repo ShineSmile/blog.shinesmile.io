@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="文件大小超过4GBWindows Server 2016的安装镜像中，install.wim文件大小为4.79 GB。使用UltraISO将server2016的ISO镜像刻录过程使用的是FAT32文件系统。此文件系统最大支持文件大小为4GB。因此在安装过程中会出现校验失败等问题。 解决方案刻录完镜像后，可以使用下述命">
+    <meta name="description" content="文件大小超过4GBWindows Server 2016的安装镜像中，install.wim文件大小为4.79 GB。使用UltraISO将server2016的ISO镜像刻录过程默认使用的是FAT32文件系统。此文件系统最大支持文件大小为4GB。因此在安装过程中会出现校验失败等问题。 解决方案刻录完镜像后，可以使用下">
 <meta name="keywords" content="windows,server">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用U盘安装Windows Server 2016时的问题">
 <meta property="og:url" content="http://heavensfeel.net/2017/12/12/windows-server-2016-install-trap/index.html">
 <meta property="og:site_name" content="宛若天堂">
-<meta property="og:description" content="文件大小超过4GBWindows Server 2016的安装镜像中，install.wim文件大小为4.79 GB。使用UltraISO将server2016的ISO镜像刻录过程使用的是FAT32文件系统。此文件系统最大支持文件大小为4GB。因此在安装过程中会出现校验失败等问题。 解决方案刻录完镜像后，可以使用下述命令将U盘的文件系统从FAT32转换为NTFS，解除单个文件大小的限制。1conv">
+<meta property="og:description" content="文件大小超过4GBWindows Server 2016的安装镜像中，install.wim文件大小为4.79 GB。使用UltraISO将server2016的ISO镜像刻录过程默认使用的是FAT32文件系统。此文件系统最大支持文件大小为4GB。因此在安装过程中会出现校验失败等问题。 解决方案刻录完镜像后，可以使用下述命令将U盘的文件系统从FAT32转换为NTFS，解除单个文件大小的限制。1co">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2017-12-17T13:55:42.683Z">
+<meta property="og:updated_time" content="2017-12-18T01:10:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用U盘安装Windows Server 2016时的问题">
-<meta name="twitter:description" content="文件大小超过4GBWindows Server 2016的安装镜像中，install.wim文件大小为4.79 GB。使用UltraISO将server2016的ISO镜像刻录过程使用的是FAT32文件系统。此文件系统最大支持文件大小为4GB。因此在安装过程中会出现校验失败等问题。 解决方案刻录完镜像后，可以使用下述命令将U盘的文件系统从FAT32转换为NTFS，解除单个文件大小的限制。1conv">
+<meta name="twitter:description" content="文件大小超过4GBWindows Server 2016的安装镜像中，install.wim文件大小为4.79 GB。使用UltraISO将server2016的ISO镜像刻录过程默认使用的是FAT32文件系统。此文件系统最大支持文件大小为4GB。因此在安装过程中会出现校验失败等问题。 解决方案刻录完镜像后，可以使用下述命令将U盘的文件系统从FAT32转换为NTFS，解除单个文件大小的限制。1co">
     
     
         
@@ -138,10 +138,11 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h2 id="文件大小超过4GB"><a href="#文件大小超过4GB" class="headerlink" title="文件大小超过4GB"></a>文件大小超过4GB</h2><p>Windows Server 2016的安装镜像中，<code>install.wim</code>文件大小为4.79 GB。使用UltraISO将server2016的ISO镜像刻录过程使用的是FAT32文件系统。此文件系统最大支持文件大小为4GB。因此在安装过程中会出现校验失败等问题。</p>
+    <h2 id="文件大小超过4GB"><a href="#文件大小超过4GB" class="headerlink" title="文件大小超过4GB"></a>文件大小超过4GB</h2><p>Windows Server 2016的安装镜像中，<code>install.wim</code>文件大小为4.79 GB。使用UltraISO将server2016的ISO镜像刻录过程默认使用的是FAT32文件系统。此文件系统最大支持文件大小为4GB。因此在安装过程中会出现校验失败等问题。</p>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>刻录完镜像后，可以使用下述命令将U盘的文件系统从FAT32转换为NTFS，解除单个文件大小的限制。<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">convert</span> X: /<span class="built_in">fs</span>:ntfs</span><br></pre></td></tr></table></figure></p>
 <p>其中<code>X</code>为目标磁盘的盘符。<br>执行此命令后，通过挂载光盘镜像，将<code>/sources/install.wim</code>文件拷贝到U盘对应的目录覆盖即可。</p>
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li><em>convert</em>命令转换至NTFS文件系统是单向不可逆的转换！</li>
 <li>UEFI引导方式需要FAT32文件系统，使用此方法修改的U盘只能使用Legecy Boot方式启动。两种启动方式在引导、分区表、安全等方面存在差异，详情可参见<a href="https://www.quora.com/What-is-the-difference-between-UEFI-and-Legacy-Mode-which-we-need-to-choose-while-installing-the-OS" target="_blank" rel="noopener">quora</a>。</li>
 <li>2017年12月11日：新版本的UltraISO在刻录Server 2016镜像时会尝试转换目标磁盘的文件系统并且失败。此问题可以通过更换烧录工具<code>PowerISO</code>来解决。</li>
 <li>使用PowerISO烧录U盘前可以直接指定其文件系统。</li>
