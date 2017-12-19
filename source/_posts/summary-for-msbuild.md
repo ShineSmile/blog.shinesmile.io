@@ -16,7 +16,7 @@ tags: [msbuild]
 * 早期的MSbuild的通常随.NET SDK一同安装在在**程序集全局缓存Global Assembly Cache**下，其路径为:`C:\Windows\Microsoft.NET\<架构>\<version>\MSBuild.exe`。
 ![不同版本.NET Framwork使用的MSBuild版本](summary-for-msbuild/msbuild_legacy_version.png)
 * 后续的MSBuild通常随Visual Studio一同发布，其路径被合并至Visual Stuio的安装路径中，例如VS2017中的MSBuild路径为：`C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin`
-![MSBuild ver.15](summary-for-msbuild/msbuid_v15.png)
+![MSBuild ver.15](summary-for-msbuild/msbuild_v15.png)
 
 ## MSbuild without Visual Studio
 MSBuild Tool 2017：[下载地址](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=15)
@@ -33,4 +33,4 @@ MSBuild Tool 2017：[下载地址](https://www.visualstudio.com/thank-you-downlo
 有关构建参数的详细文档在[这里](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference)。
 
 ## 安装示例
-![安装示例](summary-for-msbuild/msbuid_install_example.png)
+![安装示例](summary-for-msbuild/msbuild_install_example.png)
