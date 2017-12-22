@@ -69,7 +69,7 @@ theme: cactus-dark
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:ShineSmile/blog.shinesmile.io.git
+  repo: git@github.com:ShineSmile/shinesmile.io.git
   branch: gh-pages
 
 # sitemap
