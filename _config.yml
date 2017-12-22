@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 宛若天堂
-subtitle: Heaven's Feel
+title: 
+subtitle: 
 description: 
 author: Shine
 language: zh-cn
@@ -12,7 +12,7 @@ timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://heavensfeel.net
+url: http://shinesmile.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:

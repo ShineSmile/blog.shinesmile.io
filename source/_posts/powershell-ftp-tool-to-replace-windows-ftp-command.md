@@ -3,11 +3,11 @@ title: 使用powershell工具取代ftp.exe工具
 date: 2017-12-19 10:18:26
 tags: [powershell, ftp]
 ---
-在实现了Jenkins通过默认的*ftp.exe*实现持续发布的工作时受到很多限制：
+在使用Jenkins通过Windows*ftp.exe*进行持续发布的工作时受到很多限制：
 * 不支持被动模式（PASV）,参考链接[stackoverflow](https://stackoverflow.com/questions/18643542/how-to-use-passive-ftp-mode-in-windows-command-prompt#19932879)。
     1. 使用此工具时，客户端必须开放防火墙供服务端“回访”。
     1. 当客户机处于NAT网络时，主动回访可能会被路由阻塞。
-* 健壮性差，容错性差
+* 健壮性差，error pass silently
     1. 脚本只能按顺序执行
     1. 出错后无法停止
     1. 出现异常时无法针对异常调整流程
