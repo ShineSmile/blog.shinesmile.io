@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="同Ubuntu使用技巧一样，这篇文章也是积累在学习docker中遇到的各种问题及解决方法（可能是临时）。 docker和git有很多相似之处，有一定的git基础对理解docker里的一些概念会有很大帮助。 操作系统为：Ubuntu 16.04.2 LTS Docker版本： 1234567891011121314151">
+    <meta name="description" content="同Ubuntu使用技巧一样，这篇文章也是积累在学习docker中遇到的各种问题及解决方法（可能是临时）。 docker和git有很多相似之处，有一定的git基础对理解docker里的一些概念会有很大帮助。 操作系统为：Ubuntu 16.04.2 LTS Docker版本： 12345678910111213141516Client: Version:      17.03.0-ce API ve">
 <meta name="keywords" content="docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker使用技巧">
-<meta property="og:url" content="http://heavensfeel.net/2017/03/23/skill-of-docker/index.html">
+<meta property="og:url" content="http://shinesmile.io/2017/03/23/skill-of-docker/index.html">
 <meta property="og:site_name" content="宛若天堂">
 <meta property="og:description" content="同Ubuntu使用技巧一样，这篇文章也是积累在学习docker中遇到的各种问题及解决方法（可能是临时）。 docker和git有很多相似之处，有一定的git基础对理解docker里的一些概念会有很大帮助。 操作系统为：Ubuntu 16.04.2 LTS Docker版本： 12345678910111213141516Client: Version:      17.03.0-ce API ve">
 <meta property="og:locale" content="zh-cn">
@@ -85,16 +85,16 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/03/23/skill-of-docker/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/03/23/skill-of-docker/&text=Docker使用技巧"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/03/23/skill-of-docker/&title=Docker使用技巧"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/03/23/skill-of-docker/&is_video=false&description=Docker使用技巧"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Docker使用技巧&body=Check out this article: http://heavensfeel.net/2017/03/23/skill-of-docker/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/03/23/skill-of-docker/&title=Docker使用技巧"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/03/23/skill-of-docker/&title=Docker使用技巧"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/03/23/skill-of-docker/&title=Docker使用技巧"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/03/23/skill-of-docker/&title=Docker使用技巧"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/03/23/skill-of-docker/&name=Docker使用技巧&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2017/03/23/skill-of-docker/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2017/03/23/skill-of-docker/&text=Docker使用技巧"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2017/03/23/skill-of-docker/&title=Docker使用技巧"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2017/03/23/skill-of-docker/&is_video=false&description=Docker使用技巧"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Docker使用技巧&body=Check out this article: http://shinesmile.io/2017/03/23/skill-of-docker/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2017/03/23/skill-of-docker/&title=Docker使用技巧"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2017/03/23/skill-of-docker/&title=Docker使用技巧"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2017/03/23/skill-of-docker/&title=Docker使用技巧"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2017/03/23/skill-of-docker/&title=Docker使用技巧"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2017/03/23/skill-of-docker/&name=Docker使用技巧&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -138,7 +138,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>同<a href="http://heavensfeel.net/2017/03/22/skill-of-ubuntu/">Ubuntu使用技巧</a>一样，这篇文章也是积累在学习docker中遇到的各种问题及解决方法（可能是临时）。</p>
+    <p>同<a href="http://heavensfeel.net/2017/03/22/skill-of-ubuntu/" target="_blank" rel="noopener">Ubuntu使用技巧</a>一样，这篇文章也是积累在学习docker中遇到的各种问题及解决方法（可能是临时）。</p>
 <p>docker和git有很多相似之处，有一定的git基础对理解docker里的一些概念会有很大帮助。</p>
 <p>操作系统为：<strong>Ubuntu 16.04.2 LTS</strong></p>
 <p>Docker版本：</p>
@@ -243,16 +243,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/03/23/skill-of-docker/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/03/23/skill-of-docker/&text=Docker使用技巧"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/03/23/skill-of-docker/&title=Docker使用技巧"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/03/23/skill-of-docker/&is_video=false&description=Docker使用技巧"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Docker使用技巧&body=Check out this article: http://heavensfeel.net/2017/03/23/skill-of-docker/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/03/23/skill-of-docker/&title=Docker使用技巧"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/03/23/skill-of-docker/&title=Docker使用技巧"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/03/23/skill-of-docker/&title=Docker使用技巧"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/03/23/skill-of-docker/&title=Docker使用技巧"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/03/23/skill-of-docker/&name=Docker使用技巧&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2017/03/23/skill-of-docker/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2017/03/23/skill-of-docker/&text=Docker使用技巧"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2017/03/23/skill-of-docker/&title=Docker使用技巧"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2017/03/23/skill-of-docker/&is_video=false&description=Docker使用技巧"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Docker使用技巧&body=Check out this article: http://shinesmile.io/2017/03/23/skill-of-docker/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2017/03/23/skill-of-docker/&title=Docker使用技巧"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2017/03/23/skill-of-docker/&title=Docker使用技巧"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2017/03/23/skill-of-docker/&title=Docker使用技巧"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2017/03/23/skill-of-docker/&title=Docker使用技巧"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2017/03/23/skill-of-docker/&name=Docker使用技巧&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

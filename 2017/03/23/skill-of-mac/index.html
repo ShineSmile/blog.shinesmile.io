@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="这篇文章主要用于记录日常使用Mac的过程中遇到的问题和解决方案。 环境变量的设置修改个人PATH用户登录时会执行~/.bash_profile中的内容，若想简单修改个人的环境变量，可以通过向此文件添加bash命令对环境变量进行调整。 修改本机PATH此方法相对友好，仔细观察~/.bash_profile文件包括以下内容">
+    <meta name="description" content="这篇文章主要用于记录日常使用Mac的过程中遇到的问题和解决方案。 环境变量的设置修改个人PATH用户登录时会执行~/.bash_profile中的内容，若想简单修改个人的环境变量，可以通过向此文件添加bash命令对环境变量进行调整。 修改本机PATH此方法相对友好，仔细观察~/.bash_profile文件包括以下内容： 1eval $(/usr/libexec/path_helper -s) /">
 <meta name="keywords" content="mac">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac使用技巧">
-<meta property="og:url" content="http://heavensfeel.net/2017/03/23/skill-of-mac/index.html">
+<meta property="og:url" content="http://shinesmile.io/2017/03/23/skill-of-mac/index.html">
 <meta property="og:site_name" content="宛若天堂">
 <meta property="og:description" content="这篇文章主要用于记录日常使用Mac的过程中遇到的问题和解决方案。 环境变量的设置修改个人PATH用户登录时会执行~/.bash_profile中的内容，若想简单修改个人的环境变量，可以通过向此文件添加bash命令对环境变量进行调整。 修改本机PATH此方法相对友好，仔细观察~/.bash_profile文件包括以下内容： 1eval $(/usr/libexec/path_helper -s) /">
 <meta property="og:locale" content="zh-cn">
@@ -85,16 +85,16 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/03/23/skill-of-mac/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/03/23/skill-of-mac/&text=Mac使用技巧"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/03/23/skill-of-mac/&title=Mac使用技巧"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/03/23/skill-of-mac/&is_video=false&description=Mac使用技巧"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Mac使用技巧&body=Check out this article: http://heavensfeel.net/2017/03/23/skill-of-mac/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/03/23/skill-of-mac/&title=Mac使用技巧"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/03/23/skill-of-mac/&title=Mac使用技巧"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/03/23/skill-of-mac/&title=Mac使用技巧"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/03/23/skill-of-mac/&title=Mac使用技巧"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/03/23/skill-of-mac/&name=Mac使用技巧&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2017/03/23/skill-of-mac/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2017/03/23/skill-of-mac/&text=Mac使用技巧"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2017/03/23/skill-of-mac/&title=Mac使用技巧"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2017/03/23/skill-of-mac/&is_video=false&description=Mac使用技巧"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Mac使用技巧&body=Check out this article: http://shinesmile.io/2017/03/23/skill-of-mac/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2017/03/23/skill-of-mac/&title=Mac使用技巧"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2017/03/23/skill-of-mac/&title=Mac使用技巧"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2017/03/23/skill-of-mac/&title=Mac使用技巧"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2017/03/23/skill-of-mac/&title=Mac使用技巧"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2017/03/23/skill-of-mac/&name=Mac使用技巧&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -181,16 +181,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/03/23/skill-of-mac/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/03/23/skill-of-mac/&text=Mac使用技巧"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/03/23/skill-of-mac/&title=Mac使用技巧"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/03/23/skill-of-mac/&is_video=false&description=Mac使用技巧"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Mac使用技巧&body=Check out this article: http://heavensfeel.net/2017/03/23/skill-of-mac/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/03/23/skill-of-mac/&title=Mac使用技巧"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/03/23/skill-of-mac/&title=Mac使用技巧"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/03/23/skill-of-mac/&title=Mac使用技巧"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/03/23/skill-of-mac/&title=Mac使用技巧"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/03/23/skill-of-mac/&name=Mac使用技巧&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2017/03/23/skill-of-mac/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2017/03/23/skill-of-mac/&text=Mac使用技巧"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2017/03/23/skill-of-mac/&title=Mac使用技巧"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2017/03/23/skill-of-mac/&is_video=false&description=Mac使用技巧"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Mac使用技巧&body=Check out this article: http://shinesmile.io/2017/03/23/skill-of-mac/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2017/03/23/skill-of-mac/&title=Mac使用技巧"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2017/03/23/skill-of-mac/&title=Mac使用技巧"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2017/03/23/skill-of-mac/&title=Mac使用技巧"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2017/03/23/skill-of-mac/&title=Mac使用技巧"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2017/03/23/skill-of-mac/&name=Mac使用技巧&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

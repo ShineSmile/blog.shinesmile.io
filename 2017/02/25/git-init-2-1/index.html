@@ -6,22 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="初始化本地仓库1git init 此命令将所在文件夹初始化为git本地仓库。初始化成功的标志为，文件夹内创建了一个名为.git的隐藏子文件夹。git子文件夹为本地仓库，.git所在文件夹是版本控制工作区。   本系列文章的标题即取自git init命令。 初始化远端仓库1git init --bare --bare参数">
+    <meta name="description" content="初始化本地仓库1git init 此命令将所在文件夹初始化为git本地仓库。初始化成功的标志为，文件夹内创建了一个名为.git的隐藏子文件夹。git子文件夹为本地仓库，.git所在文件夹是版本控制工作区。   本系列文章的标题即取自git init命令。 初始化远端仓库1git init --bare --bare参数表示将当前文件夹初始化为不包括工作区的裸库。其文件结构与本地仓库相似，但某些参数">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git init 2.1：Git仓库的初始化">
-<meta property="og:url" content="http://heavensfeel.net/2017/02/25/git-init-2-1/index.html">
+<meta property="og:url" content="http://shinesmile.io/2017/02/25/git-init-2-1/index.html">
 <meta property="og:site_name" content="宛若天堂">
 <meta property="og:description" content="初始化本地仓库1git init 此命令将所在文件夹初始化为git本地仓库。初始化成功的标志为，文件夹内创建了一个名为.git的隐藏子文件夹。git子文件夹为本地仓库，.git所在文件夹是版本控制工作区。   本系列文章的标题即取自git init命令。 初始化远端仓库1git init --bare --bare参数表示将当前文件夹初始化为不包括工作区的裸库。其文件结构与本地仓库相似，但某些参数">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://heavensfeel.net/2017/02/25/git-init-2-1/workfolder.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/02/25/git-init-2-1/local_repo.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/02/25/git-init-2-1/remote_repo.png">
+<meta property="og:image" content="http://shinesmile.io/2017/02/25/git-init-2-1/workfolder.png">
+<meta property="og:image" content="http://shinesmile.io/2017/02/25/git-init-2-1/local_repo.png">
+<meta property="og:image" content="http://shinesmile.io/2017/02/25/git-init-2-1/remote_repo.png">
 <meta property="og:updated_time" content="2017-11-23T16:51:52.758Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git init 2.1：Git仓库的初始化">
 <meta name="twitter:description" content="初始化本地仓库1git init 此命令将所在文件夹初始化为git本地仓库。初始化成功的标志为，文件夹内创建了一个名为.git的隐藏子文件夹。git子文件夹为本地仓库，.git所在文件夹是版本控制工作区。   本系列文章的标题即取自git init命令。 初始化远端仓库1git init --bare --bare参数表示将当前文件夹初始化为不包括工作区的裸库。其文件结构与本地仓库相似，但某些参数">
-<meta name="twitter:image" content="http://heavensfeel.net/2017/02/25/git-init-2-1/workfolder.png">
+<meta name="twitter:image" content="http://shinesmile.io/2017/02/25/git-init-2-1/workfolder.png">
     
     
         
@@ -89,16 +89,16 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/02/25/git-init-2-1/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/02/25/git-init-2-1/&text=Git init 2.1：Git仓库的初始化"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/02/25/git-init-2-1/&title=Git init 2.1：Git仓库的初始化"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/02/25/git-init-2-1/&is_video=false&description=Git init 2.1：Git仓库的初始化"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Git init 2.1：Git仓库的初始化&body=Check out this article: http://heavensfeel.net/2017/02/25/git-init-2-1/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/02/25/git-init-2-1/&title=Git init 2.1：Git仓库的初始化"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/02/25/git-init-2-1/&title=Git init 2.1：Git仓库的初始化"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/02/25/git-init-2-1/&title=Git init 2.1：Git仓库的初始化"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/02/25/git-init-2-1/&title=Git init 2.1：Git仓库的初始化"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/02/25/git-init-2-1/&name=Git init 2.1：Git仓库的初始化&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2017/02/25/git-init-2-1/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2017/02/25/git-init-2-1/&text=Git init 2.1：Git仓库的初始化"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2017/02/25/git-init-2-1/&title=Git init 2.1：Git仓库的初始化"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2017/02/25/git-init-2-1/&is_video=false&description=Git init 2.1：Git仓库的初始化"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Git init 2.1：Git仓库的初始化&body=Check out this article: http://shinesmile.io/2017/02/25/git-init-2-1/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2017/02/25/git-init-2-1/&title=Git init 2.1：Git仓库的初始化"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2017/02/25/git-init-2-1/&title=Git init 2.1：Git仓库的初始化"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2017/02/25/git-init-2-1/&title=Git init 2.1：Git仓库的初始化"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2017/02/25/git-init-2-1/&title=Git init 2.1：Git仓库的初始化"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2017/02/25/git-init-2-1/&name=Git init 2.1：Git仓库的初始化&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -181,16 +181,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/02/25/git-init-2-1/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/02/25/git-init-2-1/&text=Git init 2.1：Git仓库的初始化"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/02/25/git-init-2-1/&title=Git init 2.1：Git仓库的初始化"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/02/25/git-init-2-1/&is_video=false&description=Git init 2.1：Git仓库的初始化"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Git init 2.1：Git仓库的初始化&body=Check out this article: http://heavensfeel.net/2017/02/25/git-init-2-1/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/02/25/git-init-2-1/&title=Git init 2.1：Git仓库的初始化"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/02/25/git-init-2-1/&title=Git init 2.1：Git仓库的初始化"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/02/25/git-init-2-1/&title=Git init 2.1：Git仓库的初始化"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/02/25/git-init-2-1/&title=Git init 2.1：Git仓库的初始化"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/02/25/git-init-2-1/&name=Git init 2.1：Git仓库的初始化&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2017/02/25/git-init-2-1/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2017/02/25/git-init-2-1/&text=Git init 2.1：Git仓库的初始化"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2017/02/25/git-init-2-1/&title=Git init 2.1：Git仓库的初始化"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2017/02/25/git-init-2-1/&is_video=false&description=Git init 2.1：Git仓库的初始化"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Git init 2.1：Git仓库的初始化&body=Check out this article: http://shinesmile.io/2017/02/25/git-init-2-1/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2017/02/25/git-init-2-1/&title=Git init 2.1：Git仓库的初始化"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2017/02/25/git-init-2-1/&title=Git init 2.1：Git仓库的初始化"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2017/02/25/git-init-2-1/&title=Git init 2.1：Git仓库的初始化"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2017/02/25/git-init-2-1/&title=Git init 2.1：Git仓库的初始化"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2017/02/25/git-init-2-1/&name=Git init 2.1：Git仓库的初始化&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

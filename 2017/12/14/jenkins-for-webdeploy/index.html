@@ -6,26 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="提到ASP.NET的项目就不得不提Web Deploy，此工具被Visual Studio集成（需要安装Web开发相关功能）。若想脱离Visual Studio使用相关功能可以在这里下载。当然也可通过微软的Web平台安装程序进行安装。 IIS管理服务的安装若要使用Web Deploy相关功能。需要安装IIS的管理服务：">
+    <meta name="description" content="提到ASP.NET的项目就不得不提Web Deploy，此工具被Visual Studio集成（需要安装Web开发相关功能）。若想脱离Visual Studio使用相关功能可以在这里下载。当然也可通过微软的Web平台安装程序进行安装。 IIS管理服务的安装若要使用Web Deploy相关功能。需要安装IIS的管理服务：安装完成后需要配置相关权限，建议使用独立的IIS管理账户进行配置，本文档将直接使">
 <meta name="keywords" content="jenkins,web deploy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Jenkins通过Web Deploy进行持续发布">
-<meta property="og:url" content="http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/index.html">
+<meta property="og:url" content="http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/index.html">
 <meta property="og:site_name" content="宛若天堂">
 <meta property="og:description" content="提到ASP.NET的项目就不得不提Web Deploy，此工具被Visual Studio集成（需要安装Web开发相关功能）。若想脱离Visual Studio使用相关功能可以在这里下载。当然也可通过微软的Web平台安装程序进行安装。 IIS管理服务的安装若要使用Web Deploy相关功能。需要安装IIS的管理服务：安装完成后需要配置相关权限，建议使用独立的IIS管理账户进行配置，本文档将直接使">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/web_deploy_install.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/iis_management_service_install.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/web_deploy_authorization.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/authorization_account.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/web_management_service.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/project_configuration.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/publish_configuration.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/web_deploy_install.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/iis_management_service_install.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/web_deploy_authorization.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/authorization_account.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/web_management_service.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/project_configuration.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/publish_configuration.png">
 <meta property="og:updated_time" content="2017-12-18T01:48:12.181Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Jenkins通过Web Deploy进行持续发布">
 <meta name="twitter:description" content="提到ASP.NET的项目就不得不提Web Deploy，此工具被Visual Studio集成（需要安装Web开发相关功能）。若想脱离Visual Studio使用相关功能可以在这里下载。当然也可通过微软的Web平台安装程序进行安装。 IIS管理服务的安装若要使用Web Deploy相关功能。需要安装IIS的管理服务：安装完成后需要配置相关权限，建议使用独立的IIS管理账户进行配置，本文档将直接使">
-<meta name="twitter:image" content="http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/web_deploy_install.png">
+<meta name="twitter:image" content="http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/web_deploy_install.png">
     
     
         
@@ -93,16 +93,16 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/&text=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/&title=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/&is_video=false&description=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=使用Jenkins通过Web Deploy进行持续发布&body=Check out this article: http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/&title=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/&title=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/&title=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/&title=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/&name=使用Jenkins通过Web Deploy进行持续发布&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/&text=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/&title=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/&is_video=false&description=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=使用Jenkins通过Web Deploy进行持续发布&body=Check out this article: http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/&title=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/&title=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/&title=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/&title=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/&name=使用Jenkins通过Web Deploy进行持续发布&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -222,16 +222,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/&text=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/&title=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/&is_video=false&description=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=使用Jenkins通过Web Deploy进行持续发布&body=Check out this article: http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/&title=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/&title=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/&title=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/&title=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/12/14/jenkins-for-webdeploy/&name=使用Jenkins通过Web Deploy进行持续发布&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/&text=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/&title=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/&is_video=false&description=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=使用Jenkins通过Web Deploy进行持续发布&body=Check out this article: http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/&title=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/&title=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/&title=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/&title=使用Jenkins通过Web Deploy进行持续发布"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/&name=使用Jenkins通过Web Deploy进行持续发布&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

@@ -6,24 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="本地分支管理：git branch添加分支1git branch &amp;lt;branch_name&amp;gt; 查看分支1git branch 删除分支1git branch -d &amp;lt;branch_name&amp;gt; 检出分支1git checkout &amp;lt;branch_nam">
+    <meta name="description" content="本地分支管理：git branch添加分支1git branch &amp;lt;branch_name&amp;gt; 查看分支1git branch 删除分支1git branch -d &amp;lt;branch_name&amp;gt; 检出分支1git checkout &amp;lt;branch_name&amp;gt; master分支一般被作为主分支使用。也是git的默认分支。 需要注意的是如果工作区存在文件变更，在新建、切">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git init 2.4：分支与远端管理">
-<meta property="og:url" content="http://heavensfeel.net/2017/02/25/git-init-2-4/index.html">
+<meta property="og:url" content="http://shinesmile.io/2017/02/25/git-init-2-4/index.html">
 <meta property="og:site_name" content="宛若天堂">
 <meta property="og:description" content="本地分支管理：git branch添加分支1git branch &amp;lt;branch_name&amp;gt; 查看分支1git branch 删除分支1git branch -d &amp;lt;branch_name&amp;gt; 检出分支1git checkout &amp;lt;branch_name&amp;gt; master分支一般被作为主分支使用。也是git的默认分支。 需要注意的是如果工作区存在文件变更，在新建、切">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://heavensfeel.net/2017/02/25/git-init-2-4/git_branch.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/02/25/git-init-2-4/git_remote.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/02/25/git-init-2-4/git_push.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/02/25/git-init-2-4/git_remote_branch.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/02/25/git-init-2-4/git_tag.png">
+<meta property="og:image" content="http://shinesmile.io/2017/02/25/git-init-2-4/git_branch.png">
+<meta property="og:image" content="http://shinesmile.io/2017/02/25/git-init-2-4/git_remote.png">
+<meta property="og:image" content="http://shinesmile.io/2017/02/25/git-init-2-4/git_push.png">
+<meta property="og:image" content="http://shinesmile.io/2017/02/25/git-init-2-4/git_remote_branch.png">
+<meta property="og:image" content="http://shinesmile.io/2017/02/25/git-init-2-4/git_tag.png">
 <meta property="og:updated_time" content="2017-11-23T16:51:52.766Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git init 2.4：分支与远端管理">
 <meta name="twitter:description" content="本地分支管理：git branch添加分支1git branch &amp;lt;branch_name&amp;gt; 查看分支1git branch 删除分支1git branch -d &amp;lt;branch_name&amp;gt; 检出分支1git checkout &amp;lt;branch_name&amp;gt; master分支一般被作为主分支使用。也是git的默认分支。 需要注意的是如果工作区存在文件变更，在新建、切">
-<meta name="twitter:image" content="http://heavensfeel.net/2017/02/25/git-init-2-4/git_branch.png">
+<meta name="twitter:image" content="http://shinesmile.io/2017/02/25/git-init-2-4/git_branch.png">
     
     
         
@@ -91,16 +91,16 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/02/25/git-init-2-4/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/02/25/git-init-2-4/&text=Git init 2.4：分支与远端管理"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/02/25/git-init-2-4/&title=Git init 2.4：分支与远端管理"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/02/25/git-init-2-4/&is_video=false&description=Git init 2.4：分支与远端管理"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Git init 2.4：分支与远端管理&body=Check out this article: http://heavensfeel.net/2017/02/25/git-init-2-4/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/02/25/git-init-2-4/&title=Git init 2.4：分支与远端管理"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/02/25/git-init-2-4/&title=Git init 2.4：分支与远端管理"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/02/25/git-init-2-4/&title=Git init 2.4：分支与远端管理"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/02/25/git-init-2-4/&title=Git init 2.4：分支与远端管理"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/02/25/git-init-2-4/&name=Git init 2.4：分支与远端管理&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2017/02/25/git-init-2-4/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2017/02/25/git-init-2-4/&text=Git init 2.4：分支与远端管理"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2017/02/25/git-init-2-4/&title=Git init 2.4：分支与远端管理"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2017/02/25/git-init-2-4/&is_video=false&description=Git init 2.4：分支与远端管理"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Git init 2.4：分支与远端管理&body=Check out this article: http://shinesmile.io/2017/02/25/git-init-2-4/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2017/02/25/git-init-2-4/&title=Git init 2.4：分支与远端管理"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2017/02/25/git-init-2-4/&title=Git init 2.4：分支与远端管理"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2017/02/25/git-init-2-4/&title=Git init 2.4：分支与远端管理"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2017/02/25/git-init-2-4/&title=Git init 2.4：分支与远端管理"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2017/02/25/git-init-2-4/&name=Git init 2.4：分支与远端管理&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -206,16 +206,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/02/25/git-init-2-4/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/02/25/git-init-2-4/&text=Git init 2.4：分支与远端管理"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/02/25/git-init-2-4/&title=Git init 2.4：分支与远端管理"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/02/25/git-init-2-4/&is_video=false&description=Git init 2.4：分支与远端管理"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Git init 2.4：分支与远端管理&body=Check out this article: http://heavensfeel.net/2017/02/25/git-init-2-4/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/02/25/git-init-2-4/&title=Git init 2.4：分支与远端管理"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/02/25/git-init-2-4/&title=Git init 2.4：分支与远端管理"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/02/25/git-init-2-4/&title=Git init 2.4：分支与远端管理"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/02/25/git-init-2-4/&title=Git init 2.4：分支与远端管理"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/02/25/git-init-2-4/&name=Git init 2.4：分支与远端管理&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2017/02/25/git-init-2-4/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2017/02/25/git-init-2-4/&text=Git init 2.4：分支与远端管理"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2017/02/25/git-init-2-4/&title=Git init 2.4：分支与远端管理"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2017/02/25/git-init-2-4/&is_video=false&description=Git init 2.4：分支与远端管理"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Git init 2.4：分支与远端管理&body=Check out this article: http://shinesmile.io/2017/02/25/git-init-2-4/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2017/02/25/git-init-2-4/&title=Git init 2.4：分支与远端管理"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2017/02/25/git-init-2-4/&title=Git init 2.4：分支与远端管理"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2017/02/25/git-init-2-4/&title=Git init 2.4：分支与远端管理"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2017/02/25/git-init-2-4/&title=Git init 2.4：分支与远端管理"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2017/02/25/git-init-2-4/&name=Git init 2.4：分支与远端管理&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

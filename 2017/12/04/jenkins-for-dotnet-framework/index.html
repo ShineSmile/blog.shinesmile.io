@@ -6,34 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="本文使用Windows平台上的Jenkins完成.NET Framework平台的CICD相关工作。注意:本文通过多次修改调整，示例图片中的路径、配置可能过期，仅供参考，待图片更新后将删除此提示。 安装及配置JenkinsWindows平台Jenkins下载地址解压后双击安装MSI软件包即可开始安装。安装过程中的设置路">
+    <meta name="description" content="本文使用Windows平台上的Jenkins完成.NET Framework平台的CICD相关工作。注意:本文通过多次修改调整，示例图片中的路径、配置可能过期，仅供参考，待图片更新后将删除此提示。 安装及配置JenkinsWindows平台Jenkins下载地址解压后双击安装MSI软件包即可开始安装。安装过程中的设置路径为%JENKINS_HOME%的位置，也是服务的安装位置，此路径在不重装的前提">
 <meta name="keywords" content="jenkins,dotnet,ci,msbuild">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Jenkins对.NET Framework工程进行持续集成">
-<meta property="og:url" content="http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/index.html">
+<meta property="og:url" content="http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/index.html">
 <meta property="og:site_name" content="宛若天堂">
 <meta property="og:description" content="本文使用Windows平台上的Jenkins完成.NET Framework平台的CICD相关工作。注意:本文通过多次修改调整，示例图片中的路径、配置可能过期，仅供参考，待图片更新后将删除此提示。 安装及配置JenkinsWindows平台Jenkins下载地址解压后双击安装MSI软件包即可开始安装。安装过程中的设置路径为%JENKINS_HOME%的位置，也是服务的安装位置，此路径在不重装的前提">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/jenkins_home.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/jenkins_init.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/plugin_init.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/msbuild_plugin_config.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/mstest_plugin_config.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/create_new_job.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/free_style_project.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/check_from_source.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/nuget_restore.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/jenkins_build.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/jenkins_test.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/jenkins_test_result.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/jenkins_archive.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/archive_and_test_result.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/jenkins_config_path.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/jenkins_home.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/jenkins_init.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/plugin_init.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/msbuild_plugin_config.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/mstest_plugin_config.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/create_new_job.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/free_style_project.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/check_from_source.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/nuget_restore.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/jenkins_build.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/jenkins_test.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/jenkins_test_result.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/jenkins_archive.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/archive_and_test_result.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/jenkins_config_path.png">
 <meta property="og:updated_time" content="2017-12-15T03:33:56.981Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Jenkins对.NET Framework工程进行持续集成">
 <meta name="twitter:description" content="本文使用Windows平台上的Jenkins完成.NET Framework平台的CICD相关工作。注意:本文通过多次修改调整，示例图片中的路径、配置可能过期，仅供参考，待图片更新后将删除此提示。 安装及配置JenkinsWindows平台Jenkins下载地址解压后双击安装MSI软件包即可开始安装。安装过程中的设置路径为%JENKINS_HOME%的位置，也是服务的安装位置，此路径在不重装的前提">
-<meta name="twitter:image" content="http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/jenkins_home.png">
+<meta name="twitter:image" content="http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/jenkins_home.png">
     
     
         
@@ -101,16 +101,16 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/&text=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/&title=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/&is_video=false&description=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=使用Jenkins对.NET Framework工程进行持续集成&body=Check out this article: http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/&title=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/&title=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/&title=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/&title=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/&name=使用Jenkins对.NET Framework工程进行持续集成&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/&text=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/&title=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/&is_video=false&description=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=使用Jenkins对.NET Framework工程进行持续集成&body=Check out this article: http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/&title=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/&title=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/&title=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/&title=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/&name=使用Jenkins对.NET Framework工程进行持续集成&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -205,16 +205,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/&text=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/&title=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/&is_video=false&description=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=使用Jenkins对.NET Framework工程进行持续集成&body=Check out this article: http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/&title=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/&title=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/&title=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/&title=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/12/04/jenkins-for-dotnet-framework/&name=使用Jenkins对.NET Framework工程进行持续集成&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/&text=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/&title=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/&is_video=false&description=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=使用Jenkins对.NET Framework工程进行持续集成&body=Check out this article: http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/&title=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/&title=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/&title=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/&title=使用Jenkins对.NET Framework工程进行持续集成"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/&name=使用Jenkins对.NET Framework工程进行持续集成&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

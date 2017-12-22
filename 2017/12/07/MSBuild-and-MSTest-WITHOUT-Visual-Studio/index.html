@@ -6,21 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="条件允许的前提下，建议直接通过安装Visual Studio来获得整个构建、测试环境。若硬盘空间紧张或其他条件导致不允许安装Visual Studio可参考下述方案进行配置： MSBuildMSBuild Tool 2017 下载地址 Nuget下载地址MSBuild不包含nuget的命令行工具，因此需要手动下载备用。">
+    <meta name="description" content="条件允许的前提下，建议直接通过安装Visual Studio来获得整个构建、测试环境。若硬盘空间紧张或其他条件导致不允许安装Visual Studio可参考下述方案进行配置： MSBuildMSBuild Tool 2017 下载地址 Nuget下载地址MSBuild不包含nuget的命令行工具，因此需要手动下载备用。 MSTestVisual Studio 2017 Test Agent 下载地">
 <meta name="keywords" content=".net,Framework,MSBuild,MSTest">
 <meta property="og:type" content="article">
 <meta property="og:title" content=".NET Framework CI环境配置">
-<meta property="og:url" content="http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/index.html">
+<meta property="og:url" content="http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/index.html">
 <meta property="og:site_name" content="宛若天堂">
 <meta property="og:description" content="条件允许的前提下，建议直接通过安装Visual Studio来获得整个构建、测试环境。若硬盘空间紧张或其他条件导致不允许安装Visual Studio可参考下述方案进行配置： MSBuildMSBuild Tool 2017 下载地址 Nuget下载地址MSBuild不包含nuget的命令行工具，因此需要手动下载备用。 MSTestVisual Studio 2017 Test Agent 下载地">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/visual_studio_instance.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/mstest_public_assembly.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/visual_studio_instance.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/mstest_public_assembly.png">
 <meta property="og:updated_time" content="2017-12-14T09:33:01.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content=".NET Framework CI环境配置">
 <meta name="twitter:description" content="条件允许的前提下，建议直接通过安装Visual Studio来获得整个构建、测试环境。若硬盘空间紧张或其他条件导致不允许安装Visual Studio可参考下述方案进行配置： MSBuildMSBuild Tool 2017 下载地址 Nuget下载地址MSBuild不包含nuget的命令行工具，因此需要手动下载备用。 MSTestVisual Studio 2017 Test Agent 下载地">
-<meta name="twitter:image" content="http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/visual_studio_instance.png">
+<meta name="twitter:image" content="http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/visual_studio_instance.png">
     
     
         
@@ -88,16 +88,16 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&text=.NET Framework CI环境配置"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&title=.NET Framework CI环境配置"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&is_video=false&description=.NET Framework CI环境配置"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=.NET Framework CI环境配置&body=Check out this article: http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&title=.NET Framework CI环境配置"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&title=.NET Framework CI环境配置"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&title=.NET Framework CI环境配置"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&title=.NET Framework CI环境配置"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&name=.NET Framework CI环境配置&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&text=.NET Framework CI环境配置"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&title=.NET Framework CI环境配置"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&is_video=false&description=.NET Framework CI环境配置"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=.NET Framework CI环境配置&body=Check out this article: http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&title=.NET Framework CI环境配置"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&title=.NET Framework CI环境配置"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&title=.NET Framework CI环境配置"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&title=.NET Framework CI环境配置"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&name=.NET Framework CI环境配置&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -180,16 +180,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&text=.NET Framework CI环境配置"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&title=.NET Framework CI环境配置"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&is_video=false&description=.NET Framework CI环境配置"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=.NET Framework CI环境配置&body=Check out this article: http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&title=.NET Framework CI环境配置"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&title=.NET Framework CI环境配置"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&title=.NET Framework CI环境配置"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&title=.NET Framework CI环境配置"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&name=.NET Framework CI环境配置&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&text=.NET Framework CI环境配置"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&title=.NET Framework CI环境配置"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&is_video=false&description=.NET Framework CI环境配置"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=.NET Framework CI环境配置&body=Check out this article: http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&title=.NET Framework CI环境配置"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&title=.NET Framework CI环境配置"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&title=.NET Framework CI环境配置"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&title=.NET Framework CI环境配置"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2017/12/07/MSBuild-and-MSTest-WITHOUT-Visual-Studio/&name=.NET Framework CI环境配置&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="在使用Jenkins通过Windowsftp.exe进行持续发布的工作时受到很多限制：  不支持被动模式（PASV）,参考链接stackoverflow。 使用此工具时，客户端必须开放防火墙供服务端“回访”。 当客户机处于NAT网络时，主动回访可能会被路由阻塞。   健壮性差，error pass silently 脚">
+    <meta name="description" content="在使用Jenkins通过Windowsftp.exe进行持续发布的工作时受到很多限制：  不支持被动模式（PASV）,参考链接stackoverflow。 使用此工具时，客户端必须开放防火墙供服务端“回访”。 当客户机处于NAT网络时，主动回访可能会被路由阻塞。   健壮性差，error pass silently 脚本只能按顺序执行 出错后无法停止 出现异常时无法针对异常调整流程 执行结束时返回">
 <meta name="keywords" content="ftp,powershell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用powershell工具取代ftp.exe工具">
-<meta property="og:url" content="http://heavensfeel.net/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/index.html">
+<meta property="og:url" content="http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/index.html">
 <meta property="og:site_name" content="宛若天堂">
 <meta property="og:description" content="在使用Jenkins通过Windowsftp.exe进行持续发布的工作时受到很多限制：  不支持被动模式（PASV）,参考链接stackoverflow。 使用此工具时，客户端必须开放防火墙供服务端“回访”。 当客户机处于NAT网络时，主动回访可能会被路由阻塞。   健壮性差，error pass silently 脚本只能按顺序执行 出错后无法停止 出现异常时无法针对异常调整流程 执行结束时返回">
 <meta property="og:locale" content="zh-cn">
@@ -85,16 +85,16 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&text=使用powershell工具取代ftp.exe工具"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&title=使用powershell工具取代ftp.exe工具"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&is_video=false&description=使用powershell工具取代ftp.exe工具"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=使用powershell工具取代ftp.exe工具&body=Check out this article: http://heavensfeel.net/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&title=使用powershell工具取代ftp.exe工具"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&title=使用powershell工具取代ftp.exe工具"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&title=使用powershell工具取代ftp.exe工具"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&title=使用powershell工具取代ftp.exe工具"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&name=使用powershell工具取代ftp.exe工具&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&text=使用powershell工具取代ftp.exe工具"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&title=使用powershell工具取代ftp.exe工具"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&is_video=false&description=使用powershell工具取代ftp.exe工具"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=使用powershell工具取代ftp.exe工具&body=Check out this article: http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&title=使用powershell工具取代ftp.exe工具"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&title=使用powershell工具取代ftp.exe工具"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&title=使用powershell工具取代ftp.exe工具"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&title=使用powershell工具取代ftp.exe工具"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&name=使用powershell工具取代ftp.exe工具&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -197,16 +197,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&text=使用powershell工具取代ftp.exe工具"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&title=使用powershell工具取代ftp.exe工具"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&is_video=false&description=使用powershell工具取代ftp.exe工具"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=使用powershell工具取代ftp.exe工具&body=Check out this article: http://heavensfeel.net/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&title=使用powershell工具取代ftp.exe工具"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&title=使用powershell工具取代ftp.exe工具"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&title=使用powershell工具取代ftp.exe工具"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&title=使用powershell工具取代ftp.exe工具"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&name=使用powershell工具取代ftp.exe工具&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&text=使用powershell工具取代ftp.exe工具"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&title=使用powershell工具取代ftp.exe工具"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&is_video=false&description=使用powershell工具取代ftp.exe工具"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=使用powershell工具取代ftp.exe工具&body=Check out this article: http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&title=使用powershell工具取代ftp.exe工具"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&title=使用powershell工具取代ftp.exe工具"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&title=使用powershell工具取代ftp.exe工具"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&title=使用powershell工具取代ftp.exe工具"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/&name=使用powershell工具取代ftp.exe工具&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

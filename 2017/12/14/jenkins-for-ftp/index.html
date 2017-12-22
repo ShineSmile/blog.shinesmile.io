@@ -6,21 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="FTP服务的建立在Windows系统下建立IIS服务，除了使用IIS外还可以使用Filezilla，此工具除了会安装windows服务外，还会提供一个对服务进行管理的桌面应用。管理工具默认通过14147端口与服务进行通信。 FTP命令行工具参考地址Windows XP Pro 文档 语法ftp [-v] [-d] [-">
+    <meta name="description" content="FTP服务的建立在Windows系统下建立IIS服务，除了使用IIS外还可以使用Filezilla，此工具除了会安装windows服务外，还会提供一个对服务进行管理的桌面应用。管理工具默认通过14147端口与服务进行通信。 FTP命令行工具参考地址Windows XP Pro 文档 语法ftp [-v] [-d] [-i] [-n] [-g] [-s:FileName] [-a] [-w:Wind">
 <meta name="keywords" content="windows,ftp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Jenkins通过FTP进行持续发布">
-<meta property="og:url" content="http://heavensfeel.net/2017/12/14/jenkins-for-ftp/index.html">
+<meta property="og:url" content="http://shinesmile.io/2017/12/14/jenkins-for-ftp/index.html">
 <meta property="og:site_name" content="宛若天堂">
 <meta property="og:description" content="FTP服务的建立在Windows系统下建立IIS服务，除了使用IIS外还可以使用Filezilla，此工具除了会安装windows服务外，还会提供一个对服务进行管理的桌面应用。管理工具默认通过14147端口与服务进行通信。 FTP命令行工具参考地址Windows XP Pro 文档 语法ftp [-v] [-d] [-i] [-n] [-g] [-s:FileName] [-a] [-w:Wind">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/14/jenkins-for-ftp/ftp_help.png">
-<meta property="og:image" content="http://heavensfeel.net/2017/12/14/jenkins-for-ftp/ftp_subcommand_help.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/14/jenkins-for-ftp/ftp_help.png">
+<meta property="og:image" content="http://shinesmile.io/2017/12/14/jenkins-for-ftp/ftp_subcommand_help.png">
 <meta property="og:updated_time" content="2017-12-18T01:43:22.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Jenkins通过FTP进行持续发布">
 <meta name="twitter:description" content="FTP服务的建立在Windows系统下建立IIS服务，除了使用IIS外还可以使用Filezilla，此工具除了会安装windows服务外，还会提供一个对服务进行管理的桌面应用。管理工具默认通过14147端口与服务进行通信。 FTP命令行工具参考地址Windows XP Pro 文档 语法ftp [-v] [-d] [-i] [-n] [-g] [-s:FileName] [-a] [-w:Wind">
-<meta name="twitter:image" content="http://heavensfeel.net/2017/12/14/jenkins-for-ftp/ftp_help.png">
+<meta name="twitter:image" content="http://shinesmile.io/2017/12/14/jenkins-for-ftp/ftp_help.png">
     
     
         
@@ -88,16 +88,16 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/12/14/jenkins-for-ftp/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/12/14/jenkins-for-ftp/&text=使用Jenkins通过FTP进行持续发布"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/12/14/jenkins-for-ftp/&is_video=false&description=使用Jenkins通过FTP进行持续发布"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=使用Jenkins通过FTP进行持续发布&body=Check out this article: http://heavensfeel.net/2017/12/14/jenkins-for-ftp/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/12/14/jenkins-for-ftp/&name=使用Jenkins通过FTP进行持续发布&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2017/12/14/jenkins-for-ftp/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2017/12/14/jenkins-for-ftp/&text=使用Jenkins通过FTP进行持续发布"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2017/12/14/jenkins-for-ftp/&is_video=false&description=使用Jenkins通过FTP进行持续发布"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=使用Jenkins通过FTP进行持续发布&body=Check out this article: http://shinesmile.io/2017/12/14/jenkins-for-ftp/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2017/12/14/jenkins-for-ftp/&name=使用Jenkins通过FTP进行持续发布&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -336,16 +336,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://heavensfeel.net/2017/12/14/jenkins-for-ftp/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://heavensfeel.net/2017/12/14/jenkins-for-ftp/&text=使用Jenkins通过FTP进行持续发布"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://heavensfeel.net/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://heavensfeel.net/2017/12/14/jenkins-for-ftp/&is_video=false&description=使用Jenkins通过FTP进行持续发布"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=使用Jenkins通过FTP进行持续发布&body=Check out this article: http://heavensfeel.net/2017/12/14/jenkins-for-ftp/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://heavensfeel.net/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://heavensfeel.net/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://heavensfeel.net/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://heavensfeel.net/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://heavensfeel.net/2017/12/14/jenkins-for-ftp/&name=使用Jenkins通过FTP进行持续发布&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2017/12/14/jenkins-for-ftp/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2017/12/14/jenkins-for-ftp/&text=使用Jenkins通过FTP进行持续发布"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2017/12/14/jenkins-for-ftp/&is_video=false&description=使用Jenkins通过FTP进行持续发布"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=使用Jenkins通过FTP进行持续发布&body=Check out this article: http://shinesmile.io/2017/12/14/jenkins-for-ftp/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2017/12/14/jenkins-for-ftp/&name=使用Jenkins通过FTP进行持续发布&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
