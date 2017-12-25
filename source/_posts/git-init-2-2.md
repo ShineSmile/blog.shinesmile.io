@@ -1,7 +1,7 @@
 ---
 title: Git init 2.2：忽略文件
 date: 2017-02-25 13:00:00
-tags: git
+tags: [git, gitignore]
 ---
 
 ## 忽略文件 .gitignore
@@ -12,7 +12,9 @@ Git使用`.gitignore`这个配置文件对不需要提交的文件进行忽略�
 
 `.gitignore`文件在编辑时遵循以下原则：
 
-* 以斜杠“/”开头表示目录；
+* 以斜杠“/”开头表示根目录下的内容；
+
+* 以"/"结尾表示目录；
 
 * 以星号“*”通配多个字符；
 
@@ -31,6 +33,8 @@ Git使用`.gitignore`这个配置文件对不需要提交的文件进行忽略�
 * 已经被版本控制追踪的文件无法通过修改`.gitignore`文件进行忽略，如果需要在后续版本中忽略，请删除这个文件并把删除行为添加到缓存区进行提交。
 
 * `.gitignore`的使用与选择不仅与开发语言有关，还会受到开发环境、编译器、平台等因素的影响。
+
+* 已经添加至缓存的文件，在.gitignore更新后不会被忽略，可以使用**git rm -r --cached .**对缓存进行清除。
 
 Github的[github/gitignore](https://github.com/github/gitignore)项目中提供了一些语言及开发环境使用的`.gitignore`模板。
 
