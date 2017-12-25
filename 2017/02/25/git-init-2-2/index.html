@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="仓鼠窝">
 <meta property="og:description" content="忽略文件 .gitignore操作系统的运行过程、开发环境的部分配置文件、编译器的编译过程，编译结束后生成的文件通常不需要提交到版本库中进行追踪，一方面此类文件可以通过源代码生成，另一方面反复提交编辑结果会导致版本控制仓库体积的剧增，不利于版本控制工具的维护。 Git使用.gitignore这个配置文件对不需要提交的文件进行忽略，达到节省开销的目的。 .gitignore文件在编辑时遵循以下原则：">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2017-11-23T16:51:52.761Z">
+<meta property="og:updated_time" content="2017-12-25T06:20:29.524Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git init 2.2：忽略文件">
 <meta name="twitter:description" content="忽略文件 .gitignore操作系统的运行过程、开发环境的部分配置文件、编译器的编译过程，编译结束后生成的文件通常不需要提交到版本库中进行追踪，一方面此类文件可以通过源代码生成，另一方面反复提交编辑结果会导致版本控制仓库体积的剧增，不利于版本控制工具的维护。 Git使用.gitignore这个配置文件对不需要提交的文件进行忽略，达到节省开销的目的。 .gitignore文件在编辑时遵循以下原则：">
@@ -142,7 +142,9 @@
 <p>Git使用<code>.gitignore</code>这个配置文件对不需要提交的文件进行忽略，达到节省开销的目的。</p>
 <p><code>.gitignore</code>文件在编辑时遵循以下原则：</p>
 <ul>
-<li><p>以斜杠“/”开头表示目录；</p>
+<li><p>以斜杠“/”开头表示根目录下的内容；</p>
+</li>
+<li><p>以”/“结尾表示目录；</p>
 </li>
 <li><p>以星号“*”通配多个字符；</p>
 </li>
@@ -162,6 +164,8 @@
 <li><p>已经被版本控制追踪的文件无法通过修改<code>.gitignore</code>文件进行忽略，如果需要在后续版本中忽略，请删除这个文件并把删除行为添加到缓存区进行提交。</p>
 </li>
 <li><p><code>.gitignore</code>的使用与选择不仅与开发语言有关，还会受到开发环境、编译器、平台等因素的影响。</p>
+</li>
+<li><p>已经添加至缓存的文件，在.gitignore更新后不会被忽略，可以使用<strong>git rm -r –cached .</strong>对缓存进行清除。</p>
 </li>
 </ul>
 <p>Github的<a href="https://github.com/github/gitignore" target="_blank" rel="noopener">github/gitignore</a>项目中提供了一些语言及开发环境使用的<code>.gitignore</code>模板。</p>
