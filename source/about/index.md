@@ -4,6 +4,10 @@ date: 2017-02-16 20:22:12
 ---
 # 关于
 
-一个热爱啤酒和电子游戏的的程序员。
+话痨、咖啡控、代码洁癖、狂躁症患者
 
-莫忘初衷，MonoGame。
+从wordpress到github pages
+
+从heavensfeel.net到shinesmile.io
+
+三年时光
