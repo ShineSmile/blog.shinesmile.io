@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="翻译自：NuGet CLI reference  此官方文档过于拖沓，后续将结合实践重写。 NuGet CLI 概述 Nuget命令行接口nuget.exe, 提供完整的及管理的功能，可以在在不修改任何工程文件的情况下对包进行安装、创建、 发布。 使用nuget命令只需在命令行窗体或bash shell中运行 nuget &amp;lt;子命令&amp;gt; &amp;lt;可选参数&amp;gt;即可，例如nuget hel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nuget命令行接口">
+<meta property="og:url" content="http://shinesmile.io/2017/12/28/nuget-cli/index.html">
+<meta property="og:site_name" content="仓鼠窝">
+<meta property="og:description" content="翻译自：NuGet CLI reference  此官方文档过于拖沓，后续将结合实践重写。 NuGet CLI 概述 Nuget命令行接口nuget.exe, 提供完整的及管理的功能，可以在在不修改任何工程文件的情况下对包进行安装、创建、 发布。 使用nuget命令只需在命令行窗体或bash shell中运行 nuget &amp;lt;子命令&amp;gt; &amp;lt;可选参数&amp;gt;即可，例如nuget hel">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2017-12-29T09:26:45.376Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nuget命令行接口">
+<meta name="twitter:description" content="翻译自：NuGet CLI reference  此官方文档过于拖沓，后续将结合实践重写。 NuGet CLI 概述 Nuget命令行接口nuget.exe, 提供完整的及管理的功能，可以在在不修改任何工程文件的情况下对包进行安装、创建、 发布。 使用nuget命令只需在命令行窗体或bash shell中运行 nuget &amp;lt;子命令&amp;gt; &amp;lt;可选参数&amp;gt;即可，例如nuget hel">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Nuget命令行接口</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2017/12/29/self-host-nuget-server/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2017/12/28/powershell-tools-management-by-script-for-windows/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2017/12/28/nuget-cli/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2017/12/28/nuget-cli/&text=Nuget命令行接口"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2017/12/28/nuget-cli/&title=Nuget命令行接口"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2017/12/28/nuget-cli/&is_video=false&description=Nuget命令行接口"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Nuget命令行接口&body=Check out this article: http://shinesmile.io/2017/12/28/nuget-cli/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2017/12/28/nuget-cli/&title=Nuget命令行接口"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2017/12/28/nuget-cli/&title=Nuget命令行接口"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2017/12/28/nuget-cli/&title=Nuget命令行接口"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2017/12/28/nuget-cli/&title=Nuget命令行接口"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2017/12/28/nuget-cli/&name=Nuget命令行接口&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#NuGet-CLI-概述"><span class="toc-number">1.</span> <span class="toc-text">NuGet CLI 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可用性"><span class="toc-number">1.2.</span> <span class="toc-text">可用性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令及适用性"><span class="toc-number">1.3.</span> <span class="toc-text">命令及适用性</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Nuget命令行接口
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">仓鼠窝</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-12-28T10:53:24.000Z" itemprop="datePublished">2017-12-28</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>翻译自：<a href="https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference" target="_blank" rel="noopener">NuGet CLI reference</a></p>
+<blockquote>
+<p>此官方文档过于拖沓，后续将结合实践重写。</p>
+<h1 id="NuGet-CLI-概述"><a href="#NuGet-CLI-概述" class="headerlink" title="NuGet CLI 概述"></a>NuGet CLI 概述</h1></blockquote>
+<p>Nuget命令行接口<code>nuget.exe</code>, 提供完整的及管理的功能，可以在在不修改任何工程文件的情况下对包进行安装、创建、 发布。</p>
+<p>使用nuget命令只需在命令行窗体或bash shell中运行 <code>nuget &lt;子命令&gt; &lt;可选参数&gt;</code>即可，例如<code>nuget help pack</code>(显示pack文件的帮助信息)。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
+<li>在Mac及Linux发行版中，安装<a href="http://www.mono-project.com/docs/getting-started/install/" target="_blank" rel="noopener">Mono 4.4.2及以上版本</a>。</li>
+<li>访问 <a href="https://nuget.org/downloads" target="_blank" rel="noopener">nuget.org/downloads</a>选择想使用的版本。</li>
+<li>下载链接为 <code>nuget.exe</code> 文件，保存至指定文件夹备用。此文件 <em>不是</em> 安装包; 在文件管理系统中双击执行不会得到任何结果。</li>
+<li>将放置 <code>nuget.exe</code> 的文件夹添加至PATH环境变量以便在其他位置方便的使用CLI调用它。</li>
+</ol>
+<h2 id="可用性"><a href="#可用性" class="headerlink" title="可用性"></a>可用性</h2><ul>
+<li>Windows平台支持所有的命令。</li>
+<li>除了明确指明的<code>pack</code>, <code>restore</code>, 及 <code>update</code>，All commands work with <a href="../guides/install-nuget.md#mac-osx-and-linux">nuget.exe running on Mono</a> </li>
+<li>Mac及Linux平台同样可以通过<a href="dotnet-Commands.md">dotnet CLI</a> 调用<code>pack</code>、 <code>restore</code>、 <code>delete</code>、 <code>locals</code>、 和 <code>push</code> 命令。</li>
+</ul>
+<h2 id="命令及适用性"><a href="#命令及适用性" class="headerlink" title="命令及适用性"></a>命令及适用性</h2><p>命令适用于包的创建、消费以及将其推送至托管服务器等情景：</p>
+<table>
+<thead>
+<tr>
+<th>普通命令</th>
+<th>适用情景</th>
+<th>Nuget版本</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cli-ref-pack.md">pack</a></td>
+<td>创建</td>
+<td>2.7+</td>
+<td>通过<code>.nuspec</code> 或工程文件创建nuget包。Mono下不支持通过工程文件创建。</td>
+</tr>
+<tr>
+<td><a href="cli-ref-push.md">push</a></td>
+<td>推送</td>
+<td>All</td>
+<td>将package推送至源服务器。</td>
+</tr>
+<tr>
+<td><a href="cli-ref-config.md">config</a></td>
+<td>所有</td>
+<td>All</td>
+<td>读取或设置Nuget参数配置。</td>
+</tr>
+<tr>
+<td><a href="cli-ref-help.md">help or ?</a></td>
+<td>所有</td>
+<td>All</td>
+<td>显示通用帮助或单条命令的帮助信息。</td>
+</tr>
+<tr>
+<td><a href="cli-ref-locals.md">locals</a></td>
+<td>消费</td>
+<td>3.3+</td>
+<td>清理或列出列出包缓存地址或全局包 or the global packages folder, or identifies those folders.</td>
+</tr>
+<tr>
+<td><a href="cli-ref-restore.md">restore</a></td>
+<td>Consumption</td>
+<td>2.7+</td>
+<td>Restores all packages referenced by the package reference format in use. When running on Mono, restoring packages using the PackageReference format is not supported.</td>
+</tr>
+<tr>
+<td><a href="cli-ref-setapikey.md">setapikey</a></td>
+<td>Publishing, Consumption</td>
+<td>All</td>
+<td>Saves an API key for a given package source when that package source requires a key for access.</td>
+</tr>
+<tr>
+<td><a href="cli-ref-spec.md">spec</a></td>
+<td>Creation</td>
+<td>All</td>
+<td>Generates a <code>.nuspec</code> file, using tokens if generating the file from a Visual Studio project.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>二级命令</th>
+<th>适用情景</th>
+<th>NuGet版本</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cli-ref-add.md">add</a></td>
+<td>Publishing</td>
+<td>3.3+</td>
+<td>Adds a package to a non-HTTP package source using hierarchical layout. For HTTP sources, use <em>push</em>.</td>
+</tr>
+<tr>
+<td><a href="cli-ref-delete.md">delete</a></td>
+<td>Publishing</td>
+<td>All</td>
+<td>Removes or unlists a package from a package source.</td>
+</tr>
+<tr>
+<td><a href="cli-ref-init.md">init</a></td>
+<td>Creation</td>
+<td>3.3+</td>
+<td>Adds packages from a folder to a package source using hierarchical layout.</td>
+</tr>
+<tr>
+<td><a href="cli-ref-install.md">install</a></td>
+<td>Consumption</td>
+<td>All</td>
+<td>Installs a package into the current project but does not modify projects or reference files.</td>
+</tr>
+<tr>
+<td><a href="cli-ref-list.md">list</a></td>
+<td>Consumption, perhaps Publishing</td>
+<td>All</td>
+<td>Displays packages from a given source.</td>
+</tr>
+<tr>
+<td><a href="cli-ref-mirror.md">mirror</a></td>
+<td>Publishing</td>
+<td>Deprecated in 3.2+</td>
+<td>Mirrors a package and its dependencies from a source to a target repository.</td>
+</tr>
+<tr>
+<td><a href="cli-ref-sources.md">sources</a></td>
+<td>Consumption, Publishing</td>
+<td>All</td>
+<td>Manages package sources in configuration files.</td>
+</tr>
+<tr>
+<td><a href="cli-ref-update.md">update</a></td>
+<td>Consumption</td>
+<td>All</td>
+<td>Updates a project’s packages to the latest available versions. Not supported when running on Mono.</td>
+</tr>
+</tbody>
+</table>
+<p>Different commands make use of various <a href="cli-ref-environment-variables.md">Environment variables</a>.</p>
+<p>NuGet命令行接口情景分类:</p>
+<table>
+<thead>
+<tr>
+<th>情景</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>消费</td>
+<td><code>config</code>, <code>help</code>, <code>install</code>, <code>list</code>, <code>locals</code>, <code>restore</code>, <code>setapikey</code>, <code>sources</code>, <code>update</code></td>
+</tr>
+<tr>
+<td>创建</td>
+<td><code>config</code>, <code>help</code>, <code>init</code>, <code>pack</code>, <code>spec</code></td>
+</tr>
+<tr>
+<td>发布</td>
+<td><code>add</code>, <code>config</code>, <code>delete</code>, <code>help</code>, <code>list</code>, <code>push</code>, <code>setapikey</code>, <code>sources</code></td>
+</tr>
+</tbody>
+</table>
+<p>Developers concerned only with consuming packages, for example, need only understand that subset of NuGet commands.</p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#NuGet-CLI-概述"><span class="toc-number">1.</span> <span class="toc-text">NuGet CLI 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可用性"><span class="toc-number">1.2.</span> <span class="toc-text">可用性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令及适用性"><span class="toc-number">1.3.</span> <span class="toc-text">命令及适用性</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2017/12/28/nuget-cli/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2017/12/28/nuget-cli/&text=Nuget命令行接口"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2017/12/28/nuget-cli/&title=Nuget命令行接口"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2017/12/28/nuget-cli/&is_video=false&description=Nuget命令行接口"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Nuget命令行接口&body=Check out this article: http://shinesmile.io/2017/12/28/nuget-cli/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2017/12/28/nuget-cli/&title=Nuget命令行接口"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2017/12/28/nuget-cli/&title=Nuget命令行接口"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2017/12/28/nuget-cli/&title=Nuget命令行接口"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2017/12/28/nuget-cli/&title=Nuget命令行接口"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2017/12/28/nuget-cli/&name=Nuget命令行接口&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2017 Shine
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+

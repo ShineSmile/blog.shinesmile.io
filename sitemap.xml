@@ -2,9 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://shinesmile.io/2017/12/28/nuget-cli/</loc>
+    
+    <lastmod>2017-12-29T09:26:45.376Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/12/29/self-host-nuget-server/</loc>
+    
+    <lastmod>2017-12-29T09:25:22.048Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/12/28/software-management-by-script-for-windows/</loc>
+    
+    <lastmod>2017-12-29T07:55:28.240Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://shinesmile.io/about/index.html</loc>
     
-    <lastmod>2017-12-27T06:19:54.672Z</lastmod>
+    <lastmod>2017-12-29T06:57:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/12/28/powershell-tools-management-by-script-for-windows/</loc>
+    
+    <lastmod>2017-12-29T05:40:19.278Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/12/27/contiguous-formatting-code-with-resharper-and-stylecop/</loc>
+    
+    <lastmod>2017-12-28T09:27:16.414Z</lastmod>
     
   </url>
   
@@ -114,6 +149,13 @@
   </url>
   
   <url>
+    <loc>http://shinesmile.io/2017/03/23/skill-of-mac/</loc>
+    
+    <lastmod>2017-11-23T16:51:52.787Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://shinesmile.io/2017/07/18/use-vscode-terminal-for-windows-subsystem-for-linux/</loc>
     
     <lastmod>2017-11-23T16:51:52.787Z</lastmod>
@@ -122,13 +164,6 @@
   
   <url>
     <loc>http://shinesmile.io/2017/03/22/skill-of-ubuntu/</loc>
-    
-    <lastmod>2017-11-23T16:51:52.787Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/03/23/skill-of-mac/</loc>
     
     <lastmod>2017-11-23T16:51:52.787Z</lastmod>
     
@@ -149,14 +184,14 @@
   </url>
   
   <url>
-    <loc>http://shinesmile.io/2017/02/27/git-init-4/</loc>
+    <loc>http://shinesmile.io/2017/02/26/git-init-3/</loc>
     
     <lastmod>2017-11-23T16:51:52.772Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://shinesmile.io/2017/02/26/git-init-3/</loc>
+    <loc>http://shinesmile.io/2017/02/27/git-init-4/</loc>
     
     <lastmod>2017-11-23T16:51:52.772Z</lastmod>
     
@@ -205,13 +240,6 @@
   </url>
   
   <url>
-    <loc>http://shinesmile.io/2017/03/27/docker-https/</loc>
-    
-    <lastmod>2017-11-23T16:51:52.748Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://shinesmile.io/2017/07/18/format-git-commit-message/</loc>
     
     <lastmod>2017-11-23T16:51:52.748Z</lastmod>
@@ -220,6 +248,13 @@
   
   <url>
     <loc>http://shinesmile.io/2017/03/29/docker-swarm-mode/</loc>
+    
+    <lastmod>2017-11-23T16:51:52.748Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/03/27/docker-https/</loc>
     
     <lastmod>2017-11-23T16:51:52.748Z</lastmod>
     
