@@ -43,7 +43,7 @@ node ("Windows"){
 }
 ```
 Tips:
-* 可以通过node("<节点Lable>")来制定用来构建的节点
+* 可以通过node("<节点Lable>")来指定构建的节点
 * checkout步骤的代码可以通过Jenkins提供的GUI工具配置生成
 * 执行批处理的模板为`bat 'cmd /c command param file'`，注意，单引号中的内容若存在`\`则需要转义。此过程代码同样可以通过模板生成。
 * `try{ }catch{ }finally{ }`：其逻辑与C#中的代码类似，不论`try`块是否成功，`finnally`块都会执行。
