@@ -163,7 +163,7 @@
   </url>
   
   <url>
-    <loc>http://shinesmile.io/2017/03/23/skill-of-mac/</loc>
+    <loc>http://shinesmile.io/2017/03/23/skill-of-docker/</loc>
     
     <lastmod>2017-11-23T16:51:52.787Z</lastmod>
     
@@ -184,7 +184,7 @@
   </url>
   
   <url>
-    <loc>http://shinesmile.io/2017/03/23/skill-of-docker/</loc>
+    <loc>http://shinesmile.io/2017/03/23/skill-of-mac/</loc>
     
     <lastmod>2017-11-23T16:51:52.787Z</lastmod>
     
@@ -254,13 +254,6 @@
   </url>
   
   <url>
-    <loc>http://shinesmile.io/2017/07/18/format-git-commit-message/</loc>
-    
-    <lastmod>2017-11-23T16:51:52.748Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://shinesmile.io/2017/03/29/docker-swarm-mode/</loc>
     
     <lastmod>2017-11-23T16:51:52.748Z</lastmod>
@@ -269,6 +262,13 @@
   
   <url>
     <loc>http://shinesmile.io/2017/03/27/docker-https/</loc>
+    
+    <lastmod>2017-11-23T16:51:52.748Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/07/18/format-git-commit-message/</loc>
     
     <lastmod>2017-11-23T16:51:52.748Z</lastmod>
     
