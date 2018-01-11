@@ -3,6 +3,17 @@ title: Jenkins迁移至Server2008执行Powershell无响应
 date: 2017-12-22 10:41:31
 tags:
 ---
+
+**Windows Server 2K8的powershell版本默认为2.0。因版本过时，在使用过程中存在功能缺失、无法由Jenkins直接调用，cmd调用时exit code不更新%errorlevel%字段等问题，因此简直升级至最新版本根除隐患。**
+
+[微软官方技术支持1](https://social.technet.microsoft.com/wiki/contents/articles/21016.how-to-install-windows-powershell-4-0.aspx)
+[微软官方技术支持2](https://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx)
+简单来说：
+1. [SP1-Windows 2008 R2](http://www.microsoft.com/en-us/download/details.aspx?id=5842)
+1. [Microsoft .NET Framework 4.5.1) (Offline Installer)](http://www.microsoft.com/en-us/download/details.aspx?id=40779)
+1. [Windows Management Framework 4.0](http://www.microsoft.com/en-us/download/details.aspx?id=40855)
+安装后重启即可
+------
 ## 现象
 将Jenkins从2k16迁移至2k8的服务器时，发生了jenkins pipeline中powershell脚本无响应的问题。
 ## 问题
