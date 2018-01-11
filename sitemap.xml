@@ -4,7 +4,7 @@
   <url>
     <loc>http://shinesmile.io/about/index.html</loc>
     
-    <lastmod>2018-01-11T18:31:47.489Z</lastmod>
+    <lastmod>2018-01-11T18:42:16.000Z</lastmod>
     
   </url>
   
@@ -198,14 +198,14 @@
   </url>
   
   <url>
-    <loc>http://shinesmile.io/2017/02/27/git-init-4/</loc>
+    <loc>http://shinesmile.io/2017/02/26/git-init-3/</loc>
     
     <lastmod>2017-11-23T16:51:52.772Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://shinesmile.io/2017/02/26/git-init-3/</loc>
+    <loc>http://shinesmile.io/2017/02/27/git-init-4/</loc>
     
     <lastmod>2017-11-23T16:51:52.772Z</lastmod>
     
@@ -254,6 +254,13 @@
   </url>
   
   <url>
+    <loc>http://shinesmile.io/2017/07/18/format-git-commit-message/</loc>
+    
+    <lastmod>2017-11-23T16:51:52.748Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://shinesmile.io/2017/03/29/docker-swarm-mode/</loc>
     
     <lastmod>2017-11-23T16:51:52.748Z</lastmod>
@@ -262,13 +269,6 @@
   
   <url>
     <loc>http://shinesmile.io/2017/03/27/docker-https/</loc>
-    
-    <lastmod>2017-11-23T16:51:52.748Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/07/18/format-git-commit-message/</loc>
     
     <lastmod>2017-11-23T16:51:52.748Z</lastmod>
     

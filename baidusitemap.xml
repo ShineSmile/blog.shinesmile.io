@@ -478,12 +478,12 @@
 
     
   <url>
-    <loc>http://shinesmile.io/2017/02/27/git-init-4/</loc>
+    <loc>http://shinesmile.io/2017/02/26/git-init-3/</loc>
     <lastmod>2017-11-23T16:51:52.772Z</lastmod>
     <data>
         <display>
-        <title>Git init 4：SourceTree的使用</title>
-        <pubTime>2017-02-27T04:00:00.000Z</pubTime>
+        <title>Git init 3：协作开发的分支管理</title>
+        <pubTime>2017-02-26T04:00:00.000Z</pubTime>
         
         <tag>git</tag>
          
@@ -495,12 +495,12 @@
 
     
   <url>
-    <loc>http://shinesmile.io/2017/02/26/git-init-3/</loc>
+    <loc>http://shinesmile.io/2017/02/27/git-init-4/</loc>
     <lastmod>2017-11-23T16:51:52.772Z</lastmod>
     <data>
         <display>
-        <title>Git init 3：协作开发的分支管理</title>
-        <pubTime>2017-02-26T04:00:00.000Z</pubTime>
+        <title>Git init 4：SourceTree的使用</title>
+        <pubTime>2017-02-27T04:00:00.000Z</pubTime>
         
         <tag>git</tag>
          
@@ -614,6 +614,27 @@
 
     
   <url>
+    <loc>http://shinesmile.io/2017/07/18/format-git-commit-message/</loc>
+    <lastmod>2017-11-23T16:51:52.748Z</lastmod>
+    <data>
+        <display>
+        <title>格式化git commit message</title>
+        <pubTime>2017-07-18T10:46:11.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+        <tag>commit</tag>
+         
+        <tag>message</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shinesmile.io/2017/03/29/docker-swarm-mode/</loc>
     <lastmod>2017-11-23T16:51:52.748Z</lastmod>
     <data>
@@ -647,27 +668,6 @@
         <tag>https</tag>
          
         <tag>tls</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/07/18/format-git-commit-message/</loc>
-    <lastmod>2017-11-23T16:51:52.748Z</lastmod>
-    <data>
-        <display>
-        <title>格式化git commit message</title>
-        <pubTime>2017-07-18T10:46:11.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-        <tag>commit</tag>
-         
-        <tag>message</tag>
          
          
            
