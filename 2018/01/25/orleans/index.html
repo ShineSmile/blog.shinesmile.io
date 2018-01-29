@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="摘要低延迟、高吞吐量、高可用为交互服务的刚需，传统无状态三层架构则受到各个方面的挑战。参与者模式可以在保证性能的同时以自然的方式构建具有状态的中间层。然而，主流的参与者模式框架仍然将许多分布式系统的问题抛给了开发者。奥尔良编程模型通过一种新的抽象方式，解决分布式系统中的可靠性、分发资源管理等问题，节约开发者的精力用来解决其他问题。于此同时，奥尔良运行时能够保证应用程序的性能、可靠性及扩展能力。这篇">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Orleans MSR TR 2014 41 zh_cn">
+<meta property="og:url" content="http://shinesmile.io/2018/01/25/orleans/index.html">
+<meta property="og:site_name" content="仓鼠窝">
+<meta property="og:description" content="摘要低延迟、高吞吐量、高可用为交互服务的刚需，传统无状态三层架构则受到各个方面的挑战。参与者模式可以在保证性能的同时以自然的方式构建具有状态的中间层。然而，主流的参与者模式框架仍然将许多分布式系统的问题抛给了开发者。奥尔良编程模型通过一种新的抽象方式，解决分布式系统中的可靠性、分发资源管理等问题，节约开发者的精力用来解决其他问题。于此同时，奥尔良运行时能够保证应用程序的性能、可靠性及扩展能力。这篇">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-01-29T12:21:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Orleans MSR TR 2014 41 zh_cn">
+<meta name="twitter:description" content="摘要低延迟、高吞吐量、高可用为交互服务的刚需，传统无状态三层架构则受到各个方面的挑战。参与者模式可以在保证性能的同时以自然的方式构建具有状态的中间层。然而，主流的参与者模式框架仍然将许多分布式系统的问题抛给了开发者。奥尔良编程模型通过一种新的抽象方式，解决分布式系统中的可靠性、分发资源管理等问题，节约开发者的精力用来解决其他问题。于此同时，奥尔良运行时能够保证应用程序的性能、可靠性及扩展能力。这篇">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Orleans MSR TR 2014 41 zh_cn</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/01/26/present-situation-of-Programmers/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/01/22/dont-find-nail-with-hammer/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2018/01/25/orleans/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2018/01/25/orleans/&text=Orleans MSR TR 2014 41 zh_cn"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2018/01/25/orleans/&title=Orleans MSR TR 2014 41 zh_cn"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2018/01/25/orleans/&is_video=false&description=Orleans MSR TR 2014 41 zh_cn"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Orleans MSR TR 2014 41 zh_cn&body=Check out this article: http://shinesmile.io/2018/01/25/orleans/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2018/01/25/orleans/&title=Orleans MSR TR 2014 41 zh_cn"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2018/01/25/orleans/&title=Orleans MSR TR 2014 41 zh_cn"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2018/01/25/orleans/&title=Orleans MSR TR 2014 41 zh_cn"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2018/01/25/orleans/&title=Orleans MSR TR 2014 41 zh_cn"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2018/01/25/orleans/&name=Orleans MSR TR 2014 41 zh_cn&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#摘要"><span class="toc-number">1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">2.</span> <span class="toc-text">背景</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Orleans MSR TR 2014 41 zh_cn
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">仓鼠窝</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-01-25T09:10:46.000Z" itemprop="datePublished">2018-01-25</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>低延迟、高吞吐量、高可用为交互服务的刚需，传统无状态三层架构则受到各个方面的挑战。参与者模式可以在保证性能的同时以自然的方式构建具有状态的中间层。然而，主流的参与者模式框架仍然将许多分布式系统的问题抛给了开发者。<br>奥尔良编程模型通过一种新的抽象方式，解决分布式系统中的可靠性、分发资源管理等问题，节约开发者的精力用来解决其他问题。于此同时，奥尔良运行时能够保证应用程序的性能、可靠性及扩展能力。<br>这篇论文阐述了奥尔良背后的设计原则，以及通过奥尔良实现的能够达到上述目标的简单模型示例。本文还描述了在Windows Azure中，奥尔良简化多个弹性应用的开发过程，并对其他平台的进行简要报告。</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>构建能够横向扩展的高可用应用不是一件易事。服务的可用性和延迟直接影响后续用户的使用体验。为了能够及时响应大量用户同时发起的会话，服务的吞吐量也有很高的要求。<br>无状态前端、无状态业务层及数据储存层的传统三层架构中，由于数据储存层对每一次请求的响应的延迟和并发量的限制影响了横向扩展的能力。为了提升性能，虽然在储存层及业务层之间添加数据缓存能够缓解问题，却丢失了底层存储层并发性和语义保证。应用程序或缓存管理不得不实现防并发锁，避免缓存被并发更新导致一致性的丢失。无论有无缓存，由于数据传输范例的使用，无状态的中间层都无法提供数据位置：对于每个请求，储存或缓存层的数据被发送至中间层。</p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#摘要"><span class="toc-number">1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">2.</span> <span class="toc-text">背景</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2018/01/25/orleans/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2018/01/25/orleans/&text=Orleans MSR TR 2014 41 zh_cn"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2018/01/25/orleans/&title=Orleans MSR TR 2014 41 zh_cn"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2018/01/25/orleans/&is_video=false&description=Orleans MSR TR 2014 41 zh_cn"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Orleans MSR TR 2014 41 zh_cn&body=Check out this article: http://shinesmile.io/2018/01/25/orleans/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2018/01/25/orleans/&title=Orleans MSR TR 2014 41 zh_cn"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2018/01/25/orleans/&title=Orleans MSR TR 2014 41 zh_cn"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2018/01/25/orleans/&title=Orleans MSR TR 2014 41 zh_cn"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2018/01/25/orleans/&title=Orleans MSR TR 2014 41 zh_cn"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2018/01/25/orleans/&name=Orleans MSR TR 2014 41 zh_cn&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 Shine
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+

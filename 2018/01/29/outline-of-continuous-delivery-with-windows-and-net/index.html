@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Original PDF Download Foreword Continuous Delivery is grounded in a pragmatic, empirical approach to software development.  There are at least two factions: the world of Windows and .NET, and the Unix">
+<meta name="keywords" content="dotnet,windows,CI,CD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Outline Of Continuous Delivery With-windows-and-net">
+<meta property="og:url" content="http://shinesmile.io/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/index.html">
+<meta property="og:site_name" content="仓鼠窝">
+<meta property="og:description" content="Original PDF Download Foreword Continuous Delivery is grounded in a pragmatic, empirical approach to software development.  There are at least two factions: the world of Windows and .NET, and the Unix">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-01-29T12:22:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Outline Of Continuous Delivery With-windows-and-net">
+<meta name="twitter:description" content="Original PDF Download Foreword Continuous Delivery is grounded in a pragmatic, empirical approach to software development.  There are at least two factions: the world of Windows and .NET, and the Unix">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Outline Of Continuous Delivery With-windows-and-net</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2018/01/26/present-situation-of-Programmers/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/&text=Outline Of Continuous Delivery With-windows-and-net"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/&title=Outline Of Continuous Delivery With-windows-and-net"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/&is_video=false&description=Outline Of Continuous Delivery With-windows-and-net"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Outline Of Continuous Delivery With-windows-and-net&body=Check out this article: http://shinesmile.io/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/&title=Outline Of Continuous Delivery With-windows-and-net"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/&title=Outline Of Continuous Delivery With-windows-and-net"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/&title=Outline Of Continuous Delivery With-windows-and-net"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/&title=Outline Of Continuous Delivery With-windows-and-net"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/&name=Outline Of Continuous Delivery With-windows-and-net&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Foreword"><span class="toc-number">1.</span> <span class="toc-text">Foreword</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CHAPTER-1-Introduction-to-Continuous-Delivery"><span class="toc-number">2.</span> <span class="toc-text">CHAPTER 1 Introduction to Continuous Delivery</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-2-Version-Control"><span class="toc-number">3.</span> <span class="toc-text">Chapter 2 Version Control</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-3-Continuous-Integration"><span class="toc-number">4.</span> <span class="toc-text">Chapter 3 Continuous Integration</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-4-Deployment-Pipelines"><span class="toc-number"></span> <span class="toc-text">Chapter 4 Deployment Pipelines</span></a>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Outline Of Continuous Delivery With-windows-and-net
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">仓鼠窝</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-01-29T09:40:00.000Z" itemprop="datePublished">2018-01-29</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/CD/">CD</a>, <a class="tag-link" href="/tags/CI/">CI</a>, <a class="tag-link" href="/tags/dotnet/">dotnet</a>, <a class="tag-link" href="/tags/windows/">windows</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><a href="http://www.oreilly.com/webops-perf/free/files/continuous-delivery-with-windows-and-net.pdf" target="_blank" rel="noopener">Original PDF Download</a></p>
+<h2 id="Foreword"><a href="#Foreword" class="headerlink" title="Foreword"></a>Foreword</h2><ol>
+<li><p>Continuous Delivery is grounded in a pragmatic, empirical approach to software development.</p>
+</li>
+<li><p>There are at least two factions: the world of Windows and .NET, and the Unix-based tribes of the “Open Stack.”</p>
+</li>
+</ol>
+<h2 id="CHAPTER-1-Introduction-to-Continuous-Delivery"><a href="#CHAPTER-1-Introduction-to-Continuous-Delivery" class="headerlink" title="CHAPTER 1 Introduction to Continuous Delivery"></a>CHAPTER 1 Introduction to Continuous Delivery</h2><ol>
+<li>Continuous Delivery aims to enable regular, rapid, reliable software releases through a set of sound practi‐ ces, giving the people who “own” the software product the power to decide when to release changes. P.1</li>
+<li>Continuous Deployment is a push-based approach: when software developers commit a new fea‐ ture to version control, it is pushed toward the Live systems auto‐ matically after successfully passing through a series of automated tests and checks.   P.2</li>
+<li>The Importance of Automation for Continuous Delivery. P.3<ul>
+<li>Software compilation and unit testing (“builds”)</li>
+<li>Software testing (component, service, integration, and UI)</li>
+<li>Deployment of software and infrastructure through all environ‐ ments, including Production</li>
+<li>Configuration of applications and infrastructure (including net‐ works, DNS, virtual machines [VMs], and load balancers)</li>
+<li>Database changes (reference data, schema changes, and data migrations)</li>
+<li>Approval of everyday IT changes (“standard changes”)</li>
+<li>The tracking and tracing of change history and authorizations</li>
+<li>Testing of Production systems</li>
+</ul>
+</li>
+<li>Why Is Continuous Delivery Needed?<ul>
+<li>Developing and operating modern software successfully requires a combination of good tools, well-trained and well-socialized people, good team discipline, a clear and shared purpose, and well-aligned financial and organizational goals.</li>
+</ul>
+</li>
+<li>Why Windows Needs Special Treatment    P.4<ul>
+<li>Plain text  les for con guration of applications and services (rather than the Windows Registry or databases)</li>
+<li>Controlling application behavior from the command line (rather than a GUI)</li>
+<li>A multivendor, open source–friendly approach to software in the Windows ecosystem</li>
+<li>Easily scriptable package management with declarative depen‐ dencies</li>
+</ul>
+</li>
+<li>Terminology    P.5<ul>
+<li>Artifact</li>
+<li>Continuous Delivery (CD)</li>
+<li>Continuous Integration (CI)</li>
+<li>Cycle time</li>
+<li>DBA</li>
+<li>DSC</li>
+<li>DSL</li>
+<li>IIS</li>
+<li>Infrastructure</li>
+<li>Infrastructure con guration management (or just con g manage‐ ment)</li>
+<li>Infrastructure as code</li>
+<li>LDAP</li>
+<li>On-premise</li>
+<li>Package management</li>
+<li>Production</li>
+<li>SCCM</li>
+<li>Software-as-a-Service (SaaS)</li>
+<li>SysAdmin</li>
+<li>Test-driven development (TDD)</li>
+<li>User interface (UI)</li>
+<li>Version control system (VCS)</li>
+</ul>
+</li>
+</ol>
+<h2 id="Chapter-2-Version-Control"><a href="#Chapter-2-Version-Control" class="headerlink" title="Chapter 2 Version Control"></a>Chapter 2 Version Control</h2><ol>
+<li><p>Key Version Control Practices  P.7</p>
+<ul>
+<li>Commits to version control should be cohesive and meaningful, helping people to see why a change was made.</li>
+<li>Commits should happen many times per day—if your version control system or practices work against multiple daily com‐ mits, you’re likely using the wrong approach.</li>
+<li>Branch as little as possible (see “Branching Options” on page 11)—use techniques such as feature toggles to manage partially completed work. Focus on completing a small number of changes rather than tackling many things in parallel.</li>
+<li>Any non-trunk branches should be short-lived—especially fea‐ ture branches.<br>Version Control Technologies  P.8</li>
+<li>Git</li>
+<li>Mercurial</li>
+<li>Subversion</li>
+<li>TFS</li>
+</ul>
+</li>
+<li><p>Branching Options  P.11<br> A developer has a problem to fix, so they create a feature branch. Now they have two problems to fix. –Anon.</p>
+<ul>
+<li>Pull Requests</li>
+<li>Feature Toggles</li>
+<li>Use NuGet for Dependencies</li>
+<li>Do Not Store Packages in Version Control</li>
+<li>Use NuGet to Manage Internal Dependencies</li>
+</ul>
+</li>
+<li><p>Do not be tempted to rush into branching just because your version control tool has good branching support. Git in particular supports branching well, but Git was designed for collaboration on the Linux kernel code by geographically separated individuals. Your software teams (should) have much better communication than the Linux kernel team, so give preference to communi‐ cation instead of branching!    P.12</p>
+</li>
+<li><p>Originally, the NuGet package format was for build- time dependencies only, although several tools now use the NuGet format for deployable artifacts too. For a clearer distinction between build-time and run-time dependencies, use Chocolatey, currently the de facto apt-get tool for Windows and .NET. In the future, other package managers may appear, facilitated by the emerging OneGet packager manager management framework.    P.14</p>
+</li>
+</ol>
+<h2 id="Chapter-3-Continuous-Integration"><a href="#Chapter-3-Continuous-Integration" class="headerlink" title="Chapter 3 Continuous Integration"></a>Chapter 3 Continuous Integration</h2><ol>
+<li>Many organizations assume that they are “doing CI” if they run a CI Server (see below), but good CI is a well-defined set of approaches and good practices, not a tool.     P.15</li>
+<li>Remote build agents require a physical or virtual machine, which can be expensive. A possible route to smaller and cheaper build agents is Windows Nano, a lightweight version of Windows announced in April 2015.   P.16</li>
+<li>CI Servers for Windows and .NET  P.15<ul>
+<li>AppVeyor</li>
+<li>Bamboo</li>
+<li>BuildMaster</li>
+<li>GoCD</li>
+<li>Jenkins</li>
+<li>TeamCity</li>
+<li>TFS Build / VSO</li>
+</ul>
+</li>
+<li>Automation P.22<ul>
+<li>Build</li>
+<li>Test</li>
+<li>Package</li>
+<li>Deploy</li>
+</ul>
+</li>
+<li>Tools P.23<ul>
+<li>MSBuild</li>
+<li>PSake</li>
+<li>Ruby/Rake</li>
+<li>NAnt</li>
+<li>Batch Script</li>
+</ul>
+</li>
+<li>Architecture Changes for Better CI P.26<ul>
+<li>Use smaller, decoupled components</li>
+<li>Use exactly one .sln file per component or service</li>
+<li>Ensure that a solution produces many assemblies/DLLs but only one component or service</li>
+<li>Ensure that each .csproj exists in only one .sln file, not shared between many</li>
+<li>Use NuGet to package internal libraries</li>
+</ul>
+</li>
+</ol>
+<h1 id="Chapter-4-Deployment-Pipelines"><a href="#Chapter-4-Deployment-Pipelines" class="headerlink" title="Chapter 4 Deployment Pipelines"></a>Chapter 4 Deployment Pipelines</h1><ol>
+<li>Reason   P.27<ul>
+<li>To automate the different build, test, and deployment activities</li>
+<li>To visualize the progress of software toward Production</li>
+<li>To find and reduce bottlenecks or wait times in the deployment process</li>
+</ul>
+</li>
+<li>Tools    P.28<ul>
+<li>GoCD</li>
+<li>Octopus</li>
+<li>TeamCity</li>
+<li>VSO</li>
+<li>Inedo BuildMaster</li>
+<li>IBM UrbanCode Deploy</li>
+<li>XebiaLabs XL Deploy</li>
+</ul>
+</li>
+<li>Deployment Techniques     P.32<ul>
+<li>Use Blue-Green Deployment for Seamless Deploys</li>
+<li>Canary Deployments</li>
+<li>Postdeployment Checks</li>
+<li>Smoke Tests</li>
+</ul>
+</li>
+<li>Decouple File Delivery from Code Availability    P.35<ul>
+<li>Delivery of files onto a server</li>
+<li>Making the new software active</li>
+</ul>
+</li>
+<li>The most effective rollback is simply to redeploy the previous soft‐ ware version using the deployment pipeline. P.35</li>
+<li>Database P.35</li>
+</ol>
+<p>TO BE Continue…</p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Foreword"><span class="toc-number">1.</span> <span class="toc-text">Foreword</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CHAPTER-1-Introduction-to-Continuous-Delivery"><span class="toc-number">2.</span> <span class="toc-text">CHAPTER 1 Introduction to Continuous Delivery</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-2-Version-Control"><span class="toc-number">3.</span> <span class="toc-text">Chapter 2 Version Control</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-3-Continuous-Integration"><span class="toc-number">4.</span> <span class="toc-text">Chapter 3 Continuous Integration</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-4-Deployment-Pipelines"><span class="toc-number"></span> <span class="toc-text">Chapter 4 Deployment Pipelines</span></a>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/&text=Outline Of Continuous Delivery With-windows-and-net"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/&title=Outline Of Continuous Delivery With-windows-and-net"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/&is_video=false&description=Outline Of Continuous Delivery With-windows-and-net"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Outline Of Continuous Delivery With-windows-and-net&body=Check out this article: http://shinesmile.io/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/&title=Outline Of Continuous Delivery With-windows-and-net"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/&title=Outline Of Continuous Delivery With-windows-and-net"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/&title=Outline Of Continuous Delivery With-windows-and-net"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/&title=Outline Of Continuous Delivery With-windows-and-net"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/&name=Outline Of Continuous Delivery With-windows-and-net&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 Shine
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+
