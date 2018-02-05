@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="官网地址 官网简介 Nancy is a lightweight, low-ceremony, framework for building HTTP based services on .NET Framework/Core and Mono. The goal of the framework is to stay out of the way as much as possible and">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nancy for ...">
+<meta property="og:url" content="http://shinesmile.io/2018/02/05/Nancy-for/index.html">
+<meta property="og:site_name" content="仓鼠窝">
+<meta property="og:description" content="官网地址 官网简介 Nancy is a lightweight, low-ceremony, framework for building HTTP based services on .NET Framework/Core and Mono. The goal of the framework is to stay out of the way as much as possible and">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-02-05T12:37:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nancy for ...">
+<meta name="twitter:description" content="官网地址 官网简介 Nancy is a lightweight, low-ceremony, framework for building HTTP based services on .NET Framework/Core and Mono. The goal of the framework is to stay out of the way as much as possible and">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Nancy for ...</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2018/02/05/Nancy-for/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2018/02/05/Nancy-for/&text=Nancy for ..."><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2018/02/05/Nancy-for/&title=Nancy for ..."><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2018/02/05/Nancy-for/&is_video=false&description=Nancy for ..."><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Nancy for ...&body=Check out this article: http://shinesmile.io/2018/02/05/Nancy-for/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2018/02/05/Nancy-for/&title=Nancy for ..."><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2018/02/05/Nancy-for/&title=Nancy for ..."><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2018/02/05/Nancy-for/&title=Nancy for ..."><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2018/02/05/Nancy-for/&title=Nancy for ..."><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2018/02/05/Nancy-for/&name=Nancy for ...&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#官网简介"><span class="toc-number">1.</span> <span class="toc-text">官网简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发者反馈"><span class="toc-number">2.</span> <span class="toc-text">开发者反馈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-should-I-not-use-NancyFx"><span class="toc-number">2.1.</span> <span class="toc-text">Why should I (not) use NancyFx ?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Positive"><span class="toc-number">2.2.</span> <span class="toc-text">Positive</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Negative"><span class="toc-number">2.3.</span> <span class="toc-text">Negative</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Nancy for ...
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">仓鼠窝</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-02-05T03:21:22.000Z" itemprop="datePublished">2018-02-05</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><a href="http://nancyfx.org" target="_blank" rel="noopener">官网地址</a></p>
+<h2 id="官网简介"><a href="#官网简介" class="headerlink" title="官网简介"></a>官网简介</h2><blockquote>
+<p>Nancy is a lightweight, low-ceremony, framework for building HTTP based services on .NET Framework/Core and Mono. The goal of the framework is to stay out of the way as much as possible and provide a super-duper-happy-path to all interactions.</p>
+</blockquote>
+<p>Nancy是一个轻量级的低成本框架，用于在.NET Framework/core和Mono中构建基于HTTP的服务。框架的目标是尽可能的避开HTTP细节，为所有的交互提供一个高度抽象及易配置的使用方式。</p>
+<blockquote>
+<p>Nancy is designed to handle DELETE, GET, HEAD, OPTIONS, POST, PUT and PATCH requests and provides a simple, elegant, Domain Specific Language (DSL) for returning a response with just a couple of keystrokes, leaving you with more time to focus on the important bits.. your code and your application.</p>
+</blockquote>
+<p>Nancy可处理DELETE、GET、HEAD、OPTIONS、POST、PUT和PATCH请求，只需要几行代码就能提供一个简单、优雅、领域特定语言(DSL)的返回，让你有更多的时间去关注代码和应用程序重要的部分。</p>
+<h2 id="开发者反馈"><a href="#开发者反馈" class="headerlink" title="开发者反馈"></a>开发者反馈</h2><p><a href="https://www.reddit.com/r/dotnet/comments/3fpgtj/why_should_i_not_use_nancyfx/?st=jd9nokkk&amp;sh=cfdebcc8" target="_blank" rel="noopener">Reddit地址</a></p>
+<h3 id="Why-should-I-not-use-NancyFx"><a href="#Why-should-I-not-use-NancyFx" class="headerlink" title="Why should I (not) use NancyFx ?"></a>Why should I (not) use NancyFx ?</h3><blockquote>
+<p>Disclaimer; I’m part of the Nancy team and use it daily ;)</p>
+</blockquote>
+<p>利益相关：Nancy开发团队的一员并将其应用于日常工作</p>
+<blockquote>
+<p>Here are some of my top arguments on why you should use it:</p>
+</blockquote>
+<p>使用Nancy的强力依据：</p>
+<blockquote>
+<p>Convention over configuration. The framework gets out of your way and lets you concentrate on your code, rather than setting up and configuring the framework itself. It comes with sensible defaults to get up and running quickly and once you move towards a more advanced setup, it’s easy to customize.</p>
+</blockquote>
+<p>约定优于配置：Nancy使你能将精力从建立及配置框架上转移，使你专注于代码本身。默认配置能够快速建立工程并使其运行，若需要高级功能可通过简单的定制实现。</p>
+<blockquote>
+<p>Dependency Injection everywhere. At the core of the framework sits an IoC container (might be a bit controversial). This means that you configure your application’s composition in a central place, the composition root (in Nancy’s case, the bootstrapper). Nancy has official bootstrappers for the most popular containers in the .NET community today, like TinyIoC (default), Autofac, StructureMap, Unity, Windsor and Ninject. There are also community maintained bootstrappers available.</p>
+</blockquote>
+<p>集成主流依赖注入组件：控制反转模块作为框架的核心（此点有争议）。意味着应用程序的组件需要在组件的核心（Nancy中的bootstrapper）集中处理。Nancy原生支持社区中主流的容器有：TinyIoC (默认)、Autofac、StructureMap、Unity、Windsor以及Ninject。还包括社区维护的其他控制反转的引导。</p>
+<blockquote>
+<p>It’s host-agnostic and runs anywhere. The CI process builds the framework agains Mono to make sure it can run in all kinds of environments. It’s also built to be host-agnostic, which means that it pretty much runs anywhere, like IIS, Apache, nginx, FastCGI and self-hosted. Here are some hosts that are supported by Nancy:</p>
+<ul>
+<li>Self-hosted - using HttpListener</li>
+<li>System.Web - running on IIS (Express)</li>
+<li>WCF</li>
+<li>OWIN - This is the most versatile, recommended, hosting model.</li>
+</ul>
+</blockquote>
+<p>支持多种托管方式：持续集成管线会在Mono环境进行编译，来确保其能够在所有的环境中运行。并且被构建成意味着在任何环境都能够良好的运行，例如：IIS，Apache、nginx、FastCGI以及自托管运行。下述列表为官方支持的托管方式：</p>
+<ul>
+<li>通过HttpListener进行自托管</li>
+<li>通过System.Web托管于IIS（及Express）</li>
+<li>WCF</li>
+<li>OWIN - 受推荐的广泛的托管模型</li>
+</ul>
+<blockquote>
+<p>Testing. Since the framework is built independent of a HTTP host, the framework can be “spun up” in-memory, which makes testing super easy. Take a look at testing your application.</p>
+</blockquote>
+<p>测试：作为不受HTTP托管服务支配而构建的框架，框架可以在内存中进行迭代，使测试变得更加容易。关注并测试你的应用吧。</p>
+<blockquote>
+<p>Great community. The documentation might be lacking in some places, but where it lacks in documentation, Nancy makes up for in community spirit. The docs are a GitHub wiki that anyone can edit, there’s good support in the GitHub issues and there’s a great JabbR chat-room where people hang out 24/7. The framework itself has over 200 contributors.</p>
+</blockquote>
+<p>伟大的社区：缺少的不是文档，而是文档的精神（此句乱翻的）。Nancy通过社区来解决文档的问题。文档托管于GitHub wiki使每个人都能够进行编辑，并在Github的Issue中同样获得很好的支持。在JabbR聊天室能获得7x24小时的支援。Nancy框架本身就已经拥有超过200名贡献者。</p>
+<blockquote>
+<p>I’m not sure I buy the “hard to ramp up new hires on Nancy” argument. If anything, it should be easier for newbies, since it requires little knowledge of the framework itself to produce value. There are books, a Pluralsight course, lots of blog posts and talks to help you out. I’d also argue that if you’re up and running with Nancy, it’ll be easier to grasp some of the new ASP.NET 5 concepts, since they’re pretty much “borrowed” from Nancy (and 3rd party frameworks).</p>
+</blockquote>
+<p>我很难认同“不易雇佣具备Nancy技术栈的雇员”这个观点：任何东西都应对新手友好，因为需要对框架的本身有一定的了解才能产出价值。书籍、Pluralsight的课程以及大量的博客都能帮助你度过难关。我同样认为了解并使用Nancy将会使你更加了解ASP.NET 5中设计思想，因为这些新特性很多都是从Nancy（及其他第三方框架中）“借鉴”来的。</p>
+<blockquote>
+<p>BTW, Nancy was listed under “adopt” in ThoughWorks’ Technology Radar in May 2015 and several large applications and sites run on it, like Octopus Deploy and JabbR.</p>
+</blockquote>
+<p>顺便一提，Nancy已在2015年5月被<a href="https://www.thoughtworks.com/radar" target="_blank" rel="noopener">ThoughWorks’ Technology Radar</a>名录收录，Octopus Deploy及JabbR等若干大型应用及站点基于Nancy运行。</p>
+<p>PS：TECHNOLOGY RADAR收录值得关注的技术、工具、平台、语言/框架。</p>
+<h3 id="Positive"><a href="#Positive" class="headerlink" title="Positive"></a>Positive</h3><blockquote>
+<p>Nancy seems to be the only stable alternative HTTP framework for .Net, others have come and gone. Web API seems dominant because you knows its from Microsoft.</p>
+</blockquote>
+<p>在.NET平台各种HTTP框架出现又消失，Nancy硕果仅存。Web Api之所以出于支配地位仅仅因为其来自微软。</p>
+<blockquote>
+<p>For me I prefer Nancy over WebApi as its much simpler, its actually enjoyable and you don’t find yourself fighting something once your app becomes complex and you need that little something to just work.</p>
+</blockquote>
+<p>对于我来说：因为Nancy足够简单，我更倾向于它而不是WebApi。使用Nancy是一种享受，使我不必与变得日益复杂的应用进行斗争。</p>
+<blockquote>
+<p>Also bear in mind ASP.Net 5 has taken a lot of influence from nodejs as well as Nancy so I’d rather use something that is influencing rather than influenced.</p>
+</blockquote>
+<p>ASP.NET 5的思想来自于nodejs及Nancy，因此我更关注具有影响力的框架而不是受影响的框架。</p>
+<blockquote>
+<p>Avoiding 3rd party libraries means you have very few options. Nancy is an alternative to aspnet mvc/web api . I’m using it because is a bit more flexible than mvc 5 and much ligther.<br>Btw, every time you’re using json.net ( you know, the one installed by default by the mvc template) you’re using a 3rd party lib. Using a DI Container which is not Unity? 3rd party lib also. Using a micro orm like dapper? 3rd party again.<br>The modern asp.net web app is using a lot of non MS libs. And a lot of it is open source and based on my experience, a lot of the libs are better designed with better quality code than MS’s offering.<br>Asp.net mvc 6 and asp.net 5 itself is heavily inspired from 3rd party libs. Since asp.net is open source now, you’re using ‘official’ dot net code not written by MS.<br>tldr; Don’t fear 3rd party libs, you’re already using them.</p>
+</blockquote>
+<p>避免使用第三方组件库意味着更少的选择权。Nancy是asp.net mvc/api的替代品。我使用它的原因是因为比mvc 5更加轻量柔韧。<br>顺便一提，当你每次使用json.net时，（mvc模板中默认组件），你在使用第三方组件。使用Unity以外的依赖注入工具？同样是第三方组件。使用像dapper一样的微型orm映射工具？还是第三方组件。<br>现在的asp.net web 应用正在使用非微软系的依赖项。根据我的经验，其中的大多数都是开源项目。很多依赖项提供了比微软更好的设计及代码质量。<br>Asp.net mvc 6及asp.net 5自身已经重度依赖第三方类库。自asp.net开源起，所谓的官方dot net code并不是微软写的。<br>因此，不要畏惧使用第三方类库，你早就开始用了。 </p>
+<blockquote>
+<p>You should use it over an MS-provided solution because if we let Microsoft trample all over every corner of .NET, we will never have a healthy ecosystem like…basically every other language out there right now.<br>.NET has historically been “okay let’s fire up visual studio and make a webforms site with that weird ms-jquery thing” workflow where everything you could possibly need has been provided by MS for better or worse.<br>We seem to be entering a cross-platform, cross-editor, nuget-package-heavy era where you can use industry standard tools instead of whatever solution MS has put to market. I can have as good an experience writing a Nancy site in Atom on Linux as I could on Windows with VS these days with things like omnisharp.<br>I’ve used both Nancy and ASP vNext - I have no strong opinions about which you should use. I prefer Nancy just because that what I’ve happened to use the most.<br>Semi-related, here is the open source panel at dotnetconf a few years ago. You’ll see some of the core maintainers of some of the biggest packages making the points I made above but also looking really tired and frustrated at the same time.<br>Luckily, as I mentioned above, things seem to be getting better. But if everyone had the attitude of “well I’ll just use whatever MS has provided me with” the community and ecosystem can never survive.</p>
+</blockquote>
+<h3 id="Negative"><a href="#Negative" class="headerlink" title="Negative"></a>Negative</h3><blockquote>
+<p>I was using NancyFx a couple years ago, and I haven’t touched since.<br>My gripes from where it was then:</p>
+<ul>
+<li>constantly shifting api breaking all sorts of stuff.</li>
+<li>not great documentation.<br>Again, that was about 2 years ago. Since then the documentation has improved quite a bit. But I’m not sure about the api stability. It helped that my coworker did the PluralSight videos.</li>
+</ul>
+</blockquote>
+<p>几年前用过Nancy框架，但至今没在碰过<br>两点问题：</p>
+<pre><code>* 不断变动的API破坏了原有的规则
+* 操蛋的文档
+</code></pre><p>不过这是两年前了，最近虽然文档的质量有所提升，但我并不能保证文档的可靠性。但他却帮助了我的同事来完成PluralSight的教学视频。</p>
+<blockquote>
+<p>However, my proposed counterargument is simply that while you may be comfortable for it, any other developers that come after you will have no idea WTF is going on because it is a completely nonstandard system. Thus you make for one hell of a maintenance burden.</p>
+</blockquote>
+<p>我的观点正好相反：当你正享受Nancy带来的惬意时，其他后加入团队的开发者会对非标准的系统无从下手。因此会对项目的可维护性造成致命的隐患。</p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#官网简介"><span class="toc-number">1.</span> <span class="toc-text">官网简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发者反馈"><span class="toc-number">2.</span> <span class="toc-text">开发者反馈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-should-I-not-use-NancyFx"><span class="toc-number">2.1.</span> <span class="toc-text">Why should I (not) use NancyFx ?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Positive"><span class="toc-number">2.2.</span> <span class="toc-text">Positive</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Negative"><span class="toc-number">2.3.</span> <span class="toc-text">Negative</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2018/02/05/Nancy-for/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2018/02/05/Nancy-for/&text=Nancy for ..."><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2018/02/05/Nancy-for/&title=Nancy for ..."><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2018/02/05/Nancy-for/&is_video=false&description=Nancy for ..."><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Nancy for ...&body=Check out this article: http://shinesmile.io/2018/02/05/Nancy-for/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2018/02/05/Nancy-for/&title=Nancy for ..."><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2018/02/05/Nancy-for/&title=Nancy for ..."><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2018/02/05/Nancy-for/&title=Nancy for ..."><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2018/02/05/Nancy-for/&title=Nancy for ..."><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2018/02/05/Nancy-for/&name=Nancy for ...&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 Shine
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+
