@@ -59,15 +59,11 @@ nuget pack <project-name>.nuspec
     </files>
 </package>
 ```
-
 这种通过声明文件配置包的方式依然存在门槛，对文件中元数据的键值对进行配置繁琐，并且难以维护。详情可参阅[创建nuspec文件](https://docs.microsoft.com/en-us/nuget/create-packages/creating-a-package?#creating-the-nuspec-file)。
-
 ### 通过\*.csproj工程文件进行配置
-
 ``` powershell
 nuget pack <project-name>.csproj
 ```
-
 通过这种方式我们可以轻松的将现有工程转换为对应的*.nupkg包。
 在使用这种方式对目标工程进行打包前，需要注意以下几点：
 * 需要修改工程的*Assembly Infomation*，其中Company是比较重要的一项，填入的信息将被**nuget.exe**作为*Author*的包属性使用。
@@ -93,7 +89,6 @@ nuget pack <project-name>.csproj
 
 ### 直接发布至指定目录
 Nuget.Server的配置文件web.confg下AppSetting节点中对保存包的物理路径进行了设置。将打包好的*.nupkg复制至此文件夹即完成打包。
-
 ### 通过nuget cli进行推送
 ``` powershell
 nuget.exe push {package file} {apikey} -Source http://NugetServer/nuget

@@ -179,7 +179,6 @@ psql -U CONFLUENCE -f /20171225-120003.sql CONFLUENCE
 pg_dump -U postgres -F t -f /$time.tar -d CONFLUENCE
 pg_restore -U postgres -d CONFLUENCE /20171225-120003.tar
 ```
-
 ## Windows计划任务配置
 ``` XML
 <?xml version="1.0" encoding="UTF-16"?>
