@@ -4,7 +4,35 @@
   <url>
     <loc>http://shinesmile.io/2018/01/25/orleans/</loc>
     
-    <lastmod>2018-02-07T11:09:20.000Z</lastmod>
+    <lastmod>2018-02-27T05:41:38.097Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2018/01/22/dont-find-nail-with-hammer/</loc>
+    
+    <lastmod>2018-02-27T05:35:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/about/index.html</loc>
+    
+    <lastmod>2018-02-27T05:34:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2018/01/02/custom-nuget-packages/</loc>
+    
+    <lastmod>2018-02-11T21:05:52.140Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/12/25/confluence-backup-script/</loc>
+    
+    <lastmod>2018-02-11T21:05:29.669Z</lastmod>
     
   </url>
   
@@ -23,27 +51,6 @@
   </url>
   
   <url>
-    <loc>http://shinesmile.io/2018/01/22/dont-find-nail-with-hammer/</loc>
-    
-    <lastmod>2018-01-30T08:32:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2018/01/26/present-situation-of-Programmers/</loc>
-    
-    <lastmod>2018-01-29T12:22:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/about/index.html</loc>
-    
-    <lastmod>2018-01-25T09:08:33.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://shinesmile.io/2017/12/22/jenkins-powershell-trap-on-2k8/</loc>
     
     <lastmod>2018-01-11T02:32:16.752Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>http://shinesmile.io/2017/12/08/jenkinsfile/</loc>
     
     <lastmod>2018-01-02T09:01:52.554Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2018/01/02/custom-nuget-packages/</loc>
-    
-    <lastmod>2018-01-02T08:58:13.000Z</lastmod>
     
   </url>
   
@@ -103,13 +103,6 @@
     <loc>http://shinesmile.io/2017/02/25/git-init-2-2/</loc>
     
     <lastmod>2017-12-25T10:39:35.419Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/12/25/confluence-backup-script/</loc>
-    
-    <lastmod>2017-12-25T10:39:17.918Z</lastmod>
     
   </url>
   
@@ -226,14 +219,14 @@
   </url>
   
   <url>
-    <loc>http://shinesmile.io/2017/02/26/git-init-3/</loc>
+    <loc>http://shinesmile.io/2017/02/27/git-init-4/</loc>
     
     <lastmod>2017-11-23T16:51:52.772Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://shinesmile.io/2017/02/27/git-init-4/</loc>
+    <loc>http://shinesmile.io/2017/02/26/git-init-3/</loc>
     
     <lastmod>2017-11-23T16:51:52.772Z</lastmod>
     

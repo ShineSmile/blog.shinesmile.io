@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="摘要低延迟、高吞吐量、高可用为交互服务的刚需，传统无状态三层架构则受到各个方面的挑战。参与者模式可以在保证性能的同时以自然的方式构建具有状态的中间层。然而，主流的参与者模式框架仍然将许多分布式系统的问题抛给了开发者。奥尔良编程模型通过一种新的抽象方式，解决分布式系统中的可靠性、分发资源管理等问题，节约开发者的精力用来解决其他问题。于此同时，奥尔良运行时能够保证应用程序的性能、可靠性及扩展能力。这篇">
+    <meta name="description" content="翻译已迁移至Gitbook。 过年期间一直忙于陪伴父母，翻译的进展比较缓慢。 如果迫切的想使用Orleans，现在我的建议是直接从其提供的Sample入手，进行实践的同时会更好的理解理论，两者相辅相成。 希望此番小小的努力，能在传统的、折磨人的架构上，让人们看到新的选择，贡献绵薄之力。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Orleans MSR TR 2014 41 zh_cn">
 <meta property="og:url" content="http://shinesmile.io/2018/01/25/orleans/index.html">
 <meta property="og:site_name" content="仓鼠窝">
-<meta property="og:description" content="摘要低延迟、高吞吐量、高可用为交互服务的刚需，传统无状态三层架构则受到各个方面的挑战。参与者模式可以在保证性能的同时以自然的方式构建具有状态的中间层。然而，主流的参与者模式框架仍然将许多分布式系统的问题抛给了开发者。奥尔良编程模型通过一种新的抽象方式，解决分布式系统中的可靠性、分发资源管理等问题，节约开发者的精力用来解决其他问题。于此同时，奥尔良运行时能够保证应用程序的性能、可靠性及扩展能力。这篇">
+<meta property="og:description" content="翻译已迁移至Gitbook。 过年期间一直忙于陪伴父母，翻译的进展比较缓慢。 如果迫切的想使用Orleans，现在我的建议是直接从其提供的Sample入手，进行实践的同时会更好的理解理论，两者相辅相成。 希望此番小小的努力，能在传统的、折磨人的架构上，让人们看到新的选择，贡献绵薄之力。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-02-07T11:09:20.000Z">
+<meta property="og:updated_time" content="2018-02-27T05:41:38.097Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Orleans MSR TR 2014 41 zh_cn">
-<meta name="twitter:description" content="摘要低延迟、高吞吐量、高可用为交互服务的刚需，传统无状态三层架构则受到各个方面的挑战。参与者模式可以在保证性能的同时以自然的方式构建具有状态的中间层。然而，主流的参与者模式框架仍然将许多分布式系统的问题抛给了开发者。奥尔良编程模型通过一种新的抽象方式，解决分布式系统中的可靠性、分发资源管理等问题，节约开发者的精力用来解决其他问题。于此同时，奥尔良运行时能够保证应用程序的性能、可靠性及扩展能力。这篇">
+<meta name="twitter:description" content="翻译已迁移至Gitbook。 过年期间一直忙于陪伴父母，翻译的进展比较缓慢。 如果迫切的想使用Orleans，现在我的建议是直接从其提供的Sample入手，进行实践的同时会更好的理解理论，两者相辅相成。 希望此番小小的努力，能在传统的、折磨人的架构上，让人们看到新的选择，贡献绵薄之力。">
     
     
         
@@ -68,7 +68,7 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2018/01/26/present-situation-of-Programmers/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/2018/01/29/outline-of-continuous-delivery-with-windows-and-net/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" href="/2018/01/22/dont-find-nail-with-hammer/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -98,7 +98,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#摘要"><span class="toc-number">1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">2.</span> <span class="toc-text">背景</span></a></li></ol>
+      
     </div>
   </span>
 </div>
@@ -132,12 +132,10 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>低延迟、高吞吐量、高可用为交互服务的刚需，传统无状态三层架构则受到各个方面的挑战。参与者模式可以在保证性能的同时以自然的方式构建具有状态的中间层。然而，主流的参与者模式框架仍然将许多分布式系统的问题抛给了开发者。<br>奥尔良编程模型通过一种新的抽象方式，解决分布式系统中的可靠性、分发资源管理等问题，节约开发者的精力用来解决其他问题。于此同时，奥尔良运行时能够保证应用程序的性能、可靠性及扩展能力。<br>这篇论文阐述了奥尔良背后的设计原则，以及通过奥尔良实现的能够达到上述目标的简单模型示例。本文还描述了在Windows Azure中，奥尔良简化多个弹性应用的开发过程，并对其他平台的使用状况进行简要报告。</p>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>构建能够横向扩展的高可用应用不是一件易事。服务的可用性和延迟直接影响后续用户的使用体验。为了能够及时响应大量用户同时发起的会话，服务的吞吐量也有很高的要求。<br>无状态前端和业务层及数据储存层的传统三层架构，由于数据储存层对每一次请求的响应的延迟和并发量的限制影响了横向扩展的能力。为了提升性能，虽然在储存层及业务层之间添加数据缓存能够进行缓解，却丢失了底层存储层并发性和可靠性保证。应用程序或缓存管理不得不实现防并发锁，避免缓存被并发更新导致一致性的丢失。由于数据传输范例（data shipping paradigm）的使用，无论有无缓存无状态的中间层都无法实现数据局部性：数据需要从储存层或缓存传递给中间层服务器来完成每个请求。<br>The advent of social graphs where<br>a single request may touch many entities connected dynamically<br>with multi-hop relationships makes it even more challenging<br>to satisfy required application-level semantics and consistency<br>on a cache with fast response for interactive access.</p>
-<p>参与者模式通过函数传输范例（data shipping pradigm）来应对这些挑战。通过构建一个有状态的中间层来达到具备数据局部性的缓存的性能，再通过应用语义的操作实现实体在语义上的概括统一。另外，参与者模式还能使中间层的网状关系的横向调用变得简单。</p>
-<p>分布式系统可编程性还需考虑面向对象编程（OOP）范式的问题。虽然通过直觉对复杂系统进行建模的面向对象编程模式已被面向服务架构（SOA）边缘化，但是还是能够在组件实现过程中获得面向对象编程的益处。然而，从系统层面考虑，开发者按松耦合划分的服务经常与应用的概念模型不符。对于大多数开发者来说，这种不符为分布式系统的构建带来难度。参与者模式通过与模型交互非常相似的参与者将面向对象重新带回系统级别。</p>
-<p>像Erlang及Akka这样的参与者平台是简化分布式系统编程的一步。然而这些平台因为分布式系统自身的复杂性及平台提供的相对低度抽象仍然会加重开发者的负担。挑战的核心是对应用程序代码中的参与者进行生命周期的管理、对内在的分布式资源争夺进行处理，对失败的参与者进行恢复，参与者的待机以及分布式资源的管理。开发者只有成为分布式的专家才能，面对应用程序中的这种问题，进而构建一个恰当的解决方案。</p>
-<p>为了避免这些复杂情况，我们构建了Orleans编程模型及运行时来提高参与者的抽象程度。Orleans获得了分布式系统专业用户的青睐，与此同时也适用于普通的开发人员。Orleans是基于参与者的平台，但是与现有平台不同的是：参与者是虚拟的实体，而不是物理实体。第一，Orleans的参与者总是虚拟的存在，其不能明确的创建或销毁。其超越了任何内存中的实例及服务的生命周期。第二，奥尔良的参与者会自动完成实例化：如果内存中没有参与者的实例，参与者会收到使其在服务器中进行实例化的消息。不可用的参与者实例的回收工作是运行时资源管理的一部分。参与者永远不会失效，如果S服务器崩溃，Orleans会在另一台服务器重新实例化A参与者来接收发送给S服务A参与者的消息， eliminating the need for applications to supervise and explicitly re-create failed actors.<br>三，参与者的实例位置非常易于编程，其对于应用程序代码是透明的。<br>四，Orleans能够自动的构建相同状态的复数实例进行无缝横向扩展的热切换。</p>
+    <p>翻译已迁移至<a href="https://shinesmile.gitbooks.io/orleans-msr-tr-2014-41-zh_cn/content/" target="_blank" rel="noopener">Gitbook</a>。</p>
+<p>过年期间一直忙于陪伴父母，翻译的进展比较缓慢。</p>
+<p>如果迫切的想使用Orleans，现在我的建议是直接从其提供的<a href="https://github.com/dotnet/orleans/tree/master/Samples" target="_blank" rel="noopener">Sample</a>入手，进行实践的同时会更好的理解理论，两者相辅相成。</p>
+<p>希望此番小小的努力，能在传统的、折磨人的架构上，让人们看到新的选择，贡献绵薄之力。</p>
 
   </div>
 </article>
@@ -164,7 +162,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#摘要"><span class="toc-number">1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">2.</span> <span class="toc-text">背景</span></a></li></ol>
+      
     </div>
 
     <div id="share-footer" style="display: none">

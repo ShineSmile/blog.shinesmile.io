@@ -5,12 +5,72 @@
     
   <url>
     <loc>http://shinesmile.io/2018/01/25/orleans/</loc>
-    <lastmod>2018-02-07T11:09:20.000Z</lastmod>
+    <lastmod>2018-02-27T05:41:38.097Z</lastmod>
     <data>
         <display>
         <title>Orleans MSR TR 2014 41 zh_cn</title>
         <pubTime>2018-01-25T09:10:46.000Z</pubTime>
         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2018/01/22/dont-find-nail-with-hammer/</loc>
+    <lastmod>2018-02-27T05:35:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>不要拿着锤子去找钉子</title>
+        <pubTime>2018-01-22T06:37:56.000Z</pubTime>
+        
+        <tag>DevOps</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://shinesmile.io/2018/01/02/custom-nuget-packages/</loc>
+    <lastmod>2018-02-11T21:05:52.140Z</lastmod>
+    <data>
+        <display>
+        <title>自定义Nuget包</title>
+        <pubTime>2018-01-02T07:18:52.000Z</pubTime>
+        
+        <tag>nuget</tag>
+         
+        <tag>pack</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/12/25/confluence-backup-script/</loc>
+    <lastmod>2018-02-11T21:05:29.669Z</lastmod>
+    <data>
+        <display>
+        <title>Confluence备份脚本</title>
+        <pubTime>2017-12-25T06:18:46.000Z</pubTime>
+        
+        <tag>confluence</tag>
+         
+        <tag>backup</tag>
+         
+        <tag>powershell</tag>
+         
+        <tag>git</tag>
+         
          
            
         </display>
@@ -57,39 +117,6 @@
 
     
   <url>
-    <loc>http://shinesmile.io/2018/01/22/dont-find-nail-with-hammer/</loc>
-    <lastmod>2018-01-30T08:32:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>不要拿着锤子去找钉子</title>
-        <pubTime>2018-01-22T06:37:56.000Z</pubTime>
-        
-        <tag>DevOps</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2018/01/26/present-situation-of-Programmers/</loc>
-    <lastmod>2018-01-29T12:22:07.000Z</lastmod>
-    <data>
-        <display>
-        <title>present situation of Programmers</title>
-        <pubTime>2018-01-26T10:36:12.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
     <loc>http://shinesmile.io/2017/12/22/jenkins-powershell-trap-on-2k8/</loc>
     <lastmod>2018-01-11T02:32:16.752Z</lastmod>
     <data>
@@ -115,25 +142,6 @@
         <tag>jenkins</tag>
          
         <tag>jenkinsfile</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2018/01/02/custom-nuget-packages/</loc>
-    <lastmod>2018-01-02T08:58:13.000Z</lastmod>
-    <data>
-        <display>
-        <title>自定义Nuget包</title>
-        <pubTime>2018-01-02T07:18:52.000Z</pubTime>
-        
-        <tag>nuget</tag>
-         
-        <tag>pack</tag>
          
          
            
@@ -236,29 +244,6 @@
         <tag>git</tag>
          
         <tag>gitignore</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/12/25/confluence-backup-script/</loc>
-    <lastmod>2017-12-25T10:39:17.918Z</lastmod>
-    <data>
-        <display>
-        <title>Confluence备份脚本</title>
-        <pubTime>2017-12-25T06:18:46.000Z</pubTime>
-        
-        <tag>confluence</tag>
-         
-        <tag>backup</tag>
-         
-        <tag>powershell</tag>
-         
-        <tag>git</tag>
          
          
            
@@ -548,12 +533,12 @@
 
     
   <url>
-    <loc>http://shinesmile.io/2017/02/26/git-init-3/</loc>
+    <loc>http://shinesmile.io/2017/02/27/git-init-4/</loc>
     <lastmod>2017-11-23T16:51:52.772Z</lastmod>
     <data>
         <display>
-        <title>Git init 3：协作开发的分支管理</title>
-        <pubTime>2017-02-26T04:00:00.000Z</pubTime>
+        <title>Git init 4：SourceTree的使用</title>
+        <pubTime>2017-02-27T04:00:00.000Z</pubTime>
         
         <tag>git</tag>
          
@@ -565,12 +550,12 @@
 
     
   <url>
-    <loc>http://shinesmile.io/2017/02/27/git-init-4/</loc>
+    <loc>http://shinesmile.io/2017/02/26/git-init-3/</loc>
     <lastmod>2017-11-23T16:51:52.772Z</lastmod>
     <data>
         <display>
-        <title>Git init 4：SourceTree的使用</title>
-        <pubTime>2017-02-27T04:00:00.000Z</pubTime>
+        <title>Git init 3：协作开发的分支管理</title>
+        <pubTime>2017-02-26T04:00:00.000Z</pubTime>
         
         <tag>git</tag>
          
