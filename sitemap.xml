@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://shinesmile.io/2018/02/28/what-is-devops/</loc>
+    
+    <lastmod>2018-02-28T04:43:37.926Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/</loc>
+    
+    <lastmod>2018-02-28T03:11:24.980Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://shinesmile.io/about/index.html</loc>
     
     <lastmod>2018-02-27T06:45:02.000Z</lastmod>
@@ -184,7 +198,7 @@
   </url>
   
   <url>
-    <loc>http://shinesmile.io/2017/03/23/skill-of-mac/</loc>
+    <loc>http://shinesmile.io/2017/03/22/skill-of-ubuntu/</loc>
     
     <lastmod>2017-11-23T16:51:52.787Z</lastmod>
     
@@ -198,7 +212,7 @@
   </url>
   
   <url>
-    <loc>http://shinesmile.io/2017/03/22/skill-of-ubuntu/</loc>
+    <loc>http://shinesmile.io/2017/03/23/skill-of-mac/</loc>
     
     <lastmod>2017-11-23T16:51:52.787Z</lastmod>
     
@@ -219,14 +233,14 @@
   </url>
   
   <url>
-    <loc>http://shinesmile.io/2017/02/27/git-init-4/</loc>
+    <loc>http://shinesmile.io/2017/02/26/git-init-3/</loc>
     
     <lastmod>2017-11-23T16:51:52.772Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://shinesmile.io/2017/02/26/git-init-3/</loc>
+    <loc>http://shinesmile.io/2017/02/27/git-init-4/</loc>
     
     <lastmod>2017-11-23T16:51:52.772Z</lastmod>
     
@@ -282,14 +296,14 @@
   </url>
   
   <url>
-    <loc>http://shinesmile.io/2017/03/27/docker-https/</loc>
+    <loc>http://shinesmile.io/2017/03/29/docker-swarm-mode/</loc>
     
     <lastmod>2017-11-23T16:51:52.748Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://shinesmile.io/2017/03/29/docker-swarm-mode/</loc>
+    <loc>http://shinesmile.io/2017/03/27/docker-https/</loc>
     
     <lastmod>2017-11-23T16:51:52.748Z</lastmod>
     
