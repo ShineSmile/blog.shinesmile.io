@@ -6,14 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="article">
+    <meta name="description" content="在这里可以找到AWS相关的白皮书下载链接。本文内容主要来自于架构师助理培训内容的提纲。详情参见此文档。 在撰写、翻译时尽量隐去了对应AWS服务的引用，取而代之的是对应功能的描述。此举不是因为担心为AWS做广告（人家也不需要），是因为好的架构思想应该不应受到平台的限制。经过时间和实践考验过的组件，一定会在其它平台换个名字重新实现。 “松耦合使你自由” 基于独立组件设计架构 耦合度越松散，越容易进行横">
+<meta property="og:type" content="article">
 <meta property="og:title" content="AWS架构准则">
 <meta property="og:url" content="http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/index.html">
 <meta property="og:site_name" content="ShineSmile.io">
+<meta property="og:description" content="在这里可以找到AWS相关的白皮书下载链接。本文内容主要来自于架构师助理培训内容的提纲。详情参见此文档。 在撰写、翻译时尽量隐去了对应AWS服务的引用，取而代之的是对应功能的描述。此举不是因为担心为AWS做广告（人家也不需要），是因为好的架构思想应该不应受到平台的限制。经过时间和实践考验过的组件，一定会在其它平台换个名字重新实现。 “松耦合使你自由” 基于独立组件设计架构 耦合度越松散，越容易进行横">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-02-28T03:11:24.980Z">
+<meta property="og:updated_time" content="2018-03-02T10:25:59.859Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AWS架构准则">
+<meta name="twitter:description" content="在这里可以找到AWS相关的白皮书下载链接。本文内容主要来自于架构师助理培训内容的提纲。详情参见此文档。 在撰写、翻译时尽量隐去了对应AWS服务的引用，取而代之的是对应功能的描述。此举不是因为担心为AWS做广告（人家也不需要），是因为好的架构思想应该不应受到平台的限制。经过时间和实践考验过的组件，一定会在其它平台换个名字重新实现。 “松耦合使你自由” 基于独立组件设计架构 耦合度越松散，越容易进行横">
     
     
         
@@ -95,7 +98,7 @@
 
     </div>
     <div id="toc">
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#“松耦合使你自由”"><span class="toc-number">1.</span> <span class="toc-text">“松耦合使你自由”</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解耦原则"><span class="toc-number">1.1.</span> <span class="toc-text">解耦原则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“将组件故障的情况加入到架构考虑的范围内”"><span class="toc-number">2.</span> <span class="toc-text">“将组件故障的情况加入到架构考虑的范围内”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现弹性"><span class="toc-number">3.</span> <span class="toc-text">实现弹性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#每个层面都需要考虑安全问题"><span class="toc-number">4.</span> <span class="toc-text">每个层面都需要考虑安全问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#最小授权原则"><span class="toc-number">4.1.</span> <span class="toc-text">最小授权原则</span></a></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -129,7 +132,87 @@
   
 
   <div class="content" itemprop="articleBody">
-    
+    <p>在<a href="https://amazonaws-china.com/cn/whitepapers/" target="_blank" rel="noopener">这里</a>可以找到AWS相关的白皮书下载链接。<br>本文内容主要来自于架构师助理培训内容的提纲。<br>详情参见此<a href="https://d1.awsstatic-china.com/whitepapers/AWS_Cloud_Best_Practices.pdf" target="_blank" rel="noopener">文档</a>。</p>
+<p>在撰写、翻译时尽量隐去了对应AWS服务的引用，取而代之的是对应功能的描述。此举不是因为担心为AWS做广告（人家也不需要），是因为好的架构思想应该不应受到平台的限制。经过时间和实践考验过的组件，一定会在其它平台换个名字重新实现。</p>
+<h2 id="“松耦合使你自由”"><a href="#“松耦合使你自由”" class="headerlink" title="“松耦合使你自由”"></a>“松耦合使你自由”</h2><ul>
+<li>基于独立组件设计架构<ul>
+<li>耦合度越松散，越容易进行横向扩展<h3 id="解耦原则"><a href="#解耦原则" class="headerlink" title="解耦原则"></a>解耦原则</h3></li>
+</ul>
+</li>
+<li>不要依赖特定对象，考虑使用：<ul>
+<li>负载均衡集群</li>
+<li>DNS域名解析</li>
+<li>可配置的路由表</li>
+</ul>
+</li>
+<li>不要依赖其他服务的健康状况<ul>
+<li>使用异步消息代替方法调用</li>
+</ul>
+</li>
+</ul>
+<h2 id="“将组件故障的情况加入到架构考虑的范围内”"><a href="#“将组件故障的情况加入到架构考虑的范围内”" class="headerlink" title="“将组件故障的情况加入到架构考虑的范围内”"></a>“将组件故障的情况加入到架构考虑的范围内”</h2><blockquote>
+<p>原文：Design for failure and nothing will fail. 是一句很耐人寻味的话。</p>
+<ul>
+<li>在设计每个组件时都要考虑：如果他挂掉了会怎样。多个组件形成资源组后，再次问自己这个问题。</li>
+<li>设计持续可用、能够自我修复的组件。</li>
+<li>高可用<ul>
+<li>架构中的任何一个组件完全崩溃时不能影响整个系统。</li>
+</ul>
+</li>
+<li>容错<ul>
+<li>架构中的任何一个组件完全崩溃时不能影响整个系统<strong>并且不会降低系统的性能</strong></li>
+</ul>
+</li>
+</ul>
+<p>从这个角度看，容错是在高可用后进一步需要考虑的问题。例如：保证某些组件崩溃时，断路器可以减少无效访问的重试次数，节约计算资源及等待时间，并且保证崩溃的组件不会进一步污染整个系统。</p>
+</blockquote>
+<h2 id="实现弹性"><a href="#实现弹性" class="headerlink" title="实现弹性"></a>实现弹性</h2><ul>
+<li>不要假定服务的可用性、健康状态以及位置是一成不变的<ul>
+<li>使用弹性扩展、弹性IP、可用区</li>
+</ul>
+</li>
+<li>设计可以通过冷/热重启恢复的服务<ul>
+<li>无状态比有状态好</li>
+<li>使用弹性负载均衡和云监控检测实例的健康状况</li>
+</ul>
+</li>
+<li>引导实例的启动过程<ul>
+<li>例如：在启动时传入用户信息判别实例属于个人还是角色</li>
+</ul>
+</li>
+<li>推荐在实例外储存配置及个性化信息<ul>
+<li>例如Key-Value的NoSQL数据库服务</li>
+</ul>
+</li>
+<li>弹性设计通常有利于节约开支</li>
+</ul>
+<h2 id="每个层面都需要考虑安全问题"><a href="#每个层面都需要考虑安全问题" class="headerlink" title="每个层面都需要考虑安全问题"></a>每个层面都需要考虑安全问题</h2><ul>
+<li>基础设施层</li>
+<li>计算、网络架构层</li>
+<li>数据层</li>
+<li>应用层</li>
+</ul>
+<blockquote>
+<p>在某些架构模型中，API Gateway还同时提供拦截非法请求的功能，保护网关后服务不被非法访问。当Api Gateway被攻破后，如若后面的服务及设施没有进行安全架构，所有的通信、接口将一览无余。</p>
+<p>Intel的熔断漏洞波及了几乎所有Intel的用户。有计划的及时安装系统更新是必要的。如果带宽成本高昂请考虑Update Proxy。</p>
+<p>有些机密数据能提供便利及商业价值，因此黑客总是热衷于拖库。如果不储存这些敏感数据，黑客就无从下手，其他企业和政府也不会威胁和索取这些数据。（据说微信就不会保存用户的聊天记录。）</p>
+</blockquote>
+<h3 id="最小授权原则"><a href="#最小授权原则" class="headerlink" title="最小授权原则"></a>最小授权原则</h3><ul>
+<li>只付于操作者完成工作的必要权限<ul>
+<li>必须对个人和进程进行授权</li>
+<li>只有三类用户可以直接访问资源配置型API<ul>
+<li>主账号</li>
+<li>具备管理员角色的授权用户</li>
+<li>使用安全令牌授权的服务</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>这就是为什么EF Code First无法初始化Aliyun的RDS服务。(:</p>
+</blockquote>
+
   </div>
 </article>
 
@@ -155,7 +238,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#“松耦合使你自由”"><span class="toc-number">1.</span> <span class="toc-text">“松耦合使你自由”</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解耦原则"><span class="toc-number">1.1.</span> <span class="toc-text">解耦原则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“将组件故障的情况加入到架构考虑的范围内”"><span class="toc-number">2.</span> <span class="toc-text">“将组件故障的情况加入到架构考虑的范围内”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现弹性"><span class="toc-number">3.</span> <span class="toc-text">实现弹性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#每个层面都需要考虑安全问题"><span class="toc-number">4.</span> <span class="toc-text">每个层面都需要考虑安全问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#最小授权原则"><span class="toc-number">4.1.</span> <span class="toc-text">最小授权原则</span></a></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
