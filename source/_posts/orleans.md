@@ -1,7 +1,7 @@
 ---
 title: Orleans MSR TR 2014 41 zh_cn
 date: 2018-01-25 17:10:46
-tags:
+tags: orleans
 ---
 
 翻译已迁移至[Gitbook](https://shinesmile.gitbooks.io/orleans-msr-tr-2014-41-zh_cn/content/)。

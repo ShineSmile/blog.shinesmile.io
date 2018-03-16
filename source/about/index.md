@@ -1,8 +1,18 @@
 ---
-title: About Me
-date: 2017-12-31 23:59:59
+title: 关于我
+date: 2018-3-29 20:20:00
 ---
 
 E-mail: [ShineSmile@outlook.com](ShineSmile@outlook.com)
 
-希望自己能活的与众不同。
+dotnet异教徒
+
+DevOps + FSD + IGD
+
+macOS重度用户
+
+北漂猫奴
+
+电吉他新手
+
+生活焦头烂额

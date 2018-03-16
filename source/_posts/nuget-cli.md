@@ -1,7 +1,7 @@
 ---
 title: Nuget命令行接口
 date: 2017-12-28 18:53:24
-tags:
+tags: [nuget,cli]
 ---
 翻译自：[NuGet CLI reference](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference)
 > 此官方文档过于拖沓，后续将结合实践重写。

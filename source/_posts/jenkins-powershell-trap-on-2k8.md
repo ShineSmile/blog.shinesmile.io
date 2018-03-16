@@ -1,7 +1,7 @@
 ---
 title: Jenkins迁移至Server2008执行Powershell无响应
 date: 2017-12-22 10:41:31
-tags:
+tags: [jenkins,powershell]
 ---
 
 **Windows Server 2K8的powershell版本默认为2.0。因版本过时，在使用过程中存在功能缺失、无法由Jenkins直接调用，cmd调用时exit code不更新%errorlevel%字段等问题，因此简直升级至最新版本根除隐患。**

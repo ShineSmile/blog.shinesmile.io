@@ -1,7 +1,7 @@
 ---
 title: 格式化git commit message
 date: 2017-07-18 18:46:11
-tags: ["git","commit","message"]
+tags: [git,commit,message]
 ---
 
 ``` bash

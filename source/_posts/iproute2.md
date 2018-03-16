@@ -1,6 +1,6 @@
 ---
 title: iproute2
 date: 2017-12-04 10:19:59
-tags:
+tags: [centos7,iproute2]
 ---
 ![new network tools](iproute2/new-network-tools.png)

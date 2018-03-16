@@ -1,7 +1,7 @@
 ---
 title: Nancy for ...
 date: 2018-02-05 11:21:22
-tags:
+tags: [web,nancy]
 ---
 
 [官网地址](http://nancyfx.org)

@@ -1,7 +1,7 @@
 ---
 title: Powershell第三方包管理工具PsGet
 date: 2017-12-28 14:46:04
-tags: 
+tags: powershell
 ---
 本文翻译自[Github/PsGet/Readme.md](https://github.com/psget/psget)
 
