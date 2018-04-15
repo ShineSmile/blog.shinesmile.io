@@ -92,3 +92,13 @@ cat /proc/sys/kernel/pid_max #进程数
 cat /proc/sys/kernel/threads-max #线程数
 ulimit -u #用户进程数
 ```
+
+## modify locale
+``` bash
+sudo dpkg-reconfigure locales
+```
+
+## 对mosh进行本地化兼容
+``` bash
+localedef -v -c -i en_US -f UTF-8 en_US.UTF-8
+```
