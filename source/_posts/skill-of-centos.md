@@ -1,5 +1,5 @@
 ---
-title: skill of centos
+title: CentOS使用技巧
 date: 2017-03-22 20:14:31
 tags: centos
 ---
