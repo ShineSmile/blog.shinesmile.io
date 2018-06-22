@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="简单罗列几点在Azure DevOps过程中想到的问题，有些内容待商榷、讨论更新。 命名规范 命名的目的是利于资源访问及检索，使用可以通过名称推断出功能的命名规则 由于资源大多是可以通过HTTP请求进行访问，因此资源名称大小写不敏感 筛选器：资源的部分特征可以根据筛选器进行筛选，因此可以不在命名中体现 排列：需要根据资源的用途（例如：开发、测试、发布）、地域、类、规模等因素进行标注，筛选器或图标体">
+<meta property="og:type" content="article">
+<meta property="og:title" content="云资源管理">
+<meta property="og:url" content="http://shinesmile.io/2018/04/11/cloud-resource-management/index.html">
+<meta property="og:site_name" content="ShineSmile.io">
+<meta property="og:description" content="简单罗列几点在Azure DevOps过程中想到的问题，有些内容待商榷、讨论更新。 命名规范 命名的目的是利于资源访问及检索，使用可以通过名称推断出功能的命名规则 由于资源大多是可以通过HTTP请求进行访问，因此资源名称大小写不敏感 筛选器：资源的部分特征可以根据筛选器进行筛选，因此可以不在命名中体现 排列：需要根据资源的用途（例如：开发、测试、发布）、地域、类、规模等因素进行标注，筛选器或图标体">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-04-15T04:12:57.009Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="云资源管理">
+<meta name="twitter:description" content="简单罗列几点在Azure DevOps过程中想到的问题，有些内容待商榷、讨论更新。 命名规范 命名的目的是利于资源访问及检索，使用可以通过名称推断出功能的命名规则 由于资源大多是可以通过HTTP请求进行访问，因此资源名称大小写不敏感 筛选器：资源的部分特征可以根据筛选器进行筛选，因此可以不在命名中体现 排列：需要根据资源的用途（例如：开发、测试、发布）、地域、类、规模等因素进行标注，筛选器或图标体">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+          
+        
+    
+    <!-- title -->
+    <title>云资源管理</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2018/03/16/IaaS/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2018/04/11/cloud-resource-management/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2018/04/11/cloud-resource-management/&text=云资源管理"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2018/04/11/cloud-resource-management/&title=云资源管理"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2018/04/11/cloud-resource-management/&is_video=false&description=云资源管理"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=云资源管理&body=Check out this article: http://shinesmile.io/2018/04/11/cloud-resource-management/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2018/04/11/cloud-resource-management/&title=云资源管理"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2018/04/11/cloud-resource-management/&title=云资源管理"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2018/04/11/cloud-resource-management/&title=云资源管理"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2018/04/11/cloud-resource-management/&title=云资源管理"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2018/04/11/cloud-resource-management/&name=云资源管理&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#命名规范"><span class="toc-number">1.</span> <span class="toc-text">命名规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#术语表"><span class="toc-number">2.</span> <span class="toc-text">术语表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#资源组"><span class="toc-number">3.</span> <span class="toc-text">资源组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签"><span class="toc-number">4.</span> <span class="toc-text">标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IAM"><span class="toc-number">5.</span> <span class="toc-text">IAM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#已有资源的公示认领"><span class="toc-number">6.</span> <span class="toc-text">已有资源的公示认领</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#做该做的事"><span class="toc-number">7.</span> <span class="toc-text">做该做的事</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        云资源管理
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">ShineSmile.io</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-04-11T06:44:48.000Z" itemprop="datePublished">2018-04-11</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>简单罗列几点在Azure DevOps过程中想到的问题，有些内容待商榷、讨论更新。</p>
+<h2 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h2><ul>
+<li>命名的目的是利于资源访问及检索，使用可以通过名称推断出功能的命名规则</li>
+<li>由于资源大多是可以通过HTTP请求进行访问，因此资源名称大小写不敏感</li>
+<li>筛选器：资源的部分特征可以根据筛选器进行筛选，因此可以不在命名中体现</li>
+<li>排列：需要根据资源的用途（例如：开发、测试、发布）、地域、类、规模等因素进行标注，筛选器或图标体现的特征可以不在命名中体现</li>
+<li>避免使用数字及词汇出现的频率来命名资源，参见术语表</li>
+</ul>
+<h2 id="术语表"><a href="#术语表" class="headerlink" title="术语表"></a>术语表</h2><ul>
+<li>建立、使用并维护术语表：资源及功能应使用统一术语未被术语表覆盖的临时命名需要进行资源重命名并进一步推演遇到的情况整理至术语表中</li>
+<li>不符合命名规范，临时命名的资源应尽快改名或删除。若此种临时命名的原因为在术语表中覆盖，应更新术语表，并对此种情况命名的扩展性进行推演</li>
+</ul>
+<h2 id="资源组"><a href="#资源组" class="headerlink" title="资源组"></a>资源组</h2><ul>
+<li>资源组只能通过一种维度进行资源的划分</li>
+<li>Azure资源组存在资源删除不干净的BUG（即资源已删除并且不在资源中显示，但在资源组的模板里仍存在此资源的描述，此缺陷会阻碍并在部分资源迁移时随之一并迁移）</li>
+<li>单纯依靠资源组对资源进行分类会提高资源在臃肿资源组中的检索难度</li>
+</ul>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><ul>
+<li>活用标签：部分信息可以通过标签来实现，标签的特点是不会影响资源的位置。例如部分资源默认通过id的方式来进行区分，资源命名是以标签的方式实现的。还可以通过标签来标识资产的所有者。</li>
+<li>标签可以突破资源组对资源进行分类的单维度限制。</li>
+</ul>
+<h2 id="IAM"><a href="#IAM" class="headerlink" title="IAM"></a>IAM</h2><ul>
+<li>使用IAM对资源的授权进行限制。</li>
+</ul>
+<h2 id="已有资源的公示认领"><a href="#已有资源的公示认领" class="headerlink" title="已有资源的公示认领"></a>已有资源的公示认领</h2><ul>
+<li>资源的使用者应该对自身的资源负责，限制无关人等的操作，资源应该标注资源的使用者是谁。避免产生没有人使用的资源长期蚕食预算</li>
+<li>对于未进行标注的资源</li>
+</ul>
+<h2 id="做该做的事"><a href="#做该做的事" class="headerlink" title="做该做的事"></a>做该做的事</h2><ul>
+<li>规则制定应尽可能简化，不应为特定情况长期使用影响人直观感受的命名或分类方式。</li>
+</ul>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#命名规范"><span class="toc-number">1.</span> <span class="toc-text">命名规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#术语表"><span class="toc-number">2.</span> <span class="toc-text">术语表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#资源组"><span class="toc-number">3.</span> <span class="toc-text">资源组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签"><span class="toc-number">4.</span> <span class="toc-text">标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IAM"><span class="toc-number">5.</span> <span class="toc-text">IAM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#已有资源的公示认领"><span class="toc-number">6.</span> <span class="toc-text">已有资源的公示认领</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#做该做的事"><span class="toc-number">7.</span> <span class="toc-text">做该做的事</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2018/04/11/cloud-resource-management/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2018/04/11/cloud-resource-management/&text=云资源管理"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2018/04/11/cloud-resource-management/&title=云资源管理"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2018/04/11/cloud-resource-management/&is_video=false&description=云资源管理"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=云资源管理&body=Check out this article: http://shinesmile.io/2018/04/11/cloud-resource-management/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2018/04/11/cloud-resource-management/&title=云资源管理"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2018/04/11/cloud-resource-management/&title=云资源管理"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2018/04/11/cloud-resource-management/&title=云资源管理"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2018/04/11/cloud-resource-management/&title=云资源管理"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2018/04/11/cloud-resource-management/&name=云资源管理&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 Shine
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+
