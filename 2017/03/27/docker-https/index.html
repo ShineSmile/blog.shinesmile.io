@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="ShineSmile.io">
 <meta property="og:description" content="本文翻译自：Protect the Docker daemon socket 通常情况下，Docker主要通过无网络的Unix socket与deamon进行通信。HTTP socket同样可以作为可选的方式进行交互。 如果需要将以安全的方式通过网络进行交互，可以通过设置tlsverify标识，并指定tlscacert为信任的CA证书来启用TLS。 服务端方面仅允许通过CA证书认证的客户端进行连接">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2017-11-23T16:51:52.748Z">
+<meta property="og:updated_time" content="2017-11-23T16:51:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用TLS对Docker Socket进行授权限制">
 <meta name="twitter:description" content="本文翻译自：Protect the Docker daemon socket 通常情况下，Docker主要通过无网络的Unix socket与deamon进行通信。HTTP socket同样可以作为可选的方式进行交互。 如果需要将以安全的方式通过网络进行交互，可以通过设置tlsverify标识，并指定tlscacert为信任的CA证书来启用TLS。 服务端方面仅允许通过CA证书认证的客户端进行连接">
@@ -144,6 +144,8 @@
 <p>服务端方面仅允许通过CA证书认证的客户端进行连接，客户端方面需要通过签名的证书与服务器进行通信。</p>
 <blockquote>
 <p><strong>警告</strong>：使用TLS及CA证书管理具有一定深度.在生产环境使用之前，请确保自己已掌握OpenSSL、x509及TLS相关知识。</p>
+</blockquote>
+<blockquote>
 <p><strong>警告</strong>：下述TLS命令仅可在Linux下生成可用的秘钥集。macOS的OpenSSL版本与Docker使用的证书存在兼容性问题。</p>
 </blockquote>
 <h2 id="使用OpenSSL创建服务端、客户端秘钥及服务端证书"><a href="#使用OpenSSL创建服务端、客户端秘钥及服务端证书" class="headerlink" title="使用OpenSSL创建服务端、客户端秘钥及服务端证书"></a>使用OpenSSL创建服务端、客户端秘钥及服务端证书</h2><blockquote>
@@ -181,6 +183,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker --tlsverify --tlscacert=ca.pem --tlscert=cert.pem --tlskey=key.pem \</span><br><span class="line">  -H=<span class="variable">$HOST</span>:2376 version</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>提示</strong>：在TLS上的Docker服务应该使用TPC 2376端口。</p>
+</blockquote>
+<blockquote>
 <p><strong>警告</strong>：上述展示的样例在使用证书认证方式时，不需要<code>sudo</code>或者<code>docker</code>用户组就可以执行。这意味着任何持有keys的人都具备操作正在运行的Docker daemon的权限，请和root密码一样保护好这些证书！</p>
 </blockquote>
 <h2 id="将安全连接设为默认设置"><a href="#将安全连接设为默认设置" class="headerlink" title="将安全连接设为默认设置"></a>将安全连接设为默认设置</h2><p>如果想将安全连接设为默认设置，可以通过将上述文件移动到用户文件夹的<code>.docker</code>文件夹下，然后设置<code>DOCKER_HOST</code>和<code>DOCKER_TLS_VERIFY</code>参数替代每次执行命令时传递的<code>-H=tcp://$HOST:2376</code>和<code>--tlsverify</code>。</p>

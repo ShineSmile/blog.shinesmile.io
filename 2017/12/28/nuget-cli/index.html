@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="翻译自：NuGet CLI reference  此官方文档过于拖沓，后续将结合实践重写。 NuGet CLI 概述 Nuget命令行接口nuget.exe, 提供完整的及管理的功能，可以在在不修改任何工程文件的情况下对包进行安装、创建、 发布。 使用nuget命令只需在命令行窗体或bash shell中运行 nuget &amp;lt;子命令&amp;gt; &amp;lt;可选参数&amp;gt;即可，例如nuget hel">
+    <meta name="description" content="翻译自：NuGet CLI reference  此官方文档过于拖沓，后续将结合实践重写。  NuGet CLI 概述Nuget命令行接口nuget.exe, 提供完整的及管理的功能，可以在在不修改任何工程文件的情况下对包进行安装、创建、 发布。 使用nuget命令只需在命令行窗体或bash shell中运行 nuget &amp;lt;子命令&amp;gt; &amp;lt;可选参数&amp;gt;即可，例如nuget hel">
 <meta name="keywords" content="nuget,cli">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nuget命令行接口">
 <meta property="og:url" content="http://shinesmile.io/2017/12/28/nuget-cli/index.html">
 <meta property="og:site_name" content="ShineSmile.io">
-<meta property="og:description" content="翻译自：NuGet CLI reference  此官方文档过于拖沓，后续将结合实践重写。 NuGet CLI 概述 Nuget命令行接口nuget.exe, 提供完整的及管理的功能，可以在在不修改任何工程文件的情况下对包进行安装、创建、 发布。 使用nuget命令只需在命令行窗体或bash shell中运行 nuget &amp;lt;子命令&amp;gt; &amp;lt;可选参数&amp;gt;即可，例如nuget hel">
+<meta property="og:description" content="翻译自：NuGet CLI reference  此官方文档过于拖沓，后续将结合实践重写。  NuGet CLI 概述Nuget命令行接口nuget.exe, 提供完整的及管理的功能，可以在在不修改任何工程文件的情况下对包进行安装、创建、 发布。 使用nuget命令只需在命令行窗体或bash shell中运行 nuget &amp;lt;子命令&amp;gt; &amp;lt;可选参数&amp;gt;即可，例如nuget hel">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-03-16T06:33:52.592Z">
+<meta property="og:updated_time" content="2018-03-16T06:33:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nuget命令行接口">
-<meta name="twitter:description" content="翻译自：NuGet CLI reference  此官方文档过于拖沓，后续将结合实践重写。 NuGet CLI 概述 Nuget命令行接口nuget.exe, 提供完整的及管理的功能，可以在在不修改任何工程文件的情况下对包进行安装、创建、 发布。 使用nuget命令只需在命令行窗体或bash shell中运行 nuget &amp;lt;子命令&amp;gt; &amp;lt;可选参数&amp;gt;即可，例如nuget hel">
+<meta name="twitter:description" content="翻译自：NuGet CLI reference  此官方文档过于拖沓，后续将结合实践重写。  NuGet CLI 概述Nuget命令行接口nuget.exe, 提供完整的及管理的功能，可以在在不修改任何工程文件的情况下对包进行安装、创建、 发布。 使用nuget命令只需在命令行窗体或bash shell中运行 nuget &amp;lt;子命令&amp;gt; &amp;lt;可选参数&amp;gt;即可，例如nuget hel">
     
     
         
@@ -141,8 +141,8 @@
     <p>翻译自：<a href="https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference" target="_blank" rel="noopener">NuGet CLI reference</a></p>
 <blockquote>
 <p>此官方文档过于拖沓，后续将结合实践重写。</p>
-<h1 id="NuGet-CLI-概述"><a href="#NuGet-CLI-概述" class="headerlink" title="NuGet CLI 概述"></a>NuGet CLI 概述</h1></blockquote>
-<p>Nuget命令行接口<code>nuget.exe</code>, 提供完整的及管理的功能，可以在在不修改任何工程文件的情况下对包进行安装、创建、 发布。</p>
+</blockquote>
+<h1 id="NuGet-CLI-概述"><a href="#NuGet-CLI-概述" class="headerlink" title="NuGet CLI 概述"></a>NuGet CLI 概述</h1><p>Nuget命令行接口<code>nuget.exe</code>, 提供完整的及管理的功能，可以在在不修改任何工程文件的情况下对包进行安装、创建、 发布。</p>
 <p>使用nuget命令只需在命令行窗体或bash shell中运行 <code>nuget &lt;子命令&gt; &lt;可选参数&gt;</code>即可，例如<code>nuget help pack</code>(显示pack文件的帮助信息)。</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
 <li>在Mac及Linux发行版中，安装<a href="http://www.mono-project.com/docs/getting-started/install/" target="_blank" rel="noopener">Mono 4.4.2及以上版本</a>。</li>
