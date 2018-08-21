@@ -629,6 +629,23 @@
 
     
   <url>
+    <loc>http://shinesmile.io/2017/02/26/git-init-3/</loc>
+    <lastmod>2017-11-23T16:51:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git init 3：协作开发的分支管理</title>
+        <pubTime>2017-02-26T04:00:00.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shinesmile.io/2017/02/25/git-init-2-5/</loc>
     <lastmod>2017-11-23T16:51:52.000Z</lastmod>
     <data>
@@ -646,12 +663,12 @@
 
     
   <url>
-    <loc>http://shinesmile.io/2017/02/26/git-init-3/</loc>
+    <loc>http://shinesmile.io/2017/02/25/git-init-2-4/</loc>
     <lastmod>2017-11-23T16:51:52.000Z</lastmod>
     <data>
         <display>
-        <title>Git init 3：协作开发的分支管理</title>
-        <pubTime>2017-02-26T04:00:00.000Z</pubTime>
+        <title>Git init 2.4：分支与远端管理</title>
+        <pubTime>2017-02-25T07:00:00.000Z</pubTime>
         
         <tag>git</tag>
          
@@ -680,23 +697,6 @@
 
     
   <url>
-    <loc>http://shinesmile.io/2017/02/25/git-init-2-4/</loc>
-    <lastmod>2017-11-23T16:51:52.000Z</lastmod>
-    <data>
-        <display>
-        <title>Git init 2.4：分支与远端管理</title>
-        <pubTime>2017-02-25T07:00:00.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://shinesmile.io/2017/02/28/git-init-5/</loc>
     <lastmod>2017-11-23T16:51:52.000Z</lastmod>
     <data>
@@ -714,12 +714,12 @@
 
     
   <url>
-    <loc>http://shinesmile.io/2017/02/20/git-init-1/</loc>
+    <loc>http://shinesmile.io/2017/02/25/git-init-2-1/</loc>
     <lastmod>2017-11-23T16:51:52.000Z</lastmod>
     <data>
         <display>
-        <title>Git init 1：Git的安装</title>
-        <pubTime>2017-02-20T04:00:00.000Z</pubTime>
+        <title>Git init 2.1：Git仓库的初始化</title>
+        <pubTime>2017-02-25T04:00:00.000Z</pubTime>
         
         <tag>git</tag>
          
@@ -731,12 +731,12 @@
 
     
   <url>
-    <loc>http://shinesmile.io/2017/02/25/git-init-2-1/</loc>
+    <loc>http://shinesmile.io/2017/02/20/git-init-1/</loc>
     <lastmod>2017-11-23T16:51:52.000Z</lastmod>
     <data>
         <display>
-        <title>Git init 2.1：Git仓库的初始化</title>
-        <pubTime>2017-02-25T04:00:00.000Z</pubTime>
+        <title>Git init 1：Git的安装</title>
+        <pubTime>2017-02-20T04:00:00.000Z</pubTime>
         
         <tag>git</tag>
          
