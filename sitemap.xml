@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://shinesmile.io/about/index.html</loc>
+    
+    <lastmod>2018-08-21T09:44:03.808Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/12/07/msbuild-and-mstest-without-visualstudio/</loc>
+    
+    <lastmod>2018-08-21T09:42:12.793Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2018/02/05/about-nancy/</loc>
+    
+    <lastmod>2018-08-21T09:36:16.172Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://shinesmile.io/2017/03/22/skill-of-centos/</loc>
     
     <lastmod>2018-06-22T06:18:08.000Z</lastmod>
@@ -9,28 +30,7 @@
   </url>
   
   <url>
-    <loc>http://shinesmile.io/about/index.html</loc>
-    
-    <lastmod>2018-04-15T04:16:31.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2018/02/05/about_nancy/</loc>
-    
-    <lastmod>2018-04-15T04:12:57.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://shinesmile.io/2018/04/11/cloud-resource-management/</loc>
-    
-    <lastmod>2018-04-15T04:12:57.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/12/07/msbuild_and_mstest-without_visualstudio/</loc>
     
     <lastmod>2018-04-15T04:12:57.000Z</lastmod>
     
