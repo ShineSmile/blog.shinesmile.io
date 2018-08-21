@@ -22,6 +22,25 @@
     
     
   <url>
+    <loc>http://shinesmile.io/2018/02/05/about_nancy/</loc>
+    <lastmod>2018-04-15T04:12:57.000Z</lastmod>
+    <data>
+        <display>
+        <title>Nancy for ...</title>
+        <pubTime>2018-02-05T03:21:22.000Z</pubTime>
+        
+        <tag>web</tag>
+         
+        <tag>nancy</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shinesmile.io/2018/04/11/cloud-resource-management/</loc>
     <lastmod>2018-04-15T04:12:57.000Z</lastmod>
     <data>
@@ -51,25 +70,6 @@
         <tag>MSBuild</tag>
          
         <tag>MSTest</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2018/02/05/about_nancy/</loc>
-    <lastmod>2018-04-15T04:12:57.000Z</lastmod>
-    <data>
-        <display>
-        <title>Nancy for ...</title>
-        <pubTime>2018-02-05T03:21:22.000Z</pubTime>
-        
-        <tag>web</tag>
-         
-        <tag>nancy</tag>
          
          
            
@@ -610,22 +610,6 @@
     </url>
 
     
-  <url>
-    <loc>http://shinesmile.io/2017/02/28/git-init-5/</loc>
-    <lastmod>2017-11-23T16:51:52.000Z</lastmod>
-    <data>
-        <display>
-        <title>Git init 5：GitLab的使用</title>
-        <pubTime>2017-02-28T04:00:00.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>http://shinesmile.io/2017/02/27/git-init-4/</loc>
@@ -645,12 +629,12 @@
 
     
   <url>
-    <loc>http://shinesmile.io/2017/02/26/git-init-3/</loc>
+    <loc>http://shinesmile.io/2017/02/25/git-init-2-5/</loc>
     <lastmod>2017-11-23T16:51:52.000Z</lastmod>
     <data>
         <display>
-        <title>Git init 3：协作开发的分支管理</title>
-        <pubTime>2017-02-26T04:00:00.000Z</pubTime>
+        <title>Git init 2.5：代码的获取与分支的合并</title>
+        <pubTime>2017-02-25T08:00:00.000Z</pubTime>
         
         <tag>git</tag>
          
@@ -662,12 +646,12 @@
 
     
   <url>
-    <loc>http://shinesmile.io/2017/02/25/git-init-2-5/</loc>
+    <loc>http://shinesmile.io/2017/02/26/git-init-3/</loc>
     <lastmod>2017-11-23T16:51:52.000Z</lastmod>
     <data>
         <display>
-        <title>Git init 2.5：代码的获取与分支的合并</title>
-        <pubTime>2017-02-25T08:00:00.000Z</pubTime>
+        <title>Git init 3：协作开发的分支管理</title>
+        <pubTime>2017-02-26T04:00:00.000Z</pubTime>
         
         <tag>git</tag>
          
@@ -712,6 +696,39 @@
     </url>
 
     
+  <url>
+    <loc>http://shinesmile.io/2017/02/28/git-init-5/</loc>
+    <lastmod>2017-11-23T16:51:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git init 5：GitLab的使用</title>
+        <pubTime>2017-02-28T04:00:00.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/02/20/git-init-1/</loc>
+    <lastmod>2017-11-23T16:51:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git init 1：Git的安装</title>
+        <pubTime>2017-02-20T04:00:00.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
     
   <url>
     <loc>http://shinesmile.io/2017/02/25/git-init-2-1/</loc>
@@ -743,23 +760,6 @@
         <tag>VScode</tag>
          
         <tag>terminal</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/02/20/git-init-1/</loc>
-    <lastmod>2017-11-23T16:51:52.000Z</lastmod>
-    <data>
-        <display>
-        <title>Git init 1：Git的安装</title>
-        <pubTime>2017-02-20T04:00:00.000Z</pubTime>
-        
-        <tag>git</tag>
          
          
            
