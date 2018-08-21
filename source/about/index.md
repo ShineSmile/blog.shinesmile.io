@@ -1,12 +1,7 @@
 ---
-title: 关于我
+title: 收藏夹
 date: 2018-3-29 20:20:00
 ---
 
-[ShineSmile@outlook.com](mailto:ShineSmile@outlook.com)
-
-[FreeFaas](https://github.com/freefaas)
-
-想做的太多，能做的太少。
-
-所以只好按部就班的幸福生活。
+[itch.io](https://itch.io/):其中包含不容引擎，免费分发的独立游戏。另外包含[Game Jam](https://itch.io/jams)举办的相关信息。
+[etcher](https://etcher.io/):此软件为跨平台开源程序。用于取代收费的ultraiso以及poweriso刻录工具。
