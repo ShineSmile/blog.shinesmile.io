@@ -27,12 +27,12 @@
         
         
           
-            <link rel="icon" type="image/png" href="/images/favicon.png" sizes="192x192">
+            <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
           
         
         
           
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
           
         
     
@@ -40,17 +40,20 @@
     <title>AWS架构准则</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
     <!-- rss -->
     
     
 </head>
 
-<body>
-    
+<body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
-  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
   <span id="menu">
     <span id="nav">
       <ul>
@@ -69,13 +72,13 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2018/02/28/what-is-devops/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/2018/02/28/what-is-devops/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2018/02/05/about-nancy/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/2018/02/05/about-nancy/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
       <span id="i-prev" class="info" style="display:none;">Previous post</span>
       <span id="i-next" class="info" style="display:none;">Next post</span>
@@ -85,16 +88,16 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&text=AWS架构准则"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&title=AWS架构准则"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&is_video=false&description=AWS架构准则"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=AWS架构准则&body=Check out this article: http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&title=AWS架构准则"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&title=AWS架构准则"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&title=AWS架构准则"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&title=AWS架构准则"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&name=AWS架构准则&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&text=AWS架构准则"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&title=AWS架构准则"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&is_video=false&description=AWS架构准则"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=AWS架构准则&body=Check out this article: http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&title=AWS架构准则"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&title=AWS架构准则"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&title=AWS架构准则"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&title=AWS架构准则"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&name=AWS架构准则&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -105,7 +108,7 @@
 </div>
 
     
-    <div class="content index width mx-auto px2 my4">
+    <div class="content index my4">
         
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header>
@@ -128,7 +131,7 @@
 
       
     <div class="article-tag">
-        <i class="fa fa-tag"></i>
+        <i class="fas fa-tag"></i>
         <a class="tag-link" href="/tags/architect/">architect</a>, <a class="tag-link" href="/tags/aws/">aws</a>
     </div>
 
@@ -260,27 +263,25 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&text=AWS架构准则"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&title=AWS架构准则"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&is_video=false&description=AWS架构准则"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=AWS架构准则&body=Check out this article: http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&title=AWS架构准则"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&title=AWS架构准则"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&title=AWS架构准则"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&title=AWS架构准则"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&name=AWS架构准则&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&text=AWS架构准则"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&title=AWS架构准则"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&is_video=false&description=AWS架构准则"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=AWS架构准则&body=Check out this article: http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&title=AWS架构准则"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&title=AWS架构准则"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&title=AWS架构准则"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&title=AWS架构准则"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/&name=AWS架构准则&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
 
     <div id="actions-footer">
-      <ul>
-        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
-        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
-        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
-        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
-      </ul>
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
     </div>
 
   </div>
@@ -311,17 +312,18 @@
 </body>
 </html>
 <!-- styles -->
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
-<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
 
 <!-- jquery -->
 <script src="/lib/jquery/jquery.min.js"></script>
-<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
 <script src="/js/main.js"></script>
 <!-- search -->
 
 <!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
 
 <!-- Disqus Comments -->
 
