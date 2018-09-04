@@ -17,7 +17,7 @@
 <meta property="og:image" content="http://shinesmile.io/2017/02/25/git-init-2-1/workfolder.png">
 <meta property="og:image" content="http://shinesmile.io/2017/02/25/git-init-2-1/local_repo.png">
 <meta property="og:image" content="http://shinesmile.io/2017/02/25/git-init-2-1/remote_repo.png">
-<meta property="og:updated_time" content="2017-11-23T16:51:52.000Z">
+<meta property="og:updated_time" content="2018-09-04T05:36:09.899Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git init 2.1：Git仓库的初始化">
 <meta name="twitter:description" content="初始化本地仓库1git init 此命令将所在文件夹初始化为git本地仓库。初始化成功的标志为，文件夹内创建了一个名为.git的隐藏子文件夹。git子文件夹为本地仓库，.git所在文件夹是版本控制工作区。   本系列文章的标题即取自git init命令。 初始化远端仓库1git init --bare --bare参数表示将当前文件夹初始化为不包括工作区的裸库。其文件结构与本地仓库相似，但某些参数">
@@ -106,7 +106,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化本地仓库"><span class="toc-number">1.</span> <span class="toc-text">初始化本地仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化远端仓库"><span class="toc-number">2.</span> <span class="toc-text">初始化远端仓库</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#初始化本地仓库"><span class="toc-number">1.</span> <span class="toc-text">初始化本地仓库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#初始化远端仓库"><span class="toc-number">2.</span> <span class="toc-text">初始化远端仓库</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -145,12 +145,12 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h2 id="初始化本地仓库"><a href="#初始化本地仓库" class="headerlink" title="初始化本地仓库"></a>初始化本地仓库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+    <h1 id="初始化本地仓库"><a href="#初始化本地仓库" class="headerlink" title="初始化本地仓库"></a>初始化本地仓库</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
 <p>此命令将所在文件夹初始化为git本地仓库。初始化成功的标志为，文件夹内创建了一个名为<code>.git</code>的隐藏子文件夹。<code>git</code>子文件夹为<strong>本地仓库</strong>，<code>.git</code>所在文件夹是版本控制工作区。</p>
 <p><img src="/2017/02/25/git-init-2-1/workfolder.png" alt="本地仓库"></p>
 <p><img src="/2017/02/25/git-init-2-1/local_repo.png" alt="本地仓库的文件结构"></p>
 <p>本系列文章的标题即取自<code>git init</code>命令。</p>
-<h2 id="初始化远端仓库"><a href="#初始化远端仓库" class="headerlink" title="初始化远端仓库"></a>初始化远端仓库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init --bare</span><br></pre></td></tr></table></figure>
+<h1 id="初始化远端仓库"><a href="#初始化远端仓库" class="headerlink" title="初始化远端仓库"></a>初始化远端仓库</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init --bare</span><br></pre></td></tr></table></figure>
 <p><code>--bare</code>参数表示将当前文件夹初始化为不包括工作区的裸库。其文件结构与本地仓库相似，但某些参数不同。远端仓库主要用于本地仓库之间的同步。远端仓库不能提交代码。只能由本地仓库推送或获取。</p>
 <p><img src="/2017/02/25/git-init-2-1/remote_repo.png" alt="远端仓库"></p>
 
@@ -185,7 +185,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化本地仓库"><span class="toc-number">1.</span> <span class="toc-text">初始化本地仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化远端仓库"><span class="toc-number">2.</span> <span class="toc-text">初始化远端仓库</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#初始化本地仓库"><span class="toc-number">1.</span> <span class="toc-text">初始化本地仓库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#初始化远端仓库"><span class="toc-number">2.</span> <span class="toc-text">初始化远端仓库</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">

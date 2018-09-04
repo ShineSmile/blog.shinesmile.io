@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="ShineSmile.io">
 <meta property="og:description" content="Windows Server 2K8的powershell版本默认为2.0。因版本过时，在使用过程中存在功能缺失、无法由Jenkins直接调用，cmd调用时exit code不更新%errorlevel%字段等问题，因此简直升级至最新版本根除隐患。 相关链接：微软官方技术支持1微软官方技术支持2简单来说：  SP1-Windows 2008 R2 Microsoft .NET Framework">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-03-16T06:34:09.000Z">
+<meta property="og:updated_time" content="2018-09-04T05:36:09.899Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jenkins迁移至Server2008执行Powershell无响应">
 <meta name="twitter:description" content="Windows Server 2K8的powershell版本默认为2.0。因版本过时，在使用过程中存在功能缺失、无法由Jenkins直接调用，cmd调用时exit code不更新%errorlevel%字段等问题，因此简直升级至最新版本根除隐患。 相关链接：微软官方技术支持1微软官方技术支持2简单来说：  SP1-Windows 2008 R2 Microsoft .NET Framework">
@@ -102,7 +102,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#现象"><span class="toc-number">1.</span> <span class="toc-text">现象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-number">2.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决"><span class="toc-number">3.</span> <span class="toc-text">解决</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#现象"><span class="toc-number">1.</span> <span class="toc-text">现象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#问题"><span class="toc-number">2.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解决"><span class="toc-number">3.</span> <span class="toc-text">解决</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -151,8 +151,8 @@
 <p>安装后重启即可</p>
 <hr>
 <p><strong>以下内容因未能从根源解决问题被标注过期供参考</strong></p>
-<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>将Jenkins从2k16迁移至2k8的服务器时，发生了jenkins pipeline中powershell脚本无响应的问题。</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ul>
+<h1 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h1><p>将Jenkins从2k16迁移至2k8的服务器时，发生了jenkins pipeline中powershell脚本无响应的问题。</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ul>
 <li><p>无法通过下述方式直接执行powershell脚本。</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">powershell</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">    #powershell scripts</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
 <p>  由于系统原因，jenkins直接调用powershell，在执行过程中不会正常停止，也不会正常返回错误信息。</p>
@@ -160,7 +160,7 @@
 <li>Execution Policy<br>  虽然在服务器上已经更新了执行策略，但在jenkins调用时仍会提示策略为Restrict。</li>
 <li>x86 or x64<br>将使用的第三方包发布至<em>%WINDIR%\System32\WindowsPowerShell\v1.0\Modules</em>，执行Import-Module时找不到相关的包。</li>
 </ul>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><ul>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><ul>
 <li>将jenkinsfile文件中的powershell脚本迁出至<strong>script.ps1</strong>，通过<strong>bat ‘powershell -f script.ps1’</strong>方式间接执行脚本。</li>
 <li>在脚本执行前，添加<strong>powershell Set-ExecutionPolicy Bypass</strong>，提升jenkins调用的powershell环境的执行权限。</li>
 <li>将第三方包分别添加至<em>%WINDIR%\System32\WindowsPowerShell\v1.0\Modules</em>、<em>%WINDIR%\SysWOW64\WindowsPowerShell\v1.0\Modules</em>中。确保第三方包可以被正常引用。<br>通过以上调整，问题解决。</li>
@@ -197,7 +197,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#现象"><span class="toc-number">1.</span> <span class="toc-text">现象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-number">2.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决"><span class="toc-number">3.</span> <span class="toc-text">解决</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#现象"><span class="toc-number">1.</span> <span class="toc-text">现象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#问题"><span class="toc-number">2.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解决"><span class="toc-number">3.</span> <span class="toc-text">解决</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">

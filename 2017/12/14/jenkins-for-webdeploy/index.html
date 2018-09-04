@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/web_management_service.png">
 <meta property="og:image" content="http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/project_configuration.png">
 <meta property="og:image" content="http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/publish_configuration.png">
-<meta property="og:updated_time" content="2018-03-16T06:34:16.000Z">
+<meta property="og:updated_time" content="2018-09-04T05:36:09.900Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Jenkins通过Web Deploy进行持续发布">
 <meta name="twitter:description" content="提到ASP.NET的项目就不得不提Web Deploy，此工具被Visual Studio集成（需要安装Web开发相关功能）。若想脱离Visual Studio使用相关功能可以在这里下载。当然也可通过微软的Web平台安装程序进行安装。 IIS管理服务的安装若要使用Web Deploy相关功能。需要安装IIS的管理服务：安装完成后需要配置相关权限，建议使用独立的IIS管理账户进行配置，本文档将直接使">
@@ -110,7 +110,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#IIS管理服务的安装"><span class="toc-number">1.</span> <span class="toc-text">IIS管理服务的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web-Deploy权限设置"><span class="toc-number">2.</span> <span class="toc-text">Web Deploy权限设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工程相关配置"><span class="toc-number">3.</span> <span class="toc-text">工程相关配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jenkins集成"><span class="toc-number">4.</span> <span class="toc-text">Jenkins集成</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#IIS管理服务的安装"><span class="toc-number">1.</span> <span class="toc-text">IIS管理服务的安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Web-Deploy权限设置"><span class="toc-number">2.</span> <span class="toc-text">Web Deploy权限设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#工程相关配置"><span class="toc-number">3.</span> <span class="toc-text">工程相关配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Jenkins集成"><span class="toc-number">4.</span> <span class="toc-text">Jenkins集成</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -150,18 +150,18 @@
 
   <div class="content" itemprop="articleBody">
     <p>提到ASP.NET的项目就不得不提Web Deploy，此工具被Visual Studio集成（需要安装Web开发相关功能）。若想脱离Visual Studio使用相关功能可以在这里<a href="https://www.iis.net/downloads/microsoft/web-deploy" target="_blank" rel="noopener">下载</a>。当然也可通过微软的Web平台安装程序进行安装。<br><img src="/2017/12/14/jenkins-for-webdeploy/web_deploy_install.png" alt="通过Web平台安装程序进行安装"></p>
-<h2 id="IIS管理服务的安装"><a href="#IIS管理服务的安装" class="headerlink" title="IIS管理服务的安装"></a>IIS管理服务的安装</h2><p>若要使用Web Deploy相关功能。需要安装IIS的管理服务：<br><img src="/2017/12/14/jenkins-for-webdeploy/iis_management_service_install.png" alt="IIS管理服务的安装"><br>安装完成后需要配置相关权限，建议使用独立的IIS管理账户进行配置，本文档将直接使用Administrator账户进行演示。</p>
-<h2 id="Web-Deploy权限设置"><a href="#Web-Deploy权限设置" class="headerlink" title="Web Deploy权限设置"></a>Web Deploy权限设置</h2><p><img src="/2017/12/14/jenkins-for-webdeploy/web_deploy_authorization.png" alt="配置权限"><br>双击权限管理添加相应用户后即可对此Web服务进行发布。<br><img src="/2017/12/14/jenkins-for-webdeploy/authorization_account.png" alt="添加用户"></p>
+<h1 id="IIS管理服务的安装"><a href="#IIS管理服务的安装" class="headerlink" title="IIS管理服务的安装"></a>IIS管理服务的安装</h1><p>若要使用Web Deploy相关功能。需要安装IIS的管理服务：<br><img src="/2017/12/14/jenkins-for-webdeploy/iis_management_service_install.png" alt="IIS管理服务的安装"><br>安装完成后需要配置相关权限，建议使用独立的IIS管理账户进行配置，本文档将直接使用Administrator账户进行演示。</p>
+<h1 id="Web-Deploy权限设置"><a href="#Web-Deploy权限设置" class="headerlink" title="Web Deploy权限设置"></a>Web Deploy权限设置</h1><p><img src="/2017/12/14/jenkins-for-webdeploy/web_deploy_authorization.png" alt="配置权限"><br>双击权限管理添加相应用户后即可对此Web服务进行发布。<br><img src="/2017/12/14/jenkins-for-webdeploy/authorization_account.png" alt="添加用户"></p>
 <ul>
 <li>注意右上角<strong>只接受具有Windows凭据的账户</strong>的提示。</li>
 </ul>
 <p>安装完毕后需要通过服务管理确定<strong>Web Management Service</strong>已正常启动。<br><img src="/2017/12/14/jenkins-for-webdeploy/web_management_service.png" alt="服务管理"></p>
-<h2 id="工程相关配置"><a href="#工程相关配置" class="headerlink" title="工程相关配置"></a>工程相关配置</h2><p>可以通过右键工程-发布根据发布向导完成相关的配置：<br><img src="/2017/12/14/jenkins-for-webdeploy/project_configuration.png" alt="发布设置"><br>相关信息添加好后，点击Validate Connection会对链接进行测试。为防止中间人攻击，需要人工对证书进行校验。</p>
+<h1 id="工程相关配置"><a href="#工程相关配置" class="headerlink" title="工程相关配置"></a>工程相关配置</h1><p>可以通过右键工程-发布根据发布向导完成相关的配置：<br><img src="/2017/12/14/jenkins-for-webdeploy/project_configuration.png" alt="发布设置"><br>相关信息添加好后，点击Validate Connection会对链接进行测试。为防止中间人攻击，需要人工对证书进行校验。</p>
 <ul>
 <li>如在<em>Server</em>处添加<em>localhost</em>地址，Visual Studio会要求使用管理员账户启动且无需添加用户名等信息，否则无法发布。本人对此策略感到疑惑：同样是通过服务发布，远程发布只要拥有IIS服务管理权限即可，而向本机发布却需要完整的管理员权限。向本机发布的严苛程度甚至高过远程发布。莫名其妙，望高手拍砖。</li>
 </ul>
 <p><img src="/2017/12/14/jenkins-for-webdeploy/publish_configuration.png" alt="发布设置"><br>Setting页面会对编译选项、是否移除目标路径现有的文件、预编译、是否排除App_Data文件夹中的内容以及数据库链接进行配置。<br>设置好后可以进行保存，并通过发布按钮发布进行测试。</p>
-<h2 id="Jenkins集成"><a href="#Jenkins集成" class="headerlink" title="Jenkins集成"></a>Jenkins集成</h2><p>若要通过命令行调用Web Deploy相关功能，只需在MSBuild工具附加下述参数：<em>p:DeployOnBuild=True;PublishProfile=WebDeploy-Demo;Password=Dawn233+;AllowUntrustedCertificate=true</em></p>
+<h1 id="Jenkins集成"><a href="#Jenkins集成" class="headerlink" title="Jenkins集成"></a>Jenkins集成</h1><p>若要通过命令行调用Web Deploy相关功能，只需在MSBuild工具附加下述参数：<em>p:DeployOnBuild=True;PublishProfile=WebDeploy-Demo;Password=Dawn233+;AllowUntrustedCertificate=true</em></p>
 <table>
 <thead>
 <tr>
@@ -226,7 +226,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#IIS管理服务的安装"><span class="toc-number">1.</span> <span class="toc-text">IIS管理服务的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web-Deploy权限设置"><span class="toc-number">2.</span> <span class="toc-text">Web Deploy权限设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工程相关配置"><span class="toc-number">3.</span> <span class="toc-text">工程相关配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jenkins集成"><span class="toc-number">4.</span> <span class="toc-text">Jenkins集成</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#IIS管理服务的安装"><span class="toc-number">1.</span> <span class="toc-text">IIS管理服务的安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Web-Deploy权限设置"><span class="toc-number">2.</span> <span class="toc-text">Web Deploy权限设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#工程相关配置"><span class="toc-number">3.</span> <span class="toc-text">工程相关配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Jenkins集成"><span class="toc-number">4.</span> <span class="toc-text">Jenkins集成</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">

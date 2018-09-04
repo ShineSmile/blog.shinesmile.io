@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="ShineSmile.io">
 <meta property="og:description" content="在这里可以找到AWS相关的白皮书下载链接。本文内容主要来自于架构师助理培训内容的提纲。详情参见此文档。 在撰写、翻译时尽量隐去了对应AWS服务的引用，取而代之的是对应功能的描述。此举不是因为担心为AWS做广告（人家也不需要），是因为好的架构思想应该不应受到平台的限制。经过时间和实践考验过的组件，一定会在其它平台换个名字重新实现。 “松耦合使你自由” 基于独立组件设计架构 耦合度越松散，越容易进行横">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-03-16T06:35:55.000Z">
+<meta property="og:updated_time" content="2018-09-04T05:36:09.901Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AWS架构准则">
 <meta name="twitter:description" content="在这里可以找到AWS相关的白皮书下载链接。本文内容主要来自于架构师助理培训内容的提纲。详情参见此文档。 在撰写、翻译时尽量隐去了对应AWS服务的引用，取而代之的是对应功能的描述。此举不是因为担心为AWS做广告（人家也不需要），是因为好的架构思想应该不应受到平台的限制。经过时间和实践考验过的组件，一定会在其它平台换个名字重新实现。 “松耦合使你自由” 基于独立组件设计架构 耦合度越松散，越容易进行横">
@@ -102,7 +102,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#“松耦合使你自由”"><span class="toc-number">1.</span> <span class="toc-text">“松耦合使你自由”</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解耦原则"><span class="toc-number">1.1.</span> <span class="toc-text">解耦原则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“将组件故障的情况加入到架构考虑的范围内”"><span class="toc-number">2.</span> <span class="toc-text">“将组件故障的情况加入到架构考虑的范围内”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现弹性"><span class="toc-number">3.</span> <span class="toc-text">实现弹性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#每个层面都需要考虑安全问题"><span class="toc-number">4.</span> <span class="toc-text">每个层面都需要考虑安全问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#最小授权原则"><span class="toc-number">4.1.</span> <span class="toc-text">最小授权原则</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#“松耦合使你自由”"><span class="toc-number">1.</span> <span class="toc-text">“松耦合使你自由”</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#解耦原则"><span class="toc-number">1.1.</span> <span class="toc-text">解耦原则</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#“将组件故障的情况加入到架构考虑的范围内”"><span class="toc-number">2.</span> <span class="toc-text">“将组件故障的情况加入到架构考虑的范围内”</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现弹性"><span class="toc-number">3.</span> <span class="toc-text">实现弹性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#每个层面都需要考虑安全问题"><span class="toc-number">4.</span> <span class="toc-text">每个层面都需要考虑安全问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#最小授权原则"><span class="toc-number">4.1.</span> <span class="toc-text">最小授权原则</span></a></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -143,13 +143,13 @@
   <div class="content" itemprop="articleBody">
     <p>在<a href="https://amazonaws-china.com/cn/whitepapers/" target="_blank" rel="noopener">这里</a>可以找到AWS相关的白皮书下载链接。<br>本文内容主要来自于架构师助理培训内容的提纲。<br>详情参见此<a href="https://d1.awsstatic-china.com/whitepapers/AWS_Cloud_Best_Practices.pdf" target="_blank" rel="noopener">文档</a>。</p>
 <p>在撰写、翻译时尽量隐去了对应AWS服务的引用，取而代之的是对应功能的描述。此举不是因为担心为AWS做广告（人家也不需要），是因为好的架构思想应该不应受到平台的限制。经过时间和实践考验过的组件，一定会在其它平台换个名字重新实现。</p>
-<h2 id="“松耦合使你自由”"><a href="#“松耦合使你自由”" class="headerlink" title="“松耦合使你自由”"></a>“松耦合使你自由”</h2><ul>
+<h1 id="“松耦合使你自由”"><a href="#“松耦合使你自由”" class="headerlink" title="“松耦合使你自由”"></a>“松耦合使你自由”</h1><ul>
 <li>基于独立组件设计架构<ul>
 <li>耦合度越松散，越容易进行横向扩展</li>
 </ul>
 </li>
 </ul>
-<h3 id="解耦原则"><a href="#解耦原则" class="headerlink" title="解耦原则"></a>解耦原则</h3><ul>
+<h2 id="解耦原则"><a href="#解耦原则" class="headerlink" title="解耦原则"></a>解耦原则</h2><ul>
 <li>不要依赖特定对象，考虑使用：<ul>
 <li>负载均衡集群</li>
 <li>DNS域名解析</li>
@@ -161,7 +161,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="“将组件故障的情况加入到架构考虑的范围内”"><a href="#“将组件故障的情况加入到架构考虑的范围内”" class="headerlink" title="“将组件故障的情况加入到架构考虑的范围内”"></a>“将组件故障的情况加入到架构考虑的范围内”</h2><blockquote>
+<h1 id="“将组件故障的情况加入到架构考虑的范围内”"><a href="#“将组件故障的情况加入到架构考虑的范围内”" class="headerlink" title="“将组件故障的情况加入到架构考虑的范围内”"></a>“将组件故障的情况加入到架构考虑的范围内”</h1><blockquote>
 <p>原文：Design for failure and nothing will fail. 是一句很耐人寻味的话。</p>
 </blockquote>
 <ul>
@@ -179,7 +179,7 @@
 <blockquote>
 <p>从这个角度看，容错是在高可用后进一步需要考虑的问题。例如：某些组件崩溃时，断路器可以减少无效访问的重试次数，节约计算资源及等待时间，并且保证崩溃的组件不会进一步污染整个系统。</p>
 </blockquote>
-<h2 id="实现弹性"><a href="#实现弹性" class="headerlink" title="实现弹性"></a>实现弹性</h2><ul>
+<h1 id="实现弹性"><a href="#实现弹性" class="headerlink" title="实现弹性"></a>实现弹性</h1><ul>
 <li>不要假定服务的可用性、健康状态以及位置是一成不变的<ul>
 <li>使用弹性扩展、弹性IP、可用区</li>
 </ul>
@@ -199,7 +199,7 @@
 </li>
 <li>弹性设计通常有利于节约开支</li>
 </ul>
-<h2 id="每个层面都需要考虑安全问题"><a href="#每个层面都需要考虑安全问题" class="headerlink" title="每个层面都需要考虑安全问题"></a>每个层面都需要考虑安全问题</h2><ul>
+<h1 id="每个层面都需要考虑安全问题"><a href="#每个层面都需要考虑安全问题" class="headerlink" title="每个层面都需要考虑安全问题"></a>每个层面都需要考虑安全问题</h1><ul>
 <li>基础设施层</li>
 <li>计算、网络架构层</li>
 <li>数据层</li>
@@ -217,7 +217,7 @@
 <blockquote>
 <p>尽量不要在版本控制工具中保存凭据及秘钥文件。一旦提交至服务器，这些信息将很难剔除。如果在Github提交了私钥，很快你就会收到潜在安全风险的邮件。可以通过凭据管理服务来进行凭据的管理及获取。</p>
 </blockquote>
-<h3 id="最小授权原则"><a href="#最小授权原则" class="headerlink" title="最小授权原则"></a>最小授权原则</h3><ul>
+<h2 id="最小授权原则"><a href="#最小授权原则" class="headerlink" title="最小授权原则"></a>最小授权原则</h2><ul>
 <li>只付于操作者完成工作的必要权限<ul>
 <li>必须对个人和进程进行授权</li>
 <li>只有三类用户可以直接访问资源配置型API<ul>
@@ -264,7 +264,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#“松耦合使你自由”"><span class="toc-number">1.</span> <span class="toc-text">“松耦合使你自由”</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解耦原则"><span class="toc-number">1.1.</span> <span class="toc-text">解耦原则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“将组件故障的情况加入到架构考虑的范围内”"><span class="toc-number">2.</span> <span class="toc-text">“将组件故障的情况加入到架构考虑的范围内”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现弹性"><span class="toc-number">3.</span> <span class="toc-text">实现弹性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#每个层面都需要考虑安全问题"><span class="toc-number">4.</span> <span class="toc-text">每个层面都需要考虑安全问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#最小授权原则"><span class="toc-number">4.1.</span> <span class="toc-text">最小授权原则</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#“松耦合使你自由”"><span class="toc-number">1.</span> <span class="toc-text">“松耦合使你自由”</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#解耦原则"><span class="toc-number">1.1.</span> <span class="toc-text">解耦原则</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#“将组件故障的情况加入到架构考虑的范围内”"><span class="toc-number">2.</span> <span class="toc-text">“将组件故障的情况加入到架构考虑的范围内”</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现弹性"><span class="toc-number">3.</span> <span class="toc-text">实现弹性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#每个层面都需要考虑安全问题"><span class="toc-number">4.</span> <span class="toc-text">每个层面都需要考虑安全问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#最小授权原则"><span class="toc-number">4.1.</span> <span class="toc-text">最小授权原则</span></a></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
