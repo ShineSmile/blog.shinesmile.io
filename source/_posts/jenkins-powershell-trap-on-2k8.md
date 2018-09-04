@@ -19,9 +19,9 @@ tags: [jenkins,powershell]
 ------
 **以下内容因未能从根源解决问题被标注过期供参考**
 
-## 现象
+# 现象
 将Jenkins从2k16迁移至2k8的服务器时，发生了jenkins pipeline中powershell脚本无响应的问题。
-## 问题
+# 问题
 * 无法通过下述方式直接执行powershell脚本。
 ``` groovy
 powershell
@@ -35,7 +35,7 @@ powershell
 * x86 or x64
 将使用的第三方包发布至*%WINDIR%\System32\WindowsPowerShell\v1.0\Modules*，执行Import-Module时找不到相关的包。
 
-## 解决
+# 解决
 * 将jenkinsfile文件中的powershell脚本迁出至**script.ps1**，通过**bat 'powershell -f script.ps1'**方式间接执行脚本。
 * 在脚本执行前，添加**powershell Set-ExecutionPolicy Bypass**，提升jenkins调用的powershell环境的执行权限。
 * 将第三方包分别添加至*%WINDIR%\System32\WindowsPowerShell\v1.0\Modules*、*%WINDIR%\SysWOW64\WindowsPowerShell\v1.0\Modules*中。确保第三方包可以被正常引用。

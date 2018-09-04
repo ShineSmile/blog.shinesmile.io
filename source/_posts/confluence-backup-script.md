@@ -4,7 +4,7 @@ date: 2017-12-25 14:18:46
 tags: [confluence, backup, powershell, git]
 ---
 
-## Powershell脚本
+# Powershell脚本
 start.ps1:
 ``` powershell
 $script = "backup_script.ps1"
@@ -26,9 +26,9 @@ $logtime = $args
 $logfolder = $dir + '\logs\'
 $logfile = $logfolder + $logtime + '-git' + '.log'
 Write-output $logfile
-Write-Output "#### Backup Start Up ####"
-Write-Output "#### Init Parameters ####"
-Write-Output "#### Excute time: $(Get-Date) ####"
+Write-Output "### Backup Start Up ####"
+Write-Output "### Init Parameters ####"
+Write-Output "### Excute time: $(Get-Date) ####"
 Write-Output ""
 
 $app_location = 'C:\Program Files\Atlassian\Confluence\'
@@ -62,7 +62,7 @@ Write-Output ""
 
 # check if confluence app folder has got a .git folder, init git if not
 if (!(Test-Path -PATH ($app_location + '.git'))) {
-    Write-Output "#### Init Git Forlders $app_location ####"
+    Write-Output "### Init Git Forlders $app_location ####"
     Set-Location $app_location
     git init >> $logfile
     foreach ($remote in $app_repos.Keys) {
@@ -80,7 +80,7 @@ if (!(Test-Path -PATH ($app_location + '.git'))) {
 
 # check if confluence data folder has got a .git folder, init git if not
 if (!(Test-Path -Path ($data_location + '.git'))) {
-    Write-Output "#### Init Git Forlders $data_location ####"
+    Write-Output "### Init Git Forlders $data_location ####"
     Set-Location $data_location
     git init >> $logfile
     foreach ($remote in $data_repos.Keys) {
@@ -101,7 +101,7 @@ if (!(Test-Path -Path ($dbdump_location + '.git'))) {
     if (!(Test-Path -Path $dbdump_location)) {
         New-Item -Type Directory -Path $dbdump_location
     }
-    Write-Output "#### Init Git Forlders $dbdump_location ####"
+    Write-Output "### Init Git Forlders $dbdump_location ####"
     Set-Location $dbdump_location
     git init $dbdump_location >> $logfile
     foreach ($remote in $dbdump_repos.Keys) {
@@ -116,7 +116,7 @@ if (!(Test-Path -Path ($dbdump_location + '.git'))) {
         git remote add $remote $dbdump_repos[$remote] >> $logfile
     }
 }
-Write-Output "#### Stop Confluence Service ####"
+Write-Output "### Stop Confluence Service ####"
 Stop-Service Confluence121217132300
 Write-Output ""
 
@@ -151,16 +151,16 @@ foreach ($remote in $dbdump_repos.Keys) {
 # start confluence service 
 Start-service Confluence121217132300
 
-Write-Output '#### Backup Complete ####'
+Write-Output '### Backup Complete ####'
 ```
 
-## .gitignore
-### Confluence应用目录
+# .gitignore
+## Confluence应用目录
 ``` .gitignore
 *temp/
 *logs/
 ```
-### Confluence_Data目录
+## Confluence_Data目录
 ``` .gitignore
 *temp/
 *logs/
@@ -168,18 +168,18 @@ Write-Output '#### Backup Complete ####'
 *.logs
 ```
 
-## Postgresql数据库导出与导入
-### plain text
+# Postgresql数据库导出与导入
+## plain text
 ``` bash
 pg_dump -U CONFLUENCE -f /$time.sql -d CONFLUENCE
 psql -U CONFLUENCE -f /20171225-120003.sql CONFLUENCE
 ```
-### *.tar
+## *.tar
 ``` bash
 pg_dump -U postgres -F t -f /$time.tar -d CONFLUENCE
 pg_restore -U postgres -d CONFLUENCE /20171225-120003.tar
 ```
-## Windows计划任务配置
+# Windows计划任务配置
 ``` XML
 <?xml version="1.0" encoding="UTF-16"?>
 <Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">

@@ -6,21 +6,21 @@ tags: [powershell, choco]
 
 在类Unix系统中，我们可以使用例如port、apt-get、yum此类包管理工具，对应用进行快速便捷的安装。在Windows平台，通过chololate，我们同样可以做到通过一条命令完成应用及依赖项的安装。
 
-## 依赖项
+# 依赖项
 Windows 7+ / Windows Server 2003+
 PowerShell v2+
 .NET Framework 4+ (若未安装安装过程会尝试自动安装.Net 4.0)
 
-## 安装
+# 安装
 
-### 使用cmd安装：
+## 使用cmd安装：
 
 在具有管理员权限的cmd.exe中执行：
 ``` 
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 ```
 
-### 使用powershell安装：
+## 使用powershell安装：
 
 在具有管理员权限的powershell中执行：
 ``` powershell
@@ -29,7 +29,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 
 执行完毕且没有错误提示的情况下表示安装成功。
 
-## choco子命令
+# choco子命令
 
 choco包裹以下子命令
  * list - 列出远程或本地的包

@@ -15,7 +15,7 @@ tags: git
 
 `master`分支保留的好处，一方面会使分支的命名统一、便于管理，另一方面可以通过这个保留的分支来实现代码审核，由项目的管理人员对`dev-user`分支进行审核，通过审核的代码再合并到master分支中。
 
-## 相关链接
+# 相关链接
 
 GitFlow它是git工具集的扩展，针对git的分支特点，GitFlow提供了一套开发分支的管理方案。作为模板具有一定的启发性。在此附上其[主页](http://nvie.com/posts/a-successful-git-branching-model/)及[教程](http://danielkummer.github.io/git-flow-cheatsheet/index.zh_CN.html)。
 

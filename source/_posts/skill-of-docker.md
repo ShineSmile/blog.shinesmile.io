@@ -31,12 +31,12 @@ Server:
  Experimental: false
 ```
 
-## 概述
+# 概述
 
 * 两端：docker命令客户端和docker守护进程
 * 三核心：镜像、容器、仓库
 
-## 执行docker命令时不使用sudo
+# 执行docker命令时不使用sudo
 
 > docker daemon使用的是Unix socket而不是TCP端口，而属于root的Unix socket在其他用户调用时必须通过sudo来提升用户的权限。[摘自](https://docs.docker.com/engine/installation/linux/linux-postinstall/)
 
@@ -49,7 +49,7 @@ sudo usermod -aG docker $USER
 
 执行上述命令后可能需要注销重新登录重新加载用户配置使配置生效。
 
-## 设置Docker daemon的代理服务器
+# 设置Docker daemon的代理服务器
 
 修改docker的推荐方案是修改`/etc/docker.daemon.json`配置文件，详细配置参看[这里](https://docs.docker.com/engine/reference/commandline/dockerd//#daemon-configuration-file)
 
@@ -85,9 +85,9 @@ systemctl show --property=Environment docker
 sudo systemctl restart docker
 ```
 
-## docker 子命令
+# docker 子命令
 
-### 镜像相关
+## 镜像相关
 
 * pull 拉取镜像至本地
 * search 查询远端仓库的共享镜像
@@ -100,7 +100,7 @@ sudo systemctl restart docker
 * push 推送镜像
 * create 从Dockerfile创建镜像
 
-### 容器相关
+## 容器相关
 
 * create 通过容器创建镜像
 * start 运行制定容器
@@ -117,7 +117,7 @@ sudo systemctl restart docker
 docker inspect --format "{{.State.Running}}" wordpress
 ```
 
-### 仓库相关
+## 仓库相关
 
 获取第三方镜像仓库的方法：在镜像前添加仓库的url，如：
 
@@ -125,7 +125,7 @@ docker inspect --format "{{.State.Running}}" wordpress
 sudo docker pull dl.dockerpool.com:5000/ubuntu:12.04
 ```
 
-## docker run参数简要说明
+# docker run参数简要说明
 
 * -t 让Docker分配一个伪终端（pseudo-tty）并绑定到容器的标准输入上
 * -i 让容器的标准输入保持打开
@@ -137,13 +137,13 @@ sudo docker pull dl.dockerpool.com:5000/ubuntu:12.04
 * --read-only 只读容器
 * -e 环境变量`docker run -d -e MYSQL_ROOT_PASSWORD=root mysql`
 
-## 无法通过映射的端口访问容器的端口
+# 无法通过映射的端口访问容器的端口
 
 这个问题很可能不是docker自身导致的，首先要核实服务建立时绑定的IP地址是否是`127.0.0.1`或者`localhost`，如果是，尝试将地址更换为`0.0.0.0`再试。
 
 在使用ASP.NET core时可能会遇到此问题。（绑定由IIS转移至代码及配置文件中。）
 
-## 通过Remote API访问其他主机中的Docker Daemon
+# 通过Remote API访问其他主机中的Docker Daemon
 
 如果不想在工作中的电脑运行Docker Deamon服务，在开发过程中直接调用服务端的容器，可以开启服务器daemon的tcp访问。**此方法不具有授权及身份认证功能。请自行核对docker及daemon的版本号。**
 
@@ -183,7 +183,7 @@ docker version
 
 衍生自：[Docker Remote API 如何使用？](https://www.zhihu.com/question/24852884/answer/138069968)
 
-## 通过容器访问deamon所在虚拟机资源
+# 通过容器访问deamon所在虚拟机资源
 
 在使用docker for windows时，有时我们需要通过直接操作Docker Daemon所在的Linux虚拟机对环境进行调整及配置，有如下几种方法：
 * get a privileged container with access to Docker daemon

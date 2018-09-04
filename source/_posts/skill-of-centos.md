@@ -3,7 +3,7 @@ title: CentOS使用技巧
 date: 2017-03-22 20:14:31
 tags: centos
 ---
-## i18n设置
+# i18n设置
 ``` bash
 [shine@localhost ~]$ cat /etc/locale.conf
 LC_ALL=en_US.UTF-8

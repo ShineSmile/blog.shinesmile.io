@@ -6,7 +6,7 @@ tags: [web,nancy]
 
 [官网地址](http://nancyfx.org)
 
-## 官网简介
+# 官网简介
 
 > Nancy is a lightweight, low-ceremony, framework for building HTTP based services on .NET Framework/Core and Mono. The goal of the framework is to stay out of the way as much as possible and provide a super-duper-happy-path to all interactions.
 
@@ -16,11 +16,11 @@ Nancy是一个轻量级的低成本框架，用于在.NET Framework/core和Mono�
 
 Nancy可处理DELETE、GET、HEAD、OPTIONS、POST、PUT和PATCH请求，只需要几行代码就能提供一个简单、优雅、领域特定语言(DSL)的返回，让你有更多的时间去关注代码和应用程序重要的部分。
 
-## 开发者反馈
+# 开发者反馈
 
 [Reddit地址](https://www.reddit.com/r/dotnet/comments/3fpgtj/why_should_i_not_use_nancyfx/?st=jd9nokkk&sh=cfdebcc8)
 
-### Why should I (not) use NancyFx ?
+## Why should I (not) use NancyFx ?
 
 > Disclaimer; I'm part of the Nancy team and use it daily ;)
 
@@ -67,7 +67,7 @@ Nancy可处理DELETE、GET、HEAD、OPTIONS、POST、PUT和PATCH请求，只需�
 顺便一提，Nancy已在2015年5月被[ThoughWorks' Technology Radar](https://www.thoughtworks.com/radar)名录收录，Octopus Deploy及JabbR等若干大型应用及站点基于Nancy运行。
 
 PS：TECHNOLOGY RADAR收录值得关注的技术、工具、平台、语言/框架。
-### Positive 
+## Positive 
 
 > Nancy seems to be the only stable alternative HTTP framework for .Net, others have come and gone. Web API seems dominant because you knows its from Microsoft.
 
@@ -115,7 +115,7 @@ Asp.net mvc 6及asp.net 5自身已经重度依赖第三方类库。自asp.net开
 换句话说：其只取决于人们的草率决定，跟生态无关。
 
 
-### Negative
+## Negative
 
 > I was using NancyFx a couple years ago, and I haven't touched since.
 > My gripes from where it was then:

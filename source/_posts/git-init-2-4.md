@@ -4,27 +4,27 @@ date: 2017-02-25 15:00:00
 tags: git
 ---
 
-## 本地分支管理：git branch
+# 本地分支管理：git branch
 
-### 添加分支
+## 添加分支
 
 ``` bash
 git branch <branch_name>
 ```
 
-### 查看分支
+## 查看分支
 
 ``` bash
 git branch
 ```
 
-### 删除分支
+## 删除分支
 
 ``` bash
 git branch -d <branch_name>
 ```
 
-### 检出分支
+## 检出分支
 
 ``` bash
 git checkout <branch_name>
@@ -36,9 +36,9 @@ git checkout <branch_name>
 
 ![本地分支管理](git-init-2-4/git_branch.png)
 
-## 远端管理：git remote
+# 远端管理：git remote
 
-### 添加远端仓库链接
+## 添加远端仓库链接
 
 ``` bash
 git remote add <remote_name> <remote_url>
@@ -52,13 +52,13 @@ git remote add <remote_name> <remote_url>
 
 远端仓库的默认名称为`origin`，只有一个仓库时建议使用此名称。
 
-### 查看远端仓库链接
+## 查看远端仓库链接
 
 ``` bash
 git remote 
 ```
 
-### 删除远端仓库链接
+## 删除远端仓库链接
 
 ``` bash
 git remote remove <remote_name>
@@ -66,21 +66,21 @@ git remote remove <remote_name>
 
 ![远端分支管理](git-init-2-4/git_remote.png)
 
-## 推送至远端：git push 
+# 推送至远端：git push 
 
-### 将分支推送到远端
+## 将分支推送到远端
 
 ``` bash
 git push <remote_name> <branch_name>
 ```
 
-### 将分支推送到远端并且对远端分支进行追踪
+## 将分支推送到远端并且对远端分支进行追踪
 
 ``` bash
 git push --set-upstream <remote_name> <branch_name>
 ```
 
-### 追踪了远端分支的本地分支可以不加分支名进行推送
+## 追踪了远端分支的本地分支可以不加分支名进行推送
 
 ``` bash
 git push <remote_name>
@@ -88,20 +88,20 @@ git push <remote_name>
 
 ![推送](git-init-2-4/git_push.png)
 
-## 远端分支管理
+# 远端分支管理
 
-### 查看远端分支
+## 查看远端分支
 ``` bash
 git branch -r
 ```
 
-### 查看所有分支
+## 查看所有分支
 
 ``` bash
 git remote -a
 ```
 
-### 删除远端分支
+## 删除远端分支
 
 ``` bash
 git remote -rd <remote_branch_name>
@@ -111,9 +111,9 @@ git remote -rd <remote_branch_name>
 
 ![管理远端分支](git-init-2-4/git_remote_branch.png)
 
-## 打标签：git tag
+# 打标签：git tag
 
-### 在提交记录中打标签
+## 在提交记录中打标签
 
 ``` bash
 git tag -a <tag-name> -m <tag-message> <commit-hash>
@@ -121,13 +121,13 @@ git tag -a <tag-name> -m <tag-message> <commit-hash>
 
 `<tag-name>`为标签名称，例如：*ver.1.0*。`<tag-message>`为标签信息，可以省略。`<commit-hash>`为提交版本号，如果省略则为当前所在分支打TAG。
 
-### 推送本地标签至远端
+## 推送本地标签至远端
 
 ``` bash
 git push <remote_name> <tag_name>
 ```
 
-### 迁出远端的标签
+## 迁出远端的标签
 
 ``` bash
 git checkout -b <branch_name> <tag_name>

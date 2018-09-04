@@ -6,13 +6,13 @@ tags: [nuget, pack]
 
 通用类库向nuget迁移可以提高代码的复用效率，实现通用类库的版本控制，减轻持续集成与持续发布的编译负担。在{% post_link self-host-nuget-server 轻量级Nuget服务的搭建 %}中，介绍了一种轻量级Nuget服务。本文将从**nuget.exe**客户端入手，实现依赖项的打包与发布。
 
-## Nuget Package的生成
+# Nuget Package的生成
 
-### Nuget GUI管理工具
+## Nuget GUI管理工具
 查看、管理Nuget包最直接的方式就是通过[NuGet Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)这个GUI工具，通过它可以直观的查看Package相关属性及内容，非常适合查看和调整已有的包。但是**Package的内容有非常严格的目录层级及用途，若要灵活使用此工具需要[在这里]()详细了解相关特性。**因此其不利于Package的自动化生成与发布。
 ![NuGet Package Explorer Preview](https://cloud.githubusercontent.com/assets/5808377/13399085/cefc7a10-df01-11e5-88b9-423a90107dce.png)
 
-### 通过\*.nuspec声明文件进行配置
+## 通过\*.nuspec声明文件进行配置
 ``` powershell
 nuget pack <project-name>.nuspec
 ```
@@ -60,7 +60,7 @@ nuget pack <project-name>.nuspec
 </package>
 ```
 这种通过声明文件配置包的方式依然存在门槛，对文件中元数据的键值对进行配置繁琐，并且难以维护。详情可参阅[创建nuspec文件](https://docs.microsoft.com/en-us/nuget/create-packages/creating-a-package?#creating-the-nuspec-file)。
-### 通过\*.csproj工程文件进行配置
+## 通过\*.csproj工程文件进行配置
 ``` powershell
 nuget pack <project-name>.csproj
 ```
@@ -84,12 +84,12 @@ nuget pack <project-name>.csproj
 |properties|键值对，例如：-properties Configuration=Release|
 |symbols|添加此选项会将调试使用的符号文件添加至Package中。推荐Beta版本的Package使用Debug编译方式，并将符号文件进行附加。|
 
-## Nuget Package的发布
+# Nuget Package的发布
 使用Nuget.Server作为Nuget服务器时，可以通过两种方式将自定义包进行发布。
 
-### 直接发布至指定目录
+## 直接发布至指定目录
 Nuget.Server的配置文件web.confg下AppSetting节点中对保存包的物理路径进行了设置。将打包好的*.nupkg复制至此文件夹即完成打包。
-### 通过nuget cli进行推送
+## 通过nuget cli进行推送
 ``` powershell
 nuget.exe push {package file} {apikey} -Source http://NugetServer/nuget
 ```

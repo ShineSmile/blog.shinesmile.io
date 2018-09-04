@@ -4,7 +4,7 @@ date: 2017-02-25 12:00:00
 tags: git
 ---
 
-## 初始化本地仓库
+# 初始化本地仓库
 
 ``` bash
 git init
@@ -18,7 +18,7 @@ git init
 
 本系列文章的标题即取自`git init`命令。
 
-## 初始化远端仓库
+# 初始化远端仓库
 
 ``` bash
 git init --bare

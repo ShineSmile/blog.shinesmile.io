@@ -8,7 +8,7 @@ Git读作/ɡɪt/，其中字母G的发音与Got中的G相同。
 
 ------
 
-## 版本控制概念及工具的产生
+# 版本控制概念及工具的产生
 
 版本控制的概念产生自工作中的实际需求。我们希望在保存工作进度的同时能把文件编辑的历史保存下来，并且允许我们可以随时可以返回到文档的任意时间节点。
 
@@ -16,7 +16,7 @@ Git读作/ɡɪt/，其中字母G的发音与Got中的G相同。
 
 版本控制工具的产生经历了一下三个时期：
 
-### 本地版本控制系统
+## 本地版本控制系统
 
 如：RCS（Revision Control System）
 
@@ -27,7 +27,7 @@ Git读作/ɡɪt/，其中字母G的发音与Got中的G相同。
 ------
 
 
-### 集中式版本控制系统
+## 集中式版本控制系统
 
 如：CVS（Concurrent Versions System）、SVN（Subversion）、TFS（Team Foundation Server）。
 
@@ -41,7 +41,7 @@ Git读作/ɡɪt/，其中字母G的发音与Got中的G相同。
 
 ------
 
-### 分布式版本控制系统
+## 分布式版本控制系统
 
 如：Git、Mercurial、Bazaar
 
@@ -55,7 +55,7 @@ Git读作/ɡɪt/，其中字母G的发音与Got中的G相同。
 
 ------
 
-## Git的产生
+# Git的产生
 
 Linux的源代码在2002-2005年间免费托管在BitKeeper上，有逸闻说Samba之父Andrew Tridgell对BitKeeper进行反向工程试图开发一款与BitKeeper交互的开源工具。此举导致BitKeeper的所有者BitMover与Linux社区翻脸，不再继续提供服务。于是Linus像当年一怒之下写出Linux内核一样写出了Git。Git开发的主要历程如下：
 
@@ -69,7 +69,7 @@ Linux的源代码在2002-2005年间免费托管在BitKeeper上，有逸闻说Sam
 
 ------
 
-## 为什么使用Git
+# 为什么使用Git
 
 1. 容灾。任何系统都有可能在任何方面产生任何故障。**多个远端+本地副本保证了版本库的稳定和高可用。**即便托管在[GitLab上的代码被误删](https://www.oschina.net/news/81493/gitlab-com-back)，其他远端的仓库仍然是完整的。
 
@@ -78,7 +78,7 @@ Linux的源代码在2002-2005年间免费托管在BitKeeper上，有逸闻说Sam
 3. 廉价易用的分支、标签管理。通过分支我们可以实现**代码审核**、**发布历史管理**以及**现场热修复**等。
 
 ------
-## 相关链接
+# 相关链接
 
 Git的教程有很多，在这里首推官方的[《Pro Git》（中文）](https://git-scm.com/book/zh/v2)，包括Git的使用、基于Git的团队协作软件和Git的内部原理等。还有读起来比较轻松的[《Git权威指南》](https://www.amazon.cn/Git权威指南-蒋鑫/dp/B009WMC3QQ/ref=sr_1_1?ie=UTF8&qid=1487507209&sr=8-1&keywords=git权威指南)（即《Got Git》）。
 

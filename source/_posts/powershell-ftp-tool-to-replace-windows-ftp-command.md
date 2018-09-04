@@ -20,7 +20,7 @@ tags: [powershell, ftp]
 
 偶然间发现了powershell下通过.NET框架库实现的[PSFTP](https://gallery.technet.microsoft.com/scriptcenter/PowerShell-FTP-Client-db6fe0cb)包，可以兼顾解决上述两个问题。
 
-## 准备工作
+# 准备工作
 1. 调整powershell脚本的执行策略，[Set-ExecutionPolicy](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Security/Set-ExecutionPolicy?view=powershell-5.1)。
 2. 下载[PowerShell FTP Client Module](https://gallery.technet.microsoft.com/scriptcenter/PowerShell-FTP-Client-db6fe0cb)。单用户使用请解压至*%USERPROFILE%\Documents\WindowsPowerShell\Modules*，全局路径在*%WINDIR%\System32\WindowsPowerShell\v1.0\Modules*。
 在powershell中执行
@@ -29,7 +29,7 @@ Import-Module PSFTP
 ```
 无异常则说明导入成功。
 
-## 脚本概述
+# 脚本概述
 ``` powershell
 # 构建凭据对象
 $user = "shine"

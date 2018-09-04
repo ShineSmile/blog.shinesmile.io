@@ -4,7 +4,7 @@ date: 2017-02-25 14:00:00
 tags: git
 ---
 
-## 查看变更的文件：git status
+# 查看变更的文件：git status
 
 ``` bash
 git status
@@ -13,9 +13,9 @@ git status
 `git status`命令会列出当前所在的分支，发生变更的文件，以及相关提示。
 ![查看变更](git-init-2-3/status.png)
 
-## 添加文件至缓存区：git add
+# 添加文件至缓存区：git add
 
-### 添加一个文件
+## 添加一个文件
 
 ``` bash
 git add <filename>
@@ -35,7 +35,7 @@ git add <filename>
 
 5. 若要将新的变更添加到缓存区，只需再次运行`git add`命令即可。
 
-### 添加所有未被追踪的文件
+## 添加所有未被追踪的文件
 
 ``` bash
 git add .
@@ -43,7 +43,7 @@ git add .
 
 ![添加所有未被追踪的文件](git-init-2-3/git_add_all.png)
 
-## 将文件移出暂存区：git rm --cached
+# 将文件移出暂存区：git rm --cached
 
 ``` bash
 git rm --cached <filename>
@@ -53,7 +53,7 @@ git rm --cached <filename>
 
 如果文件在暂存后再次被编辑，需要添加`-f`强制执行参数。`git rm -f --cached`。同样，命令仅仅会将文件从暂存区移除，文件的编辑结果不会丢失。
 
-## 提交 git commit
+# 提交 git commit
 
 ``` bash
 git commit -m "提交信息"
@@ -63,7 +63,7 @@ git commit -m "提交信息"
 
 ![提交文件至本地仓库](git-init-2-3/git_commit.png)
 
-## 查看提交历史
+# 查看提交历史
 
 ``` bash
 git log

@@ -16,7 +16,7 @@ tags: [docker,https,tls]
 
 > **警告**：下述TLS命令仅可在Linux下生成可用的秘钥集。macOS的OpenSSL版本与Docker使用的证书存在兼容性问题。
 
-## 使用OpenSSL创建服务端、客户端秘钥及服务端证书
+# 使用OpenSSL创建服务端、客户端秘钥及服务端证书
 
 > **提示**：使用Docker daemon的域名替换下述样例中的`$HOST`
 
@@ -144,7 +144,7 @@ $ docker --tlsverify --tlscacert=ca.pem --tlscert=cert.pem --tlskey=key.pem \
 
 > **警告**：上述展示的样例在使用证书认证方式时，不需要`sudo`或者`docker`用户组就可以执行。这意味着任何持有keys的人都具备操作正在运行的Docker daemon的权限，请和root密码一样保护好这些证书！
 
-## 将安全连接设为默认设置
+# 将安全连接设为默认设置
 
 如果想将安全连接设为默认设置，可以通过将上述文件移动到用户文件夹的`.docker`文件夹下，然后设置`DOCKER_HOST`和`DOCKER_TLS_VERIFY`参数替代每次执行命令时传递的`-H=tcp://$HOST:2376`和`--tlsverify`。
 
@@ -160,16 +160,16 @@ Docker命令就可以通过默认的安全设置进行连接：
 $ docker ps
 ```
 
-## 其他安全模式
+# 其他安全模式
 
 如果不想使用完整的双工授权，可以通过混合下述标识实现其他的模式。
 
-### 守护进程安全模式
+## 守护进程安全模式
 
 * `tlsverify`，`tlscacert`，`tlscert`，`tlskey`用来设置认证的客户端
 * `tls`，`tlscert`，`tlskey`：不对客户端进行认证
 
-### 客户端安全模式
+## 客户端安全模式
 
 * `tls`:基于公有/默认的CA池认证服务端
 * `tlsverify`，`tlscacert`：使用经过CA证书认证的服务端进行认证
@@ -183,7 +183,7 @@ $ export DOCKER_CERT_PATH=~/.docker/zone1/
 $ docker --tlsverify ps
 ```
 
-## 使用`curl`请求安全的Docker端口
+# 使用`curl`请求安全的Docker端口
 
 使用`curl`测试安全的API请求时，需要附加二外的三个标识：
 

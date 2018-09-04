@@ -12,7 +12,7 @@ Docker引擎1.12包括Docker引擎原生的集群管理工具：swarm。使用Do
 
 使用`v1.12.0`一下版本的用户请参见：[Docker Swarm](https://docs.docker.com/swarm/)。
 
-## 功能亮点
+# 功能亮点
 
 * 集群的管理与Docker引擎集成：使用Docker引擎命令行接口来创建部署应用服务的集群。不需要额外的第三方软件。
 
