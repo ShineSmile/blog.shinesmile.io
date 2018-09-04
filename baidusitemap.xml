@@ -610,24 +610,6 @@
     </url>
 
     
-    
-  <url>
-    <loc>http://shinesmile.io/2017/02/27/git-init-4/</loc>
-    <lastmod>2017-11-23T16:51:52.000Z</lastmod>
-    <data>
-        <display>
-        <title>Git init 4：SourceTree的使用</title>
-        <pubTime>2017-02-27T04:00:00.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
   <url>
     <loc>http://shinesmile.io/2017/02/26/git-init-3/</loc>
     <lastmod>2017-11-23T16:51:52.000Z</lastmod>
@@ -637,57 +619,6 @@
         <pubTime>2017-02-26T04:00:00.000Z</pubTime>
         
         <tag>git</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/02/25/git-init-2-5/</loc>
-    <lastmod>2017-11-23T16:51:52.000Z</lastmod>
-    <data>
-        <display>
-        <title>Git init 2.5：代码的获取与分支的合并</title>
-        <pubTime>2017-02-25T08:00:00.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/02/25/git-init-2-4/</loc>
-    <lastmod>2017-11-23T16:51:52.000Z</lastmod>
-    <data>
-        <display>
-        <title>Git init 2.4：分支与远端管理</title>
-        <pubTime>2017-02-25T07:00:00.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/03/23/skill-of-mac/</loc>
-    <lastmod>2017-11-23T16:51:52.000Z</lastmod>
-    <data>
-        <display>
-        <title>Mac使用技巧</title>
-        <pubTime>2017-03-23T11:19:47.000Z</pubTime>
-        
-        <tag>mac</tag>
          
          
            
@@ -714,67 +645,12 @@
 
     
   <url>
-    <loc>http://shinesmile.io/2017/02/25/git-init-2-1/</loc>
+    <loc>http://shinesmile.io/2017/02/27/git-init-4/</loc>
     <lastmod>2017-11-23T16:51:52.000Z</lastmod>
     <data>
         <display>
-        <title>Git init 2.1：Git仓库的初始化</title>
-        <pubTime>2017-02-25T04:00:00.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/02/20/git-init-1/</loc>
-    <lastmod>2017-11-23T16:51:52.000Z</lastmod>
-    <data>
-        <display>
-        <title>Git init 1：Git的安装</title>
-        <pubTime>2017-02-20T04:00:00.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/07/18/use-vscode-terminal-for-windows-subsystem-for-linux/</loc>
-    <lastmod>2017-11-23T16:51:52.000Z</lastmod>
-    <data>
-        <display>
-        <title>使用vscode terminal作为Windows下Linux子系统终端</title>
-        <pubTime>2017-07-18T09:13:48.000Z</pubTime>
-        
-        <tag>WSL</tag>
-         
-        <tag>VScode</tag>
-         
-        <tag>terminal</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/02/19/git-init-0/</loc>
-    <lastmod>2017-11-23T16:51:52.000Z</lastmod>
-    <data>
-        <display>
-        <title>Git init 0：版本控制的历史及Git的产生</title>
-        <pubTime>2017-02-19T04:00:00.000Z</pubTime>
+        <title>Git init 4：SourceTree的使用</title>
+        <pubTime>2017-02-27T04:00:00.000Z</pubTime>
         
         <tag>git</tag>
          
@@ -828,12 +704,136 @@
 
     
   <url>
+    <loc>http://shinesmile.io/2017/03/23/skill-of-mac/</loc>
+    <lastmod>2017-11-23T16:51:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>Mac使用技巧</title>
+        <pubTime>2017-03-23T11:19:47.000Z</pubTime>
+        
+        <tag>mac</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/02/20/git-init-1/</loc>
+    <lastmod>2017-11-23T16:51:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git init 1：Git的安装</title>
+        <pubTime>2017-02-20T04:00:00.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/02/25/git-init-2-5/</loc>
+    <lastmod>2017-11-23T16:51:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git init 2.5：代码的获取与分支的合并</title>
+        <pubTime>2017-02-25T08:00:00.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/02/25/git-init-2-4/</loc>
+    <lastmod>2017-11-23T16:51:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git init 2.4：分支与远端管理</title>
+        <pubTime>2017-02-25T07:00:00.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/07/18/use-vscode-terminal-for-windows-subsystem-for-linux/</loc>
+    <lastmod>2017-11-23T16:51:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>使用vscode terminal作为Windows下Linux子系统终端</title>
+        <pubTime>2017-07-18T09:13:48.000Z</pubTime>
+        
+        <tag>WSL</tag>
+         
+        <tag>VScode</tag>
+         
+        <tag>terminal</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shinesmile.io/2017/02/25/git-init-2-3/</loc>
     <lastmod>2017-11-23T16:51:52.000Z</lastmod>
     <data>
         <display>
         <title>Git init 2.3：提交至本地仓库</title>
         <pubTime>2017-02-25T06:00:00.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/02/25/git-init-2-1/</loc>
+    <lastmod>2017-11-23T16:51:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git init 2.1：Git仓库的初始化</title>
+        <pubTime>2017-02-25T04:00:00.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://shinesmile.io/2017/02/19/git-init-0/</loc>
+    <lastmod>2017-11-23T16:51:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git init 0：版本控制的历史及Git的产生</title>
+        <pubTime>2017-02-19T04:00:00.000Z</pubTime>
         
         <tag>git</tag>
          
