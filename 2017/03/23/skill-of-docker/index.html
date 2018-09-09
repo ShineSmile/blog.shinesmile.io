@@ -11,10 +11,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker使用技巧">
 <meta property="og:url" content="http://shinesmile.io/2017/03/23/skill-of-docker/index.html">
-<meta property="og:site_name" content="ShineSmile.io">
+<meta property="og:site_name" content="shinesmile">
 <meta property="og:description" content="同Ubuntu使用技巧一样，这篇文章也是积累在学习docker中遇到的各种问题及解决方法（可能是临时）。 docker和git有很多相似之处，有一定的git基础对理解docker里的一些概念会有很大帮助。 操作系统为：Ubuntu 16.04 LTS Docker版本： 12345678910111213141516Client: Version:      17.03.0-ce API vers">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-09-04T05:36:09.900Z">
+<meta property="og:updated_time" content="2018-09-09T14:02:25.101Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker使用技巧">
 <meta name="twitter:description" content="同Ubuntu使用技巧一样，这篇文章也是积累在学习docker中遇到的各种问题及解决方法（可能是临时）。 docker和git有很多相似之处，有一定的git基础对理解docker里的一些概念会有很大帮助。 操作系统为：Ubuntu 16.04 LTS Docker版本： 12345678910111213141516Client: Version:      17.03.0-ce API vers">
@@ -121,7 +121,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">ShineSmile.io</span>
+        <span itemprop="name">shinesmile</span>
       </span>
       
     <div class="postdate">
@@ -217,12 +217,17 @@
 <p>衍生自：<a href="https://www.zhihu.com/question/24852884/answer/138069968" target="_blank" rel="noopener">Docker Remote API 如何使用？</a></p>
 <h1 id="通过容器访问deamon所在虚拟机资源"><a href="#通过容器访问deamon所在虚拟机资源" class="headerlink" title="通过容器访问deamon所在虚拟机资源"></a>通过容器访问deamon所在虚拟机资源</h1><p>在使用docker for windows时，有时我们需要通过直接操作Docker Daemon所在的Linux虚拟机对环境进行调整及配置，有如下几种方法：</p>
 <ul>
-<li><p>get a privileged container with access to Docker daemon</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run --privileged -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker alpine sh</span><br><span class="line">``` </span><br><span class="line">* run a container with full root access to MobyLinuxVM and no seccomp profile (so you can mount stuff)</span><br><span class="line">``` bash</span><br><span class="line">docker run --net=host --ipc=host --uts=host --pid=host -it --security-opt=seccomp=unconfined --privileged --rm -v /:/host alpine /bin/sh</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>switch to host FS<br>chroot /host</p>
-</li>
+<li>get a privileged container with access to Docker daemon</li>
 </ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --privileged -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker alpine sh</span><br></pre></td></tr></table></figure>
+<ul>
+<li>run a container with full root access to MobyLinuxVM and no seccomp profile (so you can mount stuff)</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --net=host --ipc=host --uts=host --pid=host -it --security-opt=seccomp=unconfined --privileged --rm -v /:/host alpine /bin/sh</span><br></pre></td></tr></table></figure>
+<ul>
+<li>switch to host FS</li>
+</ul>
+<p>chroot /host</p>
 
   </div>
 </article>

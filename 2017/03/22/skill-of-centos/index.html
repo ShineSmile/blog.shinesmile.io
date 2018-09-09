@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="i18n设置12345[shine@localhost ~]$ cat /etc/locale.confLC_ALL=en_US.UTF-8LANG=en_US.utf8export LC_CTYPE=en_US.UTF-8export LC_ALL=en_US.UTF-8 firewall-cmd123456789101112131415161718firewall-cmd --state# v">
-<meta name="keywords" content="centos">
+    <meta name="description" content="firewall-cmd123456789101112131415161718firewall-cmd --state# view status of firewalld service (systemctl status firewalld)firewall-cmd --zone=public --list-all# gets all info for the “public” zonefire">
+<meta name="keywords" content="centos,linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS使用技巧">
 <meta property="og:url" content="http://shinesmile.io/2017/03/22/skill-of-centos/index.html">
-<meta property="og:site_name" content="ShineSmile.io">
-<meta property="og:description" content="i18n设置12345[shine@localhost ~]$ cat /etc/locale.confLC_ALL=en_US.UTF-8LANG=en_US.utf8export LC_CTYPE=en_US.UTF-8export LC_ALL=en_US.UTF-8 firewall-cmd123456789101112131415161718firewall-cmd --state# v">
+<meta property="og:site_name" content="shinesmile">
+<meta property="og:description" content="firewall-cmd123456789101112131415161718firewall-cmd --state# view status of firewalld service (systemctl status firewalld)firewall-cmd --zone=public --list-all# gets all info for the “public” zonefire">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-09-04T05:36:09.899Z">
+<meta property="og:updated_time" content="2018-09-09T14:02:42.923Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS使用技巧">
-<meta name="twitter:description" content="i18n设置12345[shine@localhost ~]$ cat /etc/locale.confLC_ALL=en_US.UTF-8LANG=en_US.utf8export LC_CTYPE=en_US.UTF-8export LC_ALL=en_US.UTF-8 firewall-cmd123456789101112131415161718firewall-cmd --state# v">
+<meta name="twitter:description" content="firewall-cmd123456789101112131415161718firewall-cmd --state# view status of firewalld service (systemctl status firewalld)firewall-cmd --zone=public --list-all# gets all info for the “public” zonefire">
     
     
         
@@ -102,7 +102,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#i18n设置"><span class="toc-number">1.</span> <span class="toc-text">i18n设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#firewall-cmd"><span class="toc-number">2.</span> <span class="toc-text">firewall-cmd</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#firewall-cmd"><span class="toc-number">1.</span> <span class="toc-text">firewall-cmd</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -121,7 +121,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">ShineSmile.io</span>
+        <span itemprop="name">shinesmile</span>
       </span>
       
     <div class="postdate">
@@ -132,7 +132,7 @@
       
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/centos/">centos</a>
+        <a class="tag-link" href="/tags/centos/">centos</a>, <a class="tag-link" href="/tags/linux/">linux</a>
     </div>
 
 
@@ -141,8 +141,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h1 id="i18n设置"><a href="#i18n设置" class="headerlink" title="i18n设置"></a>i18n设置</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[shine@localhost ~]$ cat /etc/locale.conf</span><br><span class="line">LC_ALL=en_US.UTF-8</span><br><span class="line">LANG=en_US.utf8</span><br><span class="line"><span class="built_in">export</span> LC_CTYPE=en_US.UTF-8</span><br><span class="line"><span class="built_in">export</span> LC_ALL=en_US.UTF-8</span><br></pre></td></tr></table></figure>
-<h1 id="firewall-cmd"><a href="#firewall-cmd" class="headerlink" title="firewall-cmd"></a>firewall-cmd</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --state</span><br><span class="line"><span class="comment"># view status of firewalld service (systemctl status firewalld)</span></span><br><span class="line">firewall-cmd --zone=public --list-all</span><br><span class="line"><span class="comment"># gets all info for the “public” zone</span></span><br><span class="line">firewall-cmd --list-all-zones</span><br><span class="line"><span class="comment"># shows all info for all zones</span></span><br><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent</span><br><span class="line"><span class="comment"># adds port 80 to public zone</span></span><br><span class="line">firewall-cmd --zone=public --add-service=http --permanent</span><br><span class="line"><span class="comment"># adds service http to public zone</span></span><br><span class="line">firewall-cmd --reload</span><br><span class="line"><span class="comment"># run this after making changes</span></span><br><span class="line">firewall-cmd --zone=public --remove-port=80/tcp --permanent</span><br><span class="line"><span class="comment"># to remove port 80 from public zone</span></span><br><span class="line">firewall-cmd --get-default-zone</span><br><span class="line"><span class="comment"># shows default zone for firewall</span></span><br><span class="line">firewall-cmd --get-active-zones</span><br><span class="line"><span class="comment"># zones where network interfaces or sources are assigned</span></span><br></pre></td></tr></table></figure>
+    <h1 id="firewall-cmd"><a href="#firewall-cmd" class="headerlink" title="firewall-cmd"></a>firewall-cmd</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --state</span><br><span class="line"><span class="comment"># view status of firewalld service (systemctl status firewalld)</span></span><br><span class="line">firewall-cmd --zone=public --list-all</span><br><span class="line"><span class="comment"># gets all info for the “public” zone</span></span><br><span class="line">firewall-cmd --list-all-zones</span><br><span class="line"><span class="comment"># shows all info for all zones</span></span><br><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent</span><br><span class="line"><span class="comment"># adds port 80 to public zone</span></span><br><span class="line">firewall-cmd --zone=public --add-service=http --permanent</span><br><span class="line"><span class="comment"># adds service http to public zone</span></span><br><span class="line">firewall-cmd --reload</span><br><span class="line"><span class="comment"># run this after making changes</span></span><br><span class="line">firewall-cmd --zone=public --remove-port=80/tcp --permanent</span><br><span class="line"><span class="comment"># to remove port 80 from public zone</span></span><br><span class="line">firewall-cmd --get-default-zone</span><br><span class="line"><span class="comment"># shows default zone for firewall</span></span><br><span class="line">firewall-cmd --get-active-zones</span><br><span class="line"><span class="comment"># zones where network interfaces or sources are assigned</span></span><br></pre></td></tr></table></figure>
   </div>
 </article>
 
@@ -174,7 +173,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#i18n设置"><span class="toc-number">1.</span> <span class="toc-text">i18n设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#firewall-cmd"><span class="toc-number">2.</span> <span class="toc-text">firewall-cmd</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#firewall-cmd"><span class="toc-number">1.</span> <span class="toc-text">firewall-cmd</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
