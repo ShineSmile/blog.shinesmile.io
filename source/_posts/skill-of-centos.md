@@ -1,18 +1,11 @@
 ---
 title: CentOS使用技巧
 date: 2017-03-22 20:14:31
-tags: centos
+tags: [centos, linux]
 ---
-# i18n设置
-``` bash
-[shine@localhost ~]$ cat /etc/locale.conf
-LC_ALL=en_US.UTF-8
-LANG=en_US.utf8
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-```
 
 # firewall-cmd
+
 ``` bash
 firewall-cmd --state
 # view status of firewalld service (systemctl status firewalld)

@@ -74,9 +74,11 @@ source ~/.bashrc
 # 设置API及相关命令的代理服务器
 
  如果只是希望apt-get使用代理，可以在终端下编辑`/etc/apt/apt.conf`加入下面这行，
-```
+
+``` plain
 Acquire::http::Proxy "http://yourproxyaddress:proxyport";
 ```
+
 然后保存退出。
 
 # 挂起正在执行的任务
@@ -87,6 +89,7 @@ Acquire::http::Proxy "http://yourproxyaddress:proxyport";
 * 使用*jobs*查询挂起的任务
 
 # 查询线程数
+
 ``` bash
 cat /proc/sys/kernel/pid_max #进程数
 cat /proc/sys/kernel/threads-max #线程数
@@ -94,11 +97,13 @@ ulimit -u #用户进程数
 ```
 
 # modify locale
+
 ``` bash
 sudo dpkg-reconfigure locales
 ```
 
 # 对mosh进行本地化兼容
+
 ``` bash
 localedef -v -c -i en_US -f UTF-8 en_US.UTF-8
 ```

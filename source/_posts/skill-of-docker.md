@@ -186,13 +186,19 @@ docker version
 # 通过容器访问deamon所在虚拟机资源
 
 在使用docker for windows时，有时我们需要通过直接操作Docker Daemon所在的Linux虚拟机对环境进行调整及配置，有如下几种方法：
+
 * get a privileged container with access to Docker daemon
+
 ```bash
 docker run --privileged -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker alpine sh
-``` 
+```
+
 * run a container with full root access to MobyLinuxVM and no seccomp profile (so you can mount stuff)
+
 ``` bash
 docker run --net=host --ipc=host --uts=host --pid=host -it --security-opt=seccomp=unconfined --privileged --rm -v /:/host alpine /bin/sh
 ```
+
 * switch to host FS
+
 chroot /host

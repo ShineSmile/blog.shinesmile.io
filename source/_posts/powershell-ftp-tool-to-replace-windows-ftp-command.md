@@ -4,6 +4,7 @@ date: 2017-12-19 10:18:26
 tags: [powershell, ftp]
 ---
 在使用Jenkins通过Windows*ftp.exe*进行持续发布的工作时受到很多限制：
+
 * 不支持被动模式（PASV）,参考链接[stackoverflow](https://stackoverflow.com/questions/18643542/how-to-use-passive-ftp-mode-in-windows-command-prompt#19932879)。
     1. 使用此工具时，客户端必须开放防火墙供服务端“回访”。
     1. 当客户机处于NAT网络时，主动回访可能会被路由阻塞。
@@ -14,6 +15,7 @@ tags: [powershell, ftp]
     1. 执行结束时返回值总是0，上传过程出现异常只能通过日志发现，无法显式被jenkins捕获。
 
 可替代方案中：
+
 * Putty提供的*psftp*工具无法正常连接。
 * Winscp提供的*sftp*工具虽然可以提供被动模式，但是自动化执行的方式与*ftp.exe*类似：逐行执行文件中的ftp命令，[参考链接](https://winscp.net/eng/docs/guide_automation)。
 * MS Web Deploy无法定制上传的内容。
@@ -21,15 +23,21 @@ tags: [powershell, ftp]
 偶然间发现了powershell下通过.NET框架库实现的[PSFTP](https://gallery.technet.microsoft.com/scriptcenter/PowerShell-FTP-Client-db6fe0cb)包，可以兼顾解决上述两个问题。
 
 # 准备工作
+
 1. 调整powershell脚本的执行策略，[Set-ExecutionPolicy](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Security/Set-ExecutionPolicy?view=powershell-5.1)。
-2. 下载[PowerShell FTP Client Module](https://gallery.technet.microsoft.com/scriptcenter/PowerShell-FTP-Client-db6fe0cb)。单用户使用请解压至*%USERPROFILE%\Documents\WindowsPowerShell\Modules*，全局路径在*%WINDIR%\System32\WindowsPowerShell\v1.0\Modules*。
+
+1. 下载[PowerShell FTP Client Module](https://gallery.technet.microsoft.com/scriptcenter/PowerShell-FTP-Client-db6fe0cb)。单用户使用请解压至*%USERPROFILE%\Documents\WindowsPowerShell\Modules*，全局路径在*%WINDIR%\System32\WindowsPowerShell\v1.0\Modules*。
+
 在powershell中执行
+
 ``` powershell
 Import-Module PSFTP
 ```
+
 无异常则说明导入成功。
 
 # 脚本概述
+
 ``` powershell
 # 构建凭据对象
 $user = "shine"

@@ -1,7 +1,7 @@
 ---
 title: Mac使用技巧
 date: 2017-03-23 19:19:47
-tags: mac
+tags: [mac, unix]
 ---
 
 这篇文章主要用于记录日常使用Mac的过程中遇到的问题和解决方案。
@@ -37,7 +37,8 @@ source ~/.bash_profile
 ```
 
 ## 查询最大线程数
-```bash
+
+``` bash
 sysctl kern.num_threadsd
 sysctl kern.num_taskthreads
 ```
