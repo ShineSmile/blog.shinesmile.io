@@ -2,6 +2,209 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://shinesmile.io/2018/02/05/about-nancy/</loc>
+    
+    <lastmod>2018-09-12T08:02:26.431Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/</loc>
+    
+    <lastmod>2018-09-12T08:01:40.693Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2018/04/11/cloud-resource-management/</loc>
+    
+    <lastmod>2018-09-12T08:00:10.142Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/12/25/confluence-backup-script/</loc>
+    
+    <lastmod>2018-09-12T08:00:00.091Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2018/01/02/custom-nuget-packages/</loc>
+    
+    <lastmod>2018-09-12T07:59:23.738Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/03/27/docker-https/</loc>
+    
+    <lastmod>2018-09-12T07:55:05.530Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/07/18/format-git-commit-message/</loc>
+    
+    <lastmod>2018-09-12T07:53:01.317Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/02/19/git-init-0/</loc>
+    
+    <lastmod>2018-09-12T07:52:55.901Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/02/20/git-init-1/</loc>
+    
+    <lastmod>2018-09-12T07:52:34.498Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/02/25/git-init-2-1/</loc>
+    
+    <lastmod>2018-09-12T07:51:53.784Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/02/25/git-init-2-3/</loc>
+    
+    <lastmod>2018-09-12T07:51:47.244Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/02/25/git-init-2-4/</loc>
+    
+    <lastmod>2018-09-12T07:51:45.083Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2018/03/16/IaaS/</loc>
+    
+    <lastmod>2018-09-12T07:51:23.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/02/25/git-init-2-5/</loc>
+    
+    <lastmod>2018-09-12T07:51:22.177Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/02/27/git-init-4/</loc>
+    
+    <lastmod>2018-09-12T07:51:05.808Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/02/28/git-init-5/</loc>
+    
+    <lastmod>2018-09-12T07:50:53.045Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/12/14/jenkins-for-ftp/</loc>
+    
+    <lastmod>2018-09-12T07:50:37.529Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/12/03/install-jenkins-on-centos/</loc>
+    
+    <lastmod>2018-09-12T07:49:54.263Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/</loc>
+    
+    <lastmod>2018-09-12T07:48:55.296Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/</loc>
+    
+    <lastmod>2018-09-12T07:45:46.809Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/12/08/jenkins-master-slave/</loc>
+    
+    <lastmod>2018-09-12T07:45:09.990Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/12/22/jenkins-powershell-trap-on-2k8/</loc>
+    
+    <lastmod>2018-09-12T07:44:47.237Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/12/08/jenkinsfile/</loc>
+    
+    <lastmod>2018-09-12T07:41:45.902Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/12/07/msbuild-and-mstest-without-visualstudio/</loc>
+    
+    <lastmod>2018-09-12T07:41:15.096Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/12/28/nuget-cli/</loc>
+    
+    <lastmod>2018-09-12T07:40:36.818Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/12/06/summary-for-msbuild/</loc>
+    
+    <lastmod>2018-09-12T07:38:59.889Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2018/02/28/what-is-devops/</loc>
+    
+    <lastmod>2018-09-12T07:36:16.788Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2017/12/12/windows-server-2016-install-trap/</loc>
+    
+    <lastmod>2018-09-12T07:36:15.752Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://shinesmile.io/2018/03/13/about-mosh/</loc>
+    
+    <lastmod>2018-09-12T07:34:30.869Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/</loc>
     
     <lastmod>2018-09-09T14:19:44.542Z</lastmod>
@@ -58,30 +261,9 @@
   </url>
   
   <url>
-    <loc>http://shinesmile.io/2017/12/06/summary-for-msbuild/</loc>
-    
-    <lastmod>2018-09-09T13:57:59.618Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://shinesmile.io/2017/07/18/use-vscode-terminal-for-windows-subsystem-for-linux/</loc>
     
     <lastmod>2018-09-09T13:55:35.189Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2018/02/28/what-is-devops/</loc>
-    
-    <lastmod>2018-09-09T13:43:25.868Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/12/12/windows-server-2016-install-trap/</loc>
-    
-    <lastmod>2018-09-09T13:42:49.145Z</lastmod>
     
   </url>
   
@@ -100,65 +282,9 @@
   </url>
   
   <url>
-    <loc>http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.901Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/12/25/confluence-backup-script/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.901Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/12/08/jenkins-master-slave/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.901Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://shinesmile.io/2017/02/26/git-init-3/</loc>
     
     <lastmod>2018-09-04T05:36:09.901Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/03/27/docker-https/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.900Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.900Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/02/25/git-init-2-4/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.900Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.900Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/02/25/git-init-2-2/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.899Z</lastmod>
     
   </url>
   
@@ -170,135 +296,9 @@
   </url>
   
   <url>
-    <loc>http://shinesmile.io/2017/02/25/git-init-2-3/</loc>
+    <loc>http://shinesmile.io/2017/02/25/git-init-2-2/</loc>
     
     <lastmod>2018-09-04T05:36:09.899Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/02/25/git-init-2-5/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.899Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/02/25/git-init-2-1/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.899Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/12/22/jenkins-powershell-trap-on-2k8/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.899Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/12/07/msbuild-and-mstest-without-visualstudio/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.899Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/12/14/jenkins-for-ftp/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.899Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2018/04/11/cloud-resource-management/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.898Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2018/01/02/custom-nuget-packages/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.898Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/02/28/git-init-5/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.898Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/02/20/git-init-1/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.898Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/12/28/nuget-cli/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.898Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/12/08/jenkinsfile/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.897Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/02/27/git-init-4/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.897Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/02/19/git-init-0/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.897Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2018/02/05/about-nancy/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.897Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/12/03/install-jenkins-on-centos/</loc>
-    
-    <lastmod>2018-09-04T05:36:09.897Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2018/03/13/about-mosh/</loc>
-    
-    <lastmod>2018-04-04T07:55:57.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2018/03/16/IaaS/</loc>
-    
-    <lastmod>2018-03-16T07:44:30.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shinesmile.io/2017/07/18/format-git-commit-message/</loc>
-    
-    <lastmod>2018-03-16T06:35:03.000Z</lastmod>
     
   </url>
   

@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="shinesmile">
 <meta property="og:description" content="官网地址 官网简介 Nancy is a lightweight, low-ceremony, framework for building HTTP based services on .NET Framework/Core and Mono. The goal of the framework is to stay out of the way as much as possible and">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-09-04T05:36:09.897Z">
+<meta property="og:updated_time" content="2018-09-12T08:02:26.431Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nancy for ...">
 <meta name="twitter:description" content="官网地址 官网简介 Nancy is a lightweight, low-ceremony, framework for building HTTP based services on .NET Framework/Core and Mono. The goal of the framework is to stay out of the way as much as possible and">
@@ -102,7 +102,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#官网简介"><span class="toc-number">1.</span> <span class="toc-text">官网简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开发者反馈"><span class="toc-number">2.</span> <span class="toc-text">开发者反馈</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-should-I-not-use-NancyFx"><span class="toc-number">2.1.</span> <span class="toc-text">Why should I (not) use NancyFx ?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Positive"><span class="toc-number">2.2.</span> <span class="toc-text">Positive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Negative"><span class="toc-number">2.3.</span> <span class="toc-text">Negative</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#官网简介"><span class="toc-number">1.</span> <span class="toc-text">官网简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开发者反馈"><span class="toc-number">2.</span> <span class="toc-text">开发者反馈</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-should-I-not-use-NancyFx"><span class="toc-number">2.1.</span> <span class="toc-text">Why should I (not) use NancyFx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Positive"><span class="toc-number">2.2.</span> <span class="toc-text">Positive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Negative"><span class="toc-number">2.3.</span> <span class="toc-text">Negative</span></a></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -151,7 +151,7 @@
 </blockquote>
 <p>Nancy可处理DELETE、GET、HEAD、OPTIONS、POST、PUT和PATCH请求，只需要几行代码就能提供一个简单、优雅、领域特定语言(DSL)的返回，让你有更多的时间去关注代码和应用程序重要的部分。</p>
 <h1 id="开发者反馈"><a href="#开发者反馈" class="headerlink" title="开发者反馈"></a>开发者反馈</h1><p><a href="https://www.reddit.com/r/dotnet/comments/3fpgtj/why_should_i_not_use_nancyfx/?st=jd9nokkk&amp;sh=cfdebcc8" target="_blank" rel="noopener">Reddit地址</a></p>
-<h2 id="Why-should-I-not-use-NancyFx"><a href="#Why-should-I-not-use-NancyFx" class="headerlink" title="Why should I (not) use NancyFx ?"></a>Why should I (not) use NancyFx ?</h2><blockquote>
+<h2 id="Why-should-I-not-use-NancyFx"><a href="#Why-should-I-not-use-NancyFx" class="headerlink" title="Why should I (not) use NancyFx"></a>Why should I (not) use NancyFx</h2><blockquote>
 <p>Disclaimer; I’m part of the Nancy team and use it daily ;)</p>
 </blockquote>
 <p>利益相关：Nancy开发团队的一员并将其应用于日常工作</p>
@@ -215,7 +215,7 @@
 <blockquote>
 <p>Avoiding 3rd party libraries means you have very few options. Nancy is an alternative to aspnet mvc/web api . I’m using it because is a bit more flexible than mvc 5 and much ligther.<br>Btw, every time you’re using json.net ( you know, the one installed by default by the mvc template) you’re using a 3rd party lib. Using a DI Container which is not Unity? 3rd party lib also. Using a micro orm like dapper? 3rd party again.<br>The modern asp.net web app is using a lot of non MS libs. And a lot of it is open source and based on my experience, a lot of the libs are better designed with better quality code than MS’s offering.<br>Asp.net mvc 6 and asp.net 5 itself is heavily inspired from 3rd party libs. Since asp.net is open source now, you’re using ‘official’ dot net code not written by MS.<br>tldr; Don’t fear 3rd party libs, you’re already using them.</p>
 </blockquote>
-<p>避免使用第三方组件库意味着更少的选择权。Nancy是asp.net mvc/api的替代品。我使用它的原因是因为比mvc 5更加轻量柔韧。<br>顺便一提，当你每次使用json.net时，（mvc模板中默认组件），你在使用第三方组件。使用Unity以外的依赖注入工具？同样是第三方组件。使用像dapper一样的微型orm映射工具？还是第三方组件。<br>现在的asp.net web 应用正在使用非微软系的依赖项。根据我的经验，其中的大多数都是开源项目。很多依赖项提供了比微软更好的设计及代码质量。<br>Asp.net mvc 6及asp.net 5自身已经重度依赖第三方类库。自asp.net开源起，所谓的官方dot net code并不是微软写的。<br>因此，不要畏惧使用第三方类库，你早就开始用了。 </p>
+<p>避免使用第三方组件库意味着更少的选择权。Nancy是asp.net mvc/api的替代品。我使用它的原因是因为比mvc 5更加轻量柔韧。<br>顺便一提，当你每次使用json.net时，（mvc模板中默认组件），你在使用第三方组件。使用Unity以外的依赖注入工具？同样是第三方组件。使用像dapper一样的微型orm映射工具？还是第三方组件。<br>现在的asp.net web 应用正在使用非微软系的依赖项。根据我的经验，其中的大多数都是开源项目。很多依赖项提供了比微软更好的设计及代码质量。<br>Asp.net mvc 6及asp.net 5自身已经重度依赖第三方类库。自asp.net开源起，所谓的官方dot net code并不是微软写的。<br>因此，不要畏惧使用第三方类库，你早就开始用了。</p>
 <blockquote>
 <p>You should use it over an MS-provided solution because if we let Microsoft trample all over every corner of .NET, we will never have a healthy ecosystem like…basically every other language out there right now.<br>.NET has historically been “okay let’s fire up visual studio and make a webforms site with that weird ms-jquery thing” workflow where everything you could possibly need has been provided by MS for better or worse.<br>We seem to be entering a cross-platform, cross-editor, nuget-package-heavy era where you can use industry standard tools instead of whatever solution MS has put to market. I can have as good an experience writing a Nancy site in Atom on Linux as I could on Windows with VS these days with things like omnisharp.<br>I’ve used both Nancy and ASP vNext - I have no strong opinions about which you should use. I prefer Nancy just because that what I’ve happened to use the most.<br>Luckily, as I mentioned above, things seem to be getting better. But if everyone had the attitude of “well I’ll just use whatever MS has provided me with” the community and ecosystem can never survive.</p>
 </blockquote>
@@ -226,16 +226,17 @@
 <p>“快来使用EF、MVC以及强类型视图构建一个ASP.NET的站点多么轻松！”然后开发经理跟风：“对对对！这就是我们想要的东西！”<br>然而却不尽如人意：IIS、EF产生的垃圾等等等等。<br>这不是鼓励你使用非微软系框架的论据，而是告诉你不要因为具备简单的教程而草率的下决定。<br>换句话说：其只取决于人们的草率决定，跟生态无关。</p>
 <h2 id="Negative"><a href="#Negative" class="headerlink" title="Negative"></a>Negative</h2><blockquote>
 <p>I was using NancyFx a couple years ago, and I haven’t touched since.<br>My gripes from where it was then:</p>
-<ul>
+<ol>
 <li>constantly shifting api breaking all sorts of stuff.</li>
 <li>not great documentation.<br>Again, that was about 2 years ago. Since then the documentation has improved quite a bit. But I’m not sure about the api stability. It helped that my coworker did the PluralSight videos.</li>
-</ul>
+</ol>
 </blockquote>
 <p>几年前用过Nancy框架，但至今没在碰过<br>两点问题：</p>
 <ul>
 <li>不断变动的API破坏了原有的规则</li>
-<li>操蛋的文档<br>不过这是两年前了，最近虽然文档的质量有所提升，但我并不能保证文档的可靠性。但他却帮助了我的同事来完成PluralSight的教学视频。</li>
+<li>操蛋的文档</li>
 </ul>
+<p>不过这是两年前了，最近虽然文档的质量有所提升，但我并不能保证文档的可靠性。但他却帮助了我的同事来完成PluralSight的教学视频。</p>
 <blockquote>
 <p>However, my proposed counterargument is simply that while you may be comfortable for it, any other developers that come after you will have no idea WTF is going on because it is a completely nonstandard system. Thus you make for one hell of a maintenance burden.</p>
 </blockquote>
@@ -272,7 +273,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#官网简介"><span class="toc-number">1.</span> <span class="toc-text">官网简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开发者反馈"><span class="toc-number">2.</span> <span class="toc-text">开发者反馈</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-should-I-not-use-NancyFx"><span class="toc-number">2.1.</span> <span class="toc-text">Why should I (not) use NancyFx ?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Positive"><span class="toc-number">2.2.</span> <span class="toc-text">Positive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Negative"><span class="toc-number">2.3.</span> <span class="toc-text">Negative</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#官网简介"><span class="toc-number">1.</span> <span class="toc-text">官网简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开发者反馈"><span class="toc-number">2.</span> <span class="toc-text">开发者反馈</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-should-I-not-use-NancyFx"><span class="toc-number">2.1.</span> <span class="toc-text">Why should I (not) use NancyFx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Positive"><span class="toc-number">2.2.</span> <span class="toc-text">Positive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Negative"><span class="toc-number">2.3.</span> <span class="toc-text">Negative</span></a></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">

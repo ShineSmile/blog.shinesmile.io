@@ -17,7 +17,7 @@
 <meta property="og:image" content="http://shinesmile.io/2017/12/06/summary-for-msbuild/msbuild_legacy_version.png">
 <meta property="og:image" content="http://shinesmile.io/2017/12/06/summary-for-msbuild/msbuild_v15.png">
 <meta property="og:image" content="http://shinesmile.io/2017/12/06/summary-for-msbuild/msbuild_install_example.png">
-<meta property="og:updated_time" content="2018-09-09T13:57:59.618Z">
+<meta property="og:updated_time" content="2018-09-12T07:38:59.889Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MSBuild概述">
 <meta name="twitter:description" content="The Microsoft Build Engine is a platform for building applications. This engine, which is also known as MSBuild, provides an XML schema for a project file that controls how the build platform process">
@@ -146,15 +146,16 @@
 
   <div class="content" itemprop="articleBody">
     <blockquote>
-<p>The Microsoft Build Engine is a platform for building applications. This engine, which is also known as MSBuild, provides an XML schema for a project file that controls how the build platform processes and builds software. Visual Studio uses MSBuild, but it doesn’t depend on Visual Studio. By invoking msbuild.exe on your project or solution file, you can orchestrate and build products in environments where Visual Studio isn’t installed.<br>微软构建引擎，即MSBuild，是应用程序的构建平台。MSbuild提供了一种用来描述工程的XML纲要，用来声明使用的编译工具及编译过程。MSBuild不依赖于Visual Studio，相反Visual Studio需要MSBuild才能进行构建。在未安装Visual Studio的环境中，通过调用MSBuild.exe并指明具体的工程或解决方案文件，即可对产品进行编译及构建。<br>——摘自<a href="https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild" target="_blank" rel="noopener">Microsoft Offical Document</a><br>MSBuild is now available as part of the .NET Core SDK and can build .NET Core projects on Windows, macOS, and Linux.<br>MSBuild现已成为.NET CORE SDK的组件，并且可以在Windows、macOS及Linux平台构建<strong>.NET CORE</strong>工程。<br>——摘自<a href="https://docs.microsoft.com/en-us/visualstudio/msbuild/what-s-new-in-msbuild-15-0" target="_blank" rel="noopener">What’s New in MSBuild 15</a></p>
+<p>The Microsoft Build Engine is a platform for building applications. This engine, which is also known as MSBuild, provides an XML schema for a project file that controls how the build platform processes and builds software. Visual Studio uses MSBuild, but it doesn’t depend on Visual Studio. By invoking msbuild.exe on your project or solution file, you can orchestrate and build products in environments where Visual Studio isn’t installed.</p>
 </blockquote>
-<h1 id="MSBuild的版本及路径"><a href="#MSBuild的版本及路径" class="headerlink" title="MSBuild的版本及路径"></a>MSBuild的版本及路径</h1><ul>
-<li>早期的MSbuild的通常随.NET SDK一同安装在在<strong>程序集全局缓存Global Assembly Cache</strong>下，其路径为:<code>C:\Windows\Microsoft.NET\&lt;架构&gt;\&lt;version&gt;\MSBuild.exe</code>。</li>
-</ul>
+<p>微软构建引擎，即MSBuild，是应用程序的构建平台。MSbuild提供了一种用来描述工程的XML纲要，用来声明使用的编译工具及编译过程。MSBuild不依赖于Visual Studio，相反Visual Studio需要MSBuild才能进行构建。在未安装Visual Studio的环境中，通过调用MSBuild.exe并指明具体的工程或解决方案文件，即可对产品进行编译及构建。——摘自<a href="https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild" target="_blank" rel="noopener">Microsoft Offical Document</a></p>
+<blockquote>
+<p>MSBuild is now available as part of the .NET Core SDK and can build .NET Core projects on Windows, macOS, and Linux.</p>
+</blockquote>
+<p>MSBuild现已成为.NET CORE SDK的组件，并且可以在Windows、macOS及Linux平台构建<strong>.NET CORE</strong>工程。 ——摘自<a href="https://docs.microsoft.com/en-us/visualstudio/msbuild/what-s-new-in-msbuild-15-0" target="_blank" rel="noopener">What’s New in MSBuild 15</a></p>
+<h1 id="MSBuild的版本及路径"><a href="#MSBuild的版本及路径" class="headerlink" title="MSBuild的版本及路径"></a>MSBuild的版本及路径</h1><p>早期的MSbuild的通常随.NET SDK一同安装在在<strong>程序集全局缓存Global Assembly Cache</strong>下，其路径为:<code>C:\Windows\Microsoft.NET\&lt;架构&gt;\&lt;version&gt;\MSBuild.exe</code>。</p>
 <p><img src="/2017/12/06/summary-for-msbuild/msbuild_legacy_version.png" alt="不同版本.NET Framwork使用的MSBuild版本"></p>
-<ul>
-<li>后续的MSBuild通常随Visual Studio一同发布，其路径被合并至Visual Stuio的安装路径中，例如VS2017中的MSBuild路径为：<code>C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin</code></li>
-</ul>
+<p>后续的MSBuild通常随Visual Studio一同发布，其路径被合并至Visual Stuio的安装路径中，例如VS2017中的MSBuild路径为：<code>C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin</code></p>
 <p><img src="/2017/12/06/summary-for-msbuild/msbuild_v15.png" alt="MSBuild ver.15"></p>
 <h1 id="MSbuild-without-Visual-Studio"><a href="#MSbuild-without-Visual-Studio" class="headerlink" title="MSbuild without Visual Studio"></a>MSbuild without Visual Studio</h1><p>MSBuild Tool 2017：<a href="https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=15" target="_blank" rel="noopener">下载地址</a></p>
 <h1 id="MSBuild常用参数"><a href="#MSBuild常用参数" class="headerlink" title="MSBuild常用参数"></a>MSBuild常用参数</h1><table>

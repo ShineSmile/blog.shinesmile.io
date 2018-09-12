@@ -4,6 +4,549 @@
 
     
   <url>
+    <loc>http://shinesmile.io/2018/02/05/about-nancy/</loc>
+    <lastmod>2018-09-12T08:02:26.431Z</lastmod>
+    <data>
+        <display>
+        <title>Nancy for ...</title>
+        <pubTime>2018-02-05T03:21:22.000Z</pubTime>
+        
+        <tag>web</tag>
+         
+        <tag>nancy</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/</loc>
+    <lastmod>2018-09-12T08:01:40.693Z</lastmod>
+    <data>
+        <display>
+        <title>AWS架构准则</title>
+        <pubTime>2018-02-28T03:08:14.000Z</pubTime>
+        
+        <tag>aws</tag>
+         
+        <tag>architect</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2018/04/11/cloud-resource-management/</loc>
+    <lastmod>2018-09-12T08:00:10.142Z</lastmod>
+    <data>
+        <display>
+        <title>云资源管理</title>
+        <pubTime>2018-04-11T06:44:48.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/12/25/confluence-backup-script/</loc>
+    <lastmod>2018-09-12T08:00:00.091Z</lastmod>
+    <data>
+        <display>
+        <title>Confluence备份脚本</title>
+        <pubTime>2017-12-25T06:18:46.000Z</pubTime>
+        
+        <tag>confluence</tag>
+         
+        <tag>backup</tag>
+         
+        <tag>powershell</tag>
+         
+        <tag>git</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2018/01/02/custom-nuget-packages/</loc>
+    <lastmod>2018-09-12T07:59:23.738Z</lastmod>
+    <data>
+        <display>
+        <title>自定义Nuget包</title>
+        <pubTime>2018-01-02T07:18:52.000Z</pubTime>
+        
+        <tag>nuget</tag>
+         
+        <tag>pack</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/03/27/docker-https/</loc>
+    <lastmod>2018-09-12T07:55:05.530Z</lastmod>
+    <data>
+        <display>
+        <title>使用TLS对Docker Socket进行授权限制</title>
+        <pubTime>2017-03-27T07:20:23.000Z</pubTime>
+        
+        <tag>docker</tag>
+         
+        <tag>https</tag>
+         
+        <tag>tls</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/07/18/format-git-commit-message/</loc>
+    <lastmod>2018-09-12T07:53:01.317Z</lastmod>
+    <data>
+        <display>
+        <title>格式化git commit message</title>
+        <pubTime>2017-07-18T10:46:11.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+        <tag>commit</tag>
+         
+        <tag>message</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/02/19/git-init-0/</loc>
+    <lastmod>2018-09-12T07:52:55.901Z</lastmod>
+    <data>
+        <display>
+        <title>Git init 0：版本控制的历史及Git的产生</title>
+        <pubTime>2017-02-19T04:00:00.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/02/20/git-init-1/</loc>
+    <lastmod>2018-09-12T07:52:34.498Z</lastmod>
+    <data>
+        <display>
+        <title>Git init 1：Git的安装</title>
+        <pubTime>2017-02-20T04:00:00.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/02/25/git-init-2-1/</loc>
+    <lastmod>2018-09-12T07:51:53.784Z</lastmod>
+    <data>
+        <display>
+        <title>Git init 2.1：Git仓库的初始化</title>
+        <pubTime>2017-02-25T04:00:00.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/02/25/git-init-2-3/</loc>
+    <lastmod>2018-09-12T07:51:47.244Z</lastmod>
+    <data>
+        <display>
+        <title>Git init 2.3：提交至本地仓库</title>
+        <pubTime>2017-02-25T06:00:00.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/02/25/git-init-2-4/</loc>
+    <lastmod>2018-09-12T07:51:45.083Z</lastmod>
+    <data>
+        <display>
+        <title>Git init 2.4：分支与远端管理</title>
+        <pubTime>2017-02-25T07:00:00.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2018/03/16/IaaS/</loc>
+    <lastmod>2018-09-12T07:51:23.482Z</lastmod>
+    <data>
+        <display>
+        <title>IaaS</title>
+        <pubTime>2018-03-16T06:24:31.000Z</pubTime>
+        
+        <tag>cloud</tag>
+         
+        <tag>IaaS</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/02/25/git-init-2-5/</loc>
+    <lastmod>2018-09-12T07:51:22.177Z</lastmod>
+    <data>
+        <display>
+        <title>Git init 2.5：代码的获取与分支的合并</title>
+        <pubTime>2017-02-25T08:00:00.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/02/27/git-init-4/</loc>
+    <lastmod>2018-09-12T07:51:05.808Z</lastmod>
+    <data>
+        <display>
+        <title>Git init 4：SourceTree的使用</title>
+        <pubTime>2017-02-27T04:00:00.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/02/28/git-init-5/</loc>
+    <lastmod>2018-09-12T07:50:53.045Z</lastmod>
+    <data>
+        <display>
+        <title>Git init 5：GitLab的使用</title>
+        <pubTime>2017-02-28T04:00:00.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/12/14/jenkins-for-ftp/</loc>
+    <lastmod>2018-09-12T07:50:37.529Z</lastmod>
+    <data>
+        <display>
+        <title>使用Jenkins通过FTP进行持续发布</title>
+        <pubTime>2017-12-14T09:29:03.000Z</pubTime>
+        
+        <tag>windows</tag>
+         
+        <tag>ftp</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/12/03/install-jenkins-on-centos/</loc>
+    <lastmod>2018-09-12T07:49:54.263Z</lastmod>
+    <data>
+        <display>
+        <title>在CentOS中安装Jenkins</title>
+        <pubTime>2017-12-03T06:42:27.000Z</pubTime>
+        
+        <tag>jenkins</tag>
+         
+        <tag>centos</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/</loc>
+    <lastmod>2018-09-12T07:48:55.296Z</lastmod>
+    <data>
+        <display>
+        <title>使用Jenkins对.NET Framework工程进行持续集成</title>
+        <pubTime>2017-12-04T08:17:46.000Z</pubTime>
+        
+        <tag>jenkins</tag>
+         
+        <tag>dotnet</tag>
+         
+        <tag>ci</tag>
+         
+        <tag>msbuild</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/</loc>
+    <lastmod>2018-09-12T07:45:46.809Z</lastmod>
+    <data>
+        <display>
+        <title>使用Jenkins通过Web Deploy进行持续发布</title>
+        <pubTime>2017-12-14T09:29:29.000Z</pubTime>
+        
+        <tag>jenkins</tag>
+         
+        <tag>web deploy</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/12/08/jenkins-master-slave/</loc>
+    <lastmod>2018-09-12T07:45:09.990Z</lastmod>
+    <data>
+        <display>
+        <title>添加Jenkins slave节点</title>
+        <pubTime>2017-12-08T06:07:13.000Z</pubTime>
+        
+        <tag>jenkins</tag>
+         
+        <tag>slave</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/12/22/jenkins-powershell-trap-on-2k8/</loc>
+    <lastmod>2018-09-12T07:44:47.237Z</lastmod>
+    <data>
+        <display>
+        <title>Jenkins迁移至Server2008执行Powershell无响应</title>
+        <pubTime>2017-12-22T02:41:31.000Z</pubTime>
+        
+        <tag>powershell</tag>
+         
+        <tag>jenkins</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/12/08/jenkinsfile/</loc>
+    <lastmod>2018-09-12T07:41:45.902Z</lastmod>
+    <data>
+        <display>
+        <title>Jenkinsfile基础</title>
+        <pubTime>2017-12-08T06:06:55.000Z</pubTime>
+        
+        <tag>jenkins</tag>
+         
+        <tag>jenkinsfile</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/12/07/msbuild-and-mstest-without-visualstudio/</loc>
+    <lastmod>2018-09-12T07:41:15.096Z</lastmod>
+    <data>
+        <display>
+        <title>.NET Framework CI环境配置</title>
+        <pubTime>2017-12-07T06:11:46.000Z</pubTime>
+        
+        <tag>.net</tag>
+         
+        <tag>Framework</tag>
+         
+        <tag>MSBuild</tag>
+         
+        <tag>MSTest</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/12/28/nuget-cli/</loc>
+    <lastmod>2018-09-12T07:40:36.818Z</lastmod>
+    <data>
+        <display>
+        <title>Nuget命令行接口</title>
+        <pubTime>2017-12-28T10:53:24.000Z</pubTime>
+        
+        <tag>nuget</tag>
+         
+        <tag>cli</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/12/06/summary-for-msbuild/</loc>
+    <lastmod>2018-09-12T07:38:59.889Z</lastmod>
+    <data>
+        <display>
+        <title>MSBuild概述</title>
+        <pubTime>2017-12-06T07:37:06.000Z</pubTime>
+        
+        <tag>msbuild</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2018/02/28/what-is-devops/</loc>
+    <lastmod>2018-09-12T07:36:16.788Z</lastmod>
+    <data>
+        <display>
+        <title>about DevOps</title>
+        <pubTime>2018-02-28T04:43:37.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2017/12/12/windows-server-2016-install-trap/</loc>
+    <lastmod>2018-09-12T07:36:15.752Z</lastmod>
+    <data>
+        <display>
+        <title>使用U盘安装Windows Server 2016时的问题</title>
+        <pubTime>2017-12-12T05:04:38.000Z</pubTime>
+        
+        <tag>windows</tag>
+         
+        <tag>server</tag>
+         
+        <tag>ntfs</tag>
+         
+        <tag>poweriso</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shinesmile.io/2018/03/13/about-mosh/</loc>
+    <lastmod>2018-09-12T07:34:30.869Z</lastmod>
+    <data>
+        <display>
+        <title>Mobile shell</title>
+        <pubTime>2018-03-13T12:27:33.000Z</pubTime>
+        
+        <tag>mosh</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shinesmile.io/2017/12/19/powershell-ftp-tool-to-replace-windows-ftp-command/</loc>
     <lastmod>2018-09-09T14:19:44.542Z</lastmod>
     <data>
@@ -150,23 +693,6 @@
 
     
   <url>
-    <loc>http://shinesmile.io/2017/12/06/summary-for-msbuild/</loc>
-    <lastmod>2018-09-09T13:57:59.618Z</lastmod>
-    <data>
-        <display>
-        <title>MSBuild概述</title>
-        <pubTime>2017-12-06T07:37:06.000Z</pubTime>
-        
-        <tag>msbuild</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://shinesmile.io/2017/07/18/use-vscode-terminal-for-windows-subsystem-for-linux/</loc>
     <lastmod>2018-09-09T13:55:35.189Z</lastmod>
     <data>
@@ -187,106 +713,7 @@
     </url>
 
     
-  <url>
-    <loc>http://shinesmile.io/2018/02/28/what-is-devops/</loc>
-    <lastmod>2018-09-09T13:43:25.868Z</lastmod>
-    <data>
-        <display>
-        <title>about DevOps</title>
-        <pubTime>2018-02-28T04:43:37.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
     
-  <url>
-    <loc>http://shinesmile.io/2017/12/12/windows-server-2016-install-trap/</loc>
-    <lastmod>2018-09-09T13:42:49.145Z</lastmod>
-    <data>
-        <display>
-        <title>使用U盘安装Windows Server 2016时的问题</title>
-        <pubTime>2017-12-12T05:04:38.000Z</pubTime>
-        
-        <tag>windows</tag>
-         
-        <tag>server</tag>
-         
-        <tag>ntfs</tag>
-         
-        <tag>poweriso</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-    
-    
-  <url>
-    <loc>http://shinesmile.io/2018/02/28/AWS-Architecture-Principle/</loc>
-    <lastmod>2018-09-04T05:36:09.901Z</lastmod>
-    <data>
-        <display>
-        <title>AWS架构准则</title>
-        <pubTime>2018-02-28T03:08:14.000Z</pubTime>
-        
-        <tag>aws</tag>
-         
-        <tag>architect</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/12/25/confluence-backup-script/</loc>
-    <lastmod>2018-09-04T05:36:09.901Z</lastmod>
-    <data>
-        <display>
-        <title>Confluence备份脚本</title>
-        <pubTime>2017-12-25T06:18:46.000Z</pubTime>
-        
-        <tag>confluence</tag>
-         
-        <tag>backup</tag>
-         
-        <tag>powershell</tag>
-         
-        <tag>git</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/12/08/jenkins-master-slave/</loc>
-    <lastmod>2018-09-04T05:36:09.901Z</lastmod>
-    <data>
-        <display>
-        <title>添加Jenkins slave节点</title>
-        <pubTime>2017-12-08T06:07:13.000Z</pubTime>
-        
-        <tag>jenkins</tag>
-         
-        <tag>slave</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>http://shinesmile.io/2017/02/26/git-init-3/</loc>
@@ -297,105 +724,6 @@
         <pubTime>2017-02-26T04:00:00.000Z</pubTime>
         
         <tag>git</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/03/27/docker-https/</loc>
-    <lastmod>2018-09-04T05:36:09.900Z</lastmod>
-    <data>
-        <display>
-        <title>使用TLS对Docker Socket进行授权限制</title>
-        <pubTime>2017-03-27T07:20:23.000Z</pubTime>
-        
-        <tag>docker</tag>
-         
-        <tag>https</tag>
-         
-        <tag>tls</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/12/04/jenkins-for-dotnet-framework/</loc>
-    <lastmod>2018-09-04T05:36:09.900Z</lastmod>
-    <data>
-        <display>
-        <title>使用Jenkins对.NET Framework工程进行持续集成</title>
-        <pubTime>2017-12-04T08:17:46.000Z</pubTime>
-        
-        <tag>jenkins</tag>
-         
-        <tag>dotnet</tag>
-         
-        <tag>ci</tag>
-         
-        <tag>msbuild</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/02/25/git-init-2-4/</loc>
-    <lastmod>2018-09-04T05:36:09.900Z</lastmod>
-    <data>
-        <display>
-        <title>Git init 2.4：分支与远端管理</title>
-        <pubTime>2017-02-25T07:00:00.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/12/14/jenkins-for-webdeploy/</loc>
-    <lastmod>2018-09-04T05:36:09.900Z</lastmod>
-    <data>
-        <display>
-        <title>使用Jenkins通过Web Deploy进行持续发布</title>
-        <pubTime>2017-12-14T09:29:29.000Z</pubTime>
-        
-        <tag>jenkins</tag>
-         
-        <tag>web deploy</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/02/25/git-init-2-2/</loc>
-    <lastmod>2018-09-04T05:36:09.899Z</lastmod>
-    <data>
-        <display>
-        <title>Git init 2.2：忽略文件</title>
-        <pubTime>2017-02-25T05:00:00.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-        <tag>gitignore</tag>
          
          
            
@@ -426,344 +754,16 @@
 
     
   <url>
-    <loc>http://shinesmile.io/2017/02/25/git-init-2-3/</loc>
+    <loc>http://shinesmile.io/2017/02/25/git-init-2-2/</loc>
     <lastmod>2018-09-04T05:36:09.899Z</lastmod>
     <data>
         <display>
-        <title>Git init 2.3：提交至本地仓库</title>
-        <pubTime>2017-02-25T06:00:00.000Z</pubTime>
+        <title>Git init 2.2：忽略文件</title>
+        <pubTime>2017-02-25T05:00:00.000Z</pubTime>
         
         <tag>git</tag>
          
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/02/25/git-init-2-5/</loc>
-    <lastmod>2018-09-04T05:36:09.899Z</lastmod>
-    <data>
-        <display>
-        <title>Git init 2.5：代码的获取与分支的合并</title>
-        <pubTime>2017-02-25T08:00:00.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/02/25/git-init-2-1/</loc>
-    <lastmod>2018-09-04T05:36:09.899Z</lastmod>
-    <data>
-        <display>
-        <title>Git init 2.1：Git仓库的初始化</title>
-        <pubTime>2017-02-25T04:00:00.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/12/22/jenkins-powershell-trap-on-2k8/</loc>
-    <lastmod>2018-09-04T05:36:09.899Z</lastmod>
-    <data>
-        <display>
-        <title>Jenkins迁移至Server2008执行Powershell无响应</title>
-        <pubTime>2017-12-22T02:41:31.000Z</pubTime>
-        
-        <tag>powershell</tag>
-         
-        <tag>jenkins</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/12/07/msbuild-and-mstest-without-visualstudio/</loc>
-    <lastmod>2018-09-04T05:36:09.899Z</lastmod>
-    <data>
-        <display>
-        <title>.NET Framework CI环境配置</title>
-        <pubTime>2017-12-07T06:11:46.000Z</pubTime>
-        
-        <tag>.net</tag>
-         
-        <tag>Framework</tag>
-         
-        <tag>MSBuild</tag>
-         
-        <tag>MSTest</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/12/14/jenkins-for-ftp/</loc>
-    <lastmod>2018-09-04T05:36:09.899Z</lastmod>
-    <data>
-        <display>
-        <title>使用Jenkins通过FTP进行持续发布</title>
-        <pubTime>2017-12-14T09:29:03.000Z</pubTime>
-        
-        <tag>windows</tag>
-         
-        <tag>ftp</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2018/04/11/cloud-resource-management/</loc>
-    <lastmod>2018-09-04T05:36:09.898Z</lastmod>
-    <data>
-        <display>
-        <title>云资源管理</title>
-        <pubTime>2018-04-11T06:44:48.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2018/01/02/custom-nuget-packages/</loc>
-    <lastmod>2018-09-04T05:36:09.898Z</lastmod>
-    <data>
-        <display>
-        <title>自定义Nuget包</title>
-        <pubTime>2018-01-02T07:18:52.000Z</pubTime>
-        
-        <tag>nuget</tag>
-         
-        <tag>pack</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/02/28/git-init-5/</loc>
-    <lastmod>2018-09-04T05:36:09.898Z</lastmod>
-    <data>
-        <display>
-        <title>Git init 5：GitLab的使用</title>
-        <pubTime>2017-02-28T04:00:00.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/02/20/git-init-1/</loc>
-    <lastmod>2018-09-04T05:36:09.898Z</lastmod>
-    <data>
-        <display>
-        <title>Git init 1：Git的安装</title>
-        <pubTime>2017-02-20T04:00:00.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/12/28/nuget-cli/</loc>
-    <lastmod>2018-09-04T05:36:09.898Z</lastmod>
-    <data>
-        <display>
-        <title>Nuget命令行接口</title>
-        <pubTime>2017-12-28T10:53:24.000Z</pubTime>
-        
-        <tag>nuget</tag>
-         
-        <tag>cli</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/12/08/jenkinsfile/</loc>
-    <lastmod>2018-09-04T05:36:09.897Z</lastmod>
-    <data>
-        <display>
-        <title>Jenkinsfile基础</title>
-        <pubTime>2017-12-08T06:06:55.000Z</pubTime>
-        
-        <tag>jenkins</tag>
-         
-        <tag>jenkinsfile</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/02/27/git-init-4/</loc>
-    <lastmod>2018-09-04T05:36:09.897Z</lastmod>
-    <data>
-        <display>
-        <title>Git init 4：SourceTree的使用</title>
-        <pubTime>2017-02-27T04:00:00.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/02/19/git-init-0/</loc>
-    <lastmod>2018-09-04T05:36:09.897Z</lastmod>
-    <data>
-        <display>
-        <title>Git init 0：版本控制的历史及Git的产生</title>
-        <pubTime>2017-02-19T04:00:00.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2018/02/05/about-nancy/</loc>
-    <lastmod>2018-09-04T05:36:09.897Z</lastmod>
-    <data>
-        <display>
-        <title>Nancy for ...</title>
-        <pubTime>2018-02-05T03:21:22.000Z</pubTime>
-        
-        <tag>web</tag>
-         
-        <tag>nancy</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/12/03/install-jenkins-on-centos/</loc>
-    <lastmod>2018-09-04T05:36:09.897Z</lastmod>
-    <data>
-        <display>
-        <title>在CentOS中安装Jenkins</title>
-        <pubTime>2017-12-03T06:42:27.000Z</pubTime>
-        
-        <tag>jenkins</tag>
-         
-        <tag>centos</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2018/03/13/about-mosh/</loc>
-    <lastmod>2018-04-04T07:55:57.000Z</lastmod>
-    <data>
-        <display>
-        <title>Mobile shell</title>
-        <pubTime>2018-03-13T12:27:33.000Z</pubTime>
-        
-        <tag>mosh</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2018/03/16/IaaS/</loc>
-    <lastmod>2018-03-16T07:44:30.000Z</lastmod>
-    <data>
-        <display>
-        <title>IaaS</title>
-        <pubTime>2018-03-16T06:24:31.000Z</pubTime>
-        
-        <tag>cloud</tag>
-         
-        <tag>IaaS</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/07/18/format-git-commit-message/</loc>
-    <lastmod>2018-03-16T06:35:03.000Z</lastmod>
-    <data>
-        <display>
-        <title>格式化git commit message</title>
-        <pubTime>2017-07-18T10:46:11.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-        <tag>commit</tag>
-         
-        <tag>message</tag>
+        <tag>gitignore</tag>
          
          
            

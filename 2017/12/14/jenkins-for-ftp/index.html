@@ -6,20 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="FTP服务的建立在Windows系统下建立IIS服务，除了使用IIS外还可以使用Filezilla，此工具除了会安装windows服务外，还会提供一个对服务进行管理的桌面应用。管理工具默认通过14147端口与服务进行通信。 FTP命令行工具参考地址Windows XP Pro 文档 语法ftp [-v] [-d] [-i] [-n] [-g] [-s:FileName] [-a] [-w:Wind">
+    <meta name="description" content="FTP服务的建立在Windows系统下建立IIS服务，除了使用IIS外还可以使用Filezilla，此工具除了会安装windows服务外，还会提供一个对服务进行管理的桌面应用。管理工具默认通过14147端口与服务进行通信。 FTP命令行工具Windows XP Pro 文档 语法ftp [-v] [-d] [-i] [-n] [-g] [-s:FileName] [-a] [-w:WindowSi">
 <meta name="keywords" content="windows,ftp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Jenkins通过FTP进行持续发布">
 <meta property="og:url" content="http://shinesmile.io/2017/12/14/jenkins-for-ftp/index.html">
 <meta property="og:site_name" content="shinesmile">
-<meta property="og:description" content="FTP服务的建立在Windows系统下建立IIS服务，除了使用IIS外还可以使用Filezilla，此工具除了会安装windows服务外，还会提供一个对服务进行管理的桌面应用。管理工具默认通过14147端口与服务进行通信。 FTP命令行工具参考地址Windows XP Pro 文档 语法ftp [-v] [-d] [-i] [-n] [-g] [-s:FileName] [-a] [-w:Wind">
+<meta property="og:description" content="FTP服务的建立在Windows系统下建立IIS服务，除了使用IIS外还可以使用Filezilla，此工具除了会安装windows服务外，还会提供一个对服务进行管理的桌面应用。管理工具默认通过14147端口与服务进行通信。 FTP命令行工具Windows XP Pro 文档 语法ftp [-v] [-d] [-i] [-n] [-g] [-s:FileName] [-a] [-w:WindowSi">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://shinesmile.io/2017/12/14/jenkins-for-ftp/ftp_help.png">
 <meta property="og:image" content="http://shinesmile.io/2017/12/14/jenkins-for-ftp/ftp_subcommand_help.png">
-<meta property="og:updated_time" content="2018-09-04T05:36:09.899Z">
+<meta property="og:updated_time" content="2018-09-12T07:50:37.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Jenkins通过FTP进行持续发布">
-<meta name="twitter:description" content="FTP服务的建立在Windows系统下建立IIS服务，除了使用IIS外还可以使用Filezilla，此工具除了会安装windows服务外，还会提供一个对服务进行管理的桌面应用。管理工具默认通过14147端口与服务进行通信。 FTP命令行工具参考地址Windows XP Pro 文档 语法ftp [-v] [-d] [-i] [-n] [-g] [-s:FileName] [-a] [-w:Wind">
+<meta name="twitter:description" content="FTP服务的建立在Windows系统下建立IIS服务，除了使用IIS外还可以使用Filezilla，此工具除了会安装windows服务外，还会提供一个对服务进行管理的桌面应用。管理工具默认通过14147端口与服务进行通信。 FTP命令行工具Windows XP Pro 文档 语法ftp [-v] [-d] [-i] [-n] [-g] [-s:FileName] [-a] [-w:WindowSi">
 <meta name="twitter:image" content="http://shinesmile.io/2017/12/14/jenkins-for-ftp/ftp_help.png">
     
     
@@ -105,7 +105,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FTP服务的建立"><span class="toc-number">1.</span> <span class="toc-text">FTP服务的建立</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FTP命令行工具"><span class="toc-number">2.</span> <span class="toc-text">FTP命令行工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考地址"><span class="toc-number">2.1.</span> <span class="toc-text">参考地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">2.2.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用参数概述："><span class="toc-number">2.3.</span> <span class="toc-text">常用参数概述：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子命令"><span class="toc-number">2.4.</span> <span class="toc-text">子命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动化脚本举例"><span class="toc-number">2.5.</span> <span class="toc-text">自动化脚本举例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FTP的主动模式与被动模式"><span class="toc-number">3.</span> <span class="toc-text">FTP的主动模式与被动模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主动模式"><span class="toc-number">3.1.</span> <span class="toc-text">主动模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#被动模式"><span class="toc-number">3.2.</span> <span class="toc-text">被动模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#错误425"><span class="toc-number">3.3.</span> <span class="toc-text">错误425</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小结"><span class="toc-number">4.</span> <span class="toc-text">小结</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FTP服务的建立"><span class="toc-number">1.</span> <span class="toc-text">FTP服务的建立</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FTP命令行工具"><span class="toc-number">2.</span> <span class="toc-text">FTP命令行工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">2.1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用参数概述："><span class="toc-number">2.2.</span> <span class="toc-text">常用参数概述：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子命令"><span class="toc-number">2.3.</span> <span class="toc-text">子命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动化脚本举例"><span class="toc-number">2.4.</span> <span class="toc-text">自动化脚本举例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FTP的主动模式与被动模式"><span class="toc-number">3.</span> <span class="toc-text">FTP的主动模式与被动模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主动模式"><span class="toc-number">3.1.</span> <span class="toc-text">主动模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#被动模式"><span class="toc-number">3.2.</span> <span class="toc-text">被动模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#错误425"><span class="toc-number">3.2.1.</span> <span class="toc-text">错误425</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小结"><span class="toc-number">4.</span> <span class="toc-text">小结</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -145,7 +145,7 @@
 
   <div class="content" itemprop="articleBody">
     <h1 id="FTP服务的建立"><a href="#FTP服务的建立" class="headerlink" title="FTP服务的建立"></a>FTP服务的建立</h1><p>在Windows系统下建立IIS服务，除了使用IIS外还可以使用<a href="https://filezilla-project.org/" target="_blank" rel="noopener">Filezilla</a>，此工具除了会安装windows服务外，还会提供一个对服务进行管理的桌面应用。管理工具默认通过14147端口与服务进行通信。</p>
-<h1 id="FTP命令行工具"><a href="#FTP命令行工具" class="headerlink" title="FTP命令行工具"></a>FTP命令行工具</h1><h2 id="参考地址"><a href="#参考地址" class="headerlink" title="参考地址"></a>参考地址</h2><p><a href="https://www.microsoft.com/resources/documentation/windows/xp/all/proddocs/en-us/ftp.mspx?mfr=true" target="_blank" rel="noopener">Windows XP Pro 文档</a></p>
+<h1 id="FTP命令行工具"><a href="#FTP命令行工具" class="headerlink" title="FTP命令行工具"></a>FTP命令行工具</h1><p><a href="https://www.microsoft.com/resources/documentation/windows/xp/all/proddocs/en-us/ftp.mspx?mfr=true" target="_blank" rel="noopener">Windows XP Pro 文档</a></p>
 <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>ftp [-v] [-d] [-i] [-n] [-g] [-s:FileName] [-a] [-w:WindowSize] [-A] [Host]</p>
 <h2 id="常用参数概述："><a href="#常用参数概述：" class="headerlink" title="常用参数概述："></a>常用参数概述：</h2><table>
 <thead>
@@ -241,8 +241,10 @@
 </tr>
 </tbody>
 </table>
-<h2 id="自动化脚本举例"><a href="#自动化脚本举例" class="headerlink" title="自动化脚本举例"></a>自动化脚本举例</h2><p>FTP命令：<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ftp -s:upload.src <span class="number">10</span>.<span class="number">20</span>.<span class="number">30</span>.<span class="number">40</span></span><br></pre></td></tr></table></figure></p>
-<p>upload.src：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">user</span><br><span class="line">pass</span><br><span class="line">lcd bin</span><br><span class="line">cd _api/bin</span><br><span class="line">mdel *</span><br><span class="line">mput *</span><br><span class="line">quit</span><br></pre></td></tr></table></figure></p>
+<h2 id="自动化脚本举例"><a href="#自动化脚本举例" class="headerlink" title="自动化脚本举例"></a>自动化脚本举例</h2><p>FTP命令：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ftp -s:upload.src <span class="number">10</span>.<span class="number">20</span>.<span class="number">30</span>.<span class="number">40</span></span><br></pre></td></tr></table></figure>
+<p>upload.src：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">user</span><br><span class="line">pass</span><br><span class="line">lcd bin</span><br><span class="line">cd _api/bin</span><br><span class="line">mdel *</span><br><span class="line">mput *</span><br><span class="line">quit</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -281,7 +283,8 @@
 </tr>
 </tbody>
 </table>
-<h1 id="FTP的主动模式与被动模式"><a href="#FTP的主动模式与被动模式" class="headerlink" title="FTP的主动模式与被动模式"></a>FTP的主动模式与被动模式</h1><p>在部署Jenkins使用Filezilla服务持续发布过程中出现上述提示。现象为FTP可以连接、登陆。但使用命令查询、上传、下载文件时客户端卡住，服务端报425错误。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">You appear to be behind a NAT router. Please configure the passive mode settings and forward a range of ports in your router.</span><br><span class="line">(000156)2017/12/15 11:14:43 - shine (10.134.251.51)&gt; LIST</span><br><span class="line">(000156)2017/12/15 11:14:43 - shine (10.134.251.51)&gt; 150 Opening data channel for directory listing of &quot;/&quot;</span><br><span class="line">(000156)2017/12/15 11:14:53 - shine (10.134.251.51)&gt; 425 Can&apos;t open data connection for transfer of &quot;/&quot;</span><br></pre></td></tr></table></figure></p>
+<h1 id="FTP的主动模式与被动模式"><a href="#FTP的主动模式与被动模式" class="headerlink" title="FTP的主动模式与被动模式"></a>FTP的主动模式与被动模式</h1><p>在部署Jenkins使用Filezilla服务持续发布过程中出现上述提示。现象为FTP可以连接、登陆。但使用命令查询、上传、下载文件时客户端卡住，服务端报425错误。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">You appear to be behind a NAT router. Please configure the passive mode settings and forward a range of ports in your router.</span><br><span class="line">(000156)2017/12/15 11:14:43 - shine (10.134.251.51)&gt; LIST</span><br><span class="line">(000156)2017/12/15 11:14:43 - shine (10.134.251.51)&gt; 150 Opening data channel for directory listing of &quot;/&quot;</span><br><span class="line">(000156)2017/12/15 11:14:53 - shine (10.134.251.51)&gt; 425 Can&apos;t open data connection for transfer of &quot;/&quot;</span><br></pre></td></tr></table></figure>
 <p>要想解决此问题需要了解ftp协议的主动模式和被动模式。</p>
 <h2 id="主动模式"><a href="#主动模式" class="headerlink" title="主动模式"></a>主动模式</h2><ol>
 <li>FTP服务器命令（21）端口接受客户端任意端口（客户端初始连接）</li>
@@ -302,7 +305,7 @@
 <li>主动模式和被动模式都是相对于服务端而言，服务端尝试与客户端建立数据链接就是主动，服务端打开端口等待客户端去链接就是被动。</li>
 <li>被动模式的产生原因是因为客户端与位于NAT网络时产生的需求。此时，客户端IP地址非公网IP，服务端尝试与客户端建立连接时请求可能会被路由或防火墙屏蔽。</li>
 </ul>
-<h2 id="错误425"><a href="#错误425" class="headerlink" title="错误425"></a>错误425</h2><p>此情景下425问题的产生是主动模式下客户端与服务端建立命令链接后，客户端将命令发布至服务端，服务端响应命令，并尝试与客户端建立数据链接时故障产生的。由于数据链接未建立，客户端会持续的等待直至手动停止或超时。由于数据链接建立在客户端的高位随机端口，因此无法开放防火墙的特定端口解决此问题，临时的解决方案为<strong>临时关闭客户端的防火墙</strong>。因为客户端与服务端同在专用内网，经过权衡无伤大雅。<strong>请勿滥用此临时方案。</strong></p>
+<h3 id="错误425"><a href="#错误425" class="headerlink" title="错误425"></a>错误425</h3><p>此情景下425问题的产生是主动模式下客户端与服务端建立命令链接后，客户端将命令发布至服务端，服务端响应命令，并尝试与客户端建立数据链接时故障产生的。由于数据链接未建立，客户端会持续的等待直至手动停止或超时。由于数据链接建立在客户端的高位随机端口，因此无法开放防火墙的特定端口解决此问题，临时的解决方案为<strong>临时关闭客户端的防火墙</strong>。因为客户端与服务端同在专用内网，经过权衡无伤大雅。<strong>请勿滥用此临时方案。</strong></p>
 <h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><ul>
 <li>Windows下的ftp工具不能很好的支持被动模式，否则可以通过被动模式与服务器建立连接。（Filezilla可以限定被动模式的端口使用范围，防火墙仅开放对应端口即可，无需完全开放。）</li>
 <li>Windows的ftp命令在自动化过程中不能很好的控制流程(执行过程出错不停止)及不能显示返回错误（使用quit退出即返回0），存在健壮性差、含糊的问题。建议用其他方案替换。</li>
@@ -340,7 +343,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FTP服务的建立"><span class="toc-number">1.</span> <span class="toc-text">FTP服务的建立</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FTP命令行工具"><span class="toc-number">2.</span> <span class="toc-text">FTP命令行工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考地址"><span class="toc-number">2.1.</span> <span class="toc-text">参考地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">2.2.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用参数概述："><span class="toc-number">2.3.</span> <span class="toc-text">常用参数概述：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子命令"><span class="toc-number">2.4.</span> <span class="toc-text">子命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动化脚本举例"><span class="toc-number">2.5.</span> <span class="toc-text">自动化脚本举例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FTP的主动模式与被动模式"><span class="toc-number">3.</span> <span class="toc-text">FTP的主动模式与被动模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主动模式"><span class="toc-number">3.1.</span> <span class="toc-text">主动模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#被动模式"><span class="toc-number">3.2.</span> <span class="toc-text">被动模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#错误425"><span class="toc-number">3.3.</span> <span class="toc-text">错误425</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小结"><span class="toc-number">4.</span> <span class="toc-text">小结</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FTP服务的建立"><span class="toc-number">1.</span> <span class="toc-text">FTP服务的建立</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FTP命令行工具"><span class="toc-number">2.</span> <span class="toc-text">FTP命令行工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">2.1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用参数概述："><span class="toc-number">2.2.</span> <span class="toc-text">常用参数概述：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子命令"><span class="toc-number">2.3.</span> <span class="toc-text">子命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动化脚本举例"><span class="toc-number">2.4.</span> <span class="toc-text">自动化脚本举例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FTP的主动模式与被动模式"><span class="toc-number">3.</span> <span class="toc-text">FTP的主动模式与被动模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主动模式"><span class="toc-number">3.1.</span> <span class="toc-text">主动模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#被动模式"><span class="toc-number">3.2.</span> <span class="toc-text">被动模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#错误425"><span class="toc-number">3.2.1.</span> <span class="toc-text">错误425</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小结"><span class="toc-number">4.</span> <span class="toc-text">小结</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">

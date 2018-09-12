@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Windows Server 2K8的powershell版本默认为2.0。因版本过时，在使用过程中存在功能缺失、无法由Jenkins直接调用，cmd调用时exit code不更新%errorlevel%字段等问题，因此简直升级至最新版本根除隐患。 相关链接：微软官方技术支持1微软官方技术支持2简单来说：  SP1-Windows 2008 R2 Microsoft .NET Framework">
+    <meta name="description" content="版本issueWindows Server 2K8的powershell版本默认为2.0。因版本过时，在使用过程中存在功能缺失、无法由Jenkins直接调用，cmd调用时exit code不更新%errorlevel%字段等问题，因此简直升级至最新版本根除隐患。 相关链接： 微软官方技术支持1微软官方技术支持2 简单来说：  SP1-Windows 2008 R2 Microsoft .NET F">
 <meta name="keywords" content="powershell,jenkins">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jenkins迁移至Server2008执行Powershell无响应">
 <meta property="og:url" content="http://shinesmile.io/2017/12/22/jenkins-powershell-trap-on-2k8/index.html">
 <meta property="og:site_name" content="shinesmile">
-<meta property="og:description" content="Windows Server 2K8的powershell版本默认为2.0。因版本过时，在使用过程中存在功能缺失、无法由Jenkins直接调用，cmd调用时exit code不更新%errorlevel%字段等问题，因此简直升级至最新版本根除隐患。 相关链接：微软官方技术支持1微软官方技术支持2简单来说：  SP1-Windows 2008 R2 Microsoft .NET Framework">
+<meta property="og:description" content="版本issueWindows Server 2K8的powershell版本默认为2.0。因版本过时，在使用过程中存在功能缺失、无法由Jenkins直接调用，cmd调用时exit code不更新%errorlevel%字段等问题，因此简直升级至最新版本根除隐患。 相关链接： 微软官方技术支持1微软官方技术支持2 简单来说：  SP1-Windows 2008 R2 Microsoft .NET F">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-09-04T05:36:09.899Z">
+<meta property="og:updated_time" content="2018-09-12T07:44:47.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jenkins迁移至Server2008执行Powershell无响应">
-<meta name="twitter:description" content="Windows Server 2K8的powershell版本默认为2.0。因版本过时，在使用过程中存在功能缺失、无法由Jenkins直接调用，cmd调用时exit code不更新%errorlevel%字段等问题，因此简直升级至最新版本根除隐患。 相关链接：微软官方技术支持1微软官方技术支持2简单来说：  SP1-Windows 2008 R2 Microsoft .NET Framework">
+<meta name="twitter:description" content="版本issueWindows Server 2K8的powershell版本默认为2.0。因版本过时，在使用过程中存在功能缺失、无法由Jenkins直接调用，cmd调用时exit code不更新%errorlevel%字段等问题，因此简直升级至最新版本根除隐患。 相关链接： 微软官方技术支持1微软官方技术支持2 简单来说：  SP1-Windows 2008 R2 Microsoft .NET F">
     
     
         
@@ -102,7 +102,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#现象"><span class="toc-number">1.</span> <span class="toc-text">现象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#问题"><span class="toc-number">2.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解决"><span class="toc-number">3.</span> <span class="toc-text">解决</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#版本issue"><span class="toc-number">1.</span> <span class="toc-text">版本issue</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#现象"><span class="toc-number">1.1.</span> <span class="toc-text">现象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-number">1.2.</span> <span class="toc-text">问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解决"><span class="toc-number">2.</span> <span class="toc-text">解决</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -141,8 +141,10 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p><strong>Windows Server 2K8的powershell版本默认为2.0。因版本过时，在使用过程中存在功能缺失、无法由Jenkins直接调用，cmd调用时exit code不更新%errorlevel%字段等问题，因此简直升级至最新版本根除隐患。</strong></p>
-<p>相关链接：<br><a href="https://social.technet.microsoft.com/wiki/contents/articles/21016.how-to-install-windows-powershell-4-0.aspx" target="_blank" rel="noopener">微软官方技术支持1</a><br><a href="https://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx" target="_blank" rel="noopener">微软官方技术支持2</a><br>简单来说：</p>
+    <h1 id="版本issue"><a href="#版本issue" class="headerlink" title="版本issue"></a>版本issue</h1><p>Windows Server 2K8的powershell版本默认为2.0。因版本过时，在使用过程中存在功能缺失、无法由Jenkins直接调用，cmd调用时exit code不更新%errorlevel%字段等问题，因此简直升级至最新版本根除隐患。</p>
+<p>相关链接：</p>
+<p><a href="https://social.technet.microsoft.com/wiki/contents/articles/21016.how-to-install-windows-powershell-4-0.aspx" target="_blank" rel="noopener">微软官方技术支持1</a><br><a href="https://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx" target="_blank" rel="noopener">微软官方技术支持2</a></p>
+<p>简单来说：</p>
 <ol>
 <li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=5842" target="_blank" rel="noopener">SP1-Windows 2008 R2</a></li>
 <li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=40779" target="_blank" rel="noopener">Microsoft .NET Framework 4.5.1) (Offline Installer)</a></li>
@@ -150,21 +152,25 @@
 </ol>
 <p>安装后重启即可</p>
 <hr>
-<p><strong>以下内容因未能从根源解决问题被标注过期供参考</strong></p>
-<h1 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h1><p>将Jenkins从2k16迁移至2k8的服务器时，发生了jenkins pipeline中powershell脚本无响应的问题。</p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ul>
-<li><p>无法通过下述方式直接执行powershell脚本。</p>
+<p>以下内容因未能从根源解决问题被标注过期供参考</p>
+<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>将Jenkins从2k16迁移至2k8的服务器时，发生了jenkins pipeline中powershell脚本无响应的问题。</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>无法通过下述方式直接执行powershell脚本。</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">powershell</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">    #powershell scripts</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
-<p>  由于系统原因，jenkins直接调用powershell，在执行过程中不会正常停止，也不会正常返回错误信息。</p>
-</li>
-<li>Execution Policy<br>  虽然在服务器上已经更新了执行策略，但在jenkins调用时仍会提示策略为Restrict。</li>
-<li>x86 or x64<br>将使用的第三方包发布至<em>%WINDIR%\System32\WindowsPowerShell\v1.0\Modules</em>，执行Import-Module时找不到相关的包。</li>
+<p>由于系统原因，jenkins直接调用powershell，在执行过程中不会正常停止，也不会正常返回错误信息。</p>
+<ul>
+<li>Execution Policy</li>
 </ul>
+<p>虽然在服务器上已经更新了执行策略，但在jenkins调用时仍会提示策略为Restrict。</p>
+<ul>
+<li>x86 or x64</li>
+</ul>
+<p>将使用的第三方包发布至<em>%WINDIR%\System32\WindowsPowerShell\v1.0\Modules</em>，执行Import-Module时找不到相关的包。</p>
 <h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><ul>
 <li>将jenkinsfile文件中的powershell脚本迁出至<strong>script.ps1</strong>，通过<strong>bat ‘powershell -f script.ps1’</strong>方式间接执行脚本。</li>
 <li>在脚本执行前，添加<strong>powershell Set-ExecutionPolicy Bypass</strong>，提升jenkins调用的powershell环境的执行权限。</li>
-<li>将第三方包分别添加至<em>%WINDIR%\System32\WindowsPowerShell\v1.0\Modules</em>、<em>%WINDIR%\SysWOW64\WindowsPowerShell\v1.0\Modules</em>中。确保第三方包可以被正常引用。<br>通过以上调整，问题解决。</li>
+<li>将第三方包分别添加至<em>%WINDIR%\System32\WindowsPowerShell\v1.0\Modules</em>、<em>%WINDIR%\SysWOW64\WindowsPowerShell\v1.0\Modules</em>中。确保第三方包可以被正常引用。</li>
 </ul>
+<p>通过以上调整，问题解决。</p>
 
   </div>
 </article>
@@ -197,7 +203,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#现象"><span class="toc-number">1.</span> <span class="toc-text">现象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#问题"><span class="toc-number">2.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解决"><span class="toc-number">3.</span> <span class="toc-text">解决</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#版本issue"><span class="toc-number">1.</span> <span class="toc-text">版本issue</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#现象"><span class="toc-number">1.1.</span> <span class="toc-text">现象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-number">1.2.</span> <span class="toc-text">问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解决"><span class="toc-number">2.</span> <span class="toc-text">解决</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
