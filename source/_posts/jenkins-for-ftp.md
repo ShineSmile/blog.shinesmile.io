@@ -3,17 +3,21 @@ title: 使用Jenkins通过FTP进行持续发布
 date: 2017-12-14 17:29:03
 tags: [windows,ftp]
 ---
+
 # FTP服务的建立
+
 在Windows系统下建立IIS服务，除了使用IIS外还可以使用[Filezilla](https://filezilla-project.org/)，此工具除了会安装windows服务外，还会提供一个对服务进行管理的桌面应用。管理工具默认通过14147端口与服务进行通信。
 
 # FTP命令行工具
-## 参考地址
+
 [Windows XP Pro 文档](https://www.microsoft.com/resources/documentation/windows/xp/all/proddocs/en-us/ftp.mspx?mfr=true)
 
 ## 语法
+
 ftp [-v] [-d] [-i] [-n] [-g] [-s:FileName] [-a] [-w:WindowSize] [-A] [Host]
 
 ## 常用参数概述：
+
 |参数|说明|
 |---|---|
 |/?|显示帮助。|
@@ -24,6 +28,7 @@ ftp [-v] [-d] [-i] [-n] [-g] [-s:FileName] [-a] [-w:WindowSize] [-A] [Host]
 ![FTP工具参数](jenkins-for-ftp/ftp_help.png)
 
 ## 子命令
+
 启动ftp工具后，会进入ftp的命令行界面，这是输入*?*会显示命令的提示：
 ![FTP工具参数](jenkins-for-ftp/ftp_subcommand_help.png)
 
@@ -44,11 +49,15 @@ ftp [-v] [-d] [-i] [-n] [-g] [-s:FileName] [-a] [-w:WindowSize] [-A] [Host]
 |prompt|开关交互模式。关闭此模式命令成功执行时不会显示提示信息。|
 
 ## 自动化脚本举例
+
 FTP命令：
+
 ``` cmd
 ftp -s:upload.src 10.20.30.40
 ```
+
 upload.src：
+
 ``` plain
 user
 pass
@@ -70,16 +79,20 @@ quit
 |quit|关闭ftp工具|
 
 # FTP的主动模式与被动模式
+
 在部署Jenkins使用Filezilla服务持续发布过程中出现上述提示。现象为FTP可以连接、登陆。但使用命令查询、上传、下载文件时客户端卡住，服务端报425错误。
+
 ``` plain
 You appear to be behind a NAT router. Please configure the passive mode settings and forward a range of ports in your router.
 (000156)2017/12/15 11:14:43 - shine (10.134.251.51)> LIST
 (000156)2017/12/15 11:14:43 - shine (10.134.251.51)> 150 Opening data channel for directory listing of "/"
 (000156)2017/12/15 11:14:53 - shine (10.134.251.51)> 425 Can't open data connection for transfer of "/"
 ```
+
 要想解决此问题需要了解ftp协议的主动模式和被动模式。
 
 ## 主动模式
+
 1. FTP服务器命令（21）端口接受客户端任意端口（客户端初始连接）
 1. FTP服务器命令（21）端口到客户端端口（>1023）（服务器响应客户端命令）
 1. FTP服务器数据（20）端口到客户端端口（>1023）（服务器初始化数据连接到客户端数据端口）
@@ -88,6 +101,7 @@ You appear to be behind a NAT router. Please configure the passive mode settings
 小结：主动模式是客户端与服务端建立命令链接后，服务端会尝试与客户端建立数据连接。
 
 ## 被动模式
+
 1. FTP服务器命令（21）端口接受客户端任意端口（客户端初始连接）
 1. FTP服务器命令（21）端口到客户端端口（>1023）（服务器响应客户端命令）
 1. FTP服务器数据端口（>1023）接受客户端端口（>1023）（客户端初始化数据连接到服务器指定的任意端口）
@@ -96,13 +110,16 @@ You appear to be behind a NAT router. Please configure the passive mode settings
 小结：被动模式是客户端与服务端建立命令链接后，服务端会开放数据端口并将相关信息通过命令链接发送给客户端，客户端通过得到的信息与服务端建立数据链接。
 
 Tips：
+
 * 主动模式和被动模式都是相对于服务端而言，服务端尝试与客户端建立数据链接就是主动，服务端打开端口等待客户端去链接就是被动。
 * 被动模式的产生原因是因为客户端与位于NAT网络时产生的需求。此时，客户端IP地址非公网IP，服务端尝试与客户端建立连接时请求可能会被路由或防火墙屏蔽。
 
-## 错误425
+### 错误425
+
 此情景下425问题的产生是主动模式下客户端与服务端建立命令链接后，客户端将命令发布至服务端，服务端响应命令，并尝试与客户端建立数据链接时故障产生的。由于数据链接未建立，客户端会持续的等待直至手动停止或超时。由于数据链接建立在客户端的高位随机端口，因此无法开放防火墙的特定端口解决此问题，临时的解决方案为**临时关闭客户端的防火墙**。因为客户端与服务端同在专用内网，经过权衡无伤大雅。**请勿滥用此临时方案。**
 
 # 小结
+
 * Windows下的ftp工具不能很好的支持被动模式，否则可以通过被动模式与服务器建立连接。（Filezilla可以限定被动模式的端口使用范围，防火墙仅开放对应端口即可，无需完全开放。）
 * Windows的ftp命令在自动化过程中不能很好的控制流程(执行过程出错不停止)及不能显示返回错误（使用quit退出即返回0），存在健壮性差、含糊的问题。建议用其他方案替换。
 * 在Visual Studio使用ftp发布时，是可以通过被动方式发布代码的。然而通过MSBuild的命令行方式却不行。可以认为这是Visual Studio的设计人员的一种引流操作：更希望人们通过Web Deploy而不是FTP的方式发布代码。

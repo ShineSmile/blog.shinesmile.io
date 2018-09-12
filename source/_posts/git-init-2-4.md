@@ -55,7 +55,7 @@ git remote add <remote_name> <remote_url>
 ## 查看远端仓库链接
 
 ``` bash
-git remote 
+git remote
 ```
 
 ## 删除远端仓库链接
@@ -66,7 +66,7 @@ git remote remove <remote_name>
 
 ![远端分支管理](git-init-2-4/git_remote.png)
 
-# 推送至远端：git push 
+# 推送至远端：git push
 
 ## 将分支推送到远端
 
@@ -91,6 +91,7 @@ git push <remote_name>
 # 远端分支管理
 
 ## 查看远端分支
+
 ``` bash
 git branch -r
 ```
@@ -138,4 +139,3 @@ git checkout -b <branch_name> <tag_name>
 分支的实质与指针类似。分支指向某一次具体的提交记录，在此提交记录的基础上进行修改，进行新的提交后，分支将跟随指向新的提交记录。标签是不会跟随新的提交而移动的。
 
 ![Git标签](git-init-2-4/git_tag.png)
-

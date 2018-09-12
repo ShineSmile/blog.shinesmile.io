@@ -51,7 +51,7 @@ git merge <target_branch>
 
 ![non-fast-forward分支的合并](git-init-2-5/non-fast-forward.png)
 
-# 拉取分支：git pull 
+# 拉取分支：git pull
 
 ``` bash
 git pull <remote_name> <remote_branch>
@@ -61,7 +61,7 @@ git pull <remote_name> <remote_branch>
 
 ``` bash
 git fetch <remote_name>
-git merge <remote_branch> 
+git merge <remote_branch>
 ```
 
 这里需要注意一点：如果远端所在的分支不是当前分支的上游分支。合并的过程就是`non-fast-forward`分支的合并流程。上图`non-fast-forward`的合并过程给出了使用`git pull`命令的建议。在实际的开发过程中，建议慎用`pull`操作，将`fetch`与`merge`操作分开进行，显示进行合并操作

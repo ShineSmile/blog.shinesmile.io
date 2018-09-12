@@ -26,7 +26,6 @@ Git读作/ɡɪt/，其中字母G的发音与Got中的G相同。
 
 ------
 
-
 ## 集中式版本控制系统
 
 如：CVS（Concurrent Versions System）、SVN（Subversion）、TFS（Team Foundation Server）。
@@ -63,7 +62,7 @@ Linux的源代码在2002-2005年间免费托管在BitKeeper上，有逸闻说Sam
 * 2005年4月6日，项目发布。
 * 2005年4月7日，Git就可以作为自身的版本控制工具了。
 * 2005年4月18日，发生第一个多分支合并。
-* 2005年4月29日，Git的性能达到了Linus的预期。 
+* 2005年4月29日，Git的性能达到了Linus的预期。
 * 2005年6月16 日，Linux内核2.6.12 发布，那时Git已经在维护Linux核心的源代码了。
 * 后续的版本则被Linus交给另外一个Git的主要贡献者 Junio C Hamano。
 
@@ -78,6 +77,7 @@ Linux的源代码在2002-2005年间免费托管在BitKeeper上，有逸闻说Sam
 3. 廉价易用的分支、标签管理。通过分支我们可以实现**代码审核**、**发布历史管理**以及**现场热修复**等。
 
 ------
+
 # 相关链接
 
 Git的教程有很多，在这里首推官方的[《Pro Git》（中文）](https://git-scm.com/book/zh/v2)，包括Git的使用、基于Git的团队协作软件和Git的内部原理等。还有读起来比较轻松的[《Git权威指南》](https://www.amazon.cn/Git权威指南-蒋鑫/dp/B009WMC3QQ/ref=sr_1_1?ie=UTF8&qid=1487507209&sr=8-1&keywords=git权威指南)（即《Got Git》）。

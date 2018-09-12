@@ -5,7 +5,9 @@ tags: [confluence, backup, powershell, git]
 ---
 
 # Powershell脚本
+
 start.ps1:
+
 ``` powershell
 $script = "backup_script.ps1"
 [string]$dir = Get-Location
@@ -20,7 +22,8 @@ powershell -f $script $logtime | Out-File $logfile
 ```
 
 backup_script.ps1:
-``` powershell 
+
+``` powershell
 $logtime = $args
 [string]$dir = Get-Location
 $logfolder = $dir + '\logs\'
@@ -148,19 +151,23 @@ foreach ($remote in $dbdump_repos.Keys) {
     git push $remote master >> $logfile
 }
 
-# start confluence service 
+# start confluence service
 Start-service Confluence121217132300
 
 Write-Output '### Backup Complete ####'
 ```
 
 # .gitignore
+
 ## Confluence应用目录
+
 ``` .gitignore
 *temp/
 *logs/
 ```
+
 ## Confluence_Data目录
+
 ``` .gitignore
 *temp/
 *logs/
@@ -169,17 +176,23 @@ Write-Output '### Backup Complete ####'
 ```
 
 # Postgresql数据库导出与导入
+
 ## plain text
+
 ``` bash
 pg_dump -U CONFLUENCE -f /$time.sql -d CONFLUENCE
 psql -U CONFLUENCE -f /20171225-120003.sql CONFLUENCE
 ```
+
 ## *.tar
+
 ``` bash
 pg_dump -U postgres -F t -f /$time.tar -d CONFLUENCE
 pg_restore -U postgres -d CONFLUENCE /20171225-120003.tar
 ```
+
 # Windows计划任务配置
+
 ``` XML
 <?xml version="1.0" encoding="UTF-16"?>
 <Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">

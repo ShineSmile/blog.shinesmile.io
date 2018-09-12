@@ -51,6 +51,7 @@ tags: git
 ![工程管理界面](git-init-5/config_project.png)
 
 GitLab的权限分为以下几种：
+
 * Guest：最基本的访问权限
 * Reporter：提交Issue的权限
 * Developer：提交代码、创建分支的权限
@@ -62,10 +63,3 @@ GitLab的权限分为以下几种：
 ------
 
 以上内容基本能够满足代码管理及权限控制的功能。持续集成管线等扩展功能不在这里赘述。有时间的话会另写一篇总结下Runner的使用。
-
-
-
-
-
-
-

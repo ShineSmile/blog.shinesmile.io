@@ -20,7 +20,7 @@ Nancy可处理DELETE、GET、HEAD、OPTIONS、POST、PUT和PATCH请求，只需�
 
 [Reddit地址](https://www.reddit.com/r/dotnet/comments/3fpgtj/why_should_i_not_use_nancyfx/?st=jd9nokkk&sh=cfdebcc8)
 
-## Why should I (not) use NancyFx ?
+## Why should I (not) use NancyFx
 
 > Disclaimer; I'm part of the Nancy team and use it daily ;)
 
@@ -45,6 +45,7 @@ Nancy可处理DELETE、GET、HEAD、OPTIONS、POST、PUT和PATCH请求，只需�
 > * OWIN - This is the most versatile, recommended, hosting model.
 
 支持多种托管方式：持续集成管线会在Mono环境进行编译，来确保其能够在所有的环境中运行。并且被构建成意味着在任何环境都能够良好的运行，例如：IIS，Apache、nginx、FastCGI以及自托管运行。下述列表为官方支持的托管方式：
+
 * 通过HttpListener进行自托管
 * 通过System.Web托管于IIS（及Express）
 * WCF
@@ -67,7 +68,8 @@ Nancy可处理DELETE、GET、HEAD、OPTIONS、POST、PUT和PATCH请求，只需�
 顺便一提，Nancy已在2015年5月被[ThoughWorks' Technology Radar](https://www.thoughtworks.com/radar)名录收录，Octopus Deploy及JabbR等若干大型应用及站点基于Nancy运行。
 
 PS：TECHNOLOGY RADAR收录值得关注的技术、工具、平台、语言/框架。
-## Positive 
+
+## Positive
 
 > Nancy seems to be the only stable alternative HTTP framework for .Net, others have come and gone. Web API seems dominant because you knows its from Microsoft.
 
@@ -91,7 +93,7 @@ ASP.NET 5的思想来自于nodejs及Nancy，因此我更关注具有影响力的
 顺便一提，当你每次使用json.net时，（mvc模板中默认组件），你在使用第三方组件。使用Unity以外的依赖注入工具？同样是第三方组件。使用像dapper一样的微型orm映射工具？还是第三方组件。
 现在的asp.net web 应用正在使用非微软系的依赖项。根据我的经验，其中的大多数都是开源项目。很多依赖项提供了比微软更好的设计及代码质量。
 Asp.net mvc 6及asp.net 5自身已经重度依赖第三方类库。自asp.net开源起，所谓的官方dot net code并不是微软写的。
-因此，不要畏惧使用第三方类库，你早就开始用了。 
+因此，不要畏惧使用第三方类库，你早就开始用了。
 
 > You should use it over an MS-provided solution because if we let Microsoft trample all over every corner of .NET, we will never have a healthy ecosystem like...basically every other language out there right now.
 > .NET has historically been "okay let's fire up visual studio and make a webforms site with that weird ms-jquery thing" workflow where everything you could possibly need has been provided by MS for better or worse.
@@ -114,19 +116,20 @@ Asp.net mvc 6及asp.net 5自身已经重度依赖第三方类库。自asp.net开
 这不是鼓励你使用非微软系框架的论据，而是告诉你不要因为具备简单的教程而草率的下决定。
 换句话说：其只取决于人们的草率决定，跟生态无关。
 
-
 ## Negative
 
 > I was using NancyFx a couple years ago, and I haven't touched since.
 > My gripes from where it was then:
->   * constantly shifting api breaking all sorts of stuff.
->   * not great documentation.
+>   1. constantly shifting api breaking all sorts of stuff.
+>   1. not great documentation.
 > Again, that was about 2 years ago. Since then the documentation has improved quite a bit. But I'm not sure about the api stability. It helped that my coworker did the PluralSight videos.
 
 几年前用过Nancy框架，但至今没在碰过
 两点问题：
+
 * 不断变动的API破坏了原有的规则
 * 操蛋的文档
+
 不过这是两年前了，最近虽然文档的质量有所提升，但我并不能保证文档的可靠性。但他却帮助了我的同事来完成PluralSight的教学视频。
 
 > However, my proposed counterargument is simply that while you may be comfortable for it, any other developers that come after you will have no idea WTF is going on because it is a completely nonstandard system. Thus you make for one hell of a maintenance burden.

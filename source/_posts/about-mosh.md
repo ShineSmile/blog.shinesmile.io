@@ -7,4 +7,3 @@ tags: [mosh]
 [mosh](https://mosh.org/)
 
 > Remote terminal application that allows roaming, supports intermittent connectivity, and provides intelligent local echo and line editing of user keystrokes.
-

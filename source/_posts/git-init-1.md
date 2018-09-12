@@ -40,9 +40,9 @@ tags: git
 
 ------
 
-## 选择组件:
+## 选择组件
 
-```
+``` plain
 从上到下依次为：
  ┌─图标
  │  └─桌面快捷方式
@@ -64,7 +64,7 @@ tags: git
 
 ## 配置PATH环境变量
 
-```
+``` plain
  ┌─只在Bash中使用Git命令
  ├─在cmd.bat命令提示符中使用Git命令
  └─在cmd.bat命令提示符中使用Git命令及Unix工具
@@ -110,7 +110,6 @@ Windows自带默认界面存在字符集、更新窗口大小等问题。**默�
 
 * 是否启动快捷方式支持：关闭，在Git Bash中使用ln命令会创建目标文件的副本而非指向目标文件的链接，如果需要使用链接，请勾选此选项。
 
-
 ![配置特性](git-init-1/extra.png)
 
 ------
@@ -152,7 +151,7 @@ git config --global user.email zh@heavensfeel.net
 
 ![全局设置](git-init-1/global_config.png)
 
-```
+``` plain
 Git允许针对不同的仓库使用不同的用户名和密码。
 设置时将当前目录切换到工程所在目录，使用如下命令对当前仓库进行初始化
 git config user.username ShineSmile
@@ -162,18 +161,3 @@ git config user.email ShineSmile@outlook.com
 至此，Git的安装过程告一段落。
 
 ------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

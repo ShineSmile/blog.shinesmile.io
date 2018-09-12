@@ -12,13 +12,13 @@ tags: [docker,https,tls]
 
 服务端方面仅允许通过CA证书认证的客户端进行连接，客户端方面需要通过签名的证书与服务器进行通信。
 
-> **警告**：使用TLS及CA证书管理具有一定深度.在生产环境使用之前，请确保自己已掌握OpenSSL、x509及TLS相关知识。
+* **警告**：使用TLS及CA证书管理具有一定深度.在生产环境使用之前，请确保自己已掌握OpenSSL、x509及TLS相关知识。
 
-> **警告**：下述TLS命令仅可在Linux下生成可用的秘钥集。macOS的OpenSSL版本与Docker使用的证书存在兼容性问题。
+* **警告**：下述TLS命令仅可在Linux下生成可用的秘钥集。macOS的OpenSSL版本与Docker使用的证书存在兼容性问题。
 
 # 使用OpenSSL创建服务端、客户端秘钥及服务端证书
 
-> **提示**：使用Docker daemon的域名替换下述样例中的`$HOST`
+* **提示**：使用Docker daemon的域名替换下述样例中的`$HOST`
 
 首先生成CA证书的公、私秘钥:
 
@@ -50,7 +50,7 @@ Email Address []:Sven@home.org.au
 
 获得CA证书后，可以生成服务端key及授权签名请求（CSR）。确保之前输入的Common Name（例如：完全域名或你的名字）输入的内容与用于连接docker的hostname匹配。
 
-> **提示**：使用Docker daemon的域名替换下述样例中的`$HOST`
+* **提示**：使用Docker daemon的域名替换下述样例中的`$HOST`
 
 ``` bash
 $ openssl genrsa -out server-key.pem 4096
@@ -90,7 +90,7 @@ $ openssl req -subj '/CN=client' -new -key key.pem -out client.csr
 为了使key适配客户端认证，需要创建额外的配置文件：
 
 ``` bash
-$ echo extendedKeyUsage = clientAuth > extfile.cnf
+echo extendedKeyUsage = clientAuth > extfile.cnf
 ```
 
 对公有key进行签名：
@@ -107,7 +107,7 @@ Enter pass phrase for ca-key.pem:
 生成`cert.pem`及`server-sert.pem`后，可以安全的将两个认证签名文件进行删除：
 
 ``` bash
-$ rm -v client.csr server.csr
+rm -v client.csr server.csr
 ```
 
 在`umask`默认值022的作用下，秘钥文件可以被你和你的用户组全局读写。
@@ -115,13 +115,13 @@ $ rm -v client.csr server.csr
 为了避免意外产生，需要移除秘钥文件的写权限。下面这条命令会将权限更改为当前用户可读：
 
 ``` bash
-$ chmod -v 0400 ca-key.pem key.pem server-key.pem
+chmod -v 0400 ca-key.pem key.pem server-key.pem
 ```
 
 如果想使证书全局可读，仅仅移除证书的写权限来防止意外：
 
 ``` bash
-$ chmod -v 0444 ca.pem server-cert.pem cert.pem
+chmod -v 0444 ca.pem server-cert.pem cert.pem
 ```
 
 现在就可以设置Docker daemon，使其仅能通过客户端提供受认证的CA证书进行连接：
@@ -133,31 +133,31 @@ $ dockerd --tlsverify --tlscacert=ca.pem --tlscert=server-cert.pem --tlskey=serv
 
 现在你需要在执行docker命令时提供你的客户端key、证书以及瘦信任的CA：
 
-> **提示**：使用Docker daemon的域名替换下述样例中的`$HOST`
+* **提示**：使用Docker daemon的域名替换下述样例中的`$HOST`
 
 ``` bash
 $ docker --tlsverify --tlscacert=ca.pem --tlscert=cert.pem --tlskey=key.pem \
   -H=$HOST:2376 version
 ```
 
-> **提示**：在TLS上的Docker服务应该使用TPC 2376端口。
+* **提示**：在TLS上的Docker服务应该使用TPC 2376端口。
 
-> **警告**：上述展示的样例在使用证书认证方式时，不需要`sudo`或者`docker`用户组就可以执行。这意味着任何持有keys的人都具备操作正在运行的Docker daemon的权限，请和root密码一样保护好这些证书！
+* **警告**：上述展示的样例在使用证书认证方式时，不需要`sudo`或者`docker`用户组就可以执行。这意味着任何持有keys的人都具备操作正在运行的Docker daemon的权限，请和root密码一样保护好这些证书！
 
 # 将安全连接设为默认设置
 
 如果想将安全连接设为默认设置，可以通过将上述文件移动到用户文件夹的`.docker`文件夹下，然后设置`DOCKER_HOST`和`DOCKER_TLS_VERIFY`参数替代每次执行命令时传递的`-H=tcp://$HOST:2376`和`--tlsverify`。
 
 ``` bash
-$ mkdir -pv ~/.docker
-$ cp -v {ca,cert,key}.pem ~/.docker
-$ export DOCKER_HOST=tcp://$HOST:2376 DOCKER_TLS_VERIFY=1
+mkdir -pv ~/.docker
+cp -v {ca,cert,key}.pem ~/.docker
+export DOCKER_HOST=tcp://$HOST:2376 DOCKER_TLS_VERIFY=1
 ```
 
 Docker命令就可以通过默认的安全设置进行连接：
 
 ``` bash
-$ docker ps
+docker ps
 ```
 
 # 其他安全模式
@@ -179,8 +179,8 @@ $ docker ps
 如果识别到上述标识，客户端就会使用客户端证书进行连接，因此需要将秘钥文件放到`~/.docker/{ca,cert,key}.pem`。如果想将秘钥文件保存在其他路径，可以通过`DOCKER_CERT_PATH`环境变量指定路径。
 
 ``` bash
-$ export DOCKER_CERT_PATH=~/.docker/zone1/
-$ docker --tlsverify ps
+export DOCKER_CERT_PATH=~/.docker/zone1/
+docker --tlsverify ps
 ```
 
 # 使用`curl`请求安全的Docker端口

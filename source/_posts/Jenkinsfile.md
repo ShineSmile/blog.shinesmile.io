@@ -8,16 +8,17 @@ tags: [jenkins, jenkinsfile]
 JenkinsFile通常保存在工程的根目录并将其添加至版本控制系统，还可以通过建立新的仓库对Jenkinsfile统一管理。
 
 # 简介Jenkinsfile的语法
-```jenkinsfile
+
+``` jenkinsfile
 node ("Windows"){
     stage ("Checkout source code from SVN"){
-        checkout(...) 
+        checkout(...)
     }
-    
+
     stage ("Restore Nuget Package"){
         bat 'cmd /c "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\MSBuild\\15.0\\Bin\\nuget.exe" restore SolutionToBuild.sln'
     }
-    
+
     stage ("Build From Source"){
         bat 'cmd /C "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\MSBuild\\15.0\\Bin\\msbuild.exe" /m /t:rebuild /p:Configuration=Release SolutionToBuild.sln'
     }
@@ -42,9 +43,10 @@ node ("Windows"){
     }
 }
 ```
+
 Tips:
+
 * 可以通过node("<节点Lable>")来指定构建的节点
 * checkout步骤的代码可以通过Jenkins提供的GUI工具配置生成
 * 执行批处理的模板为`bat 'cmd /c command param file'`，注意，单引号中的内容若存在`\`则需要转义。此过程代码同样可以通过模板生成。
 * `try{ }catch{ }finally{ }`：其逻辑与C#中的代码类似，不论`try`块是否成功，`finnally`块都会执行。
-
