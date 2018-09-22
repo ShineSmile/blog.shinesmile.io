@@ -733,6 +733,25 @@
 
     
   <url>
+    <loc>http://shinesmile.io/2017/02/25/git-init-2-2/</loc>
+    <lastmod>2018-09-04T05:36:09.899Z</lastmod>
+    <data>
+        <display>
+        <title>Git init 2.2：忽略文件</title>
+        <pubTime>2017-02-25T05:00:00.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+        <tag>gitignore</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shinesmile.io/2017/03/29/docker-swarm-mode/</loc>
     <lastmod>2018-09-04T05:36:09.899Z</lastmod>
     <data>
@@ -745,25 +764,6 @@
         <tag>swarm</tag>
          
         <tag>cluster</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shinesmile.io/2017/02/25/git-init-2-2/</loc>
-    <lastmod>2018-09-04T05:36:09.899Z</lastmod>
-    <data>
-        <display>
-        <title>Git init 2.2：忽略文件</title>
-        <pubTime>2017-02-25T05:00:00.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-        <tag>gitignore</tag>
          
          
            
