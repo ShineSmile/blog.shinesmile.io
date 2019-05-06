@@ -10,24 +10,24 @@
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git init 5：GitLab的使用">
-<meta property="og:url" content="http://shine.dev/2017/02/28/git-init-5/index.html">
+<meta property="og:url" content="https://shine.dev/2017/02/28/git-init-5/index.html">
 <meta property="og:site_name" content="Shine&#39;s Blog">
 <meta property="og:description" content="GitLab是一款基于Git的版本控制及工程管理工具。其提供收费的企业版及免费的社区版。除了Git远端的管理、用户授权管理外，还提供了实现持续集成、持续发布的Runner等等。其UI元素、Issue管理是仿照GitHub进行设计的。界面简洁容易上手。可以从这里了解GitLab的安装流程。  本文主要简要介绍GitLab对用户组、用户、工程的创建及管理。 Gitlab管理界面用户主界面主界面可以在用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://shine.dev/2017/02/28/git-init-5/download.png">
-<meta property="og:image" content="http://shine.dev/2017/02/28/git-init-5/home.png">
-<meta property="og:image" content="http://shine.dev/2017/02/28/git-init-5/config.png">
-<meta property="og:image" content="http://shine.dev/2017/02/28/git-init-5/add_user.png">
-<meta property="og:image" content="http://shine.dev/2017/02/28/git-init-5/add_usergroup.png">
-<meta property="og:image" content="http://shine.dev/2017/02/28/git-init-5/add_project.png">
-<meta property="og:image" content="http://shine.dev/2017/02/28/git-init-5/project_init.png">
-<meta property="og:image" content="http://shine.dev/2017/02/28/git-init-5/config_project.png">
-<meta property="og:image" content="http://shine.dev/2017/02/28/git-init-5/user_competence.png">
+<meta property="og:image" content="https://shine.dev/2017/02/28/git-init-5/download.png">
+<meta property="og:image" content="https://shine.dev/2017/02/28/git-init-5/home.png">
+<meta property="og:image" content="https://shine.dev/2017/02/28/git-init-5/config.png">
+<meta property="og:image" content="https://shine.dev/2017/02/28/git-init-5/add_user.png">
+<meta property="og:image" content="https://shine.dev/2017/02/28/git-init-5/add_usergroup.png">
+<meta property="og:image" content="https://shine.dev/2017/02/28/git-init-5/add_project.png">
+<meta property="og:image" content="https://shine.dev/2017/02/28/git-init-5/project_init.png">
+<meta property="og:image" content="https://shine.dev/2017/02/28/git-init-5/config_project.png">
+<meta property="og:image" content="https://shine.dev/2017/02/28/git-init-5/user_competence.png">
 <meta property="og:updated_time" content="2019-04-30T10:13:58.615Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git init 5：GitLab的使用">
 <meta name="twitter:description" content="GitLab是一款基于Git的版本控制及工程管理工具。其提供收费的企业版及免费的社区版。除了Git远端的管理、用户授权管理外，还提供了实现持续集成、持续发布的Runner等等。其UI元素、Issue管理是仿照GitHub进行设计的。界面简洁容易上手。可以从这里了解GitLab的安装流程。  本文主要简要介绍GitLab对用户组、用户、工程的创建及管理。 Gitlab管理界面用户主界面主界面可以在用">
-<meta name="twitter:image" content="http://shine.dev/2017/02/28/git-init-5/download.png">
+<meta name="twitter:image" content="https://shine.dev/2017/02/28/git-init-5/download.png">
     
     
         
@@ -82,7 +82,7 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2017/03/22/skill-of-centos/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/2017/03/22/skill-of-ubuntu/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" href="/2017/02/27/git-init-4/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -98,16 +98,16 @@
     <br>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shine.dev/2017/02/28/git-init-5/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://shine.dev/2017/02/28/git-init-5/&text=Git init 5：GitLab的使用"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shine.dev/2017/02/28/git-init-5/&title=Git init 5：GitLab的使用"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shine.dev/2017/02/28/git-init-5/&is_video=false&description=Git init 5：GitLab的使用"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Git init 5：GitLab的使用&body=Check out this article: http://shine.dev/2017/02/28/git-init-5/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://shine.dev/2017/02/28/git-init-5/&title=Git init 5：GitLab的使用"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://shine.dev/2017/02/28/git-init-5/&title=Git init 5：GitLab的使用"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shine.dev/2017/02/28/git-init-5/&title=Git init 5：GitLab的使用"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://shine.dev/2017/02/28/git-init-5/&title=Git init 5：GitLab的使用"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shine.dev/2017/02/28/git-init-5/&name=Git init 5：GitLab的使用&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shine.dev/2017/02/28/git-init-5/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shine.dev/2017/02/28/git-init-5/&text=Git init 5：GitLab的使用"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shine.dev/2017/02/28/git-init-5/&title=Git init 5：GitLab的使用"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shine.dev/2017/02/28/git-init-5/&is_video=false&description=Git init 5：GitLab的使用"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Git init 5：GitLab的使用&body=Check out this article: https://shine.dev/2017/02/28/git-init-5/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shine.dev/2017/02/28/git-init-5/&title=Git init 5：GitLab的使用"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shine.dev/2017/02/28/git-init-5/&title=Git init 5：GitLab的使用"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shine.dev/2017/02/28/git-init-5/&title=Git init 5：GitLab的使用"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shine.dev/2017/02/28/git-init-5/&title=Git init 5：GitLab的使用"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shine.dev/2017/02/28/git-init-5/&name=Git init 5：GitLab的使用&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -220,16 +220,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shine.dev/2017/02/28/git-init-5/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://shine.dev/2017/02/28/git-init-5/&text=Git init 5：GitLab的使用"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shine.dev/2017/02/28/git-init-5/&title=Git init 5：GitLab的使用"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shine.dev/2017/02/28/git-init-5/&is_video=false&description=Git init 5：GitLab的使用"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Git init 5：GitLab的使用&body=Check out this article: http://shine.dev/2017/02/28/git-init-5/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://shine.dev/2017/02/28/git-init-5/&title=Git init 5：GitLab的使用"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://shine.dev/2017/02/28/git-init-5/&title=Git init 5：GitLab的使用"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shine.dev/2017/02/28/git-init-5/&title=Git init 5：GitLab的使用"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://shine.dev/2017/02/28/git-init-5/&title=Git init 5：GitLab的使用"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shine.dev/2017/02/28/git-init-5/&name=Git init 5：GitLab的使用&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shine.dev/2017/02/28/git-init-5/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shine.dev/2017/02/28/git-init-5/&text=Git init 5：GitLab的使用"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shine.dev/2017/02/28/git-init-5/&title=Git init 5：GitLab的使用"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shine.dev/2017/02/28/git-init-5/&is_video=false&description=Git init 5：GitLab的使用"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Git init 5：GitLab的使用&body=Check out this article: https://shine.dev/2017/02/28/git-init-5/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shine.dev/2017/02/28/git-init-5/&title=Git init 5：GitLab的使用"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shine.dev/2017/02/28/git-init-5/&title=Git init 5：GitLab的使用"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shine.dev/2017/02/28/git-init-5/&title=Git init 5：GitLab的使用"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shine.dev/2017/02/28/git-init-5/&title=Git init 5：GitLab的使用"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shine.dev/2017/02/28/git-init-5/&name=Git init 5：GitLab的使用&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

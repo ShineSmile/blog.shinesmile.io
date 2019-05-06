@@ -10,7 +10,7 @@
 <meta name="keywords" content="git,gitignore">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git init 2.2：忽略文件">
-<meta property="og:url" content="http://shine.dev/2017/02/25/git-init-2-2/index.html">
+<meta property="og:url" content="https://shine.dev/2017/02/25/git-init-2-2/index.html">
 <meta property="og:site_name" content="Shine&#39;s Blog">
 <meta property="og:description" content="忽略文件 .gitignore操作系统的运行过程、开发环境的部分配置文件、编译器的编译过程，编译结束后生成的文件通常不需要提交到版本库中进行追踪，一方面此类文件可以通过源代码生成，另一方面反复提交编辑结果会导致版本控制仓库体积的剧增，不利于版本控制工具的维护。 Git使用.gitignore这个配置文件对不需要提交的文件进行忽略，达到节省开销的目的。 .gitignore文件在编辑时遵循以下原则：">
 <meta property="og:locale" content="zh-CN">
@@ -88,16 +88,16 @@
     <br>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shine.dev/2017/02/25/git-init-2-2/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://shine.dev/2017/02/25/git-init-2-2/&text=Git init 2.2：忽略文件"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shine.dev/2017/02/25/git-init-2-2/&is_video=false&description=Git init 2.2：忽略文件"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Git init 2.2：忽略文件&body=Check out this article: http://shine.dev/2017/02/25/git-init-2-2/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shine.dev/2017/02/25/git-init-2-2/&name=Git init 2.2：忽略文件&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shine.dev/2017/02/25/git-init-2-2/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shine.dev/2017/02/25/git-init-2-2/&text=Git init 2.2：忽略文件"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shine.dev/2017/02/25/git-init-2-2/&is_video=false&description=Git init 2.2：忽略文件"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Git init 2.2：忽略文件&body=Check out this article: https://shine.dev/2017/02/25/git-init-2-2/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shine.dev/2017/02/25/git-init-2-2/&name=Git init 2.2：忽略文件&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -217,16 +217,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shine.dev/2017/02/25/git-init-2-2/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://shine.dev/2017/02/25/git-init-2-2/&text=Git init 2.2：忽略文件"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shine.dev/2017/02/25/git-init-2-2/&is_video=false&description=Git init 2.2：忽略文件"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Git init 2.2：忽略文件&body=Check out this article: http://shine.dev/2017/02/25/git-init-2-2/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shine.dev/2017/02/25/git-init-2-2/&name=Git init 2.2：忽略文件&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shine.dev/2017/02/25/git-init-2-2/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shine.dev/2017/02/25/git-init-2-2/&text=Git init 2.2：忽略文件"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shine.dev/2017/02/25/git-init-2-2/&is_video=false&description=Git init 2.2：忽略文件"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Git init 2.2：忽略文件&body=Check out this article: https://shine.dev/2017/02/25/git-init-2-2/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shine.dev/2017/02/25/git-init-2-2/&name=Git init 2.2：忽略文件&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

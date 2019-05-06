@@ -10,7 +10,7 @@
 <meta name="keywords" content="jenkins,powershell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jenkins迁移至Server2008执行Powershell无响应">
-<meta property="og:url" content="http://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/index.html">
+<meta property="og:url" content="https://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/index.html">
 <meta property="og:site_name" content="Shine&#39;s Blog">
 <meta property="og:description" content="版本issueWindows Server 2K8的powershell版本默认为2.0。因版本过时，在使用过程中存在功能缺失、无法由Jenkins直接调用，cmd调用时exit code不更新%errorlevel%字段等问题，因此简直升级至最新版本根除隐患。 相关链接： 微软官方技术支持1微软官方技术支持2 简单来说：  SP1-Windows 2008 R2 Microsoft .NET F">
 <meta property="og:locale" content="zh-CN">
@@ -88,16 +88,16 @@
     <br>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&text=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&title=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&is_video=false&description=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Jenkins迁移至Server2008执行Powershell无响应&body=Check out this article: http://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&title=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&title=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&title=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&title=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&name=Jenkins迁移至Server2008执行Powershell无响应&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&text=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&title=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&is_video=false&description=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Jenkins迁移至Server2008执行Powershell无响应&body=Check out this article: https://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&title=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&title=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&title=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&title=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&name=Jenkins迁移至Server2008执行Powershell无响应&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -212,16 +212,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&text=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&title=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&is_video=false&description=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Jenkins迁移至Server2008执行Powershell无响应&body=Check out this article: http://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&title=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&title=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&title=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&title=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&name=Jenkins迁移至Server2008执行Powershell无响应&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&text=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&title=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&is_video=false&description=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Jenkins迁移至Server2008执行Powershell无响应&body=Check out this article: https://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&title=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&title=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&title=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&title=Jenkins迁移至Server2008执行Powershell无响应"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shine.dev/2017/12/22/jenkins-powershell-trap-on-2k8/&name=Jenkins迁移至Server2008执行Powershell无响应&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

@@ -10,7 +10,7 @@
 <meta name="keywords" content="jenkins,jenkinsfile">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jenkinsfile基础">
-<meta property="og:url" content="http://shine.dev/2017/12/08/Jenkinsfile/index.html">
+<meta property="og:url" content="https://shine.dev/2017/12/08/Jenkinsfile/index.html">
 <meta property="og:site_name" content="Shine&#39;s Blog">
 <meta property="og:description" content="除了使用Jenkins自由风格构建方式通过Web GUI进行配置外，还可以使用Jenkinsfile将构建过程校本化。JenkinsFile通常保存在工程的根目录并将其添加至版本控制系统，还可以通过建立新的仓库对Jenkinsfile统一管理。 简介Jenkinsfile的语法1234567891011121314151617181920212223242526272829303132node (">
 <meta property="og:locale" content="zh-CN">
@@ -88,16 +88,16 @@
     <br>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shine.dev/2017/12/08/Jenkinsfile/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://shine.dev/2017/12/08/Jenkinsfile/&text=Jenkinsfile基础"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shine.dev/2017/12/08/Jenkinsfile/&title=Jenkinsfile基础"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shine.dev/2017/12/08/Jenkinsfile/&is_video=false&description=Jenkinsfile基础"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Jenkinsfile基础&body=Check out this article: http://shine.dev/2017/12/08/Jenkinsfile/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://shine.dev/2017/12/08/Jenkinsfile/&title=Jenkinsfile基础"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://shine.dev/2017/12/08/Jenkinsfile/&title=Jenkinsfile基础"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shine.dev/2017/12/08/Jenkinsfile/&title=Jenkinsfile基础"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://shine.dev/2017/12/08/Jenkinsfile/&title=Jenkinsfile基础"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shine.dev/2017/12/08/Jenkinsfile/&name=Jenkinsfile基础&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shine.dev/2017/12/08/Jenkinsfile/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shine.dev/2017/12/08/Jenkinsfile/&text=Jenkinsfile基础"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shine.dev/2017/12/08/Jenkinsfile/&title=Jenkinsfile基础"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shine.dev/2017/12/08/Jenkinsfile/&is_video=false&description=Jenkinsfile基础"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Jenkinsfile基础&body=Check out this article: https://shine.dev/2017/12/08/Jenkinsfile/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shine.dev/2017/12/08/Jenkinsfile/&title=Jenkinsfile基础"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shine.dev/2017/12/08/Jenkinsfile/&title=Jenkinsfile基础"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shine.dev/2017/12/08/Jenkinsfile/&title=Jenkinsfile基础"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shine.dev/2017/12/08/Jenkinsfile/&title=Jenkinsfile基础"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shine.dev/2017/12/08/Jenkinsfile/&name=Jenkinsfile基础&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -191,16 +191,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://shine.dev/2017/12/08/Jenkinsfile/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://shine.dev/2017/12/08/Jenkinsfile/&text=Jenkinsfile基础"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://shine.dev/2017/12/08/Jenkinsfile/&title=Jenkinsfile基础"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://shine.dev/2017/12/08/Jenkinsfile/&is_video=false&description=Jenkinsfile基础"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Jenkinsfile基础&body=Check out this article: http://shine.dev/2017/12/08/Jenkinsfile/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://shine.dev/2017/12/08/Jenkinsfile/&title=Jenkinsfile基础"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://shine.dev/2017/12/08/Jenkinsfile/&title=Jenkinsfile基础"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://shine.dev/2017/12/08/Jenkinsfile/&title=Jenkinsfile基础"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://shine.dev/2017/12/08/Jenkinsfile/&title=Jenkinsfile基础"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://shine.dev/2017/12/08/Jenkinsfile/&name=Jenkinsfile基础&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shine.dev/2017/12/08/Jenkinsfile/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shine.dev/2017/12/08/Jenkinsfile/&text=Jenkinsfile基础"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shine.dev/2017/12/08/Jenkinsfile/&title=Jenkinsfile基础"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shine.dev/2017/12/08/Jenkinsfile/&is_video=false&description=Jenkinsfile基础"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Jenkinsfile基础&body=Check out this article: https://shine.dev/2017/12/08/Jenkinsfile/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shine.dev/2017/12/08/Jenkinsfile/&title=Jenkinsfile基础"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shine.dev/2017/12/08/Jenkinsfile/&title=Jenkinsfile基础"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shine.dev/2017/12/08/Jenkinsfile/&title=Jenkinsfile基础"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shine.dev/2017/12/08/Jenkinsfile/&title=Jenkinsfile基础"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shine.dev/2017/12/08/Jenkinsfile/&name=Jenkinsfile基础&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
