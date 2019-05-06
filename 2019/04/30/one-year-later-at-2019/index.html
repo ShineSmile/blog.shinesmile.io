@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="时隔一年，已经超过一年多的时间没有更新这个Blog了。 这一年时间也发生挺多的，现在github已经被巨硬收购，不知道免费的私有库是不是也是托巨硬收购的福。因此我将原本在github托管的源码转移到了私有库，并且对gh-pages分支进行了保护（实则就是给自己找麻烦）。 还有一个变化就是我把用于gh-pages推送的.deploy_git文件夹设置成了git仓库的子模块。因为hexo在发布的时候，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="时隔一年">
+<meta property="og:url" content="https://shine.dev/2019/04/30/one-year-later-at-2019/index.html">
+<meta property="og:site_name" content="Shine&#39;s Blog">
+<meta property="og:description" content="时隔一年，已经超过一年多的时间没有更新这个Blog了。 这一年时间也发生挺多的，现在github已经被巨硬收购，不知道免费的私有库是不是也是托巨硬收购的福。因此我将原本在github托管的源码转移到了私有库，并且对gh-pages分支进行了保护（实则就是给自己找麻烦）。 还有一个变化就是我把用于gh-pages推送的.deploy_git文件夹设置成了git仓库的子模块。因为hexo在发布的时候，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-30T12:30:47.310Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="时隔一年">
+<meta name="twitter:description" content="时隔一年，已经超过一年多的时间没有更新这个Blog了。 这一年时间也发生挺多的，现在github已经被巨硬收购，不知道免费的私有库是不是也是托巨硬收购的福。因此我将原本在github托管的源码转移到了私有库，并且对gh-pages分支进行了保护（实则就是给自己找麻烦）。 还有一个变化就是我把用于gh-pages推送的.deploy_git文件夹设置成了git仓库的子模块。因为hexo在发布的时候，">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+          
+        
+    
+    <!-- title -->
+    <title>时隔一年</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">项目</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2018/04/11/cloud-resource-management/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shine.dev/2019/04/30/one-year-later-at-2019/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shine.dev/2019/04/30/one-year-later-at-2019/&text=时隔一年"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shine.dev/2019/04/30/one-year-later-at-2019/&title=时隔一年"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shine.dev/2019/04/30/one-year-later-at-2019/&is_video=false&description=时隔一年"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=时隔一年&body=Check out this article: https://shine.dev/2019/04/30/one-year-later-at-2019/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shine.dev/2019/04/30/one-year-later-at-2019/&title=时隔一年"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shine.dev/2019/04/30/one-year-later-at-2019/&title=时隔一年"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shine.dev/2019/04/30/one-year-later-at-2019/&title=时隔一年"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shine.dev/2019/04/30/one-year-later-at-2019/&title=时隔一年"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shine.dev/2019/04/30/one-year-later-at-2019/&name=时隔一年&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        时隔一年
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Shine's Blog</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-04-30T11:53:30.000Z" itemprop="datePublished">2019-04-30</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>时隔一年，已经超过一年多的时间没有更新这个Blog了。</p>
+<p>这一年时间也发生挺多的，现在github已经被巨硬收购，不知道免费的私有库是不是也是托巨硬收购的福。因此我将原本在github托管的源码转移到了私有库，并且对gh-pages分支进行了保护（实则就是给自己找麻烦）。</p>
+<p>还有一个变化就是我把用于gh-pages推送的.deploy_git文件夹设置成了git仓库的子模块。因为hexo在发布的时候，如果没有这个文件夹，会新建并且设置git remote，但是并不会将gh-pages迁出！这就导致只要一换电脑就需要手动将gh-pages分支的内容clone下来，否则就会产生非常难合并的none-fast-forward分支。</p>
+<p>这种情况下需要注意的问题就是，要先确保hexo deploy的内容正确，然后再提交博客的源码（我又虐自己非要将gh-pages保护起来，必须提PR才能合并）。结果本来打算让提交记录更清晰的计划泡汤了。不过有时就是打个草稿，有些东西可能写完可能不适合发表，这么想的话PR还是有必要的。（我相信没人闲到到github这里看我的commit history的，除非超硬核的技术人员做背调。）</p>
+<p>还有一种更好的方式就要上pipeline了。直接在源头处控制。不过比较麻烦的可能是授权。</p>
+<p>还发现了一点submodule有意思的事，在这顺便提一下：</p>
+<ul>
+<li>git submodule的版本不会随着分支的切换而切换。也就是说submodule作为子库，除非进到目录里面进行更新，否则是不会变化的。</li>
+</ul>
+<p>忙到现在，最开始想写什么早就忘了。等我想起来再写吧。</p>
+<p>后面打算将业余时间做一些东西，把之前买的一些域名用起来。</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>加载评论需要在浏览器启用 JavaScript 脚本支持。</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shine.dev/2019/04/30/one-year-later-at-2019/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shine.dev/2019/04/30/one-year-later-at-2019/&text=时隔一年"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shine.dev/2019/04/30/one-year-later-at-2019/&title=时隔一年"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shine.dev/2019/04/30/one-year-later-at-2019/&is_video=false&description=时隔一年"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=时隔一年&body=Check out this article: https://shine.dev/2019/04/30/one-year-later-at-2019/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shine.dev/2019/04/30/one-year-later-at-2019/&title=时隔一年"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shine.dev/2019/04/30/one-year-later-at-2019/&title=时隔一年"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shine.dev/2019/04/30/one-year-later-at-2019/&title=时隔一年"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shine.dev/2019/04/30/one-year-later-at-2019/&title=时隔一年"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shine.dev/2019/04/30/one-year-later-at-2019/&name=时隔一年&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 Shine
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">项目</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'shinesmile';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+</body>
+</html>
