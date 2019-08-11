@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang=zh>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Shine&#39;s Blog">
 <meta property="og:description" content="起因 由于想使用commitizen对git message格式化，但在Windows下npm安装的全局包总是无法访问。因此决定将npm的第三方命令行工具转移至Linux子系统使用。目的是兼容npm因操作系统不同导致的兼容问题。 此举有如下两个好处：  为Windows平台部分提供Linux命令行。比如git，node.js的第三方工具。 为Linux平台提供Windows GUI。  使用方法">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-02T04:15:53.976Z">
+<meta property="og:updated_time" content="2019-08-11T16:03:43.053Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用vscode terminal作为Windows下Linux子系统终端">
 <meta name="twitter:description" content="起因 由于想使用commitizen对git message格式化，但在Windows下npm安装的全局包总是无法访问。因此决定将npm的第三方命令行工具转移至Linux子系统使用。目的是兼容npm因操作系统不同导致的兼容问题。 此举有如下两个好处：  为Windows平台部分提供Linux命令行。比如git，node.js的第三方工具。 为Linux平台提供Windows GUI。  使用方法">
@@ -68,7 +68,7 @@
         
       </ul>
     </span>
-    <br>
+    <br/>
     <span id="actions">
       <ul>
         
@@ -85,7 +85,7 @@
       <span id="i-top" class="info" style="display:none;">返回顶部</span>
       <span id="i-share" class="info" style="display:none;">分享文章</span>
     </span>
-    <br>
+    <br/>
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shine.dev/2017/07/18/use-vscode-terminal-for-windows-subsystem-for-linux/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
@@ -156,7 +156,8 @@
 <li>更改VScode配置文件，使其直接调用子系统中的bash。<br> 使用VScode中集成的Terminal的原因是cmd及powershell的外观太丑了。<br> 作为替代的ConEmu在显示时存在换行bug。<br> js实现的Hyper在Windows平台功能不完善：无法开启设置页面、存在中文输入bug。<br> VScode可以通过配置文件对默认调用的终端类型进行配置。Menu -&gt; File -&gt; Preferences -&gt; Setting：</li>
 </ul>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 上略</span><br><span class="line">    "terminal.integrated.shell.windows":</span><br><span class="line">     "C:\\windows\\Sysnative\\bash.exe",</span><br><span class="line">    "terminal.integrated.enableBold": false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="2018-09-09更新："><a href="#2018-09-09更新：" class="headerlink" title="2018-09-09更新："></a>2018-09-09更新：</h1><p>正式版的WSL可以在windows store选择不同的发行版使用。其入口统一为system32文件夹下的<em>wsl.exe</em>，其文件系统在<em>%AppData%\Local\Packages</em><br>下的对应发行版文件夹。</p>
+
+<h1 id="2018-09-09更新："><a href="#2018-09-09更新：" class="headerlink" title="2018-09-09更新："></a>2018-09-09更新：</h1><p>正式版的WSL可以在windows store选择不同的发行版使用。其入口统一为system32文件夹下的<em>wsl.exe*，其文件系统在</em>%AppData%\Local\Packages*<br>下的对应发行版文件夹。</p>
 <p>更新后的配置为：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 上略</span><br><span class="line">    "terminal.integrated.shell.windows":</span><br><span class="line">     "C:\\windows\\system32\\wsl.exe",</span><br><span class="line">    "terminal.integrated.enableBold": false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
   </div>

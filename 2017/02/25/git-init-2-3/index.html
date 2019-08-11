@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang=zh>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="查看变更的文件：git status1git status git status命令会列出当前所在的分支，发生变更的文件，以及相关提示。 添加文件至缓存区：git add添加一个文件1git add &amp;lt;filename&amp;gt; git add命令会将指定的文件的当前状态添加到暂存区中。注意这里的暂存区与本地仓库不是同一个位置。如果与SVN类比，相当于提交过程中对文件的勾选。只有暂存的文件会在">
+    <meta name="description" content="查看变更的文件：git status1git status  git status命令会列出当前所在的分支，发生变更的文件，以及相关提示。 添加文件至缓存区：git add添加一个文件1git add &amp;lt;filename&amp;gt;  git add命令会将指定的文件的当前状态添加到暂存区中。注意这里的暂存区与本地仓库不是同一个位置。如果与SVN类比，相当于提交过程中对文件的勾选。只有暂存的文件">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git init 2.3：提交至本地仓库">
 <meta property="og:url" content="https://shine.dev/2017/02/25/git-init-2-3/index.html">
 <meta property="og:site_name" content="Shine&#39;s Blog">
-<meta property="og:description" content="查看变更的文件：git status1git status git status命令会列出当前所在的分支，发生变更的文件，以及相关提示。 添加文件至缓存区：git add添加一个文件1git add &amp;lt;filename&amp;gt; git add命令会将指定的文件的当前状态添加到暂存区中。注意这里的暂存区与本地仓库不是同一个位置。如果与SVN类比，相当于提交过程中对文件的勾选。只有暂存的文件会在">
+<meta property="og:description" content="查看变更的文件：git status1git status  git status命令会列出当前所在的分支，发生变更的文件，以及相关提示。 添加文件至缓存区：git add添加一个文件1git add &amp;lt;filename&amp;gt;  git add命令会将指定的文件的当前状态添加到暂存区中。注意这里的暂存区与本地仓库不是同一个位置。如果与SVN类比，相当于提交过程中对文件的勾选。只有暂存的文件">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://shine.dev/2017/02/25/git-init-2-3/status.png">
 <meta property="og:image" content="https://shine.dev/2017/02/25/git-init-2-3/modify_staged_file.png">
 <meta property="og:image" content="https://shine.dev/2017/02/25/git-init-2-3/git_add_all.png">
 <meta property="og:image" content="https://shine.dev/2017/02/25/git-init-2-3/git_commit.png">
 <meta property="og:image" content="https://shine.dev/2017/02/25/git-init-2-3/git_log.png">
-<meta property="og:updated_time" content="2019-05-02T04:15:53.915Z">
+<meta property="og:updated_time" content="2019-08-11T16:03:42.995Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git init 2.3：提交至本地仓库">
-<meta name="twitter:description" content="查看变更的文件：git status1git status git status命令会列出当前所在的分支，发生变更的文件，以及相关提示。 添加文件至缓存区：git add添加一个文件1git add &amp;lt;filename&amp;gt; git add命令会将指定的文件的当前状态添加到暂存区中。注意这里的暂存区与本地仓库不是同一个位置。如果与SVN类比，相当于提交过程中对文件的勾选。只有暂存的文件会在">
+<meta name="twitter:description" content="查看变更的文件：git status1git status  git status命令会列出当前所在的分支，发生变更的文件，以及相关提示。 添加文件至缓存区：git add添加一个文件1git add &amp;lt;filename&amp;gt;  git add命令会将指定的文件的当前状态添加到暂存区中。注意这里的暂存区与本地仓库不是同一个位置。如果与SVN类比，相当于提交过程中对文件的勾选。只有暂存的文件">
 <meta name="twitter:image" content="https://shine.dev/2017/02/25/git-init-2-3/status.png">
     
     
@@ -74,7 +74,7 @@
         
       </ul>
     </span>
-    <br>
+    <br/>
     <span id="actions">
       <ul>
         
@@ -91,7 +91,7 @@
       <span id="i-top" class="info" style="display:none;">返回顶部</span>
       <span id="i-share" class="info" style="display:none;">分享文章</span>
     </span>
-    <br>
+    <br/>
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shine.dev/2017/02/25/git-init-2-3/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
@@ -153,8 +153,10 @@
 
   <div class="content" itemprop="articleBody">
     <h1 id="查看变更的文件：git-status"><a href="#查看变更的文件：git-status" class="headerlink" title="查看变更的文件：git status"></a>查看变更的文件：git status</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
 <p><code>git status</code>命令会列出当前所在的分支，发生变更的文件，以及相关提示。<br><img src="/2017/02/25/git-init-2-3/status.png" alt="查看变更"></p>
 <h1 id="添加文件至缓存区：git-add"><a href="#添加文件至缓存区：git-add" class="headerlink" title="添加文件至缓存区：git add"></a>添加文件至缓存区：git add</h1><h2 id="添加一个文件"><a href="#添加一个文件" class="headerlink" title="添加一个文件"></a>添加一个文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+
 <p><code>git add</code>命令会将指定的文件的<strong>当前状态</strong>添加到<strong>暂存区</strong>中。注意这里的<strong>暂存区</strong>与<strong>本地仓库</strong>不是同一个位置。如果与SVN类比，相当于提交过程中对文件的勾选。<strong>只有暂存的文件会在后续的提交中被提交。</strong></p>
 <p><img src="/2017/02/25/git-init-2-3/modify_staged_file.png" alt="添加文件至缓存区"></p>
 <ol>
@@ -170,14 +172,18 @@
 </li>
 </ol>
 <h2 id="添加所有未被追踪的文件"><a href="#添加所有未被追踪的文件" class="headerlink" title="添加所有未被追踪的文件"></a>添加所有未被追踪的文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+
 <p><img src="/2017/02/25/git-init-2-3/git_add_all.png" alt="添加所有未被追踪的文件"></p>
 <h1 id="将文件移出暂存区：git-rm-–cached"><a href="#将文件移出暂存区：git-rm-–cached" class="headerlink" title="将文件移出暂存区：git rm –cached"></a>将文件移出暂存区：git rm –cached</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm --cached &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+
 <p><code>git rm</code>命令会移除<strong>暂存区</strong>中指定的文件。不会对文件进行修改。</p>
 <p>如果文件在暂存后再次被编辑，需要添加<code>-f</code>强制执行参数。<code>git rm -f --cached</code>。同样，命令仅仅会将文件从暂存区移除，文件的编辑结果不会丢失。</p>
 <h1 id="提交-git-commit"><a href="#提交-git-commit" class="headerlink" title="提交 git commit"></a>提交 git commit</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">"提交信息"</span></span><br></pre></td></tr></table></figure>
+
 <p><code>git commit</code>会将暂存区里的数据提交到<strong>本地仓库</strong>。省略<code>-m</code>参数会调用Vim工具编辑提交信息。</p>
 <p><img src="/2017/02/25/git-init-2-3/git_commit.png" alt="提交文件至本地仓库"></p>
 <h1 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+
 <p>图中<code>a66c1569559..</code>是版本提交的记录，默认情况下取其<strong>前7位</strong>进行展示，即<code>a66c156</code>。</p>
 <p><img src="/2017/02/25/git-init-2-3/git_log.png" alt="查看提交历史"></p>
 

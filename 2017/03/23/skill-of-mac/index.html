@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang=zh>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="这篇文章主要用于记录日常使用Mac的过程中遇到的问题和解决方案。 环境变量的设置修改个人PATH用户登录时会执行~/.bash_profile中的内容，若想简单修改个人的环境变量，可以通过向此文件添加bash命令对环境变量进行调整。 修改本机PATH此方法相对友好，仔细观察~/.bash_profile文件包括以下内容： 1eval $(/usr/libexec/path_helper -s) /">
+    <meta name="description" content="这篇文章主要用于记录日常使用Mac的过程中遇到的问题和解决方案。 环境变量的设置修改个人PATH用户登录时会执行~/.bash_profile中的内容，若想简单修改个人的环境变量，可以通过向此文件添加bash命令对环境变量进行调整。 修改本机PATH此方法相对友好，仔细观察~/.bash_profile文件包括以下内容： 1eval $(/usr/libexec/path_helper -s)">
 <meta name="keywords" content="mac,unix">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac使用技巧">
 <meta property="og:url" content="https://shine.dev/2017/03/23/skill-of-mac/index.html">
 <meta property="og:site_name" content="Shine&#39;s Blog">
-<meta property="og:description" content="这篇文章主要用于记录日常使用Mac的过程中遇到的问题和解决方案。 环境变量的设置修改个人PATH用户登录时会执行~/.bash_profile中的内容，若想简单修改个人的环境变量，可以通过向此文件添加bash命令对环境变量进行调整。 修改本机PATH此方法相对友好，仔细观察~/.bash_profile文件包括以下内容： 1eval $(/usr/libexec/path_helper -s) /">
+<meta property="og:description" content="这篇文章主要用于记录日常使用Mac的过程中遇到的问题和解决方案。 环境变量的设置修改个人PATH用户登录时会执行~/.bash_profile中的内容，若想简单修改个人的环境变量，可以通过向此文件添加bash命令对环境变量进行调整。 修改本机PATH此方法相对友好，仔细观察~/.bash_profile文件包括以下内容： 1eval $(/usr/libexec/path_helper -s)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-02T04:15:53.969Z">
+<meta property="og:updated_time" content="2019-08-11T16:03:43.046Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac使用技巧">
-<meta name="twitter:description" content="这篇文章主要用于记录日常使用Mac的过程中遇到的问题和解决方案。 环境变量的设置修改个人PATH用户登录时会执行~/.bash_profile中的内容，若想简单修改个人的环境变量，可以通过向此文件添加bash命令对环境变量进行调整。 修改本机PATH此方法相对友好，仔细观察~/.bash_profile文件包括以下内容： 1eval $(/usr/libexec/path_helper -s) /">
+<meta name="twitter:description" content="这篇文章主要用于记录日常使用Mac的过程中遇到的问题和解决方案。 环境变量的设置修改个人PATH用户登录时会执行~/.bash_profile中的内容，若想简单修改个人的环境变量，可以通过向此文件添加bash命令对环境变量进行调整。 修改本机PATH此方法相对友好，仔细观察~/.bash_profile文件包括以下内容： 1eval $(/usr/libexec/path_helper -s)">
     
     
         
@@ -68,7 +68,7 @@
         
       </ul>
     </span>
-    <br>
+    <br/>
     <span id="actions">
       <ul>
         
@@ -85,7 +85,7 @@
       <span id="i-top" class="info" style="display:none;">返回顶部</span>
       <span id="i-share" class="info" style="display:none;">分享文章</span>
     </span>
-    <br>
+    <br/>
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shine.dev/2017/03/23/skill-of-mac/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
@@ -150,6 +150,7 @@
 <h1 id="环境变量的设置"><a href="#环境变量的设置" class="headerlink" title="环境变量的设置"></a>环境变量的设置</h1><h2 id="修改个人PATH"><a href="#修改个人PATH" class="headerlink" title="修改个人PATH"></a>修改个人PATH</h2><p>用户登录时会执行<code>~/.bash_profile</code>中的内容，若想简单修改个人的环境变量，可以通过向此文件添加bash命令对环境变量进行调整。</p>
 <h2 id="修改本机PATH"><a href="#修改本机PATH" class="headerlink" title="修改本机PATH"></a>修改本机PATH</h2><p>此方法相对友好，仔细观察<code>~/.bash_profile</code>文件包括以下内容：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span> $(/usr/libexec/path_helper -s)</span><br></pre></td></tr></table></figure>
+
 <p><code>/usr/libexec/path_helper -s</code>的执行结果就是我们的PATH内容并将其export。</p>
 <p>显然上述输出并不是直接写在单个文件中，而是在<code>/etc/paths.d/</code>目录下，此文件夹可能已有部分文件，用户登录时，上述命令会对文件的内容进行遍历并生成指令，将其添加至PATH中。</p>
 <h2 id="修改env环境变量"><a href="#修改env环境变量" class="headerlink" title="修改env环境变量"></a>修改env环境变量</h2><ol>
@@ -158,6 +159,7 @@
 <li><code>~/.bash_profile</code> 每个用户都可使用该文件输入专用于自己使用的shell信息,当用户登录时,该文件仅仅执行一次!可以通过此文件修改个人环境变量。</li>
 </ol>
 <h2 id="使上述配置文件立即生效"><a href="#使上述配置文件立即生效" class="headerlink" title="使上述配置文件立即生效"></a>使上述配置文件立即生效</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bash_profile</span><br></pre></td></tr></table></figure>
+
 <h2 id="查询最大线程数"><a href="#查询最大线程数" class="headerlink" title="查询最大线程数"></a>查询最大线程数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sysctl kern.num_threadsd</span><br><span class="line">sysctl kern.num_taskthreads</span><br></pre></td></tr></table></figure>
   </div>
 </article>
