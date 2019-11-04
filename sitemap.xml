@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://shine.dev/2019/11/04/laugh-at-myself/</loc>
+    
+    <lastmod>2019-11-04T12:20:04.559Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shine.dev/2019/11/04/ConferenceTrackManagement/</loc>
+    
+    <lastmod>2019-11-04T12:09:43.402Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://shine.dev/about/index.html</loc>
     
-    <lastmod>2019-11-03T09:25:02.563Z</lastmod>
+    <lastmod>2019-11-03T09:34:00.002Z</lastmod>
     
   </url>
   
@@ -30,14 +44,14 @@
   </url>
   
   <url>
-    <loc>https://shine.dev/tags/index.html</loc>
+    <loc>https://shine.dev/favorite/index.html</loc>
     
     <lastmod>2019-11-03T08:38:51.044Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://shine.dev/favorite/index.html</loc>
+    <loc>https://shine.dev/tags/index.html</loc>
     
     <lastmod>2019-11-03T08:38:51.044Z</lastmod>
     
@@ -51,14 +65,14 @@
   </url>
   
   <url>
-    <loc>https://shine.dev/2017/03/22/skill-of-centos/</loc>
+    <loc>https://shine.dev/2017/03/23/skill-of-docker/</loc>
     
     <lastmod>2019-11-03T08:38:51.037Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://shine.dev/2017/03/23/skill-of-docker/</loc>
+    <loc>https://shine.dev/2017/03/22/skill-of-centos/</loc>
     
     <lastmod>2019-11-03T08:38:51.037Z</lastmod>
     
@@ -107,14 +121,14 @@
   </url>
   
   <url>
-    <loc>https://shine.dev/2017/12/28/nuget-cli/</loc>
+    <loc>https://shine.dev/2017/12/07/msbuild-and-mstest-without-visualstudio/</loc>
     
     <lastmod>2019-11-03T08:38:51.035Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://shine.dev/2017/12/07/msbuild-and-mstest-without-visualstudio/</loc>
+    <loc>https://shine.dev/2017/12/28/nuget-cli/</loc>
     
     <lastmod>2019-11-03T08:38:51.035Z</lastmod>
     
@@ -226,14 +240,14 @@
   </url>
   
   <url>
-    <loc>https://shine.dev/2017/02/25/git-init-2-3/</loc>
+    <loc>https://shine.dev/2017/02/25/git-init-2-2/</loc>
     
     <lastmod>2019-11-03T08:38:50.986Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://shine.dev/2017/02/25/git-init-2-2/</loc>
+    <loc>https://shine.dev/2017/02/25/git-init-2-3/</loc>
     
     <lastmod>2019-11-03T08:38:50.986Z</lastmod>
     
@@ -310,14 +324,14 @@
   </url>
   
   <url>
-    <loc>https://shine.dev/2018/04/11/cloud-resource-management/</loc>
+    <loc>https://shine.dev/2018/02/05/about-nancy/</loc>
     
     <lastmod>2019-11-03T08:38:50.970Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://shine.dev/2018/02/05/about-nancy/</loc>
+    <loc>https://shine.dev/2018/04/11/cloud-resource-management/</loc>
     
     <lastmod>2019-11-03T08:38:50.970Z</lastmod>
     
