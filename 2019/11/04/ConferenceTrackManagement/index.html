@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="GayHub地址： Conference Track Management 题目google一下就能找到，是道老题。难点应该是动态规划。 这是我写的丑陋解法。参考了leetcode的第40题。 面试的结果是没过。原因是语言特性“用的不对”。 用到了递归和流式编程。没用采用查出上午所有组合再拿结果逐个去看下午的方式，但其实两者最坏情况的时间复杂度是一样的。结果导致递归函数过于复杂不方便维护吧。 额外">
+    <meta name="description" content="GayHub地址： Conference Track Management 题目google一下就能找到，是道老题。难点应该是动态规划。 这是我写的丑陋解法。参考了leetcode的第40题。 面试的结果是没过。原因是语言特性“用的不对”。 用到了递归和流式编程。没有采用查出上午所有组合再拿结果逐个去看下午的方式，但其实两者最坏情况的时间复杂度是一样的。结果导致递归函数过于复杂不方便维护吧。 额外">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Conference Track Management">
 <meta property="og:url" content="https://shine.dev/2019/11/04/ConferenceTrackManagement/index.html">
 <meta property="og:site_name" content="金子其实不发光，那光是反射来的">
-<meta property="og:description" content="GayHub地址： Conference Track Management 题目google一下就能找到，是道老题。难点应该是动态规划。 这是我写的丑陋解法。参考了leetcode的第40题。 面试的结果是没过。原因是语言特性“用的不对”。 用到了递归和流式编程。没用采用查出上午所有组合再拿结果逐个去看下午的方式，但其实两者最坏情况的时间复杂度是一样的。结果导致递归函数过于复杂不方便维护吧。 额外">
+<meta property="og:description" content="GayHub地址： Conference Track Management 题目google一下就能找到，是道老题。难点应该是动态规划。 这是我写的丑陋解法。参考了leetcode的第40题。 面试的结果是没过。原因是语言特性“用的不对”。 用到了递归和流式编程。没有采用查出上午所有组合再拿结果逐个去看下午的方式，但其实两者最坏情况的时间复杂度是一样的。结果导致递归函数过于复杂不方便维护吧。 额外">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-04T12:09:43.402Z">
+<meta property="og:updated_time" content="2019-11-04T12:20:47.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Conference Track Management">
-<meta name="twitter:description" content="GayHub地址： Conference Track Management 题目google一下就能找到，是道老题。难点应该是动态规划。 这是我写的丑陋解法。参考了leetcode的第40题。 面试的结果是没过。原因是语言特性“用的不对”。 用到了递归和流式编程。没用采用查出上午所有组合再拿结果逐个去看下午的方式，但其实两者最坏情况的时间复杂度是一样的。结果导致递归函数过于复杂不方便维护吧。 额外">
+<meta name="twitter:description" content="GayHub地址： Conference Track Management 题目google一下就能找到，是道老题。难点应该是动态规划。 这是我写的丑陋解法。参考了leetcode的第40题。 面试的结果是没过。原因是语言特性“用的不对”。 用到了递归和流式编程。没有采用查出上午所有组合再拿结果逐个去看下午的方式，但其实两者最坏情况的时间复杂度是一样的。结果导致递归函数过于复杂不方便维护吧。 额外">
     
     
         
@@ -70,6 +70,8 @@
     <br/>
     <span id="actions">
       <ul>
+        
+        <li><a class="icon" href="/2019/11/04/hidpi/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" href="/2019/11/04/laugh-at-myself/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -142,7 +144,7 @@
 <p>题目google一下就能找到，是道老题。难点应该是动态规划。</p>
 <p>这是我写的丑陋解法。参考了leetcode的<a href="https://leetcode.com/problems/combination-sum-ii/" target="_blank" rel="noopener">第40题</a>。</p>
 <p>面试的结果是没过。原因是语言特性“用的不对”。</p>
-<p>用到了递归和流式编程。没用采用查出上午所有组合再拿结果逐个去看下午的方式，但其实两者最坏情况的时间复杂度是一样的。结果导致递归函数过于复杂不方便维护吧。</p>
+<p>用到了递归和流式编程。没有采用查出上午所有组合再拿结果逐个去看下午的方式，但其实两者最坏情况的时间复杂度是一样的。结果导致递归函数过于复杂不方便维护吧。</p>
 <p>额外写了很多单元测试，尽可能的覆盖了所有的情况，但是没过……</p>
 <p>心塞。</p>
 <p>无所谓了，反正抄答案过了也不好意思发出来。</p>
