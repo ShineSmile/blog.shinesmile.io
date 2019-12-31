@@ -16,7 +16,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://shine.dev/2017/12/14/jenkins-for-ftp/ftp_help.png">
 <meta property="og:image" content="https://shine.dev/2017/12/14/jenkins-for-ftp/ftp_subcommand_help.png">
-<meta property="og:updated_time" content="2019-11-03T08:38:51.028Z">
+<meta property="og:updated_time" content="2019-12-27T01:22:26.441Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Jenkins通过FTP进行持续发布">
 <meta name="twitter:description" content="FTP服务的建立在Windows系统下建立IIS服务，除了使用IIS外还可以使用Filezilla，此工具除了会安装windows服务外，还会提供一个对服务进行管理的桌面应用。管理工具默认通过14147端口与服务进行通信。 FTP命令行工具Windows XP Pro 文档 语法ftp [-v] [-d] [-i] [-n] [-g] [-s:FileName] [-a] [-w:WindowSi">
@@ -159,7 +159,8 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>/?</td>
 <td>显示帮助。</td>
 </tr>
@@ -179,11 +180,9 @@
 <td>Host</td>
 <td>指定FTP的服务器的计算机名、IP地址。此参数可选且必须作为最后一个参数。</td>
 </tr>
-<tr>
-<td><img src="/2017/12/14/jenkins-for-ftp/ftp_help.png" alt="FTP工具参数"></td>
-<td></td>
-</tr>
-</tbody></table>
+</tbody>
+</table>
+<p><img src="/2017/12/14/jenkins-for-ftp/ftp_help.png" alt="FTP工具参数"></p>
 <h2 id="子命令"><a href="#子命令" class="headerlink" title="子命令"></a>子命令</h2><p>启动ftp工具后，会进入ftp的命令行界面，这是输入<em>?</em>会显示命令的提示：<br><img src="/2017/12/14/jenkins-for-ftp/ftp_subcommand_help.png" alt="FTP工具参数"></p>
 <table>
 <thead>
@@ -192,7 +191,8 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>?</td>
 <td>显示所有子命令</td>
 </tr>
@@ -244,13 +244,12 @@
 <td>prompt</td>
 <td>开关交互模式。关闭此模式命令成功执行时不会显示提示信息。</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <h2 id="自动化脚本举例"><a href="#自动化脚本举例" class="headerlink" title="自动化脚本举例"></a>自动化脚本举例</h2><p>FTP命令：</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ftp -s:upload.src <span class="number">10</span>.<span class="number">20</span>.<span class="number">30</span>.<span class="number">40</span></span><br></pre></td></tr></table></figure>
-
 <p>upload.src：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">user</span><br><span class="line">pass</span><br><span class="line">lcd bin</span><br><span class="line">cd _api/bin</span><br><span class="line">mdel *</span><br><span class="line">mput *</span><br><span class="line">quit</span><br></pre></td></tr></table></figure>
-
 <table>
 <thead>
 <tr>
@@ -258,7 +257,8 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>user</td>
 <td>ftp用户名</td>
 </tr>
@@ -286,10 +286,10 @@
 <td>quit</td>
 <td>关闭ftp工具</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <h1 id="FTP的主动模式与被动模式"><a href="#FTP的主动模式与被动模式" class="headerlink" title="FTP的主动模式与被动模式"></a>FTP的主动模式与被动模式</h1><p>在部署Jenkins使用Filezilla服务持续发布过程中出现上述提示。现象为FTP可以连接、登陆。但使用命令查询、上传、下载文件时客户端卡住，服务端报425错误。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">You appear to be behind a NAT router. Please configure the passive mode settings and forward a range of ports in your router.</span><br><span class="line">(000156)2017/12/15 11:14:43 - shine (10.134.251.51)&gt; LIST</span><br><span class="line">(000156)2017/12/15 11:14:43 - shine (10.134.251.51)&gt; 150 Opening data channel for directory listing of &quot;/&quot;</span><br><span class="line">(000156)2017/12/15 11:14:53 - shine (10.134.251.51)&gt; 425 Can&apos;t open data connection for transfer of &quot;/&quot;</span><br></pre></td></tr></table></figure>
-
 <p>要想解决此问题需要了解ftp协议的主动模式和被动模式。</p>
 <h2 id="主动模式"><a href="#主动模式" class="headerlink" title="主动模式"></a>主动模式</h2><ol>
 <li>FTP服务器命令（21）端口接受客户端任意端口（客户端初始连接）</li>

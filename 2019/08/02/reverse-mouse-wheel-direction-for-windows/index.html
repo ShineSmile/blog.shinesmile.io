@@ -7,14 +7,14 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="反转鼠标滚轮方向出自superuser 1234567# View registry settingsGet-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device` Parameters FlipFlopWheel -EA 0# Change registry settings# Reverse mouse wheel sc">
-<meta name="keywords" content="osx,windows,mac,macbook,bootcamp">
+<meta name="keywords" content="windows,mac,osx,macbook,bootcamp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BootCamp键位设置">
 <meta property="og:url" content="https://shine.dev/2019/08/02/reverse-mouse-wheel-direction-for-windows/index.html">
 <meta property="og:site_name" content="金子其实不发光">
 <meta property="og:description" content="反转鼠标滚轮方向出自superuser 1234567# View registry settingsGet-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device` Parameters FlipFlopWheel -EA 0# Change registry settings# Reverse mouse wheel sc">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-03T08:41:10.010Z">
+<meta property="og:updated_time" content="2019-12-27T01:30:15.652Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BootCamp键位设置">
 <meta name="twitter:description" content="反转鼠标滚轮方向出自superuser 1234567# View registry settingsGet-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device` Parameters FlipFlopWheel -EA 0# Change registry settings# Reverse mouse wheel sc">
@@ -148,10 +148,8 @@
   <div class="content" itemprop="articleBody">
     <h1 id="反转鼠标滚轮方向"><a href="#反转鼠标滚轮方向" class="headerlink" title="反转鼠标滚轮方向"></a>反转鼠标滚轮方向</h1><p><a href="https://superuser.com/questions/310681/inverting-direction-of-mouse-scroll-wheel" target="_blank" rel="noopener">出自superuser</a></p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># View registry settings</span></span><br><span class="line"><span class="built_in">Get-ItemProperty</span> HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device` Parameters FlipFlopWheel -EA <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Change registry settings</span></span><br><span class="line"><span class="comment"># Reverse mouse wheel scroll FlipFlopWheel = 1 </span></span><br><span class="line"><span class="comment"># Normal mouse wheel scroll FlipFlopWheel = 0 </span></span><br><span class="line"><span class="built_in">Get-ItemProperty</span> HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device` Parameters FlipFlopWheel -EA <span class="number">0</span> | <span class="built_in">ForEach-Object</span> &#123; <span class="built_in">Set-ItemProperty</span> <span class="variable">$_</span>.PSPath FlipFlopWheel <span class="number">1</span> &#125;</span><br></pre></td></tr></table></figure>
-
 <p>The command for normal (non-inverted) scrolling has the 0 and 1 swapped:</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Restore default scroll direction</span></span><br><span class="line"><span class="built_in">Get-ItemProperty</span> HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device` Parameters FlipFlopWheel -EA <span class="number">1</span> | <span class="built_in">ForEach-Object</span> &#123; <span class="built_in">Set-ItemProperty</span> <span class="variable">$_</span>.PSPath FlipFlopWheel <span class="number">0</span> &#125;</span><br></pre></td></tr></table></figure>
-
 <h1 id="反转Win-Alt键"><a href="#反转Win-Alt键" class="headerlink" title="反转Win/Alt键"></a>反转Win/Alt键</h1><p><a href="https://github.com/randyrants/sharpkeys/releases" target="_blank" rel="noopener">SharpKeys</a></p>
 
   </div>
