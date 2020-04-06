@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="金子其实不发光">
 <meta property="og:description" content="在类Unix系统中，我们可以使用例如port、apt-get、yum此类包管理工具，对应用进行快速便捷的安装。在Windows平台，通过chololate，我们同样可以做到通过一条命令完成应用及依赖项的安装。 依赖项Windows 7+ / Windows Server 2003+PowerShell v2+.NET Framework 4+ (若未安装安装过程会尝试自动安装.Net 4.0) 安">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-03T08:38:51.037Z">
+<meta property="og:updated_time" content="2019-12-27T01:22:26.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Chocolate通过脚本管理Windows应用">
 <meta name="twitter:description" content="在类Unix系统中，我们可以使用例如port、apt-get、yum此类包管理工具，对应用进行快速便捷的安装。在Windows平台，通过chololate，我们同样可以做到通过一条命令完成应用及依赖项的安装。 依赖项Windows 7+ / Windows Server 2003+PowerShell v2+.NET Framework 4+ (若未安装安装过程会尝试自动安装.Net 4.0) 安">
@@ -150,10 +150,8 @@
 <h1 id="依赖项"><a href="#依赖项" class="headerlink" title="依赖项"></a>依赖项</h1><p>Windows 7+ / Windows Server 2003+<br>PowerShell v2+<br>.NET Framework 4+ (若未安装安装过程会尝试自动安装.Net 4.0)</p>
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="使用cmd安装："><a href="#使用cmd安装：" class="headerlink" title="使用cmd安装："></a>使用cmd安装：</h2><p>在具有管理员权限的cmd.exe中执行：</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@"<span class="variable">%SystemRoot%</span>\System32\WindowsPowerShell\v1.<span class="number">0</span>\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.<span class="built_in">Net</span>.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" &amp;&amp; <span class="built_in">SET</span> "<span class="built_in">PATH</span>=<span class="variable">%PATH%</span>;<span class="variable">%ALLUSERSPROFILE%</span>\chocolatey\bin"</span><br></pre></td></tr></table></figure>
-
 <h2 id="使用powershell安装："><a href="#使用powershell安装：" class="headerlink" title="使用powershell安装："></a>使用powershell安装：</h2><p>在具有管理员权限的powershell中执行：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> Bypass -Scope <span class="keyword">Process</span> -Force; iex ((<span class="built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="string">'https://chocolatey.org/install.ps1'</span>))</span><br></pre></td></tr></table></figure>
-
 <p>执行完毕且没有错误提示的情况下表示安装成功。</p>
 <h1 id="choco子命令"><a href="#choco子命令" class="headerlink" title="choco子命令"></a>choco子命令</h1><p>choco包裹以下子命令</p>
 <ul>

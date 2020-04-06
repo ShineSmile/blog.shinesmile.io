@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="金子其实不发光">
 <meta property="og:description" content="同Ubuntu使用技巧一样，这篇文章也是积累在学习docker中遇到的各种问题及解决方法（可能是临时）。 docker和git有很多相似之处，有一定的git基础对理解docker里的一些概念会有很大帮助。 操作系统为：Ubuntu 16.04 LTS Docker版本： 12345678910111213141516Client: Version:      17.03.0-ce API vers">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-03T08:38:51.037Z">
+<meta property="og:updated_time" content="2019-12-27T01:22:26.463Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker使用技巧">
 <meta name="twitter:description" content="同Ubuntu使用技巧一样，这篇文章也是积累在学习docker中遇到的各种问题及解决方法（可能是临时）。 docker和git有很多相似之处，有一定的git基础对理解docker里的一些概念会有很大帮助。 操作系统为：Ubuntu 16.04 LTS Docker版本： 12345678910111213141516Client: Version:      17.03.0-ce API vers">
@@ -151,7 +151,6 @@
 <p>操作系统为：<strong>Ubuntu 16.04 LTS</strong></p>
 <p>Docker版本：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Client:</span><br><span class="line"> Version:      17.03.0-ce</span><br><span class="line"> API version:  1.26</span><br><span class="line"> Go version:   go1.7.5</span><br><span class="line"> Git commit:   3a232c8</span><br><span class="line"> Built:        Tue Feb 28 08:01:32 2017</span><br><span class="line"> OS/Arch:      linux/amd64</span><br><span class="line"></span><br><span class="line">Server:</span><br><span class="line"> Version:      17.03.0-ce</span><br><span class="line"> API version:  1.26 (minimum version 1.12)</span><br><span class="line"> Go version:   go1.7.5</span><br><span class="line"> Git commit:   3a232c8</span><br><span class="line"> Built:        Tue Feb 28 08:01:32 2017</span><br><span class="line"> OS/Arch:      linux/amd64</span><br><span class="line"> Experimental: false</span><br></pre></td></tr></table></figure>
-
 <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><ul>
 <li>两端：docker命令客户端和docker守护进程</li>
 <li>三核心：镜像、容器、仓库</li>
@@ -161,24 +160,18 @@
 </blockquote>
 <p>解决方案是添加一个docker用户组，并为当前用户添加至此用户组。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br><span class="line">sudo usermod -aG docker <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
-
 <p>执行上述命令后可能需要注销重新登录重新加载用户配置使配置生效。</p>
 <h1 id="设置Docker-daemon的代理服务器"><a href="#设置Docker-daemon的代理服务器" class="headerlink" title="设置Docker daemon的代理服务器"></a>设置Docker daemon的代理服务器</h1><p>修改docker的推荐方案是修改<code>/etc/docker.daemon.json</code>配置文件，详细配置参看<a href="https://docs.docker.com/engine/reference/commandline/dockerd//#daemon-configuration-file" target="_blank" rel="noopener">这里</a></p>
 <p>这里选择的方法是修改deamon的配置项:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /etc/systemd/system/docker.service.d</span><br><span class="line">/etc/systemd/system/docker.service.d/http-proxy.conf</span><br></pre></td></tr></table></figure>
-
 <p>内容为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Service]</span><br><span class="line">Environment=&quot;HTTP_PROXY=http://proxy.example.com:80/&quot;</span><br></pre></td></tr></table></figure>
-
 <p>重载服务参数：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure>
-
 <p>验证：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl show --property=Environment docker</span><br></pre></td></tr></table></figure>
-
 <p>重启服务：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
-
 <h1 id="docker-子命令"><a href="#docker-子命令" class="headerlink" title="docker 子命令"></a>docker 子命令</h1><h2 id="镜像相关"><a href="#镜像相关" class="headerlink" title="镜像相关"></a>镜像相关</h2><ul>
 <li>pull 拉取镜像至本地</li>
 <li>search 查询远端仓库的共享镜像</li>
@@ -204,10 +197,8 @@
 <li>inspect 查询容器状态</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect --format <span class="string">"&#123;&#123;.State.Running&#125;&#125;"</span> wordpress</span><br></pre></td></tr></table></figure>
-
 <h2 id="仓库相关"><a href="#仓库相关" class="headerlink" title="仓库相关"></a>仓库相关</h2><p>获取第三方镜像仓库的方法：在镜像前添加仓库的url，如：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull dl.dockerpool.com:5000/ubuntu:12.04</span><br></pre></td></tr></table></figure>
-
 <h1 id="docker-run参数简要说明"><a href="#docker-run参数简要说明" class="headerlink" title="docker run参数简要说明"></a>docker run参数简要说明</h1><ul>
 <li>-t 让Docker分配一个伪终端（pseudo-tty）并绑定到容器的标准输入上</li>
 <li>-i 让容器的标准输入保持打开</li>
@@ -223,27 +214,21 @@
 <p>在使用ASP.NET core时可能会遇到此问题。（绑定由IIS转移至代码及配置文件中。）</p>
 <h1 id="通过Remote-API访问其他主机中的Docker-Daemon"><a href="#通过Remote-API访问其他主机中的Docker-Daemon" class="headerlink" title="通过Remote API访问其他主机中的Docker Daemon"></a>通过Remote API访问其他主机中的Docker Daemon</h1><p>如果不想在工作中的电脑运行Docker Deamon服务，在开发过程中直接调用服务端的容器，可以开启服务器daemon的tcp访问。<strong>此方法不具有授权及身份认证功能。请自行核对docker及daemon的版本号。</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看配置文件位于哪里</span></span><br><span class="line">systemctl show --property=FragmentPath docker</span><br><span class="line"><span class="comment"># 编辑配置文件内容，接收所有ip请求</span></span><br><span class="line">sudo vim /lib/systemd/system/docker.service</span><br></pre></td></tr></table></figure>
-
 <p>注释目标行，并追加:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#ExecStart=/usr/bin/dockerd -H fd://</span><br><span class="line">ExecStart=/usr/bin/dockerd -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重新加载配置文件，重启docker daemon</span></span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br><span class="line"><span class="comment"># 测试</span></span><br><span class="line">curl http://localhost:2375/info</span><br><span class="line"><span class="comment"># 开启防火墙</span></span><br><span class="line">sudo ufw allow 2375/tcp</span><br></pre></td></tr></table></figure>
-
 <p>本地计算机修改用户环境变量：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># IP地址为服务器地址</span></span><br><span class="line"><span class="built_in">export</span> DOCKER_HOST=<span class="string">"tcp://192.168.1.100:2375"</span></span><br><span class="line"><span class="comment"># 测试</span></span><br><span class="line">docker ps</span><br><span class="line">docker version</span><br></pre></td></tr></table></figure>
-
 <p>衍生自：<a href="https://www.zhihu.com/question/24852884/answer/138069968" target="_blank" rel="noopener">Docker Remote API 如何使用？</a></p>
 <h1 id="通过容器访问deamon所在虚拟机资源"><a href="#通过容器访问deamon所在虚拟机资源" class="headerlink" title="通过容器访问deamon所在虚拟机资源"></a>通过容器访问deamon所在虚拟机资源</h1><p>在使用docker for windows时，有时我们需要通过直接操作Docker Daemon所在的Linux虚拟机对环境进行调整及配置，有如下几种方法：</p>
 <ul>
 <li>get a privileged container with access to Docker daemon</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --privileged -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker alpine sh</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>run a container with full root access to MobyLinuxVM and no seccomp profile (so you can mount stuff)</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --net=host --ipc=host --uts=host --pid=host -it --security-opt=seccomp=unconfined --privileged --rm -v /:/host alpine /bin/sh</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>switch to host FS</li>
 </ul>

@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="金子其实不发光">
 <meta property="og:description" content="本文翻译自Github/PsGet/Readme.md PsGet实用工具集通过中央目录、本地文件及网络安装Poweshell模块的命令集。 安装在Powershell中执行: 123456&amp;gt; (new-object Net.WebClient).DownloadString(&quot;http://psget.net/GetPsGet.ps1&quot;) | iex# 如果返回信息为:Downloadin">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-03T08:38:51.036Z">
+<meta property="og:updated_time" content="2019-12-27T01:22:26.461Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Powershell第三方包管理工具PsGet">
 <meta name="twitter:description" content="本文翻译自Github/PsGet/Readme.md PsGet实用工具集通过中央目录、本地文件及网络安装Poweshell模块的命令集。 安装在Powershell中执行: 123456&amp;gt; (new-object Net.WebClient).DownloadString(&quot;http://psget.net/GetPsGet.ps1&quot;) | iex# 如果返回信息为:Downloadin">
@@ -150,7 +150,6 @@
 <h1 id="PsGet实用工具集"><a href="#PsGet实用工具集" class="headerlink" title="PsGet实用工具集"></a>PsGet实用工具集</h1><p>通过中央目录、本地文件及网络安装Poweshell模块的命令集。</p>
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>在Powershell中执行:</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; (<span class="built_in">new-object</span> Net.WebClient).DownloadString(<span class="string">"http://psget.net/GetPsGet.ps1"</span>) | iex</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果返回信息为:</span></span><br><span class="line">Downloading PsGet from https://github.com/psget/psget/raw/master/PsGet/PsGet.psm1</span><br><span class="line">PsGet is installed and ready to use</span><br><span class="line"><span class="comment"># 表示安装成功. PowerShell脚本通过下载 `GetPsGet.ps1` 重定向至 `Invoke-Expression` 来安装PsGet模块。</span></span><br></pre></td></tr></table></figure>
-
 <p>或者手动进行安装：</p>
 <ol>
 <li>复制 <code>PsGet.psm1</code> 至模块文件夹 (例如： <code>$Env:PsGet\PsGet\</code> )</li>
@@ -167,31 +166,23 @@
 <li>支持模块的Tab键补全,例如： <code>ismo Ps&lt;Tab&gt;</code></li>
 </ol>
 <h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><p>通过中央目录安装模块仅需键入:</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">install-module</span> PsUrl</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; install-module PsUrl</span><br></pre></td></tr></table></figure>
 <p>这条命令会通过中央目录查询PsUrl的依赖信息，并在找到后进行安装。</p>
 <p>另一种<a href="https://github.com/chaliy/psurl/raw/master/PsUrl/PsUrl.psm1" target="_blank" rel="noopener">安装 <code>PsUrl</code> 模块</a>的方法为：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">install-module</span> -ModuleUrl https://github.com/chaliy/psurl/raw/master/PsUrl/PsUrl.psm1</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; install-module -ModuleUrl https://github.com/chaliy/psurl/raw/master/PsUrl/PsUrl.psm1</span><br></pre></td></tr></table></figure>
 <p>像 <code>posh-git</code> 这样的压缩文件, 可以通过 <a href="https://github.com/dahlbyk/posh-git/zipball/master" target="_blank" rel="noopener">zip package</a> 安装</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">install-module</span> -ModuleUrl https://github.com/dahlbyk/posh-git/zipball/master</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; install-module -ModuleUrl https://github.com/dahlbyk/posh-git/zipball/master</span><br></pre></td></tr></table></figure>
 <p>这条命令将执行  <code>posh-git</code> 的安装脚本 <code>Install.ps1</code> . (中央目录已收录<code>posh-git</code>, 因此 <code>install-module posh-git</code> 就够了。)</p>
 <p>像ZIP及PSM1这样的本地文件也同样没问题:</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">install-module</span> -ModulePath \TestModules\HelloWorld.zip</span><br><span class="line">&gt; <span class="built_in">install-module</span> -ModulePath \TestModules\HelloWorld.psm1</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; install-module -ModulePath \TestModules\HelloWorld.zip</span><br><span class="line">&gt; install-module -ModulePath \TestModules\HelloWorld.psm1</span><br></pre></td></tr></table></figure>
 <p>将模块添加至Profile中使其在加载时自执行:</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">install-module</span> PsUrl -Startup</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; install-module PsUrl -Startup</span><br></pre></td></tr></table></figure>
 <p>Nuget也同样可以用来安装模块:</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">install-module</span> -nugetpackageid SomePowerShellModuleOnNuget</span><br><span class="line">&gt; <span class="built_in">install-module</span> -nugetpackageid SomePrivatePowerShellModule -nugetsource http://mynugetserver/nuget/feed/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; install-module -nugetpackageid SomePowerShellModuleOnNuget</span><br><span class="line">&gt; install-module -nugetpackageid SomePrivatePowerShellModule -nugetsource http://mynugetserver/nuget/feed/</span><br></pre></td></tr></table></figure>
 <p>如果需要对模块升级, 执行 <code>Update-Module</code> 将现有版本更新至最新版：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">update-module</span> PsUrl</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; update-module PsUrl</span><br></pre></td></tr></table></figure>
 <h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><p>Q: 错误 <code>File [x] cannot be loaded because the execution of scripts is disabled on this system. Please see &quot;get-help about_signing&quot; for more details.</code><br>A: 出于安全的考虑，Powershell默认会限制所有脚本的执行， “修正”方法为, 使用管理员身份启动powershell并执行。</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">Set-ExecutionPolicy</span> RemoteSigned</span><br></pre></td></tr></table></figure>
-
 <p>获取更多详情, 执行 <code>get-help</code> <a href="http://msdn.microsoft.com/en-us/library/dd347641.aspx" target="_blank" rel="noopener">关于执行策略</a>.</p>
 <p>Q: 如何将我自己的模块添加到中央目录?<br>A: 查看<a href="https://github.com/psget/psget/wiki" target="_blank" rel="noopener">wiki</a>中的<a href="https://github.com/psget/psget/wiki/How-to-add-your-module-to-the-directory" target="_blank" rel="noopener">这部分</a>内容。</p>
 <h1 id="Roadmap、资源、贡献等略"><a href="#Roadmap、资源、贡献等略" class="headerlink" title="Roadmap、资源、贡献等略"></a>Roadmap、资源、贡献等略</h1>

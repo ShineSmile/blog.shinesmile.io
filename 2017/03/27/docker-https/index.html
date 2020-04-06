@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="金子其实不发光">
 <meta property="og:description" content="本文翻译自：Protect the Docker daemon socket 通常情况下，Docker主要通过无网络的Unix socket与deamon进行通信。HTTP socket同样可以作为可选的方式进行交互。 如果需要将以安全的方式通过网络进行交互，可以通过设置tlsverify标识，并指定tlscacert为信任的CA证书来启用TLS。 服务端方面仅允许通过CA证书认证的客户端进行连接">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-03T08:38:50.971Z">
+<meta property="og:updated_time" content="2019-12-27T01:22:26.329Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用TLS对Docker Socket进行授权限制">
 <meta name="twitter:description" content="本文翻译自：Protect the Docker daemon socket 通常情况下，Docker主要通过无网络的Unix socket与deamon进行通信。HTTP socket同样可以作为可选的方式进行交互。 如果需要将以安全的方式通过网络进行交互，可以通过设置tlsverify标识，并指定tlscacert为信任的CA证书来启用TLS。 服务端方面仅允许通过CA证书认证的客户端进行连接">
@@ -161,45 +161,34 @@
 </ul>
 <p>首先生成CA证书的公、私秘钥:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">$ openssl genrsa -aes256 -out ca-key.pem 4096</span><br><span class="line">Generating RSA private key, 4096 bit long modulus</span><br><span class="line">............................................................................................................................................................................................++</span><br><span class="line">........++</span><br><span class="line">e is 65537 (0x10001)</span><br><span class="line">Enter pass phrase <span class="keyword">for</span> ca-key.pem:</span><br><span class="line">Verifying - Enter pass phrase <span class="keyword">for</span> ca-key.pem:</span><br><span class="line">$ openssl req -new -x509 -days 365 -key ca-key.pem -sha256 -out ca.pem</span><br><span class="line">Enter pass phrase <span class="keyword">for</span> ca-key.pem:</span><br><span class="line">You are about to be asked to enter information that will be incorporated</span><br><span class="line">into your certificate request.</span><br><span class="line">What you are about to enter is what is called a Distinguished Name or a DN.</span><br><span class="line">There are quite a few fields but you can leave some blank</span><br><span class="line">For some fields there will be a default value,</span><br><span class="line">If you enter <span class="string">'.'</span>, the field will be left blank.</span><br><span class="line">-----</span><br><span class="line">Country Name (2 letter code) [AU]:</span><br><span class="line">State or Province Name (full name) [Some-State]:Queensland</span><br><span class="line">Locality Name (eg, city) []:Brisbane</span><br><span class="line">Organization Name (eg, company) [Internet Widgits Pty Ltd]:Docker Inc</span><br><span class="line">Organizational Unit Name (eg, section) []:Sales</span><br><span class="line">Common Name (e.g. server FQDN or YOUR name) []:<span class="variable">$HOST</span></span><br><span class="line">Email Address []:Sven@home.org.au</span><br></pre></td></tr></table></figure>
-
 <p>获得CA证书后，可以生成服务端key及授权签名请求（CSR）。确保之前输入的Common Name（例如：完全域名或你的名字）输入的内容与用于连接docker的hostname匹配。</p>
 <ul>
 <li><strong>提示</strong>：使用Docker daemon的域名替换下述样例中的<code>$HOST</code></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ openssl genrsa -out server-key.pem 4096</span><br><span class="line">Generating RSA private key, 4096 bit long modulus</span><br><span class="line">.....................................................................++</span><br><span class="line">.................................................................................................++</span><br><span class="line">e is 65537 (0x10001)</span><br><span class="line">$ openssl req -subj <span class="string">"/CN=<span class="variable">$HOST</span>"</span> -sha256 -new -key server-key.pem -out server.csr</span><br></pre></td></tr></table></figure>
-
 <p>接下来我们将使用CA证书对共有秘钥进行签名：</p>
 <p>鉴于IP地址可以像域名一样建立TLS链接，所以我们需要在生成证书时对其显式声明。例如，允许通过<code>10.10.10.20</code>和<code>127.0.0.1</code>进行连接：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> subjectAltName = DNS:<span class="variable">$HOST</span>,IP:10.10.10.20,IP:127.0.0.1 &gt; extfile.cnf</span><br><span class="line"></span><br><span class="line">$ openssl x509 -req -days 365 -sha256 -<span class="keyword">in</span> server.csr -CA ca.pem -CAkey ca-key.pem \</span><br><span class="line">  -CAcreateserial -out server-cert.pem -extfile extfile.cnf</span><br><span class="line">Signature ok</span><br><span class="line">subject=/CN=your.host.com</span><br><span class="line">Getting CA Private Key</span><br><span class="line">Enter pass phrase <span class="keyword">for</span> ca-key.pem:</span><br></pre></td></tr></table></figure>
-
 <p>客户端认证需要客户端key及认证签名请求：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ openssl genrsa -out key.pem 4096</span><br><span class="line">Generating RSA private key, 4096 bit long modulus</span><br><span class="line">.........................................................++</span><br><span class="line">................++</span><br><span class="line">e is 65537 (0x10001)</span><br><span class="line">$ openssl req -subj <span class="string">'/CN=client'</span> -new -key key.pem -out client.csr</span><br></pre></td></tr></table></figure>
-
 <p>为了使key适配客户端认证，需要创建额外的配置文件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> extendedKeyUsage = clientAuth &gt; extfile.cnf</span><br></pre></td></tr></table></figure>
-
 <p>对公有key进行签名：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ openssl x509 -req -days 365 -sha256 -<span class="keyword">in</span> client.csr -CA ca.pem -CAkey ca-key.pem \</span><br><span class="line">  -CAcreateserial -out cert.pem -extfile extfile.cnf</span><br><span class="line">Signature ok</span><br><span class="line">subject=/CN=client</span><br><span class="line">Getting CA Private Key</span><br><span class="line">Enter pass phrase <span class="keyword">for</span> ca-key.pem:</span><br></pre></td></tr></table></figure>
-
 <p>生成<code>cert.pem</code>及<code>server-sert.pem</code>后，可以安全的将两个认证签名文件进行删除：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -v client.csr server.csr</span><br></pre></td></tr></table></figure>
-
 <p>在<code>umask</code>默认值022的作用下，秘钥文件可以被你和你的用户组全局读写。</p>
 <p>为了避免意外产生，需要移除秘钥文件的写权限。下面这条命令会将权限更改为当前用户可读：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod -v 0400 ca-key.pem key.pem server-key.pem</span><br></pre></td></tr></table></figure>
-
 <p>如果想使证书全局可读，仅仅移除证书的写权限来防止意外：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod -v 0444 ca.pem server-cert.pem cert.pem</span><br></pre></td></tr></table></figure>
-
 <p>现在就可以设置Docker daemon，使其仅能通过客户端提供受认证的CA证书进行连接：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ dockerd --tlsverify --tlscacert=ca.pem --tlscert=server-cert.pem --tlskey=server-key.pem \</span><br><span class="line">  -H=0.0.0.0:2376</span><br></pre></td></tr></table></figure>
-
 <p>现在你需要在执行docker命令时提供你的客户端key、证书以及瘦信任的CA：</p>
 <ul>
 <li><strong>提示</strong>：使用Docker daemon的域名替换下述样例中的<code>$HOST</code></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker --tlsverify --tlscacert=ca.pem --tlscert=cert.pem --tlskey=key.pem \</span><br><span class="line">  -H=<span class="variable">$HOST</span>:2376 version</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p><strong>提示</strong>：在TLS上的Docker服务应该使用TPC 2376端口。</p>
 </li>
@@ -208,10 +197,8 @@
 </ul>
 <h1 id="将安全连接设为默认设置"><a href="#将安全连接设为默认设置" class="headerlink" title="将安全连接设为默认设置"></a>将安全连接设为默认设置</h1><p>如果想将安全连接设为默认设置，可以通过将上述文件移动到用户文件夹的<code>.docker</code>文件夹下，然后设置<code>DOCKER_HOST</code>和<code>DOCKER_TLS_VERIFY</code>参数替代每次执行命令时传递的<code>-H=tcp://$HOST:2376</code>和<code>--tlsverify</code>。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -pv ~/.docker</span><br><span class="line">cp -v &#123;ca,cert,key&#125;.pem ~/.docker</span><br><span class="line"><span class="built_in">export</span> DOCKER_HOST=tcp://<span class="variable">$HOST</span>:2376 DOCKER_TLS_VERIFY=1</span><br></pre></td></tr></table></figure>
-
 <p>Docker命令就可以通过默认的安全设置进行连接：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
-
 <h1 id="其他安全模式"><a href="#其他安全模式" class="headerlink" title="其他安全模式"></a>其他安全模式</h1><p>如果不想使用完整的双工授权，可以通过混合下述标识实现其他的模式。</p>
 <h2 id="守护进程安全模式"><a href="#守护进程安全模式" class="headerlink" title="守护进程安全模式"></a>守护进程安全模式</h2><ul>
 <li><code>tlsverify</code>，<code>tlscacert</code>，<code>tlscert</code>，<code>tlskey</code>用来设置认证的客户端</li>
@@ -225,7 +212,6 @@
 </ul>
 <p>如果识别到上述标识，客户端就会使用客户端证书进行连接，因此需要将秘钥文件放到<code>~/.docker/{ca,cert,key}.pem</code>。如果想将秘钥文件保存在其他路径，可以通过<code>DOCKER_CERT_PATH</code>环境变量指定路径。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> DOCKER_CERT_PATH=~/.docker/zone1/</span><br><span class="line">docker --tlsverify ps</span><br></pre></td></tr></table></figure>
-
 <h1 id="使用curl请求安全的Docker端口"><a href="#使用curl请求安全的Docker端口" class="headerlink" title="使用curl请求安全的Docker端口"></a>使用<code>curl</code>请求安全的Docker端口</h1><p>使用<code>curl</code>测试安全的API请求时，需要附加二外的三个标识：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ curl https://<span class="variable">$HOST</span>:2376/images/json \</span><br><span class="line">  --cert ~/.docker/cert.pem \</span><br><span class="line">  --key ~/.docker/key.pem \</span><br><span class="line">  --cacert ~/.docker/ca.pem</span><br></pre></td></tr></table></figure>
   </div>
