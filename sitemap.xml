@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://shine.dev/2017/02/27/git-init-4/</loc>
+    
+    <lastmod>2020-01-01T12:56:31.085Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shine.dev/2017/02/20/git-init-1/</loc>
+    
+    <lastmod>2020-01-01T12:56:31.084Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shine.dev/2017/02/19/git-init-0/</loc>
+    
+    <lastmod>2020-01-01T12:56:31.083Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://shine.dev/2019/11/04/hidpi/</loc>
     
     <lastmod>2019-11-06T13:28:29.266Z</lastmod>
@@ -51,14 +72,14 @@
   </url>
   
   <url>
-    <loc>https://shine.dev/tags/index.html</loc>
+    <loc>https://shine.dev/favorite/index.html</loc>
     
     <lastmod>2019-11-03T08:38:51.044Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://shine.dev/favorite/index.html</loc>
+    <loc>https://shine.dev/tags/index.html</loc>
     
     <lastmod>2019-11-03T08:38:51.044Z</lastmod>
     
@@ -79,14 +100,14 @@
   </url>
   
   <url>
-    <loc>https://shine.dev/2017/03/23/skill-of-mac/</loc>
+    <loc>https://shine.dev/2017/03/23/skill-of-docker/</loc>
     
     <lastmod>2019-11-03T08:38:51.037Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://shine.dev/2017/03/23/skill-of-docker/</loc>
+    <loc>https://shine.dev/2017/03/23/skill-of-mac/</loc>
     
     <lastmod>2019-11-03T08:38:51.037Z</lastmod>
     
@@ -219,13 +240,6 @@
   </url>
   
   <url>
-    <loc>https://shine.dev/2017/02/27/git-init-4/</loc>
-    
-    <lastmod>2019-11-03T08:38:50.996Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://shine.dev/2017/02/26/git-init-3/</loc>
     
     <lastmod>2019-11-03T08:38:50.995Z</lastmod>
@@ -264,20 +278,6 @@
     <loc>https://shine.dev/2017/02/25/git-init-2-1/</loc>
     
     <lastmod>2019-11-03T08:38:50.984Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shine.dev/2017/02/20/git-init-1/</loc>
-    
-    <lastmod>2019-11-03T08:38:50.974Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shine.dev/2017/02/19/git-init-0/</loc>
-    
-    <lastmod>2019-11-03T08:38:50.973Z</lastmod>
     
   </url>
   

@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://shine.dev/2017/02/19/git-init-0/local.png">
 <meta property="og:image" content="https://shine.dev/2017/02/19/git-init-0/centralized.png">
 <meta property="og:image" content="https://shine.dev/2017/02/19/git-init-0/distributed.png">
-<meta property="og:updated_time" content="2019-11-03T08:38:50.973Z">
+<meta property="og:updated_time" content="2020-01-01T12:56:31.083Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git init 0：版本控制的历史及Git的产生">
 <meta name="twitter:description" content="Git读作/ɡɪt/，其中字母G的发音与Got中的G相同。  版本控制概念及工具的产生版本控制的概念产生自工作中的实际需求。我们希望在保存工作进度的同时能把文件编辑的历史保存下来，并且允许我们可以随时可以返回到文档的任意时间节点。 在版本控制工具出现之前，我们可以使用文件副本将文件保存到不同的路径进行备份。通过diff命令查看两个文件之间的差异，通过patch进行更新。1991-2002年间，Li">
@@ -163,16 +163,16 @@
 <ul>
 <li><p>CVS是基于脚本语言对RCS的封装，之后经过C的重写来保证其性能。CVS提出的提交、说明、检入、检出、标签、分支给后续的版本工具间接制定了标准。其缺陷是文件在提交后不能进行删除、重命名等操作。</p>
 </li>
-<li><p>SVN是这个时期工具中的集大成者，优化了CVS在文件名问题上的缺陷后，提供全局版本号，<code>.svn</code>文件夹的引入使其部分命令可以离线进行（如：revert）。但SVN在授权、分支以及提交需要联网方面强差人意。</p>
+<li><p>SVN是这个时期工具中的集大成者，优化了CVS在文件名问题上的缺陷后，提供全局版本号，<code>.svn</code>文件夹的引入使其部分命令可以离线进行（如：revert）。但SVN在授权、分支管理等方面差强人意。</p>
 </li>
-<li><p>TFS是基于SharePoint的扩展，因此其不仅仅能作为版本控制工具,还可以用于工程管理。TFS的早期版本要求全程联网，为避免冲突，编辑前需要与服务端的文件进行锁定，一旦脱机需要重新与服务端进行绑定。基于SharePoint和SQL Server的TFS过于复杂臃肿，除了使用微软服务的大客户外，TFS已经不是版本控制的首选。后续微软提供了基于Azure的Visual Studio Team Service。国内网络状况所限，使用体验并不理想。</p>
+<li><p>TFS是基于SharePoint的扩展，因此其不仅仅能作为版本控制工具,还可以用于工程管理。TFS的早期版本要求全程联网，为避免冲突，编辑前需要与服务端的文件进行锁定，一旦脱机需要逐个文件重新与服务端进行绑定。基于SharePoint和SQL Server的TFS过于复杂臃肿，除了使用微软服务的大客户外，TFS已经不是版本控制的首选。后续微软提供了基于Azure的Visual Studio Team Service。国内网络状况所限，使用体验并不理想。<strong>现如今，VSTS的继承者——Azure DevOps，已经将git作为其中的一种代码库托管选项。</strong></p>
 </li>
 </ul>
-<p><img src="/2017/02/19/git-init-0/centralized.png" alt="本地版本控制系统"></p>
+<p><img src="/2017/02/19/git-init-0/centralized.png" alt="中央式版本控制系统"></p>
 <hr>
 <h2 id="分布式版本控制系统"><a href="#分布式版本控制系统" class="headerlink" title="分布式版本控制系统"></a>分布式版本控制系统</h2><p>如：Git、Mercurial、Bazaar</p>
 <ul>
-<li><p>Git使用<code>.git</code>文件夹作为本地仓库使用。此架构使git的离线提交、回滚等操作提供了基础。另外我们可以不局限于一个远端仓库。通过增加远端仓库来消除远端的单点隐患保证代码的安全。git的分支管理也是一大亮点，我们不在需要将分支建立在一个新的文件夹下，git允许我们将当前工作区切换到任意分支上。廉价的分支管理与合并也会在工作中提供便利。</p>
+<li><p>Git使用<code>.git</code>文件夹作为本地仓库使用。此架构使git的离线提交、回滚等操作提供了基础。另外我们可以不局限于一个远端仓库。通过增加远端仓库来消除远端的单点隐患保证代码的安全。git的分支管理也是一大亮点，我们不在需要将分支建立在一个新的文件夹下，git允许我们将当前工作区切换到任意分支上。廉价的分支管理与合并也会在工作流设计中提供便利。</p>
 </li>
 <li><p>由于后两者没有实际使用过，没办法做详细的功能对比。感兴趣的朋友可以参见<a href="https://www.zhihu.com/question/19877652" target="_blank" rel="noopener">知乎：Git、Mercurial、Bazaar 有什么区别？</a></p>
 </li>
@@ -193,11 +193,11 @@
 </ul>
 <hr>
 <h1 id="为什么使用Git"><a href="#为什么使用Git" class="headerlink" title="为什么使用Git"></a>为什么使用Git</h1><ol>
-<li><p>容灾。任何系统都有可能在任何方面产生任何故障。<strong>多个远端+本地副本保证了版本库的稳定和高可用。</strong>即便托管在<a href="https://www.oschina.net/news/81493/gitlab-com-back" target="_blank" rel="noopener">GitLab上的代码被误删</a>，其他远端的仓库仍然是完整的。</p>
+<li><p>容灾。任何系统都有可能在任何方面产生任何故障。<strong>多个远端+本地副本保证了版本库的稳定和高可用。</strong>即便<a href="https://www.oschina.net/news/81493/gitlab-com-back" target="_blank" rel="noopener">托管在GitLab上的代码被误删</a>，其他远端的仓库仍然是完整的。</p>
 </li>
-<li><p>离线操作。虽然不是每天都在飞机上办公，但偶尔的网络丢失导致无法提交这种情况还是常见的。离线操作拓展了版本控制的环境，使版本控制的历史更加完善。</p>
+<li><p>离线操作。虽然不是每天都在飞机上办公，但偶尔的网络丢失导致无法与服务器同步这种情况还是常见的。离线操作拓展了版本控制的环境，使版本控制的历史更加完善。</p>
 </li>
-<li><p>廉价易用的分支、标签管理。通过分支我们可以实现<strong>代码审核</strong>、<strong>发布历史管理</strong>以及<strong>现场热修复</strong>等。</p>
+<li><p>廉价易用的分支、标签管理。通过分支我们可以实现<strong>代码审核</strong>、<strong>发布历史管理</strong>以及<strong>现场热修复</strong>等。Git的普及奠定了DevOps文化推广的基础。</p>
 </li>
 </ol>
 <hr>
@@ -266,7 +266,7 @@
         
         <footer id="footer">
   <div class="footer-left">
-    Copyright &copy; 2019 Shine
+    Copyright &copy; 2020 Shine
   </div>
   <div class="footer-right">
     <nav>
