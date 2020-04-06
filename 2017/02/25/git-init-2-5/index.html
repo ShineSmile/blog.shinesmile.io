@@ -6,21 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="获取远端仓库至本地仓库：git fetch1git fetch &amp;lt;remote_name&amp;gt; 此命令仅仅使本地仓库与远端仓库同步。不会改变工作区的内容。  克隆仓库：git clone1git clone &amp;lt;remote_url&amp;gt; git clone命令是一个复合命令，一次性完成了根据url创建文件夹、切换到此文件夹、初始化仓库、获取远端仓库至本地仓库，最后检出master分">
+    <meta name="description" content="获取远端仓库至本地仓库：git fetch1git fetch &amp;lt;remote_name&amp;gt;  此命令仅仅使本地仓库与远端仓库同步。不会改变工作区的内容。  克隆仓库：git clone1git clone &amp;lt;remote_url&amp;gt;  git clone命令是一个复合命令，一次性完成了根据url创建文件夹、切换到此文件夹、初始化仓库、获取远端仓库至本地仓库，最后检出maste">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git init 2.5：代码的获取与分支的合并">
 <meta property="og:url" content="https://shine.dev/2017/02/25/git-init-2-5/index.html">
 <meta property="og:site_name" content="金子其实不发光">
-<meta property="og:description" content="获取远端仓库至本地仓库：git fetch1git fetch &amp;lt;remote_name&amp;gt; 此命令仅仅使本地仓库与远端仓库同步。不会改变工作区的内容。  克隆仓库：git clone1git clone &amp;lt;remote_url&amp;gt; git clone命令是一个复合命令，一次性完成了根据url创建文件夹、切换到此文件夹、初始化仓库、获取远端仓库至本地仓库，最后检出master分">
+<meta property="og:description" content="获取远端仓库至本地仓库：git fetch1git fetch &amp;lt;remote_name&amp;gt;  此命令仅仅使本地仓库与远端仓库同步。不会改变工作区的内容。  克隆仓库：git clone1git clone &amp;lt;remote_url&amp;gt;  git clone命令是一个复合命令，一次性完成了根据url创建文件夹、切换到此文件夹、初始化仓库、获取远端仓库至本地仓库，最后检出maste">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://shine.dev/2017/02/25/git-init-2-5/git_fetch.png">
 <meta property="og:image" content="https://shine.dev/2017/02/25/git-init-2-5/git_clone.png">
 <meta property="og:image" content="https://shine.dev/2017/02/25/git-init-2-5/non-fast-forward.png">
-<meta property="og:updated_time" content="2019-12-27T01:22:26.372Z">
+<meta property="og:updated_time" content="2019-11-03T08:38:50.993Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git init 2.5：代码的获取与分支的合并">
-<meta name="twitter:description" content="获取远端仓库至本地仓库：git fetch1git fetch &amp;lt;remote_name&amp;gt; 此命令仅仅使本地仓库与远端仓库同步。不会改变工作区的内容。  克隆仓库：git clone1git clone &amp;lt;remote_url&amp;gt; git clone命令是一个复合命令，一次性完成了根据url创建文件夹、切换到此文件夹、初始化仓库、获取远端仓库至本地仓库，最后检出master分">
+<meta name="twitter:description" content="获取远端仓库至本地仓库：git fetch1git fetch &amp;lt;remote_name&amp;gt;  此命令仅仅使本地仓库与远端仓库同步。不会改变工作区的内容。  克隆仓库：git clone1git clone &amp;lt;remote_url&amp;gt;  git clone命令是一个复合命令，一次性完成了根据url创建文件夹、切换到此文件夹、初始化仓库、获取远端仓库至本地仓库，最后检出maste">
 <meta name="twitter:image" content="https://shine.dev/2017/02/25/git-init-2-5/git_fetch.png">
     
     
@@ -151,20 +151,26 @@
 
   <div class="content" itemprop="articleBody">
     <h1 id="获取远端仓库至本地仓库：git-fetch"><a href="#获取远端仓库至本地仓库：git-fetch" class="headerlink" title="获取远端仓库至本地仓库：git fetch"></a>获取远端仓库至本地仓库：git fetch</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch &lt;remote_name&gt;</span><br></pre></td></tr></table></figure>
+
 <p>此命令仅仅使本地仓库与远端仓库同步。不会改变工作区的内容。</p>
 <p><img src="/2017/02/25/git-init-2-5/git_fetch.png" alt="获取远端仓库至本地仓库"></p>
 <h1 id="克隆仓库：git-clone"><a href="#克隆仓库：git-clone" class="headerlink" title="克隆仓库：git clone"></a>克隆仓库：git clone</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> &lt;remote_url&gt;</span><br></pre></td></tr></table></figure>
+
 <p><code>git clone</code>命令是一个复合命令，一次性完成了根据url创建文件夹、切换到此文件夹、初始化仓库、获取远端仓库至本地仓库，最后检出master分支一系列命令。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir &lt;repo_name&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;repo_name&gt;</span><br><span class="line">git init</span><br><span class="line">git remote add origin &lt;remote_url&gt;</span><br><span class="line">git fetch origin</span><br><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
+
 <p><img src="/2017/02/25/git-init-2-5/git_clone.png" alt="克隆仓库"></p>
 <h1 id="合并分支：git-merge"><a href="#合并分支：git-merge" class="headerlink" title="合并分支：git merge"></a>合并分支：git merge</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge &lt;target_branch&gt;</span><br></pre></td></tr></table></figure>
+
 <h2 id="fast-forward分支的合并"><a href="#fast-forward分支的合并" class="headerlink" title="fast-forward分支的合并"></a>fast-forward分支的合并</h2><p>两个分支源自同一个起点，其中一个分支经过修改、提交、另一个分支未做任何操作。这是经过修改的分支就是<code>fast-forward</code>分支。合并<code>fast-forward</code>分支时会自动将当前分支跟进至<code>fast-forward</code>分支。</p>
 <h2 id="non-fast-forward分支的合并"><a href="#non-fast-forward分支的合并" class="headerlink" title="non-fast-forward分支的合并"></a><code>non-fast-forward</code>分支的合并</h2><p>这种情况比较复杂，两个分支源自相同的起点，并分别做了不同的提交。两者合并过程会创建一个新的提交。如果合并过程中产生冲突，需要在提交前解决冲突。</p>
 <p>多人协作开发过程中，如果在相同的分支协作开发，会频繁的进行的<code>non-fast-forward</code>分支。避免这种问题的方式是将将主分支保护起来，具体做法会在<a href="git-init-4">git  init 4：协作开发的分支管理</a>进行说明。</p>
 <p><img src="/2017/02/25/git-init-2-5/non-fast-forward.png" alt="non-fast-forward分支的合并"></p>
 <h1 id="拉取分支：git-pull"><a href="#拉取分支：git-pull" class="headerlink" title="拉取分支：git pull"></a>拉取分支：git pull</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull &lt;remote_name&gt; &lt;remote_branch&gt;</span><br></pre></td></tr></table></figure>
+
 <p>拉取和克隆一样也是一个复合命令，首先会获取目标分支，然后会将目标分支合并到当前分支。其相当于以下命令的组合。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git fetch &lt;remote_name&gt;</span><br><span class="line">git merge &lt;remote_branch&gt;</span><br></pre></td></tr></table></figure>
+
 <p>这里需要注意一点：如果远端所在的分支不是当前分支的上游分支。合并的过程就是<code>non-fast-forward</code>分支的合并流程。上图<code>non-fast-forward</code>的合并过程给出了使用<code>git pull</code>命令的建议。在实际的开发过程中，建议慎用<code>pull</code>操作，将<code>fetch</code>与<code>merge</code>操作分开进行，显示进行合并操作</p>
 <h1 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h1><p>Github还提供了一个用于学习Git命令的挑战，一共25道习题。全部做完大概需要15分钟，讲解的也比较全面，地址如下：<a href="https://try.github.io" target="_blank" rel="noopener">Git Tutorial - Try Git</a>。</p>
 

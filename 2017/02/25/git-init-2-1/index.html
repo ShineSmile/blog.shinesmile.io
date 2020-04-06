@@ -6,21 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="初始化本地仓库1git init 此命令将所在文件夹初始化为git本地仓库。初始化成功的标志为，文件夹内创建了一个名为.git的隐藏子文件夹。git子文件夹为本地仓库，.git所在文件夹是版本控制工作区。   本系列文章的标题即取自git init命令。 初始化远端仓库1git init --bare --bare参数表示将当前文件夹初始化为不包括工作区的裸库。其文件结构与本地仓库相似，但某些参数">
+    <meta name="description" content="初始化本地仓库1git init  此命令将所在文件夹初始化为git本地仓库。初始化成功的标志为，文件夹内创建了一个名为.git的隐藏子文件夹。git子文件夹为本地仓库，.git所在文件夹是版本控制工作区。   本系列文章的标题即取自git init命令。 初始化远端仓库1git init --bare  --bare参数表示将当前文件夹初始化为不包括工作区的裸库。其文件结构与本地仓库相似，但某些">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git init 2.1：Git仓库的初始化">
 <meta property="og:url" content="https://shine.dev/2017/02/25/git-init-2-1/index.html">
 <meta property="og:site_name" content="金子其实不发光">
-<meta property="og:description" content="初始化本地仓库1git init 此命令将所在文件夹初始化为git本地仓库。初始化成功的标志为，文件夹内创建了一个名为.git的隐藏子文件夹。git子文件夹为本地仓库，.git所在文件夹是版本控制工作区。   本系列文章的标题即取自git init命令。 初始化远端仓库1git init --bare --bare参数表示将当前文件夹初始化为不包括工作区的裸库。其文件结构与本地仓库相似，但某些参数">
+<meta property="og:description" content="初始化本地仓库1git init  此命令将所在文件夹初始化为git本地仓库。初始化成功的标志为，文件夹内创建了一个名为.git的隐藏子文件夹。git子文件夹为本地仓库，.git所在文件夹是版本控制工作区。   本系列文章的标题即取自git init命令。 初始化远端仓库1git init --bare  --bare参数表示将当前文件夹初始化为不包括工作区的裸库。其文件结构与本地仓库相似，但某些">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://shine.dev/2017/02/25/git-init-2-1/workfolder.png">
 <meta property="og:image" content="https://shine.dev/2017/02/25/git-init-2-1/local_repo.png">
 <meta property="og:image" content="https://shine.dev/2017/02/25/git-init-2-1/remote_repo.png">
-<meta property="og:updated_time" content="2019-12-27T01:22:26.352Z">
+<meta property="og:updated_time" content="2019-11-03T08:38:50.984Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git init 2.1：Git仓库的初始化">
-<meta name="twitter:description" content="初始化本地仓库1git init 此命令将所在文件夹初始化为git本地仓库。初始化成功的标志为，文件夹内创建了一个名为.git的隐藏子文件夹。git子文件夹为本地仓库，.git所在文件夹是版本控制工作区。   本系列文章的标题即取自git init命令。 初始化远端仓库1git init --bare --bare参数表示将当前文件夹初始化为不包括工作区的裸库。其文件结构与本地仓库相似，但某些参数">
+<meta name="twitter:description" content="初始化本地仓库1git init  此命令将所在文件夹初始化为git本地仓库。初始化成功的标志为，文件夹内创建了一个名为.git的隐藏子文件夹。git子文件夹为本地仓库，.git所在文件夹是版本控制工作区。   本系列文章的标题即取自git init命令。 初始化远端仓库1git init --bare  --bare参数表示将当前文件夹初始化为不包括工作区的裸库。其文件结构与本地仓库相似，但某些">
 <meta name="twitter:image" content="https://shine.dev/2017/02/25/git-init-2-1/workfolder.png">
     
     
@@ -151,11 +151,13 @@
 
   <div class="content" itemprop="articleBody">
     <h1 id="初始化本地仓库"><a href="#初始化本地仓库" class="headerlink" title="初始化本地仓库"></a>初始化本地仓库</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
 <p>此命令将所在文件夹初始化为git本地仓库。初始化成功的标志为，文件夹内创建了一个名为<code>.git</code>的隐藏子文件夹。<code>git</code>子文件夹为<strong>本地仓库</strong>，<code>.git</code>所在文件夹是版本控制工作区。</p>
 <p><img src="/2017/02/25/git-init-2-1/workfolder.png" alt="本地仓库"></p>
 <p><img src="/2017/02/25/git-init-2-1/local_repo.png" alt="本地仓库的文件结构"></p>
 <p>本系列文章的标题即取自<code>git init</code>命令。</p>
 <h1 id="初始化远端仓库"><a href="#初始化远端仓库" class="headerlink" title="初始化远端仓库"></a>初始化远端仓库</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init --bare</span><br></pre></td></tr></table></figure>
+
 <p><code>--bare</code>参数表示将当前文件夹初始化为不包括工作区的裸库。其文件结构与本地仓库相似，但某些参数不同。远端仓库主要用于本地仓库之间的同步。远端仓库不能提交代码。只能由本地仓库推送或获取。</p>
 <p><img src="/2017/02/25/git-init-2-1/remote_repo.png" alt="远端仓库"></p>
 

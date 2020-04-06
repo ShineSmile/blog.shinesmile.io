@@ -6,23 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="本地分支管理：git branch添加分支1git branch &amp;lt;branch_name&amp;gt; 查看分支1git branch 删除分支1git branch -d &amp;lt;branch_name&amp;gt; 检出分支1git checkout &amp;lt;branch_name&amp;gt; master分支一般被作为主分支使用。也是git的默认分支。 需要注意的是如果工作区存在文件变更，在新建、切">
+    <meta name="description" content="本地分支管理：git branch添加分支1git branch &amp;lt;branch_name&amp;gt;  查看分支1git branch  删除分支1git branch -d &amp;lt;branch_name&amp;gt;  检出分支1git checkout &amp;lt;branch_name&amp;gt;  master分支一般被作为主分支使用。也是git的默认分支。 需要注意的是如果工作区存在文件变更，在">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git init 2.4：分支与远端管理">
 <meta property="og:url" content="https://shine.dev/2017/02/25/git-init-2-4/index.html">
 <meta property="og:site_name" content="金子其实不发光">
-<meta property="og:description" content="本地分支管理：git branch添加分支1git branch &amp;lt;branch_name&amp;gt; 查看分支1git branch 删除分支1git branch -d &amp;lt;branch_name&amp;gt; 检出分支1git checkout &amp;lt;branch_name&amp;gt; master分支一般被作为主分支使用。也是git的默认分支。 需要注意的是如果工作区存在文件变更，在新建、切">
+<meta property="og:description" content="本地分支管理：git branch添加分支1git branch &amp;lt;branch_name&amp;gt;  查看分支1git branch  删除分支1git branch -d &amp;lt;branch_name&amp;gt;  检出分支1git checkout &amp;lt;branch_name&amp;gt;  master分支一般被作为主分支使用。也是git的默认分支。 需要注意的是如果工作区存在文件变更，在">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://shine.dev/2017/02/25/git-init-2-4/git_branch.png">
 <meta property="og:image" content="https://shine.dev/2017/02/25/git-init-2-4/git_remote.png">
 <meta property="og:image" content="https://shine.dev/2017/02/25/git-init-2-4/git_push.png">
 <meta property="og:image" content="https://shine.dev/2017/02/25/git-init-2-4/git_remote_branch.png">
 <meta property="og:image" content="https://shine.dev/2017/02/25/git-init-2-4/git_tag.png">
-<meta property="og:updated_time" content="2019-12-27T01:22:26.365Z">
+<meta property="og:updated_time" content="2019-11-03T08:38:50.990Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git init 2.4：分支与远端管理">
-<meta name="twitter:description" content="本地分支管理：git branch添加分支1git branch &amp;lt;branch_name&amp;gt; 查看分支1git branch 删除分支1git branch -d &amp;lt;branch_name&amp;gt; 检出分支1git checkout &amp;lt;branch_name&amp;gt; master分支一般被作为主分支使用。也是git的默认分支。 需要注意的是如果工作区存在文件变更，在新建、切">
+<meta name="twitter:description" content="本地分支管理：git branch添加分支1git branch &amp;lt;branch_name&amp;gt;  查看分支1git branch  删除分支1git branch -d &amp;lt;branch_name&amp;gt;  检出分支1git checkout &amp;lt;branch_name&amp;gt;  master分支一般被作为主分支使用。也是git的默认分支。 需要注意的是如果工作区存在文件变更，在">
 <meta name="twitter:image" content="https://shine.dev/2017/02/25/git-init-2-4/git_branch.png">
     
     
@@ -153,33 +153,49 @@
 
   <div class="content" itemprop="articleBody">
     <h1 id="本地分支管理：git-branch"><a href="#本地分支管理：git-branch" class="headerlink" title="本地分支管理：git branch"></a>本地分支管理：git branch</h1><h2 id="添加分支"><a href="#添加分支" class="headerlink" title="添加分支"></a>添加分支</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch &lt;branch_name&gt;</span><br></pre></td></tr></table></figure>
+
 <h2 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
+
 <h2 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d &lt;branch_name&gt;</span><br></pre></td></tr></table></figure>
+
 <h2 id="检出分支"><a href="#检出分支" class="headerlink" title="检出分支"></a>检出分支</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout &lt;branch_name&gt;</span><br></pre></td></tr></table></figure>
+
 <p><code>master</code>分支一般被作为主分支使用。也是git的默认分支。</p>
 <p>需要注意的是如果工作区存在文件变更，在新建、切换、删除分支时会报错。<strong>建议所有的分支操作都在完成提交之后进行。以免发生信息丢失。</strong></p>
 <p><img src="/2017/02/25/git-init-2-4/git_branch.png" alt="本地分支管理"></p>
 <h1 id="远端管理：git-remote"><a href="#远端管理：git-remote" class="headerlink" title="远端管理：git remote"></a>远端管理：git remote</h1><h2 id="添加远端仓库链接"><a href="#添加远端仓库链接" class="headerlink" title="添加远端仓库链接"></a>添加远端仓库链接</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add &lt;remote_name&gt; &lt;remote_url&gt;</span><br></pre></td></tr></table></figure>
+
 <p><code>&lt;remote_name&gt;</code>表示远端名称，<code>&lt;remote_url&gt;</code>表示远端的地址。远端地址可以基于文件系统协议、HTTP协议、ssh协议等等。</p>
 <p>一个远端仓库可以用于多个本地仓库的同步，一个本地仓库也可以使用多个远端仓库进行备份。</p>
 <p>远端仓库需要使用<code>git init --bare</code>进行初始化，本地仓库的<code>.git</code>通过修改配置文件也可以作为远端仓库使用，存在修改他人仓库的风险，因此不推荐。</p>
 <p>远端仓库的默认名称为<code>origin</code>，只有一个仓库时建议使用此名称。</p>
 <h2 id="查看远端仓库链接"><a href="#查看远端仓库链接" class="headerlink" title="查看远端仓库链接"></a>查看远端仓库链接</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote</span><br></pre></td></tr></table></figure>
+
 <h2 id="删除远端仓库链接"><a href="#删除远端仓库链接" class="headerlink" title="删除远端仓库链接"></a>删除远端仓库链接</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote remove &lt;remote_name&gt;</span><br></pre></td></tr></table></figure>
+
 <p><img src="/2017/02/25/git-init-2-4/git_remote.png" alt="远端分支管理"></p>
 <h1 id="推送至远端：git-push"><a href="#推送至远端：git-push" class="headerlink" title="推送至远端：git push"></a>推送至远端：git push</h1><h2 id="将分支推送到远端"><a href="#将分支推送到远端" class="headerlink" title="将分支推送到远端"></a>将分支推送到远端</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push &lt;remote_name&gt; &lt;branch_name&gt;</span><br></pre></td></tr></table></figure>
+
 <h2 id="将分支推送到远端并且对远端分支进行追踪"><a href="#将分支推送到远端并且对远端分支进行追踪" class="headerlink" title="将分支推送到远端并且对远端分支进行追踪"></a>将分支推送到远端并且对远端分支进行追踪</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --<span class="built_in">set</span>-upstream &lt;remote_name&gt; &lt;branch_name&gt;</span><br></pre></td></tr></table></figure>
+
 <h2 id="追踪了远端分支的本地分支可以不加分支名进行推送"><a href="#追踪了远端分支的本地分支可以不加分支名进行推送" class="headerlink" title="追踪了远端分支的本地分支可以不加分支名进行推送"></a>追踪了远端分支的本地分支可以不加分支名进行推送</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push &lt;remote_name&gt;</span><br></pre></td></tr></table></figure>
+
 <p><img src="/2017/02/25/git-init-2-4/git_push.png" alt="推送"></p>
 <h1 id="远端分支管理"><a href="#远端分支管理" class="headerlink" title="远端分支管理"></a>远端分支管理</h1><h2 id="查看远端分支"><a href="#查看远端分支" class="headerlink" title="查看远端分支"></a>查看远端分支</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -r</span><br></pre></td></tr></table></figure>
+
 <h2 id="查看所有分支"><a href="#查看所有分支" class="headerlink" title="查看所有分支"></a>查看所有分支</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -a</span><br></pre></td></tr></table></figure>
+
 <h2 id="删除远端分支"><a href="#删除远端分支" class="headerlink" title="删除远端分支"></a>删除远端分支</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -rd &lt;remote_branch_name&gt;</span><br></pre></td></tr></table></figure>
+
 <p><code>-r</code>参数表示远端分支。</p>
 <p><img src="/2017/02/25/git-init-2-4/git_remote_branch.png" alt="管理远端分支"></p>
 <h1 id="打标签：git-tag"><a href="#打标签：git-tag" class="headerlink" title="打标签：git tag"></a>打标签：git tag</h1><h2 id="在提交记录中打标签"><a href="#在提交记录中打标签" class="headerlink" title="在提交记录中打标签"></a>在提交记录中打标签</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -a &lt;tag-name&gt; -m &lt;tag-message&gt; &lt;commit-hash&gt;</span><br></pre></td></tr></table></figure>
+
 <p><code>&lt;tag-name&gt;</code>为标签名称，例如：<em>ver.1.0</em>。<code>&lt;tag-message&gt;</code>为标签信息，可以省略。<code>&lt;commit-hash&gt;</code>为提交版本号，如果省略则为当前所在分支打TAG。</p>
 <h2 id="推送本地标签至远端"><a href="#推送本地标签至远端" class="headerlink" title="推送本地标签至远端"></a>推送本地标签至远端</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push &lt;remote_name&gt; &lt;tag_name&gt;</span><br></pre></td></tr></table></figure>
+
 <h2 id="迁出远端的标签"><a href="#迁出远端的标签" class="headerlink" title="迁出远端的标签"></a>迁出远端的标签</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b &lt;branch_name&gt; &lt;tag_name&gt;</span><br></pre></td></tr></table></figure>
+
 <p><code>git tag</code>可以用于版本的发布，问题版本的标记。</p>
 <p>分支的实质与指针类似。分支指向某一次具体的提交记录，在此提交记录的基础上进行修改，进行新的提交后，分支将跟随指向新的提交记录。标签是不会跟随新的提交而移动的。</p>
 <p><img src="/2017/02/25/git-init-2-4/git_tag.png" alt="Git标签"></p>

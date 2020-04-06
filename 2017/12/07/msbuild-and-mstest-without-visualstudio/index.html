@@ -16,7 +16,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://shine.dev/2017/12/07/msbuild-and-mstest-without-visualstudio/visual_studio_instance.png">
 <meta property="og:image" content="https://shine.dev/2017/12/07/msbuild-and-mstest-without-visualstudio/mstest_public_assembly.png">
-<meta property="og:updated_time" content="2019-12-27T01:22:26.457Z">
+<meta property="og:updated_time" content="2019-11-03T08:38:51.035Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content=".NET Framework CI环境配置">
 <meta name="twitter:description" content="条件允许的前提下，建议直接通过安装Visual Studio来获得整个构建、测试环境。若硬盘空间紧张或其他条件导致不允许安装Visual Studio可参考下述方案进行配置： MSBuildMSBuild Tool 2017 下载地址 Nuget下载地址MSBuild不包含nuget的命令行工具，因此需要手动下载备用。 MSTestVisual Studio 2017 Test Agent 下载地">
@@ -150,9 +150,9 @@
 
   <div class="content" itemprop="articleBody">
     <p>条件允许的前提下，建议直接通过安装Visual Studio来获得整个构建、测试环境。<br>若硬盘空间紧张或其他条件导致不允许安装Visual Studio可参考下述方案进行配置：</p>
-<h1 id="MSBuild"><a href="#MSBuild" class="headerlink" title="MSBuild"></a>MSBuild</h1><p><a href="https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=15" target="_blank" rel="noopener">MSBuild Tool 2017 下载地址</a></p>
+<h1 id="MSBuild"><a href="#MSBuild" class="headerlink" title="MSBuild"></a>MSBuild</h1><p><a href="https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=15" target="_blank" rel="noopener">MSBuild Tool 2017 下载地址</a></p>
 <h1 id="Nuget"><a href="#Nuget" class="headerlink" title="Nuget"></a>Nuget</h1><p><a href="https://www.nuget.org/downloads" target="_blank" rel="noopener">下载地址</a><br>MSBuild不包含nuget的命令行工具，因此需要手动下载备用。</p>
-<h1 id="MSTest"><a href="#MSTest" class="headerlink" title="MSTest"></a>MSTest</h1><p><a href="https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=TestAgent&amp;rel=15" target="_blank" rel="noopener">Visual Studio 2017 Test Agent 下载地址</a></p>
+<h1 id="MSTest"><a href="#MSTest" class="headerlink" title="MSTest"></a>MSTest</h1><p><a href="https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=TestAgent&rel=15" target="_blank" rel="noopener">Visual Studio 2017 Test Agent 下载地址</a></p>
 <h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
 <li>MSBuild及MSTest均相当于Visual Studio 2017的新实例，不可安装在相同的路径，后安装的实例需要指定别称。<img src="/2017/12/07/msbuild-and-mstest-without-visualstudio/visual_studio_instance.png" alt="Visual Studio实例"></li>
 <li>使用Test Agent进行单元测试，需要向单元测试项目的引用路径添加单元测试相关的公共程序集路径。否则单元测试无法编译。<img src="/2017/12/07/msbuild-and-mstest-without-visualstudio/mstest_public_assembly.png" alt="MSTest公共程序集"></li>

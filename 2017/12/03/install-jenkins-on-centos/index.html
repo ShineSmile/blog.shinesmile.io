@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="金子其实不发光">
 <meta property="og:description" content="添加Jenkins源及相关证书（stable）123sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.reposudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.keysudo yum inst">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-27T01:22:26.403Z">
+<meta property="og:updated_time" content="2019-11-03T08:38:51.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在CentOS中安装Jenkins">
 <meta name="twitter:description" content="添加Jenkins源及相关证书（stable）123sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.reposudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.keysudo yum inst">
@@ -147,9 +147,12 @@
 
   <div class="content" itemprop="articleBody">
     <h1 id="添加Jenkins源及相关证书（stable）"><a href="#添加Jenkins源及相关证书（stable）" class="headerlink" title="添加Jenkins源及相关证书（stable）"></a>添加Jenkins源及相关证书（stable）</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo</span><br><span class="line">sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key</span><br><span class="line">sudo yum install jenkins</span><br></pre></td></tr></table></figure>
+
 <h1 id="使用OpenJDK8取代旧版本Java"><a href="#使用OpenJDK8取代旧版本Java" class="headerlink" title="使用OpenJDK8取代旧版本Java"></a>使用OpenJDK8取代旧版本Java</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br><span class="line">sudo yum remove java</span><br><span class="line">sudo yum install java-1.8.0-openjdk</span><br></pre></td></tr></table></figure>
+
 <p>此处官方文档上使用的是<code>sudo yum install java-1.7.0-openjdk</code>，安装后jenkins无法正常访问，日志中显示了一个<em>java.lang.UnsupportedClassVersionError</em>，替换为1.8.0后服务可以正常运行。</p>
 <h1 id="添加、重载、查看防火墙规则"><a href="#添加、重载、查看防火墙规则" class="headerlink" title="添加、重载、查看防火墙规则"></a>添加、重载、查看防火墙规则</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent</span><br><span class="line">sudo firewall-cmd --zone=public --add-service=http --permanent</span><br><span class="line">sudo firewall-cmd --reload</span><br><span class="line">sudo firewall-cmd --list-all</span><br></pre></td></tr></table></figure>
+
 <h1 id="配置jenkins服务"><a href="#配置jenkins服务" class="headerlink" title="配置jenkins服务"></a>配置jenkins服务</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo service jenkins start/stop/restart</span><br><span class="line">sudo chkconfig jenkins on</span><br></pre></td></tr></table></figure>
   </div>
 </article>

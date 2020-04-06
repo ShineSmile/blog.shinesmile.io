@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://shine.dev/2017/12/14/jenkins-for-webdeploy/web_management_service.png">
 <meta property="og:image" content="https://shine.dev/2017/12/14/jenkins-for-webdeploy/project_configuration.png">
 <meta property="og:image" content="https://shine.dev/2017/12/14/jenkins-for-webdeploy/publish_configuration.png">
-<meta property="og:updated_time" content="2019-12-27T01:22:26.443Z">
+<meta property="og:updated_time" content="2019-11-03T08:38:51.029Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Jenkins通过Web Deploy进行持续发布">
 <meta name="twitter:description" content="提到ASP.NET的项目就不得不提Web Deploy，此工具被Visual Studio集成（需要安装Web开发相关功能）。若想脱离Visual Studio使用相关功能可以在这里下载。当然也可通过微软的Web平台安装程序进行安装。 IIS管理服务的安装若要使用Web Deploy相关功能。需要安装IIS的管理服务：安装完成后需要配置相关权限，建议使用独立的IIS管理账户进行配置，本文档将直接使">
@@ -165,38 +165,7 @@
 </ul>
 <p><img src="/2017/12/14/jenkins-for-webdeploy/publish_configuration.png" alt="发布设置"><br>Setting页面会对编译选项、是否移除目标路径现有的文件、预编译、是否排除App_Data文件夹中的内容以及数据库链接进行配置。<br>设置好后可以进行保存，并通过发布按钮发布进行测试。</p>
 <h1 id="Jenkins集成"><a href="#Jenkins集成" class="headerlink" title="Jenkins集成"></a>Jenkins集成</h1><p>若要通过命令行调用Web Deploy相关功能，只需在MSBuild工具附加下述参数：<em>p:DeployOnBuild=True;PublishProfile=WebDeploy-Demo;Password=Dawn233+;AllowUntrustedCertificate=true</em></p>
-<table>
-<thead>
-<tr>
-<th>键</th>
-<th>值</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>DeployOnBuild</td>
-<td><em>True</em> or <em>False</em></td>
-<td>编译后是否发布</td>
-</tr>
-<tr>
-<td>PublishProfile</td>
-<td><em>ProfileName</em></td>
-<td>使用的发布文件。<strong>注意：不需要添加发布文件的扩展名。</strong></td>
-</tr>
-<tr>
-<td>Password</td>
-<td><em>发布用户的密码</em></td>
-<td><strong>此方式会在脚本中暴露对应用户的密码，建议使用证书进行用户认证。</strong></td>
-</tr>
-<tr>
-<td>AllowUntrustedCertificate</td>
-<td><em>True</em> or <em>False</em></td>
-<td><strong>具有中间人攻击的安全风险，建议使用证书进行用户认证。</strong></td>
-</tr>
-</tbody>
-</table>
-<p>在编译成功后，MSBuild会直接调用Web Deploy相关的功能进行发布。<br>JenkinsFile脚本示例如下：</p>
+<p>|键|值|说明|<br>|—|—|—|—|<br>|DeployOnBuild|<em>True</em> or <em>False</em>|编译后是否发布|<br>|PublishProfile|<em>ProfileName</em>|使用的发布文件。<strong>注意：不需要添加发布文件的扩展名。</strong>|<br>|Password|<em>发布用户的密码</em>|<strong>此方式会在脚本中暴露对应用户的密码，建议使用证书进行用户认证。</strong>|<br>|AllowUntrustedCertificate|<em>True</em> or <em>False</em>|<strong>具有中间人攻击的安全风险，建议使用证书进行用户认证。</strong>|<br>在编译成功后，MSBuild会直接调用Web Deploy相关的功能进行发布。<br>JenkinsFile脚本示例如下：</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">node(<span class="string">'windows'</span>)&#123;</span><br><span class="line">    stage (<span class="string">'Deploy AsGet API'</span>)&#123;</span><br><span class="line">        timeout (<span class="number">3</span>)&#123;</span><br><span class="line">            <span class="keyword">def</span> IsDeploy =</span><br><span class="line">            input(</span><br><span class="line"><span class="symbol">                id:</span> <span class="string">'IsDeploy'</span>,</span><br><span class="line"><span class="symbol">                message:</span> <span class="string">"Check service to deploy:"</span>,</span><br><span class="line"><span class="symbol">                parameters:</span></span><br><span class="line">                    [</span><br><span class="line">                        booleanParam(<span class="string">defaultValue:</span> <span class="literal">false</span>, <span class="string">name:</span> <span class="string">'ProjectName'</span>)</span><br><span class="line">                    ]</span><br><span class="line">            )</span><br><span class="line">            <span class="keyword">if</span>(IsDeploy == <span class="string">"true"</span>  || IsDeploy)&#123;</span><br><span class="line">                bat <span class="string">'msbuild Project.To.Build.csproj /m /t:Rebuild /p:Configuration=Release;DeployOnBuild=True;PublishProfile=WebDeploy-Demo;Password=Dawn233+;AllowUntrustedCertificate=true'</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                echo <span class="string">'Input Time out(3min).'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
   </div>
 </article>
