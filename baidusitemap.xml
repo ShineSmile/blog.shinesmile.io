@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://shine.dev/2020/04/07/learn/</loc>
+    <lastmod>2020-04-06</lastmod>
+  </url>  <url>
     <loc>https://shine.dev/2017/02/27/git-init-4/</loc>
     <lastmod>2020-01-01</lastmod>
   </url>  <url>
@@ -31,16 +34,16 @@
     <loc>https://shine.dev/2017/07/18/use-vscode-terminal-for-windows-subsystem-for-linux/</loc>
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
-    <loc>https://shine.dev/2017/03/22/skill-of-centos/</loc>
+    <loc>https://shine.dev/2017/03/23/skill-of-mac/</loc>
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
     <loc>https://shine.dev/2017/03/23/skill-of-docker/</loc>
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
-    <loc>https://shine.dev/2017/03/23/skill-of-mac/</loc>
+    <loc>https://shine.dev/2017/03/22/skill-of-ubuntu/</loc>
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
-    <loc>https://shine.dev/2017/03/22/skill-of-ubuntu/</loc>
+    <loc>https://shine.dev/2017/03/22/skill-of-centos/</loc>
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
     <loc>https://shine.dev/2017/12/28/software-management-by-script-for-windows/</loc>
@@ -55,10 +58,10 @@
     <loc>https://shine.dev/2017/12/29/self-host-nuget-server/</loc>
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
-    <loc>https://shine.dev/2017/12/07/msbuild-and-mstest-without-visualstudio/</loc>
+    <loc>https://shine.dev/2017/12/28/nuget-cli/</loc>
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
-    <loc>https://shine.dev/2017/12/28/nuget-cli/</loc>
+    <loc>https://shine.dev/2017/12/07/msbuild-and-mstest-without-visualstudio/</loc>
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
     <loc>https://shine.dev/2018/01/25/orleans/</loc>
@@ -115,25 +118,25 @@
     <loc>https://shine.dev/2017/07/18/format-git-commit-message/</loc>
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
-    <loc>https://shine.dev/2017/12/25/confluence-backup-script/</loc>
+    <loc>https://shine.dev/2017/03/29/docker-swarm-mode/</loc>
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
-    <loc>https://shine.dev/2018/01/02/custom-nuget-packages/</loc>
+    <loc>https://shine.dev/2017/12/25/confluence-backup-script/</loc>
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
     <loc>https://shine.dev/2017/03/27/docker-https/</loc>
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
-    <loc>https://shine.dev/2017/03/29/docker-swarm-mode/</loc>
+    <loc>https://shine.dev/2018/01/02/custom-nuget-packages/</loc>
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
     <loc>https://shine.dev/2018/03/13/about-mosh/</loc>
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
-    <loc>https://shine.dev/2018/02/05/about-nancy/</loc>
+    <loc>https://shine.dev/2018/04/11/cloud-resource-management/</loc>
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
-    <loc>https://shine.dev/2018/04/11/cloud-resource-management/</loc>
+    <loc>https://shine.dev/2018/02/05/about-nancy/</loc>
     <lastmod>2019-11-03</lastmod>
   </url>  <url>
     <loc>https://shine.dev/2017/12/08/Jenkinsfile/</loc>

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://shine.dev/2020/04/07/learn/</loc>
+    
+    <lastmod>2020-04-06T18:41:24.260Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://shine.dev/2017/02/27/git-init-4/</loc>
     
     <lastmod>2020-01-01T12:56:31.085Z</lastmod>
@@ -93,7 +100,7 @@
   </url>
   
   <url>
-    <loc>https://shine.dev/2017/03/22/skill-of-centos/</loc>
+    <loc>https://shine.dev/2017/03/23/skill-of-mac/</loc>
     
     <lastmod>2019-11-03T08:38:51.037Z</lastmod>
     
@@ -107,14 +114,14 @@
   </url>
   
   <url>
-    <loc>https://shine.dev/2017/03/23/skill-of-mac/</loc>
+    <loc>https://shine.dev/2017/03/22/skill-of-ubuntu/</loc>
     
     <lastmod>2019-11-03T08:38:51.037Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://shine.dev/2017/03/22/skill-of-ubuntu/</loc>
+    <loc>https://shine.dev/2017/03/22/skill-of-centos/</loc>
     
     <lastmod>2019-11-03T08:38:51.037Z</lastmod>
     
@@ -149,14 +156,14 @@
   </url>
   
   <url>
-    <loc>https://shine.dev/2017/12/07/msbuild-and-mstest-without-visualstudio/</loc>
+    <loc>https://shine.dev/2017/12/28/nuget-cli/</loc>
     
     <lastmod>2019-11-03T08:38:51.035Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://shine.dev/2017/12/28/nuget-cli/</loc>
+    <loc>https://shine.dev/2017/12/07/msbuild-and-mstest-without-visualstudio/</loc>
     
     <lastmod>2019-11-03T08:38:51.035Z</lastmod>
     
@@ -289,14 +296,14 @@
   </url>
   
   <url>
-    <loc>https://shine.dev/2017/12/25/confluence-backup-script/</loc>
+    <loc>https://shine.dev/2017/03/29/docker-swarm-mode/</loc>
     
     <lastmod>2019-11-03T08:38:50.971Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://shine.dev/2018/01/02/custom-nuget-packages/</loc>
+    <loc>https://shine.dev/2017/12/25/confluence-backup-script/</loc>
     
     <lastmod>2019-11-03T08:38:50.971Z</lastmod>
     
@@ -310,7 +317,7 @@
   </url>
   
   <url>
-    <loc>https://shine.dev/2017/03/29/docker-swarm-mode/</loc>
+    <loc>https://shine.dev/2018/01/02/custom-nuget-packages/</loc>
     
     <lastmod>2019-11-03T08:38:50.971Z</lastmod>
     
@@ -324,14 +331,14 @@
   </url>
   
   <url>
-    <loc>https://shine.dev/2018/02/05/about-nancy/</loc>
+    <loc>https://shine.dev/2018/04/11/cloud-resource-management/</loc>
     
     <lastmod>2019-11-03T08:38:50.970Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://shine.dev/2018/04/11/cloud-resource-management/</loc>
+    <loc>https://shine.dev/2018/02/05/about-nancy/</loc>
     
     <lastmod>2019-11-03T08:38:50.970Z</lastmod>
     
