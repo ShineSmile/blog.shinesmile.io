@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="忽略文件 .gitignore操作系统的运行过程、开发环境的部分配置文件、编译器的编译过程，编译结束后生成的文件通常不需要提交到版本库中进行追踪，一方面此类文件可以通过源代码生成，另一方面反复提交编辑结果会导致版本控制仓库体积的剧增，不利于版本控制工具的维护。 Git使用.gitignore这个配置文件对不需要提交的文件进行忽略，达到节省开销的目的。 .gitignore文件在编辑时遵循以下原则：">
+<meta name="keywords" content="git,gitignore">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git init 2.2：忽略文件">
+<meta property="og:url" content="https://shine.dev/2017/02/25/git-init-2-2/index.html">
+<meta property="og:site_name" content="金子其实不发光">
+<meta property="og:description" content="忽略文件 .gitignore操作系统的运行过程、开发环境的部分配置文件、编译器的编译过程，编译结束后生成的文件通常不需要提交到版本库中进行追踪，一方面此类文件可以通过源代码生成，另一方面反复提交编辑结果会导致版本控制仓库体积的剧增，不利于版本控制工具的维护。 Git使用.gitignore这个配置文件对不需要提交的文件进行忽略，达到节省开销的目的。 .gitignore文件在编辑时遵循以下原则：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-03T08:38:50.986Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git init 2.2：忽略文件">
+<meta name="twitter:description" content="忽略文件 .gitignore操作系统的运行过程、开发环境的部分配置文件、编译器的编译过程，编译结束后生成的文件通常不需要提交到版本库中进行追踪，一方面此类文件可以通过源代码生成，另一方面反复提交编辑结果会导致版本控制仓库体积的剧增，不利于版本控制工具的维护。 Git使用.gitignore这个配置文件对不需要提交的文件进行忽略，达到节省开销的目的。 .gitignore文件在编辑时遵循以下原则：">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+          
+        
+    
+    <!-- title -->
+    <title>Git init 2.2：忽略文件</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">项目</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2017/02/25/git-init-2-3/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2017/02/25/git-init-2-1/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shine.dev/2017/02/25/git-init-2-2/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shine.dev/2017/02/25/git-init-2-2/&text=Git init 2.2：忽略文件"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shine.dev/2017/02/25/git-init-2-2/&is_video=false&description=Git init 2.2：忽略文件"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Git init 2.2：忽略文件&body=Check out this article: https://shine.dev/2017/02/25/git-init-2-2/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shine.dev/2017/02/25/git-init-2-2/&name=Git init 2.2：忽略文件&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#忽略文件-gitignore"><span class="toc-number">1.</span> <span class="toc-text">忽略文件 .gitignore</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Git init 2.2：忽略文件
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">金子其实不发光</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2017-02-25T05:00:00.000Z" itemprop="datePublished">2017-02-25</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/git/">git</a>, <a class="tag-link" href="/tags/gitignore/">gitignore</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="忽略文件-gitignore"><a href="#忽略文件-gitignore" class="headerlink" title="忽略文件 .gitignore"></a>忽略文件 .gitignore</h1><p>操作系统的运行过程、开发环境的部分配置文件、编译器的编译过程，编译结束后生成的文件通常不需要提交到版本库中进行追踪，一方面此类文件可以通过源代码生成，另一方面反复提交编辑结果会导致版本控制仓库体积的剧增，不利于版本控制工具的维护。</p>
+<p>Git使用<code>.gitignore</code>这个配置文件对不需要提交的文件进行忽略，达到节省开销的目的。</p>
+<p><code>.gitignore</code>文件在编辑时遵循以下原则：</p>
+<ul>
+<li><p>以斜杠“/”开头表示根目录下的内容；</p>
+</li>
+<li><p>以”/“结尾表示目录；</p>
+</li>
+<li><p>以星号“*”通配多个字符；</p>
+</li>
+<li><p>以问号“?”通配单个字符</p>
+</li>
+<li><p>以方括号“[]”包含单个字符的匹配列表；</p>
+</li>
+<li><p>以叹号“!”表示不忽略(跟踪)匹配到的文件或目录；</p>
+</li>
+</ul>
+<p>需要注意以下几点：</p>
+<ul>
+<li><p>匹配顺序为自上而下。</p>
+</li>
+<li><p><code>.gitignore</code>是工作目录的一部分，建议提交时对其进行更新。</p>
+</li>
+<li><p>已经被版本控制追踪的文件无法通过修改<code>.gitignore</code>文件进行忽略，如果需要在后续版本中忽略，请删除这个文件并把删除行为添加到缓存区进行提交。</p>
+</li>
+<li><p><code>.gitignore</code>的使用与选择不仅与开发语言有关，还会受到开发环境、编译器、平台等因素的影响。</p>
+</li>
+<li><p>已经添加至缓存的文件，在.gitignore更新后不会被忽略，可以使用<strong>git rm -r –cached .</strong>对缓存进行清除。</p>
+</li>
+</ul>
+<p>Github的<a href="https://github.com/github/gitignore" target="_blank" rel="noopener">github/gitignore</a>项目中提供了一些语言及开发环境使用的<code>.gitignore</code>模板。</p>
+<p>下面列出了C++语言使用的<code>.gitignore</code>模板：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"># Prerequisites</span><br><span class="line">*.d</span><br><span class="line"></span><br><span class="line"># Compiled Object files</span><br><span class="line">*.slo</span><br><span class="line">*.lo</span><br><span class="line">*.o</span><br><span class="line">*.obj</span><br><span class="line"></span><br><span class="line"># Precompiled Headers</span><br><span class="line">*.gch</span><br><span class="line">*.pch</span><br><span class="line"></span><br><span class="line"># Compiled Dynamic libraries</span><br><span class="line">*.so</span><br><span class="line">*.dylib</span><br><span class="line">*.dll</span><br><span class="line"></span><br><span class="line"># Fortran module files</span><br><span class="line">*.mod</span><br><span class="line">*.smod</span><br><span class="line"></span><br><span class="line"># Compiled Static libraries</span><br><span class="line">*.lai</span><br><span class="line">*.la</span><br><span class="line">*.a</span><br><span class="line">*.lib</span><br><span class="line"></span><br><span class="line"># Executables</span><br><span class="line">*.exe</span><br><span class="line">*.out</span><br><span class="line">*.app</span><br></pre></td></tr></table></figure>
+
+<p>Python的<code>.gitignore</code>文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"># Byte-compiled / optimized / DLL files</span><br><span class="line">__pycache__/</span><br><span class="line">*.py[cod]</span><br><span class="line">*$py.class</span><br><span class="line"></span><br><span class="line"># C extensions</span><br><span class="line">*.so</span><br><span class="line"></span><br><span class="line"># Distribution / packaging</span><br><span class="line">.Python</span><br><span class="line">env/</span><br><span class="line">build/</span><br><span class="line">develop-eggs/</span><br><span class="line">dist/</span><br><span class="line">downloads/</span><br><span class="line">eggs/</span><br><span class="line">.eggs/</span><br><span class="line">lib/</span><br><span class="line">lib64/</span><br><span class="line">parts/</span><br><span class="line">sdist/</span><br><span class="line">var/</span><br><span class="line">wheels/</span><br><span class="line">*.egg-info/</span><br><span class="line">.installed.cfg</span><br><span class="line">*.egg</span><br><span class="line"></span><br><span class="line"># PyInstaller</span><br><span class="line">#  Usually these files are written by a python script from a template</span><br><span class="line">#  before PyInstaller builds the exe, so as to inject date/other infos into it.</span><br><span class="line">*.manifest</span><br><span class="line">*.spec</span><br><span class="line"></span><br><span class="line"># Installer logs</span><br><span class="line">pip-log.txt</span><br><span class="line">pip-delete-this-directory.txt</span><br><span class="line"></span><br><span class="line"># Unit test / coverage reports</span><br><span class="line">htmlcov/</span><br><span class="line">.tox/</span><br><span class="line">.coverage</span><br><span class="line">.coverage.*</span><br><span class="line">.cache</span><br><span class="line">nosetests.xml</span><br><span class="line">coverage.xml</span><br><span class="line">*,cover</span><br><span class="line">.hypothesis/</span><br><span class="line"></span><br><span class="line"># Translations</span><br><span class="line">*.mo</span><br><span class="line">*.pot</span><br><span class="line"></span><br><span class="line"># Django stuff:</span><br><span class="line">*.log</span><br><span class="line">local_settings.py</span><br><span class="line"></span><br><span class="line"># Flask stuff:</span><br><span class="line">instance/</span><br><span class="line">.webassets-cache</span><br><span class="line"></span><br><span class="line"># Scrapy stuff:</span><br><span class="line">.scrapy</span><br><span class="line"></span><br><span class="line"># Sphinx documentation</span><br><span class="line">docs/_build/</span><br><span class="line"></span><br><span class="line"># PyBuilder</span><br><span class="line">target/</span><br><span class="line"></span><br><span class="line"># Jupyter Notebook</span><br><span class="line">.ipynb_checkpoints</span><br><span class="line"></span><br><span class="line"># pyenv</span><br><span class="line">.python-version</span><br><span class="line"></span><br><span class="line"># celery beat schedule file</span><br><span class="line">celerybeat-schedule</span><br><span class="line"></span><br><span class="line"># SageMath parsed files</span><br><span class="line">*.sage.py</span><br><span class="line"></span><br><span class="line"># dotenv</span><br><span class="line">.env</span><br><span class="line"></span><br><span class="line"># virtualenv</span><br><span class="line">.venv</span><br><span class="line">venv/</span><br><span class="line">ENV/</span><br><span class="line"></span><br><span class="line"># Spyder project settings</span><br><span class="line">.spyderproject</span><br><span class="line"></span><br><span class="line"># Rope project settings</span><br><span class="line">.ropeproject</span><br></pre></td></tr></table></figure>
+
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>加载评论需要在浏览器启用 JavaScript 脚本支持。</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#忽略文件-gitignore"><span class="toc-number">1.</span> <span class="toc-text">忽略文件 .gitignore</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shine.dev/2017/02/25/git-init-2-2/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shine.dev/2017/02/25/git-init-2-2/&text=Git init 2.2：忽略文件"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shine.dev/2017/02/25/git-init-2-2/&is_video=false&description=Git init 2.2：忽略文件"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Git init 2.2：忽略文件&body=Check out this article: https://shine.dev/2017/02/25/git-init-2-2/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shine.dev/2017/02/25/git-init-2-2/&title=Git init 2.2：忽略文件"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shine.dev/2017/02/25/git-init-2-2/&name=Git init 2.2：忽略文件&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Shine
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">项目</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'shinesmile';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+</body>
+</html>

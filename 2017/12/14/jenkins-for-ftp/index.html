@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="FTP服务的建立在Windows系统下建立IIS服务，除了使用IIS外还可以使用Filezilla，此工具除了会安装windows服务外，还会提供一个对服务进行管理的桌面应用。管理工具默认通过14147端口与服务进行通信。 FTP命令行工具Windows XP Pro 文档 语法ftp [-v] [-d] [-i] [-n] [-g] [-s:FileName] [-a] [-w:WindowSi">
+<meta name="keywords" content="windows,ftp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Jenkins通过FTP进行持续发布">
+<meta property="og:url" content="https://shine.dev/2017/12/14/jenkins-for-ftp/index.html">
+<meta property="og:site_name" content="金子其实不发光">
+<meta property="og:description" content="FTP服务的建立在Windows系统下建立IIS服务，除了使用IIS外还可以使用Filezilla，此工具除了会安装windows服务外，还会提供一个对服务进行管理的桌面应用。管理工具默认通过14147端口与服务进行通信。 FTP命令行工具Windows XP Pro 文档 语法ftp [-v] [-d] [-i] [-n] [-g] [-s:FileName] [-a] [-w:WindowSi">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://shine.dev/2017/12/14/jenkins-for-ftp/ftp_help.png">
+<meta property="og:image" content="https://shine.dev/2017/12/14/jenkins-for-ftp/ftp_subcommand_help.png">
+<meta property="og:updated_time" content="2019-11-03T08:38:51.028Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Jenkins通过FTP进行持续发布">
+<meta name="twitter:description" content="FTP服务的建立在Windows系统下建立IIS服务，除了使用IIS外还可以使用Filezilla，此工具除了会安装windows服务外，还会提供一个对服务进行管理的桌面应用。管理工具默认通过14147端口与服务进行通信。 FTP命令行工具Windows XP Pro 文档 语法ftp [-v] [-d] [-i] [-n] [-g] [-s:FileName] [-a] [-w:WindowSi">
+<meta name="twitter:image" content="https://shine.dev/2017/12/14/jenkins-for-ftp/ftp_help.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+          
+        
+    
+    <!-- title -->
+    <title>使用Jenkins通过FTP进行持续发布</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">项目</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2017/12/14/jenkins-for-webdeploy/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2017/12/12/windows-server-2016-install-trap/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shine.dev/2017/12/14/jenkins-for-ftp/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shine.dev/2017/12/14/jenkins-for-ftp/&text=使用Jenkins通过FTP进行持续发布"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shine.dev/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shine.dev/2017/12/14/jenkins-for-ftp/&is_video=false&description=使用Jenkins通过FTP进行持续发布"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=使用Jenkins通过FTP进行持续发布&body=Check out this article: https://shine.dev/2017/12/14/jenkins-for-ftp/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shine.dev/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shine.dev/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shine.dev/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shine.dev/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shine.dev/2017/12/14/jenkins-for-ftp/&name=使用Jenkins通过FTP进行持续发布&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FTP服务的建立"><span class="toc-number">1.</span> <span class="toc-text">FTP服务的建立</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FTP命令行工具"><span class="toc-number">2.</span> <span class="toc-text">FTP命令行工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">2.1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用参数概述："><span class="toc-number">2.2.</span> <span class="toc-text">常用参数概述：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子命令"><span class="toc-number">2.3.</span> <span class="toc-text">子命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动化脚本举例"><span class="toc-number">2.4.</span> <span class="toc-text">自动化脚本举例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FTP的主动模式与被动模式"><span class="toc-number">3.</span> <span class="toc-text">FTP的主动模式与被动模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主动模式"><span class="toc-number">3.1.</span> <span class="toc-text">主动模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#被动模式"><span class="toc-number">3.2.</span> <span class="toc-text">被动模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#错误425"><span class="toc-number">3.2.1.</span> <span class="toc-text">错误425</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小结"><span class="toc-number">4.</span> <span class="toc-text">小结</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        使用Jenkins通过FTP进行持续发布
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">金子其实不发光</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2017-12-14T09:29:03.000Z" itemprop="datePublished">2017-12-14</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/ftp/">ftp</a>, <a class="tag-link" href="/tags/windows/">windows</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="FTP服务的建立"><a href="#FTP服务的建立" class="headerlink" title="FTP服务的建立"></a>FTP服务的建立</h1><p>在Windows系统下建立IIS服务，除了使用IIS外还可以使用<a href="https://filezilla-project.org/" target="_blank" rel="noopener">Filezilla</a>，此工具除了会安装windows服务外，还会提供一个对服务进行管理的桌面应用。管理工具默认通过14147端口与服务进行通信。</p>
+<h1 id="FTP命令行工具"><a href="#FTP命令行工具" class="headerlink" title="FTP命令行工具"></a>FTP命令行工具</h1><p><a href="https://www.microsoft.com/resources/documentation/windows/xp/all/proddocs/en-us/ftp.mspx?mfr=true" target="_blank" rel="noopener">Windows XP Pro 文档</a></p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>ftp [-v] [-d] [-i] [-n] [-g] [-s:FileName] [-a] [-w:WindowSize] [-A] [Host]</p>
+<h2 id="常用参数概述："><a href="#常用参数概述：" class="headerlink" title="常用参数概述："></a>常用参数概述：</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/?</td>
+<td>显示帮助。</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>隐藏FTP服务器的的回复信息。</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>启动调试，显示所有FTP客户端与服务器之间的命令。</td>
+</tr>
+<tr>
+<td>-s:<em>FileName</em></td>
+<td>指定一个包括FTP命令的文本文件，文件中的命令会在ftp命令执行时逐个调用。参数中不能包含空格。可以使用此参数代替流重定向<strong>(&lt;)</strong>。</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>指定FTP的服务器的计算机名、IP地址。此参数可选且必须作为最后一个参数。</td>
+</tr>
+<tr>
+<td><img src="/2017/12/14/jenkins-for-ftp/ftp_help.png" alt="FTP工具参数"></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="子命令"><a href="#子命令" class="headerlink" title="子命令"></a>子命令</h2><p>启动ftp工具后，会进入ftp的命令行界面，这是输入<em>?</em>会显示命令的提示：<br><img src="/2017/12/14/jenkins-for-ftp/ftp_subcommand_help.png" alt="FTP工具参数"></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>?</td>
+<td>显示所有子命令</td>
+</tr>
+<tr>
+<td>open <em>Host</em></td>
+<td>与目标服务器建立连接</td>
+</tr>
+<tr>
+<td>close</td>
+<td>关闭连接</td>
+</tr>
+<tr>
+<td>quit</td>
+<td>退出ftp工具不显示提示信息</td>
+</tr>
+<tr>
+<td>!</td>
+<td>退出ftp工具显示版本号等信息</td>
+</tr>
+<tr>
+<td>cd</td>
+<td>切换服务端工作目录</td>
+</tr>
+<tr>
+<td>lcd</td>
+<td>切换本地工作目录</td>
+</tr>
+<tr>
+<td>put</td>
+<td>上传本地文件至服务器</td>
+</tr>
+<tr>
+<td>mput</td>
+<td>批量上传本地文件至服务器</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>删除服务器中的文件</td>
+</tr>
+<tr>
+<td>mdelete</td>
+<td>批量删除服务器中的文件</td>
+</tr>
+<tr>
+<td>status</td>
+<td>显示当前的链接状态</td>
+</tr>
+<tr>
+<td>prompt</td>
+<td>开关交互模式。关闭此模式命令成功执行时不会显示提示信息。</td>
+</tr>
+</tbody></table>
+<h2 id="自动化脚本举例"><a href="#自动化脚本举例" class="headerlink" title="自动化脚本举例"></a>自动化脚本举例</h2><p>FTP命令：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ftp -s:upload.src <span class="number">10</span>.<span class="number">20</span>.<span class="number">30</span>.<span class="number">40</span></span><br></pre></td></tr></table></figure>
+
+<p>upload.src：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">user</span><br><span class="line">pass</span><br><span class="line">lcd bin</span><br><span class="line">cd _api/bin</span><br><span class="line">mdel *</span><br><span class="line">mput *</span><br><span class="line">quit</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>脚本</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td>ftp用户名</td>
+</tr>
+<tr>
+<td>pass</td>
+<td>ftp密码</td>
+</tr>
+<tr>
+<td>lcd bin</td>
+<td>切换至本地bin目录</td>
+</tr>
+<tr>
+<td>cd api/bin</td>
+<td>切换服务端目录为api/bin文件夹</td>
+</tr>
+<tr>
+<td>mdel *</td>
+<td>删除服务端当前工作目录的所有文件（不包括文件夹）</td>
+</tr>
+<tr>
+<td>mput *</td>
+<td>上传本地工作目录的所有文件至服务器（不包括文件夹）</td>
+</tr>
+<tr>
+<td>quit</td>
+<td>关闭ftp工具</td>
+</tr>
+</tbody></table>
+<h1 id="FTP的主动模式与被动模式"><a href="#FTP的主动模式与被动模式" class="headerlink" title="FTP的主动模式与被动模式"></a>FTP的主动模式与被动模式</h1><p>在部署Jenkins使用Filezilla服务持续发布过程中出现上述提示。现象为FTP可以连接、登陆。但使用命令查询、上传、下载文件时客户端卡住，服务端报425错误。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">You appear to be behind a NAT router. Please configure the passive mode settings and forward a range of ports in your router.</span><br><span class="line">(000156)2017/12/15 11:14:43 - shine (10.134.251.51)&gt; LIST</span><br><span class="line">(000156)2017/12/15 11:14:43 - shine (10.134.251.51)&gt; 150 Opening data channel for directory listing of &quot;/&quot;</span><br><span class="line">(000156)2017/12/15 11:14:53 - shine (10.134.251.51)&gt; 425 Can&apos;t open data connection for transfer of &quot;/&quot;</span><br></pre></td></tr></table></figure>
+
+<p>要想解决此问题需要了解ftp协议的主动模式和被动模式。</p>
+<h2 id="主动模式"><a href="#主动模式" class="headerlink" title="主动模式"></a>主动模式</h2><ol>
+<li>FTP服务器命令（21）端口接受客户端任意端口（客户端初始连接）</li>
+<li>FTP服务器命令（21）端口到客户端端口（&gt;1023）（服务器响应客户端命令）</li>
+<li>FTP服务器数据（20）端口到客户端端口（&gt;1023）（服务器初始化数据连接到客户端数据端口）</li>
+<li>FTP服务器数据（20）端口接受客户端端口（&gt;1023）（客户端发送ACK包到服务器的数据端口）</li>
+</ol>
+<p>小结：主动模式是客户端与服务端建立命令链接后，服务端会尝试与客户端建立数据连接。</p>
+<h2 id="被动模式"><a href="#被动模式" class="headerlink" title="被动模式"></a>被动模式</h2><ol>
+<li>FTP服务器命令（21）端口接受客户端任意端口（客户端初始连接）</li>
+<li>FTP服务器命令（21）端口到客户端端口（&gt;1023）（服务器响应客户端命令）</li>
+<li>FTP服务器数据端口（&gt;1023）接受客户端端口（&gt;1023）（客户端初始化数据连接到服务器指定的任意端口）</li>
+<li>FTP服务器数据端口（&gt;1023）到客户端端口（&gt;1023）（服务器发送ACK响应和数据到客户端的数据端口）</li>
+</ol>
+<p>小结：被动模式是客户端与服务端建立命令链接后，服务端会开放数据端口并将相关信息通过命令链接发送给客户端，客户端通过得到的信息与服务端建立数据链接。</p>
+<p>Tips：</p>
+<ul>
+<li>主动模式和被动模式都是相对于服务端而言，服务端尝试与客户端建立数据链接就是主动，服务端打开端口等待客户端去链接就是被动。</li>
+<li>被动模式的产生原因是因为客户端与位于NAT网络时产生的需求。此时，客户端IP地址非公网IP，服务端尝试与客户端建立连接时请求可能会被路由或防火墙屏蔽。</li>
+</ul>
+<h3 id="错误425"><a href="#错误425" class="headerlink" title="错误425"></a>错误425</h3><p>此情景下425问题的产生是主动模式下客户端与服务端建立命令链接后，客户端将命令发布至服务端，服务端响应命令，并尝试与客户端建立数据链接时故障产生的。由于数据链接未建立，客户端会持续的等待直至手动停止或超时。由于数据链接建立在客户端的高位随机端口，因此无法开放防火墙的特定端口解决此问题，临时的解决方案为<strong>临时关闭客户端的防火墙</strong>。因为客户端与服务端同在专用内网，经过权衡无伤大雅。<strong>请勿滥用此临时方案。</strong></p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><ul>
+<li>Windows下的ftp工具不能很好的支持被动模式，否则可以通过被动模式与服务器建立连接。（Filezilla可以限定被动模式的端口使用范围，防火墙仅开放对应端口即可，无需完全开放。）</li>
+<li>Windows的ftp命令在自动化过程中不能很好的控制流程(执行过程出错不停止)及不能显示返回错误（使用quit退出即返回0），存在健壮性差、含糊的问题。建议用其他方案替换。</li>
+<li>在Visual Studio使用ftp发布时，是可以通过被动方式发布代码的。然而通过MSBuild的命令行方式却不行。可以认为这是Visual Studio的设计人员的一种引流操作：更希望人们通过Web Deploy而不是FTP的方式发布代码。</li>
+</ul>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>加载评论需要在浏览器启用 JavaScript 脚本支持。</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FTP服务的建立"><span class="toc-number">1.</span> <span class="toc-text">FTP服务的建立</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FTP命令行工具"><span class="toc-number">2.</span> <span class="toc-text">FTP命令行工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">2.1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用参数概述："><span class="toc-number">2.2.</span> <span class="toc-text">常用参数概述：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子命令"><span class="toc-number">2.3.</span> <span class="toc-text">子命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动化脚本举例"><span class="toc-number">2.4.</span> <span class="toc-text">自动化脚本举例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FTP的主动模式与被动模式"><span class="toc-number">3.</span> <span class="toc-text">FTP的主动模式与被动模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主动模式"><span class="toc-number">3.1.</span> <span class="toc-text">主动模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#被动模式"><span class="toc-number">3.2.</span> <span class="toc-text">被动模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#错误425"><span class="toc-number">3.2.1.</span> <span class="toc-text">错误425</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小结"><span class="toc-number">4.</span> <span class="toc-text">小结</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shine.dev/2017/12/14/jenkins-for-ftp/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shine.dev/2017/12/14/jenkins-for-ftp/&text=使用Jenkins通过FTP进行持续发布"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shine.dev/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shine.dev/2017/12/14/jenkins-for-ftp/&is_video=false&description=使用Jenkins通过FTP进行持续发布"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=使用Jenkins通过FTP进行持续发布&body=Check out this article: https://shine.dev/2017/12/14/jenkins-for-ftp/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shine.dev/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shine.dev/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shine.dev/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shine.dev/2017/12/14/jenkins-for-ftp/&title=使用Jenkins通过FTP进行持续发布"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shine.dev/2017/12/14/jenkins-for-ftp/&name=使用Jenkins通过FTP进行持续发布&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Shine
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">项目</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'shinesmile';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+</body>
+</html>

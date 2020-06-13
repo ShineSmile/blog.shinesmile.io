@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="本文翻译自：Swarm mode overview Docker Engine的集群模式，需要通过Docker releases GitHub repository安装v1.12.0以上版本。最新的Mac版及Windows Beta版亦可。 Docker引擎1.12包括Docker引擎原生的集群管理工具：swarm。使用Docker命令行接口可以完成创建集群、在集群中部署应用服务、管理集群行为等操">
+<meta name="keywords" content="docker,swarm,cluster">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker Swarm模式概述">
+<meta property="og:url" content="https://shine.dev/2017/03/29/docker-swarm-mode/index.html">
+<meta property="og:site_name" content="金子其实不发光">
+<meta property="og:description" content="本文翻译自：Swarm mode overview Docker Engine的集群模式，需要通过Docker releases GitHub repository安装v1.12.0以上版本。最新的Mac版及Windows Beta版亦可。 Docker引擎1.12包括Docker引擎原生的集群管理工具：swarm。使用Docker命令行接口可以完成创建集群、在集群中部署应用服务、管理集群行为等操">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-03T08:38:50.971Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Docker Swarm模式概述">
+<meta name="twitter:description" content="本文翻译自：Swarm mode overview Docker Engine的集群模式，需要通过Docker releases GitHub repository安装v1.12.0以上版本。最新的Mac版及Windows Beta版亦可。 Docker引擎1.12包括Docker引擎原生的集群管理工具：swarm。使用Docker命令行接口可以完成创建集群、在集群中部署应用服务、管理集群行为等操">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+          
+        
+    
+    <!-- title -->
+    <title>Docker Swarm模式概述</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">项目</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2017/07/18/use-vscode-terminal-for-windows-subsystem-for-linux/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2017/03/27/docker-https/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shine.dev/2017/03/29/docker-swarm-mode/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shine.dev/2017/03/29/docker-swarm-mode/&text=Docker Swarm模式概述"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shine.dev/2017/03/29/docker-swarm-mode/&title=Docker Swarm模式概述"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shine.dev/2017/03/29/docker-swarm-mode/&is_video=false&description=Docker Swarm模式概述"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Docker Swarm模式概述&body=Check out this article: https://shine.dev/2017/03/29/docker-swarm-mode/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shine.dev/2017/03/29/docker-swarm-mode/&title=Docker Swarm模式概述"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shine.dev/2017/03/29/docker-swarm-mode/&title=Docker Swarm模式概述"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shine.dev/2017/03/29/docker-swarm-mode/&title=Docker Swarm模式概述"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shine.dev/2017/03/29/docker-swarm-mode/&title=Docker Swarm模式概述"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shine.dev/2017/03/29/docker-swarm-mode/&name=Docker Swarm模式概述&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#功能亮点"><span class="toc-number">1.</span> <span class="toc-text">功能亮点</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Docker Swarm模式概述
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">金子其实不发光</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2017-03-29T07:11:28.000Z" itemprop="datePublished">2017-03-29</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/cluster/">cluster</a>, <a class="tag-link" href="/tags/docker/">docker</a>, <a class="tag-link" href="/tags/swarm/">swarm</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>本文翻译自：<a href="https://docs.docker.com/engine/swarm/" target="_blank" rel="noopener">Swarm mode overview</a></p>
+<p>Docker Engine的集群模式，需要通过<a href="https://github.com/docker/docker/releases" target="_blank" rel="noopener">Docker releases GitHub repository</a>安装<code>v1.12.0</code>以上版本。最新的Mac版及Windows Beta版亦可。</p>
+<p>Docker引擎1.12包括Docker引擎原生的集群管理工具：swarm。使用Docker命令行接口可以完成创建集群、在集群中部署应用服务、管理集群行为等操作。</p>
+<p>使用<code>v1.12.0</code>一下版本的用户请参见：<a href="https://docs.docker.com/swarm/" target="_blank" rel="noopener">Docker Swarm</a>。</p>
+<h1 id="功能亮点"><a href="#功能亮点" class="headerlink" title="功能亮点"></a>功能亮点</h1><ul>
+<li><p>集群的管理与Docker引擎集成：使用Docker引擎命令行接口来创建部署应用服务的集群。不需要额外的第三方软件。</p>
+</li>
+<li><p>分布式设计：在不同的节点类型中使用相同的部署方式。使用Docker Engine，可以同时在节点、管理节点及工作节点进行部署。整个集群可以通过单个镜像来建立。</p>
+</li>
+<li><p>声明式的服务发布方式：Docker Engine在应用栈中使用声明的方式来定义服务中的不同状态。例如，可以通过描述一个应用由web前端、消息队列服务及后端数据库构成。</p>
+</li>
+<li><p>弹性：为不同的服务声明不同任务数量。当数量上升或下降时，集群管理节点将自动添加或删除节点调整至预期的规模。</p>
+</li>
+<li><p>维持规模：管理节点会持续监控集群的状态，使其实际状态与规划的状态一致。如果一个服务运行的10个容器中有两个发生了故障，管理节点将创建两个新的容器来取代故障的容器。管理节点会自动在计算节点注册并运行可用的新容器。</p>
+</li>
+<li><p>多主机网络：为服务配置详细的网络覆盖。管理节点会自动在容器初始化时、应用更新时自动的注册容器的网络地址。</p>
+</li>
+<li><p>服务发现：管理节点为集群中不同的服务声明唯一的DNS名并对运行中的容器进行负载均衡。通过此DNS名可以对集群中的任意容器进行查询。</p>
+</li>
+<li><p>负载均衡：通过开放统一的端口来实现外部的负载均衡。在服务内部，集群允许指定节点间服务的分发方式。</p>
+</li>
+<li><p>默认的安全配置：集群中的每个节点间强制使用TLS通信。还允许使用自签发根证书或自定义CA根证书。</p>
+</li>
+<li><p>滚动更新：可以步进式对过时的服务进行更新。管理节点允许控制服务部署至不同节点的延迟时间。如果产生任何差池，可以回滚至上一版本。</p>
+</li>
+</ul>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>加载评论需要在浏览器启用 JavaScript 脚本支持。</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#功能亮点"><span class="toc-number">1.</span> <span class="toc-text">功能亮点</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shine.dev/2017/03/29/docker-swarm-mode/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shine.dev/2017/03/29/docker-swarm-mode/&text=Docker Swarm模式概述"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shine.dev/2017/03/29/docker-swarm-mode/&title=Docker Swarm模式概述"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shine.dev/2017/03/29/docker-swarm-mode/&is_video=false&description=Docker Swarm模式概述"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Docker Swarm模式概述&body=Check out this article: https://shine.dev/2017/03/29/docker-swarm-mode/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shine.dev/2017/03/29/docker-swarm-mode/&title=Docker Swarm模式概述"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shine.dev/2017/03/29/docker-swarm-mode/&title=Docker Swarm模式概述"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shine.dev/2017/03/29/docker-swarm-mode/&title=Docker Swarm模式概述"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shine.dev/2017/03/29/docker-swarm-mode/&title=Docker Swarm模式概述"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shine.dev/2017/03/29/docker-swarm-mode/&name=Docker Swarm模式概述&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Shine
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">项目</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'shinesmile';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+</body>
+</html>

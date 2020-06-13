@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="通用类库向nuget迁移可以提高代码的复用效率，实现通用类库的版本控制，减轻持续集成与持续发布的编译负担。在轻量级Nuget服务的搭建中，介绍了一种轻量级Nuget服务。本文将从nuget.exe客户端入手，实现依赖项的打包与发布。 Nuget Package的生成Nuget GUI管理工具查看、管理Nuget包最直接的方式就是通过NuGet Package Explorer这个GUI工具，通过它">
+<meta name="keywords" content="nuget,pack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义Nuget包">
+<meta property="og:url" content="https://shine.dev/2018/01/02/custom-nuget-packages/index.html">
+<meta property="og:site_name" content="金子其实不发光">
+<meta property="og:description" content="通用类库向nuget迁移可以提高代码的复用效率，实现通用类库的版本控制，减轻持续集成与持续发布的编译负担。在轻量级Nuget服务的搭建中，介绍了一种轻量级Nuget服务。本文将从nuget.exe客户端入手，实现依赖项的打包与发布。 Nuget Package的生成Nuget GUI管理工具查看、管理Nuget包最直接的方式就是通过NuGet Package Explorer这个GUI工具，通过它">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/5808377/13399085/cefc7a10-df01-11e5-88b9-423a90107dce.png">
+<meta property="og:image" content="https://shine.dev/2018/01/02/custom-nuget-packages/assembly-info.png">
+<meta property="og:updated_time" content="2019-11-03T08:38:50.971Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自定义Nuget包">
+<meta name="twitter:description" content="通用类库向nuget迁移可以提高代码的复用效率，实现通用类库的版本控制，减轻持续集成与持续发布的编译负担。在轻量级Nuget服务的搭建中，介绍了一种轻量级Nuget服务。本文将从nuget.exe客户端入手，实现依赖项的打包与发布。 Nuget Package的生成Nuget GUI管理工具查看、管理Nuget包最直接的方式就是通过NuGet Package Explorer这个GUI工具，通过它">
+<meta name="twitter:image" content="https://cloud.githubusercontent.com/assets/5808377/13399085/cefc7a10-df01-11e5-88b9-423a90107dce.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+          
+        
+    
+    <!-- title -->
+    <title>自定义Nuget包</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">项目</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/01/25/orleans/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2017/12/29/self-host-nuget-server/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shine.dev/2018/01/02/custom-nuget-packages/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shine.dev/2018/01/02/custom-nuget-packages/&text=自定义Nuget包"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shine.dev/2018/01/02/custom-nuget-packages/&title=自定义Nuget包"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shine.dev/2018/01/02/custom-nuget-packages/&is_video=false&description=自定义Nuget包"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=自定义Nuget包&body=Check out this article: https://shine.dev/2018/01/02/custom-nuget-packages/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shine.dev/2018/01/02/custom-nuget-packages/&title=自定义Nuget包"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shine.dev/2018/01/02/custom-nuget-packages/&title=自定义Nuget包"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shine.dev/2018/01/02/custom-nuget-packages/&title=自定义Nuget包"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shine.dev/2018/01/02/custom-nuget-packages/&title=自定义Nuget包"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shine.dev/2018/01/02/custom-nuget-packages/&name=自定义Nuget包&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Nuget-Package的生成"><span class="toc-number">1.</span> <span class="toc-text">Nuget Package的生成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Nuget-GUI管理工具"><span class="toc-number">1.1.</span> <span class="toc-text">Nuget GUI管理工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过-nuspec声明文件进行配置"><span class="toc-number">1.2.</span> <span class="toc-text">通过*.nuspec声明文件进行配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过-csproj工程文件进行配置"><span class="toc-number">1.3.</span> <span class="toc-text">通过*.csproj工程文件进行配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Nuget-Package的发布"><span class="toc-number">2.</span> <span class="toc-text">Nuget Package的发布</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#直接发布至指定目录"><span class="toc-number">2.1.</span> <span class="toc-text">直接发布至指定目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过nuget-cli进行推送"><span class="toc-number">2.2.</span> <span class="toc-text">通过nuget cli进行推送</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        自定义Nuget包
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">金子其实不发光</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-01-02T07:18:52.000Z" itemprop="datePublished">2018-01-02</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/nuget/">nuget</a>, <a class="tag-link" href="/tags/pack/">pack</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>通用类库向nuget迁移可以提高代码的复用效率，实现通用类库的版本控制，减轻持续集成与持续发布的编译负担。在<a href="/2017/12/29/self-host-nuget-server/" title="轻量级Nuget服务的搭建">轻量级Nuget服务的搭建</a>中，介绍了一种轻量级Nuget服务。本文将从<strong>nuget.exe</strong>客户端入手，实现依赖项的打包与发布。</p>
+<h1 id="Nuget-Package的生成"><a href="#Nuget-Package的生成" class="headerlink" title="Nuget Package的生成"></a>Nuget Package的生成</h1><h2 id="Nuget-GUI管理工具"><a href="#Nuget-GUI管理工具" class="headerlink" title="Nuget GUI管理工具"></a>Nuget GUI管理工具</h2><p>查看、管理Nuget包最直接的方式就是通过<a href="https://github.com/NuGetPackageExplorer/NuGetPackageExplorer" target="_blank" rel="noopener">NuGet Package Explorer</a>这个GUI工具，通过它可以直观的查看Package相关属性及内容，非常适合查看和调整已有的包。但是<strong>Package的内容有非常严格的目录层级及用途，若要灵活使用此工具需要详细了解相关特性。</strong>因此其不利于Package的自动化生成与发布。<br><img src="https://cloud.githubusercontent.com/assets/5808377/13399085/cefc7a10-df01-11e5-88b9-423a90107dce.png" alt="NuGet Package Explorer Preview"></p>
+<h2 id="通过-nuspec声明文件进行配置"><a href="#通过-nuspec声明文件进行配置" class="headerlink" title="通过*.nuspec声明文件进行配置"></a>通过*.nuspec声明文件进行配置</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nuget pack &lt;project-name&gt;.nuspec</span><br></pre></td></tr></table></figure>
+
+<p>实现自定义包还可通过*.nuspec的XML结构的配置文件实现：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">package</span> <span class="attr">xmlns</span>=<span class="string">"http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">metadata</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- The identifier that must be unique within the hosting gallery --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>Contoso.Utility.UsefulStuff<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- The package version number that is used when resolving dependencies --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.8.3-beta<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Authors contain text that appears directly on the gallery --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">authors</span>&gt;</span>Dejana Tesic, Rajeev Dey<span class="tag">&lt;/<span class="name">authors</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Owners are typically nuget.org identities that allow gallery</span></span><br><span class="line"><span class="comment">            users to easily find other packages by the same owners.  --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">owners</span>&gt;</span>dejanatc, rjdey<span class="tag">&lt;/<span class="name">owners</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- License and project URLs provide links for the gallery --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">licenseUrl</span>&gt;</span>http://opensource.org/licenses/MS-PL<span class="tag">&lt;/<span class="name">licenseUrl</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">projectUrl</span>&gt;</span>http://github.com/contoso/UsefulStuff<span class="tag">&lt;/<span class="name">projectUrl</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- The icon is used in Visual Studio's package manager UI --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">iconUrl</span>&gt;</span>http://github.com/contoso/UsefulStuff/nuget_icon.png<span class="tag">&lt;/<span class="name">iconUrl</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- If true, this value prompts the user to accept the license when</span></span><br><span class="line"><span class="comment">            installing the package. --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">requireLicenseAcceptance</span>&gt;</span>false<span class="tag">&lt;/<span class="name">requireLicenseAcceptance</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Any details about this particular release --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">releaseNotes</span>&gt;</span>Bug fixes and performance improvements<span class="tag">&lt;/<span class="name">releaseNotes</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- The description can be used in package manager UI. Note that the</span></span><br><span class="line"><span class="comment">            nuget.org gallery uses information you add in the portal. --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Core utility functions for web applications<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Copyright information --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">copyright</span>&gt;</span>Copyright ©2016 Contoso Corporation<span class="tag">&lt;/<span class="name">copyright</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Tags appear in the gallery and can be used for tag searches --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tags</span>&gt;</span>web utility http json url parsing<span class="tag">&lt;/<span class="name">tags</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Dependencies are automatically installed when the package is installed --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span> <span class="attr">id</span>=<span class="string">"Newtonsoft.Json"</span> <span class="attr">version</span>=<span class="string">"9.0"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">metadata</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- A readme.txt to display when the package is installed --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">files</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">file</span> <span class="attr">src</span>=<span class="string">"readme.txt"</span> <span class="attr">target</span>=<span class="string">""</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">files</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">package</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这种通过声明文件配置包的方式依然存在门槛，对文件中元数据的键值对进行配置繁琐，并且难以维护。详情可参阅<a href="https://docs.microsoft.com/en-us/nuget/create-packages/creating-a-package?#creating-the-nuspec-file" target="_blank" rel="noopener">创建nuspec文件</a>。</p>
+<h2 id="通过-csproj工程文件进行配置"><a href="#通过-csproj工程文件进行配置" class="headerlink" title="通过*.csproj工程文件进行配置"></a>通过*.csproj工程文件进行配置</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nuget pack &lt;project-name&gt;.csproj</span><br></pre></td></tr></table></figure>
+
+<p>通过这种方式我们可以轻松的将现有工程转换为对应的*.nupkg包。<br>在使用这种方式对目标工程进行打包前，需要注意以下几点：</p>
+<ul>
+<li><p>需要修改工程的<em>Assembly Infomation</em>，其中Company是比较重要的一项，填入的信息将被<strong>nuget.exe</strong>作为<em>Author</em>的包属性使用。<img src="/2018/01/02/custom-nuget-packages/assembly-info.png" alt="Assembly Info"></p>
+</li>
+<li><p>比较通用的版本号标识方法为<strong>Major.Minor.Build.Revision</strong></p>
+<ol>
+<li>Major：具有相同名称但不同主版本号的程序集不可互换。例如，这适用于对产品的大量重写，这些重写使得无法实现向后兼容性。当有极大的更新时，会增加major的版号。<strong>Major主版本号一般不向下兼容。</strong></li>
+<li>Minor：如果两个程序集的名称和主版本号相同，而次版本号不同，这指示显著增强，但照顾到了向后兼容性。例如，这适用于产品的修正版或完全向后兼容的新版本。而当有大更新，但不至于更新major时，会更新minor的版号。<strong>当主板本号相同，Minor次版本号不同，高版本一般需要对低版本进行兼容。</strong></li>
+<li>Build：内部版本号的不同表示对相同源所作的重新编译。这适合于更改处理器、平台或编译器的情况。若更新比较小，例如只是除虫（bug fixing），则会更新build的版号。</li>
+<li>Revision：名称、主版本号和次版本号都相同但修订号不同的程序集应是完全可互换的。这适用于修复以前发布的程序集中的安全漏洞。程序集的只有内部版本号或修订号不同的后续版本被认为是先前版本的修补程序 (Hotfix) 更新。当在同一个Build下需要重新编译，那么就需要增加Revision即可。</li>
+</ol>
+</li>
+</ul>
+<p>上面的Assembly Infomation图中Build版本号处填写的为<strong>*</strong>，表示由此位开始，Build版本号及Revision版本号将由机器根据时间自动生成，以对之前的版本进行区分。</p>
+<ul>
+<li>打包过程将直接对编译结果进行处理，因此在打包前需要手动进行编译。否则<strong>nuget.exe</strong>会报错。</li>
+</ul>
+<p>用来调整打包内容的选项如下：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IncludeReferencedProjects</td>
+<td>解决方案的依赖项将以递归的方式被加入到Package中。</td>
+</tr>
+<tr>
+<td>properties</td>
+<td>键值对，例如：-properties Configuration=Release</td>
+</tr>
+<tr>
+<td>symbols</td>
+<td>添加此选项会将调试使用的符号文件添加至Package中。推荐Beta版本的Package使用Debug编译方式，并将符号文件进行附加。</td>
+</tr>
+</tbody></table>
+<h1 id="Nuget-Package的发布"><a href="#Nuget-Package的发布" class="headerlink" title="Nuget Package的发布"></a>Nuget Package的发布</h1><p>使用Nuget.Server作为Nuget服务器时，可以通过两种方式将自定义包进行发布。</p>
+<h2 id="直接发布至指定目录"><a href="#直接发布至指定目录" class="headerlink" title="直接发布至指定目录"></a>直接发布至指定目录</h2><p>Nuget.Server的配置文件web.confg下AppSetting节点中对保存包的物理路径进行了设置。将打包好的*.nupkg复制至此文件夹即完成打包。</p>
+<h2 id="通过nuget-cli进行推送"><a href="#通过nuget-cli进行推送" class="headerlink" title="通过nuget cli进行推送"></a>通过nuget cli进行推送</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nuget.exe push &#123;package file&#125; &#123;apikey&#125; -Source http://NugetServer/nuget</span><br></pre></td></tr></table></figure>
+
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>加载评论需要在浏览器启用 JavaScript 脚本支持。</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Nuget-Package的生成"><span class="toc-number">1.</span> <span class="toc-text">Nuget Package的生成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Nuget-GUI管理工具"><span class="toc-number">1.1.</span> <span class="toc-text">Nuget GUI管理工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过-nuspec声明文件进行配置"><span class="toc-number">1.2.</span> <span class="toc-text">通过*.nuspec声明文件进行配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过-csproj工程文件进行配置"><span class="toc-number">1.3.</span> <span class="toc-text">通过*.csproj工程文件进行配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Nuget-Package的发布"><span class="toc-number">2.</span> <span class="toc-text">Nuget Package的发布</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#直接发布至指定目录"><span class="toc-number">2.1.</span> <span class="toc-text">直接发布至指定目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过nuget-cli进行推送"><span class="toc-number">2.2.</span> <span class="toc-text">通过nuget cli进行推送</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shine.dev/2018/01/02/custom-nuget-packages/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shine.dev/2018/01/02/custom-nuget-packages/&text=自定义Nuget包"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shine.dev/2018/01/02/custom-nuget-packages/&title=自定义Nuget包"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shine.dev/2018/01/02/custom-nuget-packages/&is_video=false&description=自定义Nuget包"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=自定义Nuget包&body=Check out this article: https://shine.dev/2018/01/02/custom-nuget-packages/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shine.dev/2018/01/02/custom-nuget-packages/&title=自定义Nuget包"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shine.dev/2018/01/02/custom-nuget-packages/&title=自定义Nuget包"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shine.dev/2018/01/02/custom-nuget-packages/&title=自定义Nuget包"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shine.dev/2018/01/02/custom-nuget-packages/&title=自定义Nuget包"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shine.dev/2018/01/02/custom-nuget-packages/&name=自定义Nuget包&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Shine
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/ShineSmile">项目</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'shinesmile';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+</body>
+</html>
