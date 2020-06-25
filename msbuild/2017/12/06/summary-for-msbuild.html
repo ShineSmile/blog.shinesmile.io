@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>MSBuild概述 | shine.dev</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="MSBuild概述" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Microsoft Build Engine is a platform for building applications. This engine, which is also known as MSBuild, provides an XML schema for a project file that controls how the build platform processes and builds software. Visual Studio uses MSBuild, but it doesn’t depend on Visual Studio. By invoking msbuild.exe on your project or solution file, you can orchestrate and build products in environments where Visual Studio isn’t installed." />
+<meta property="og:description" content="The Microsoft Build Engine is a platform for building applications. This engine, which is also known as MSBuild, provides an XML schema for a project file that controls how the build platform processes and builds software. Visual Studio uses MSBuild, but it doesn’t depend on Visual Studio. By invoking msbuild.exe on your project or solution file, you can orchestrate and build products in environments where Visual Studio isn’t installed." />
+<link rel="canonical" href="http://localhost:4000/msbuild/2017/12/06/summary-for-msbuild.html" />
+<meta property="og:url" content="http://localhost:4000/msbuild/2017/12/06/summary-for-msbuild.html" />
+<meta property="og:site_name" content="shine.dev" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-12-06T15:37:06+08:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/msbuild/2017/12/06/summary-for-msbuild.html"},"url":"http://localhost:4000/msbuild/2017/12/06/summary-for-msbuild.html","headline":"MSBuild概述","dateModified":"2017-12-06T15:37:06+08:00","datePublished":"2017-12-06T15:37:06+08:00","description":"The Microsoft Build Engine is a platform for building applications. This engine, which is also known as MSBuild, provides an XML schema for a project file that controls how the build platform processes and builds software. Visual Studio uses MSBuild, but it doesn’t depend on Visual Studio. By invoking msbuild.exe on your project or solution file, you can orchestrate and build products in environments where Visual Studio isn’t installed.","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="shine.dev" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">shine.dev</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">MSBuild概述</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-12-06T15:37:06+08:00" itemprop="datePublished">Dec 6, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <blockquote>
+  <p>The Microsoft Build Engine is a platform for building applications. This engine, which is also known as MSBuild, provides an XML schema for a project file that controls how the build platform processes and builds software. Visual Studio uses MSBuild, but it doesn’t depend on Visual Studio. By invoking msbuild.exe on your project or solution file, you can orchestrate and build products in environments where Visual Studio isn’t installed.</p>
+</blockquote>
+
+<p>微软构建引擎，即MSBuild，是应用程序的构建平台。MSbuild提供了一种用来描述工程的XML纲要，用来声明使用的编译工具及编译过程。MSBuild不依赖于Visual Studio，相反Visual Studio需要MSBuild才能进行构建。在未安装Visual Studio的环境中，通过调用MSBuild.exe并指明具体的工程或解决方案文件，即可对产品进行编译及构建。——摘自<a href="https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild">Microsoft Offical Document</a></p>
+
+<blockquote>
+  <p>MSBuild is now available as part of the .NET Core SDK and can build .NET Core projects on Windows, macOS, and Linux.</p>
+</blockquote>
+
+<p>MSBuild现已成为.NET CORE SDK的组件，并且可以在Windows、macOS及Linux平台构建<strong>.NET CORE</strong>工程。 ——摘自<a href="https://docs.microsoft.com/en-us/visualstudio/msbuild/what-s-new-in-msbuild-15-0">What’s New in MSBuild 15</a></p>
+
+<h1 id="msbuild的版本及路径">MSBuild的版本及路径</h1>
+
+<p>早期的MSbuild的通常随.NET SDK一同安装在在<strong>程序集全局缓存Global Assembly Cache</strong>下，其路径为:<code class="language-plaintext highlighter-rouge">C:\Windows\Microsoft.NET\&lt;架构&gt;\&lt;version&gt;\MSBuild.exe</code>。</p>
+
+<p><img src="/assets/img/summary-for-msbuild/msbuild_legacy_version.png" alt="不同版本.NET Framwork使用的MSBuild版本" /></p>
+
+<p>后续的MSBuild通常随Visual Studio一同发布，其路径被合并至Visual Stuio的安装路径中，例如VS2017中的MSBuild路径为：<code class="language-plaintext highlighter-rouge">C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin</code></p>
+
+<p><img src="summary-for-msbuild/msbuild_v15.png" alt="MSBuild ver.15" /></p>
+
+<h1 id="msbuild-without-visual-studio">MSbuild without Visual Studio</h1>
+
+<p>MSBuild Tool 2017：<a href="https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=15">下载地址</a></p>
+
+<h1 id="msbuild常用参数">MSBuild常用参数</h1>
+
+<p>|编译开关|缩略形式|说明|
+|—-|—-|—-|
+|/help|/? or /h|显示可用的帮助信息. 例: <code class="language-plaintext highlighter-rouge">msbuild.exe /?</code>|
+|/maxcpucount[:<code class="language-plaintext highlighter-rouge">number</code>]|/m[:<code class="language-plaintext highlighter-rouge">number</code>]|显示构建时同时使用的CPU个数的最大值。不附加此标识时默认值为1，附加此标识且不指定数目时，MSBuild将尽可能多的使用CPU核心运行。更多信息请参阅<a href="https://docs.microsoft.com/en-us/visualstudio/msbuild/building-multiple-projects-in-parallel-with-msbuild">并行编译多个工程</a>.下面的例子表示MSBuild将同时使用三个进程实现三个工程同时编译的效果。<code class="language-plaintext highlighter-rouge">msbuild myproject.proj /maxcpucount:3</code>|
+|/property:<code class="language-plaintext highlighter-rouge">name</code>=<code class="language-plaintext highlighter-rouge">value</code>|/p:<code class="language-plaintext highlighter-rouge">name</code>=<code class="language-plaintext highlighter-rouge">value</code>|设置或重写工程级别的属性，其形式为<code class="language-plaintext highlighter-rouge">name</code>:<code class="language-plaintext highlighter-rouge">value</code>键值对。多个键值对需要分开声明，或者使用分号或者逗号隔开。例如: <code class="language-plaintext highlighter-rouge">/property:WarningLevel=2;OutDir=bin\Release;Configuration=Release</code>|
+|/toolsversion:<code class="language-plaintext highlighter-rouge">version</code>|/tv:<code class="language-plaintext highlighter-rouge">version</code>|用来制定构建构成时使用的工具集版本。例如:<code class="language-plaintext highlighter-rouge">/toolsversion:3.5</code> 特别注意：工具集版本号不与工程的目标平台不能等同而视，目标平台指工程构建后运行的.NET Framework平台。|
+|/verbosity:<code class="language-plaintext highlighter-rouge">level</code>|/v:<code class="language-plaintext highlighter-rouge">level</code>| 可选的信息量参数如下: 安静<code class="language-plaintext highlighter-rouge">q[uiet]</code>, 最小输出<code class="language-plaintext highlighter-rouge">m[inimal]</code>, 普通<code class="language-plaintext highlighter-rouge">n[ormal]</code>, 详细<code class="language-plaintext highlighter-rouge">d[etailed]</code>, and 诊断<code class="language-plaintext highlighter-rouge">diag[nostic]</code>. 例如: <code class="language-plaintext highlighter-rouge">/verbosity:quiet</code>|
+|/nologo||不显示MSBuild的启动信息|
+有关构建参数的详细文档在<a href="https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference">这里</a>。</p>
+
+<h1 id="安装示例">安装示例</h1>
+
+<p><img src="/assets/img/summary-for-msbuild/msbuild_install_example.png" alt="安装示例" /></p>
+
+  </div><a class="u-url" href="/msbuild/2017/12/06/summary-for-msbuild.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">shine.dev</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">shine.dev</li><li><a class="u-email" href="mailto:me@shine.dev">me@shine.dev</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ShineSmile"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ShineSmile</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Ask the person who know the answer.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-25T11:14:06+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">shine.dev</title><subtitle>Ask the person who know the answer.</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2020/06/24/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2020-06-24T14:42:59+08:00</published><updated>2020-06-24T14:42:59+08:00</updated><id>http://localhost:4000/jekyll/update/2020/06/24/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2020/06/24/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;Jekyll requires blog post files to be named according to the following format:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YEAR-MONTH-DAY-title.MARKUP&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Where &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YEAR&lt;/code&gt; is a four-digit number, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MONTH&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DAY&lt;/code&gt; are both two-digit numbers, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MARKUP&lt;/code&gt; is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">为什么你需要一台千兆路由器</title><link href="http://localhost:4000/2020/06/13/why-you-need-a-gigabit-router.html" rel="alternate" type="text/html" title="为什么你需要一台千兆路由器" /><published>2020-06-13T21:41:28+08:00</published><updated>2020-06-13T21:41:28+08:00</updated><id>http://localhost:4000/2020/06/13/why-you-need-a-gigabit-router</id><content type="html" xml:base="http://localhost:4000/2020/06/13/why-you-need-a-gigabit-router.html">&lt;p&gt;目前市面上比较多的是百兆路由器。由于带宽是用的是兆位（Mbit），换算成文件大小兆字节（MByte）需要除以8，再刨除协议、拆包、封包等底层损耗速度大概为12MByte/s。&lt;/p&gt;
+
+&lt;p&gt;按两室一厅的房子，3个人，如果同时使用网络，平均的算每个人的带宽仅为4MByte/s，也就是100MB的文件需要下载半分钟。&lt;/p&gt;
+
+&lt;p&gt;再举个例子，如果用优酷看HDR清晰度的视频，视频缓冲时的带宽大概为7MByte/s。3个人一起看此清晰度的视频时大概率会出现断断续续等待缓冲的现象。&lt;/p&gt;
+
+&lt;p&gt;那么千兆路由器呢？千兆路由器的传输带宽可达120Mbyte/s。如果接入的是千兆光纤，网络使用高峰期间，路由器层面，每个人也能分到40MByte/s带宽。&lt;/p&gt;
+
+&lt;p&gt;更换完千兆路由器后，网络带宽的瓶颈就不再是路由器，而是光纤。联通光纤目前大多为300Mbps，折合成文件的单位，大概37.5MByte/s。相同的带宽，更换完千兆路由器后，每个人的平均带宽也有12MByte/s。1080P 60fps即点即播完全不是问题。&lt;/p&gt;
+
+&lt;p&gt;除此之外，使用千兆路由器还有如下好处：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;芯片的升级、带宽吞吐量的增加，延迟更小。&lt;/li&gt;
+  &lt;li&gt;接入设备更多。随着嵌入式设备发展，越来越多的家用电器都可以通过WiFi联网。新的路由器能维护更多设备的网络链接。&lt;/li&gt;
+  &lt;li&gt;并没有很贵。某国产品牌的千兆路由器100块就够了。之前买的百兆小米路由器用了有四年，遇到的一个致命硬伤是LAN口的带宽都只有百兆。马可布在备份的时需要通过LAN口向NAS传输数据，再加上系统文件比较碎，几十GB的备份，传输峰值也就10MB/s。无奈又买了个华为的千兆的交换机。一套下来400块。现在买个最便宜的千兆路由器就能解决这个问题。而且备份时马可布不再需要插网线！随时工作随时备份，真就解放生产力。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;需要注意的是，2.4GHz WiFi的理论带宽为20/40MB/s，换了千兆路由器后的最好使用5G波段的WiFi。但是5G波段的WiFi对距离比较敏感，墙体对信号的影响较大。超出一定距离信号会变弱，影响使用。如果是土豪的话，可以买个子母机，母机接光猫上网后，子机插在比较远的房间电源上即可。子母机之间可以通过同一个电表下的电缆走网。不用扯网线！不用无线桥联！&lt;/p&gt;
+
+&lt;p&gt;写到现在发现结尾完全可以来个防不胜防的标准软文结尾。可是我缺的不是金主，是粉丝。&lt;/p&gt;
+
+&lt;p&gt;就zèn地吧！&lt;/p&gt;</content><author><name></name></author><summary type="html">目前市面上比较多的是百兆路由器。由于带宽是用的是兆位（Mbit），换算成文件大小兆字节（MByte）需要除以8，再刨除协议、拆包、封包等底层损耗速度大概为12MByte/s。</summary></entry><entry><title type="html">学嗷</title><link href="http://localhost:4000/devops/2020/04/07/learn.html" rel="alternate" type="text/html" title="学嗷" /><published>2020-04-07T00:07:48+08:00</published><updated>2020-04-07T00:07:48+08:00</updated><id>http://localhost:4000/devops/2020/04/07/learn</id><content type="html" xml:base="http://localhost:4000/devops/2020/04/07/learn.html">&lt;p&gt;说巧不巧，从2016年在AWS的发布会上听说了DevOps以及Docker生态。2017年第一次听说Kubernetes，到现在我也偶然成为了Kubernetes的众多用户其中之一。作为集群资源调度平台，当在Azure上部署第一个LoadBalancer的时候还是非常让我震惊的。Kubernetes竟然反过来创建且调度了Azure的资源。这说明什么？说明Kubernetes真的提供了统一平台的标准。公有云与公有云之间的实现表面上一致，但细节会有些许差异。Kubernetes后面有可能成为它们之间的桥梁，提供一个新的抽象层减少对单一平台的依赖。&lt;/p&gt;
+
+&lt;p&gt;近两年一直在困扰自己不是计算机专业科班出身。遇到了一些阻力吧，又开始在意身边人的评价了。这个该怎么说，有一些虚荣心作祟吧，凡是涉及到评价、评级的东西都不希望自己的成绩太差。很多时候自己虽然不是科班出身，没经过系统化的培训，但是自己的经验和悟性可能还不错，能够定位到问题，并且解决。写这些的时候突然想起，这些评价15年冬天的时候听别人说过。但出于对面试结果的抵触，一直没有正视。&lt;/p&gt;
+
+&lt;p&gt;想往上走必须要服众。把主观的东西先放到一边。客观上，一方面是认证，一方面是作品。&lt;/p&gt;
+
+&lt;p&gt;认证方面是没有学历，不过这已经不是最要紧的了，现在补个光鲜的学历也来不及了。几年前还想好好花心思包装自己，现在越活越懒了。&lt;/p&gt;
+
+&lt;p&gt;作品方面，一直以来都是把自己捆绑在工作上，毕业时间长了，很多东西工作上用不上，大致看一看是干什么的哪会用到就没在研究过。说到这感谢自己的好奇心，从开发到运维整条线都有涉猎。虽然不是很精通，但市面上的中间件，不管是什么都可以照猫画虎的拿来用。要说自己真做了什么，也没什么可分享的。开发是面向Debug编程，运维的时候就是面向Output维护。觉得最开心的就是自己凭兴趣学会了使用docker，托管了minecraft的服务，用虚拟机搭建了docker swarm。那时候我还不知道该如何维护一个守护进程或者服务。然后我就一个箭步跨过linux运维跳到docker的生态里了。&lt;/p&gt;
+
+&lt;p&gt;如果非要深究问我到底会什么，可能我什么都不会吧。&lt;/p&gt;
+
+&lt;p&gt;但要问我能做些什么，回答就是什么都能弄点。可能有点大言不惭，但照着文档照方抓药真的不难。跑起来再说。&lt;/p&gt;
+
+&lt;p&gt;我也要主观的解释一下为什么说什么都能用。&lt;/p&gt;
+
+&lt;p&gt;读了《凤凰项目》，一本主张将传统工业的管理方法搬运到信息工业的小说，让我对自己的工作性质有了新的认识。有人说大多数程序员都在构建信息流水线，我也是其中的一员。&lt;/p&gt;
+
+&lt;p&gt;我们的产品和传统工业制品有很多差异。我举个例子，小时候我买玩具，有蓝色的小熊和粉色的小熊。我买了蓝色的。后来粉色的我也想要，我对家里人说粉色的也买给我吧，这样我们还会有很多小小熊。:)&lt;/p&gt;
+
+&lt;p&gt;在传统工业，我们的用户是消费一件商品。我买了汽车，使用，报废。&lt;/p&gt;
+
+&lt;p&gt;而信息工业，既有上面这种购买，使用，删除模式。除此之外，我们还可以给用户提供一套信息流水线。有的产品是将信息推给用户，比如主流的新闻feed流；有的产品是用户将意愿以数据的形式给我们，比如下订单；双向的流水线有来有回就会产生交互。这个交互的过程，就是市面上大多数用户使用信息工业产品的过程。这种差异我不知道该用什么术语来形容，但是在这个过程中，我们生产了新的数据。对用户来说，有价值的不是这个流水线，是交互过程以及交互过程产生的数据。&lt;/p&gt;
+
+&lt;p&gt;我们的用户一夜之间从纯粹的消费者变成了木匠。我们卖给他的不再是柜子，而是斧子、锯、刨子等等工具。在基于良好的，可泛用的UI/UE设计的前提下，用户可以以非常低的成本很快的掌握一种工具的使用。这在信息工业以前是很难做到的。&lt;/p&gt;
+
+&lt;p&gt;现在回望早期操作系统只能用纸带输入数据，到交互式命令行，再到图形界面，早期的图形界面很难看，因为这些东西都不是给普通用户使用的，这些用户基本上都是计算机科学的研究者。比如windows xp之前的windows界面，方方正正的按钮，都是对工业时代按钮外观的模拟。那时计算机的用户基本上是军工方面的工程师。（耳熟能详的bug的用法，来自是葛丽丝·霍普（Grace Hopper）发现继电器触点中间夹了一只飞蛾。她是计算机科学家的同时还是海军准将，是一名军人。PS.《文明6》的海军统帅啊！有了摩索拉斯王陵墓隐退时直接两个原子能/信息时代尤里卡！）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://img1.gamersky.com/image2016/10/20161020_zh_277_14/gamersky_11small_22_20161020174760B.jpg&quot; alt=&quot;葛丽丝·霍普1&quot; /&gt;
+&lt;img src=&quot;https://img1.gamersky.com/image2016/10/20161020_zh_277_14/gamersky_12small_24_201610201747B9B.jpg&quot; alt=&quot;葛丽丝·霍普2&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;（图片懒得进游戏截，引自游民星空，侵删）&lt;/p&gt;
+
+&lt;p&gt;让我们把话题拽回来，啰嗦了这么多，现在应该对信息工业印象深刻了。没错，程序员不是科学家，是工人。（我们是共产主义接班人～唱！）这也是为什么市面上大多数程序员的职位要叫做工程师。&lt;/p&gt;
+
+&lt;p&gt;信息工业也是工业。信息工业也是工业。信息工业也是工业。&lt;/p&gt;
+
+&lt;p&gt;工业注重的是科学的应用。工业的上游是科研。信息工业的上游是计算机科学。我们作为信息工业的工人，要做的是熟知计算机科学的成果并灵活运用。我们使用的计算机科学成果的子集。计算机科学和我的老本行化学一样是信息工业/化工的上游。说实话市面上大多数的程序员包括我在内并不具备计算机科学的研究能力。可能是因为这些人读的是龙书、虎书和TAOCP吧。&lt;/p&gt;
+
+&lt;p&gt;在实际工作中，上手一个项目的难度真的不是很高。技术栈固定下来的情况，只要熟悉流程逐个螺丝拧紧就可以。大多数人需要应对的问题是在面试中证明自己在某些领域的经验以及自己的潜力。虽然有新的东西需要学习，但是基于应用去学习，能够很快抓住主干，其余的部分可以按需学习。比如在学svn的时候，必学commit/push/pull，svn的分支因为很难用，一般不会接触，顶多就是发版的时候合并到主干分支。但到git时分支就是必须要掌握的概念。如果不会分支，就很难灵活通过git来实现一些工作流的控制。但是rebase和cherry-pick就是可选项了，一者用的少，二者可以通过其他方式实现（确实频繁使用不掌握会浪费人力）。&lt;/p&gt;
+
+&lt;p&gt;这不是一个偷懒的借口。但从工程角度讲，很多时候，别人能做到的，我们都能。即便想徒手写个新的关系型数据库管理系统也是可能的，因为这是工程，工程是可以复制的。（但相比自己写一个不断优化，更好的实践方法是找到postgresql的源码然后研读先。）《XXX最佳实践》为标题的分享会也有很多，原因是实践是一种技术应用的方法，最佳实践是他觉得这么用最省时省力。&lt;/p&gt;
+
+&lt;p&gt;说到这里想起来几年前觉得自己穿着github的文化衫觉得自己很极客，自己很牛逼，自己是程序员，会是改变世界的人。现在看来真的是对这个世界和行业理解的不够深刻。马克思诚不欺我。以后如果我没有上万星的项目是不敢再穿这种文化衫挤地铁了。不过开源真的很棒。如果没有开源，我一个学化学出身的也没有机会跨行业工作。&lt;/p&gt;
+
+&lt;p&gt;所以我的观点就是，自己作为程序员其实就是一名流水线上的工人。这条流水线生产的产品比较特殊，因为产品除了直接消费（比如扫雷）以外，还会生产新的数据出来。（生产编译器的人：细思极恐，禁止递归，禁止自举。）&lt;/p&gt;
+
+&lt;p&gt;我为什么强调是工人。因为工人的培养成本并不特别高。学会照方抓药真的不难。我现在能做到的，我相信身边很多人即便现在不会，假以时日都能做到。而同质化竞争的后果就是跳楼大甩卖。&lt;/p&gt;
+
+&lt;p&gt;所以别管自己的薪水现在是多少，既然已经没有了再认证的机会，不妨继续跟着自己的脚步往前走。对感兴趣的事务继续投入精力研究。不要再拘泥于职位、薪水这些眼前的东西上。不要在执着于证明自己牛逼，用羽川翼的话讲：”我不是什么都知道，我只知道我知道的。”要让自己变得真正牛逼，不仅没必要藏着掖着，更要让别人望尘莫及。我才28岁，吃老底还太早，到40岁中年之前还有12年，整整一轮的时间来沉（用）淀（来）自（挥）己（霍）。因为深切的感受到后生可畏，未来新的工具链是有可能越过旧系统中的坑并大放光彩的。（web方向的java，DevOps思想下的云和Kubernetes的NoOps实践）&lt;/p&gt;
+
+&lt;p&gt;不要拘泥于井底。&lt;/p&gt;
+
+&lt;p&gt;“学！跟世界冠军学！跟Topson学！”&lt;/p&gt;
+
+&lt;p&gt;感谢&lt;a href=&quot;https://space.bilibili.com/396822361&quot;&gt;阿光&lt;/a&gt;。在我去年最迷茫的时期通过&lt;a href=&quot;https://www.bilibili.com/video/BV1P4411q78A&quot;&gt;Dota2&lt;/a&gt;给了我很大鼓励。&lt;/p&gt;</content><author><name></name></author><summary type="html">说巧不巧，从2016年在AWS的发布会上听说了DevOps以及Docker生态。2017年第一次听说Kubernetes，到现在我也偶然成为了Kubernetes的众多用户其中之一。作为集群资源调度平台，当在Azure上部署第一个LoadBalancer的时候还是非常让我震惊的。Kubernetes竟然反过来创建且调度了Azure的资源。这说明什么？说明Kubernetes真的提供了统一平台的标准。公有云与公有云之间的实现表面上一致，但细节会有些许差异。Kubernetes后面有可能成为它们之间的桥梁，提供一个新的抽象层减少对单一平台的依赖。</summary></entry><entry><title type="html">Retina MacBook Pro电池鼓胀</title><link href="http://localhost:4000/2019/11/04/battery-bomb.html" rel="alternate" type="text/html" title="Retina MacBook Pro电池鼓胀" /><published>2019-11-04T20:40:14+08:00</published><updated>2019-11-04T20:40:14+08:00</updated><id>http://localhost:4000/2019/11/04/battery-bomb</id><content type="html" xml:base="http://localhost:4000/2019/11/04/battery-bomb.html">&lt;p&gt;电池鼓胀。&lt;/p&gt;
+
+&lt;p&gt;Apple Care期内复检的时候没有发现。&lt;/p&gt;
+
+&lt;p&gt;检测散热问题也没有检出来。&lt;/p&gt;
+
+&lt;p&gt;实在受不了卡顿打开清理灰尘的时候发现电池全鼓了。&lt;/p&gt;
+
+&lt;p&gt;去天才吧以过保（三年）为由拒绝了。只能付费更换。&lt;/p&gt;
+
+&lt;p&gt;如果你的macbook放在桌子上滑动不稳定，一定要在期内对电池进行检测。&lt;/p&gt;
+
+&lt;p&gt;据说三年内电池都可以更换的。即便没有Apple Care。&lt;/p&gt;
+
+&lt;p&gt;我只能自认倒霉。&lt;/p&gt;
+
+&lt;p&gt;因为电池循环还不到200次，炸了再说炸了的。&lt;/p&gt;
+
+&lt;p&gt;夸赞一下天才吧工程师的话术，显然结果培训。建议我电池撑不住了折旧置换新的macbook。&lt;/p&gt;
+
+&lt;p&gt;我买了8年的sony本子现在还在用来跑一些windows环境的任务。&lt;/p&gt;
+
+&lt;p&gt;对苹果的品控和质保非常失望。&lt;/p&gt;
+
+&lt;p&gt;单纯表达自己的观点。果粉勿扰。&lt;/p&gt;</content><author><name></name></author><summary type="html">电池鼓胀。</summary></entry><entry><title type="html">OSX外接显示器HiDPI配置</title><link href="http://localhost:4000/osx/2019/11/04/hidpi.html" rel="alternate" type="text/html" title="OSX外接显示器HiDPI配置" /><published>2019-11-04T20:35:49+08:00</published><updated>2019-11-04T20:35:49+08:00</updated><id>http://localhost:4000/osx/2019/11/04/hidpi</id><content type="html" xml:base="http://localhost:4000/osx/2019/11/04/hidpi.html">&lt;p&gt;osx对显示器泛用做的很差，估计是考虑到使用体验相关的问题。&lt;/p&gt;
+
+&lt;p&gt;如果发布的os版本没有相关显示器配置文件，默认是不开启hidpi的，结果导致字要么太小，要么发虚。&lt;/p&gt;
+
+&lt;p&gt;可以参考这个&lt;a href=&quot;https://github.com/xzhih/one-key-hidpi&quot;&gt;xzhih/one-key-hidpi&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;记得关闭sip&quot;&gt;记得关闭SIP&lt;/h2&gt;
+
+&lt;p&gt;开机按&lt;strong&gt;Command + R&lt;/strong&gt;，打开终端：&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; csrutil disable
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">osx对显示器泛用做的很差，估计是考虑到使用体验相关的问题。</summary></entry><entry><title type="html">Conference Track Management</title><link href="http://localhost:4000/2019/11/04/ConferenceTrackManagement.html" rel="alternate" type="text/html" title="Conference Track Management" /><published>2019-11-04T18:44:51+08:00</published><updated>2019-11-04T18:44:51+08:00</updated><id>http://localhost:4000/2019/11/04/ConferenceTrackManagement</id><content type="html" xml:base="http://localhost:4000/2019/11/04/ConferenceTrackManagement.html">&lt;p&gt;GayHub地址： &lt;a href=&quot;https://github.com/ShineSmile/ConferenceTrackManagement&quot;&gt;Conference Track Management&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;题目google一下就能找到，是道老题。难点应该是动态规划。&lt;/p&gt;
+
+&lt;p&gt;这是我写的丑陋解法。参考了leetcode的&lt;a href=&quot;https://leetcode.com/problems/combination-sum-ii/&quot;&gt;第40题&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;面试的结果是没过。原因是语言特性“用的不对”。&lt;/p&gt;
+
+&lt;p&gt;用到了递归和流式编程。没有采用查出上午所有组合再拿结果逐个去看下午的方式，但其实两者最坏情况的时间复杂度是一样的。结果导致递归函数过于复杂不方便维护吧。&lt;/p&gt;
+
+&lt;p&gt;额外写了很多单元测试，尽可能的覆盖了所有的情况，但是没过……&lt;/p&gt;
+
+&lt;p&gt;心塞。&lt;/p&gt;
+
+&lt;p&gt;无所谓了，反正抄答案过了也不好意思发出来。&lt;/p&gt;</content><author><name></name></author><summary type="html">GayHub地址： Conference Track Management</summary></entry><entry><title type="html">BootCamp键位设置</title><link href="http://localhost:4000/windows/osx/mac/macbook/bootcamp/2019/08/02/reverse-mouse-wheel-direction-for-windows.html" rel="alternate" type="text/html" title="BootCamp键位设置" /><published>2019-08-02T23:40:55+08:00</published><updated>2019-08-02T23:40:55+08:00</updated><id>http://localhost:4000/windows/osx/mac/macbook/bootcamp/2019/08/02/reverse-mouse-wheel-direction-for-windows</id><content type="html" xml:base="http://localhost:4000/windows/osx/mac/macbook/bootcamp/2019/08/02/reverse-mouse-wheel-direction-for-windows.html">&lt;h1 id=&quot;反转鼠标滚轮方向&quot;&gt;反转鼠标滚轮方向&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://superuser.com/questions/310681/inverting-direction-of-mouse-scroll-wheel&quot;&gt;出自superuser&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# View registry settings&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Get-ItemProperty&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;HKLM:\SYSTEM\CurrentControlSet\Enum\HID\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\Device&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Parameters&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;FlipFlopWheel&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-EA&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Change registry settings&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Reverse mouse wheel scroll FlipFlopWheel = 1 &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Normal mouse wheel scroll FlipFlopWheel = 0 &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Get-ItemProperty&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;HKLM:\SYSTEM\CurrentControlSet\Enum\HID\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\Device&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Parameters&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;FlipFlopWheel&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-EA&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ForEach-Object&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Set-ItemProperty&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;$_&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;PSPath&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;FlipFlopWheel&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The command for normal (non-inverted) scrolling has the 0 and 1 swapped:&lt;/p&gt;
+
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Restore default scroll direction&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Get-ItemProperty&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;HKLM:\SYSTEM\CurrentControlSet\Enum\HID\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\Device&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Parameters&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;FlipFlopWheel&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-EA&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ForEach-Object&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Set-ItemProperty&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;$_&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;PSPath&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;FlipFlopWheel&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;反转winalt键&quot;&gt;反转Win/Alt键&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/randyrants/sharpkeys/releases&quot;&gt;SharpKeys&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">反转鼠标滚轮方向</summary></entry><entry><title type="html">时隔一年</title><link href="http://localhost:4000/2019/04/30/one-year-later-at-2019.html" rel="alternate" type="text/html" title="时隔一年" /><published>2019-04-30T19:53:30+08:00</published><updated>2019-04-30T19:53:30+08:00</updated><id>http://localhost:4000/2019/04/30/one-year-later-at-2019</id><content type="html" xml:base="http://localhost:4000/2019/04/30/one-year-later-at-2019.html">&lt;p&gt;时隔一年，已经超过一年多的时间没有更新这个Blog了。&lt;/p&gt;
+
+&lt;p&gt;这一年时间也发生挺多的，现在github已经被巨硬收购，不知道免费的私有库是不是也是托巨硬收购的福。因此我将原本在github托管的源码转移到了私有库，并且对gh-pages分支进行了保护（实则就是给自己找麻烦）。&lt;/p&gt;
+
+&lt;p&gt;还有一个变化就是我把用于gh-pages推送的.deploy_git文件夹设置成了git仓库的子模块。因为hexo在发布的时候，如果没有这个文件夹，会新建并且设置git remote，但是并不会将gh-pages迁出！这就导致只要一换电脑就需要手动将gh-pages分支的内容clone下来，否则就会产生非常难合并的none-fast-forward分支。&lt;/p&gt;
+
+&lt;p&gt;这种情况下需要注意的问题就是，要先确保hexo deploy的内容正确，然后再提交博客的源码（我又虐自己非要将gh-pages保护起来，必须提PR才能合并）。结果本来打算让提交记录更清晰的计划泡汤了。不过有时就是打个草稿，有些东西可能写完可能不适合发表，这么想的话PR还是有必要的。（我相信没人闲到到github这里看我的commit history的，除非超硬核的技术人员做背调。）&lt;/p&gt;
+
+&lt;p&gt;还有一种更好的方式就要上pipeline了。直接在源头处控制。不过比较麻烦的可能是授权。&lt;/p&gt;
+
+&lt;p&gt;还发现了一点submodule有意思的事，在这顺便提一下：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;git submodule的版本不会随着分支的切换而切换。也就是说submodule作为子库，除非进到目录里面进行更新，否则是不会变化的。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;忙到现在，最开始想写什么早就忘了。等我想起来再写吧。&lt;/p&gt;
+
+&lt;p&gt;后面打算将业余时间做一些东西，把之前买的一些域名用起来。&lt;/p&gt;</content><author><name></name></author><summary type="html">时隔一年，已经超过一年多的时间没有更新这个Blog了。</summary></entry><entry><title type="html">云资源管理</title><link href="http://localhost:4000/2018/04/11/cloud-resource-management.html" rel="alternate" type="text/html" title="云资源管理" /><published>2018-04-11T14:44:48+08:00</published><updated>2018-04-11T14:44:48+08:00</updated><id>http://localhost:4000/2018/04/11/cloud-resource-management</id><content type="html" xml:base="http://localhost:4000/2018/04/11/cloud-resource-management.html">&lt;p&gt;简单罗列几点在Azure DevOps过程中想到的问题，有些内容待商榷、讨论更新。&lt;/p&gt;
+
+&lt;h1 id=&quot;命名规范&quot;&gt;命名规范&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;命名的目的是利于资源访问及检索，使用可以通过名称推断出功能的命名规则&lt;/li&gt;
+  &lt;li&gt;由于资源大多是可以通过HTTP请求进行访问，因此资源名称大小写不敏感&lt;/li&gt;
+  &lt;li&gt;筛选器：资源的部分特征可以根据筛选器进行筛选，因此可以不在命名中体现&lt;/li&gt;
+  &lt;li&gt;排列：需要根据资源的用途（例如：开发、测试、发布）、地域、类、规模等因素进行标注，筛选器或图标体现的特征可以不在命名中体现&lt;/li&gt;
+  &lt;li&gt;避免使用数字及词汇出现的频率来命名资源，参见术语表&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;术语表&quot;&gt;术语表&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;建立、使用并维护术语表：资源及功能应使用统一术语未被术语表覆盖的临时命名需要进行资源重命名并进一步推演遇到的情况整理至术语表中&lt;/li&gt;
+  &lt;li&gt;不符合命名规范，临时命名的资源应尽快改名或删除。若此种临时命名的原因为在术语表中覆盖，应更新术语表，并对此种情况命名的扩展性进行推演&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;资源组&quot;&gt;资源组&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;资源组只能通过一种维度进行资源的划分&lt;/li&gt;
+  &lt;li&gt;Azure资源组存在资源删除不干净的BUG（即资源已删除并且不在资源中显示，但在资源组的模板里仍存在此资源的描述，此缺陷会阻碍并在部分资源迁移时随之一并迁移）&lt;/li&gt;
+  &lt;li&gt;单纯依靠资源组对资源进行分类会提高资源在臃肿资源组中的检索难度&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;标签&quot;&gt;标签&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;活用标签：部分信息可以通过标签来实现，标签的特点是不会影响资源的位置。例如部分资源默认通过id的方式来进行区分，资源命名是以标签的方式实现的。还可以通过标签来标识资产的所有者。&lt;/li&gt;
+  &lt;li&gt;标签可以突破资源组对资源进行分类的单维度限制。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;iam&quot;&gt;IAM&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;使用IAM对资源的授权进行限制。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;已有资源的公示认领&quot;&gt;已有资源的公示认领&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;资源的使用者应该对自身的资源负责，限制无关人等的操作，资源应该标注资源的使用者是谁。避免产生没有人使用的资源长期蚕食预算&lt;/li&gt;
+  &lt;li&gt;对于未进行标注的资源&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;做该做的事&quot;&gt;做该做的事&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;规则制定应尽可能简化，不应为特定情况长期使用影响人直观感受的命名或分类方式。&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">简单罗列几点在Azure DevOps过程中想到的问题，有些内容待商榷、讨论更新。</summary></entry><entry><title type="html">IaaS</title><link href="http://localhost:4000/cloud/iaas/2018/03/16/IaaS.html" rel="alternate" type="text/html" title="IaaS" /><published>2018-03-16T14:24:31+08:00</published><updated>2018-03-16T14:24:31+08:00</updated><id>http://localhost:4000/cloud/iaas/2018/03/16/IaaS</id><content type="html" xml:base="http://localhost:4000/cloud/iaas/2018/03/16/IaaS.html">&lt;p&gt;本文收藏列举一些将固定的硬件资源划分为虚机资源的技术。对应市面上常见的IaaS设施。&lt;/p&gt;
+
+&lt;h1 id=&quot;virtualbox系&quot;&gt;VirtualBox系&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.virtualbox.org/manual/ch08.html#vboxmanage-registervm&quot;&gt;vboxmanager&lt;/a&gt;
+&lt;a href=&quot;https://www.vagrantup.com/docs/cli/&quot;&gt;vagrant&lt;/a&gt;
+&lt;a href=&quot;http://www.vagrantbox.es/&quot;&gt;vagrant boxes&lt;/a&gt;
+&lt;a href=&quot;https://docs.docker.com/machine/&quot;&gt;docker machine&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;kvm系&quot;&gt;KVM系&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.linux-kvm.org/page/HOWTO&quot;&gt;HowTo&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">本文收藏列举一些将固定的硬件资源划分为虚机资源的技术。对应市面上常见的IaaS设施。</summary></entry></feed>

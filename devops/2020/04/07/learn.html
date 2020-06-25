@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>学嗷 | shine.dev</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="学嗷" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="说巧不巧，从2016年在AWS的发布会上听说了DevOps以及Docker生态。2017年第一次听说Kubernetes，到现在我也偶然成为了Kubernetes的众多用户其中之一。作为集群资源调度平台，当在Azure上部署第一个LoadBalancer的时候还是非常让我震惊的。Kubernetes竟然反过来创建且调度了Azure的资源。这说明什么？说明Kubernetes真的提供了统一平台的标准。公有云与公有云之间的实现表面上一致，但细节会有些许差异。Kubernetes后面有可能成为它们之间的桥梁，提供一个新的抽象层减少对单一平台的依赖。" />
+<meta property="og:description" content="说巧不巧，从2016年在AWS的发布会上听说了DevOps以及Docker生态。2017年第一次听说Kubernetes，到现在我也偶然成为了Kubernetes的众多用户其中之一。作为集群资源调度平台，当在Azure上部署第一个LoadBalancer的时候还是非常让我震惊的。Kubernetes竟然反过来创建且调度了Azure的资源。这说明什么？说明Kubernetes真的提供了统一平台的标准。公有云与公有云之间的实现表面上一致，但细节会有些许差异。Kubernetes后面有可能成为它们之间的桥梁，提供一个新的抽象层减少对单一平台的依赖。" />
+<link rel="canonical" href="http://localhost:4000/devops/2020/04/07/learn.html" />
+<meta property="og:url" content="http://localhost:4000/devops/2020/04/07/learn.html" />
+<meta property="og:site_name" content="shine.dev" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-04-07T00:07:48+08:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/devops/2020/04/07/learn.html"},"url":"http://localhost:4000/devops/2020/04/07/learn.html","headline":"学嗷","dateModified":"2020-04-07T00:07:48+08:00","datePublished":"2020-04-07T00:07:48+08:00","description":"说巧不巧，从2016年在AWS的发布会上听说了DevOps以及Docker生态。2017年第一次听说Kubernetes，到现在我也偶然成为了Kubernetes的众多用户其中之一。作为集群资源调度平台，当在Azure上部署第一个LoadBalancer的时候还是非常让我震惊的。Kubernetes竟然反过来创建且调度了Azure的资源。这说明什么？说明Kubernetes真的提供了统一平台的标准。公有云与公有云之间的实现表面上一致，但细节会有些许差异。Kubernetes后面有可能成为它们之间的桥梁，提供一个新的抽象层减少对单一平台的依赖。","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="shine.dev" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">shine.dev</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">学嗷</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-04-07T00:07:48+08:00" itemprop="datePublished">Apr 7, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>说巧不巧，从2016年在AWS的发布会上听说了DevOps以及Docker生态。2017年第一次听说Kubernetes，到现在我也偶然成为了Kubernetes的众多用户其中之一。作为集群资源调度平台，当在Azure上部署第一个LoadBalancer的时候还是非常让我震惊的。Kubernetes竟然反过来创建且调度了Azure的资源。这说明什么？说明Kubernetes真的提供了统一平台的标准。公有云与公有云之间的实现表面上一致，但细节会有些许差异。Kubernetes后面有可能成为它们之间的桥梁，提供一个新的抽象层减少对单一平台的依赖。</p>
+
+<p>近两年一直在困扰自己不是计算机专业科班出身。遇到了一些阻力吧，又开始在意身边人的评价了。这个该怎么说，有一些虚荣心作祟吧，凡是涉及到评价、评级的东西都不希望自己的成绩太差。很多时候自己虽然不是科班出身，没经过系统化的培训，但是自己的经验和悟性可能还不错，能够定位到问题，并且解决。写这些的时候突然想起，这些评价15年冬天的时候听别人说过。但出于对面试结果的抵触，一直没有正视。</p>
+
+<p>想往上走必须要服众。把主观的东西先放到一边。客观上，一方面是认证，一方面是作品。</p>
+
+<p>认证方面是没有学历，不过这已经不是最要紧的了，现在补个光鲜的学历也来不及了。几年前还想好好花心思包装自己，现在越活越懒了。</p>
+
+<p>作品方面，一直以来都是把自己捆绑在工作上，毕业时间长了，很多东西工作上用不上，大致看一看是干什么的哪会用到就没在研究过。说到这感谢自己的好奇心，从开发到运维整条线都有涉猎。虽然不是很精通，但市面上的中间件，不管是什么都可以照猫画虎的拿来用。要说自己真做了什么，也没什么可分享的。开发是面向Debug编程，运维的时候就是面向Output维护。觉得最开心的就是自己凭兴趣学会了使用docker，托管了minecraft的服务，用虚拟机搭建了docker swarm。那时候我还不知道该如何维护一个守护进程或者服务。然后我就一个箭步跨过linux运维跳到docker的生态里了。</p>
+
+<p>如果非要深究问我到底会什么，可能我什么都不会吧。</p>
+
+<p>但要问我能做些什么，回答就是什么都能弄点。可能有点大言不惭，但照着文档照方抓药真的不难。跑起来再说。</p>
+
+<p>我也要主观的解释一下为什么说什么都能用。</p>
+
+<p>读了《凤凰项目》，一本主张将传统工业的管理方法搬运到信息工业的小说，让我对自己的工作性质有了新的认识。有人说大多数程序员都在构建信息流水线，我也是其中的一员。</p>
+
+<p>我们的产品和传统工业制品有很多差异。我举个例子，小时候我买玩具，有蓝色的小熊和粉色的小熊。我买了蓝色的。后来粉色的我也想要，我对家里人说粉色的也买给我吧，这样我们还会有很多小小熊。:)</p>
+
+<p>在传统工业，我们的用户是消费一件商品。我买了汽车，使用，报废。</p>
+
+<p>而信息工业，既有上面这种购买，使用，删除模式。除此之外，我们还可以给用户提供一套信息流水线。有的产品是将信息推给用户，比如主流的新闻feed流；有的产品是用户将意愿以数据的形式给我们，比如下订单；双向的流水线有来有回就会产生交互。这个交互的过程，就是市面上大多数用户使用信息工业产品的过程。这种差异我不知道该用什么术语来形容，但是在这个过程中，我们生产了新的数据。对用户来说，有价值的不是这个流水线，是交互过程以及交互过程产生的数据。</p>
+
+<p>我们的用户一夜之间从纯粹的消费者变成了木匠。我们卖给他的不再是柜子，而是斧子、锯、刨子等等工具。在基于良好的，可泛用的UI/UE设计的前提下，用户可以以非常低的成本很快的掌握一种工具的使用。这在信息工业以前是很难做到的。</p>
+
+<p>现在回望早期操作系统只能用纸带输入数据，到交互式命令行，再到图形界面，早期的图形界面很难看，因为这些东西都不是给普通用户使用的，这些用户基本上都是计算机科学的研究者。比如windows xp之前的windows界面，方方正正的按钮，都是对工业时代按钮外观的模拟。那时计算机的用户基本上是军工方面的工程师。（耳熟能详的bug的用法，来自是葛丽丝·霍普（Grace Hopper）发现继电器触点中间夹了一只飞蛾。她是计算机科学家的同时还是海军准将，是一名军人。PS.《文明6》的海军统帅啊！有了摩索拉斯王陵墓隐退时直接两个原子能/信息时代尤里卡！）</p>
+
+<p><img src="https://img1.gamersky.com/image2016/10/20161020_zh_277_14/gamersky_11small_22_20161020174760B.jpg" alt="葛丽丝·霍普1" />
+<img src="https://img1.gamersky.com/image2016/10/20161020_zh_277_14/gamersky_12small_24_201610201747B9B.jpg" alt="葛丽丝·霍普2" /></p>
+
+<p>（图片懒得进游戏截，引自游民星空，侵删）</p>
+
+<p>让我们把话题拽回来，啰嗦了这么多，现在应该对信息工业印象深刻了。没错，程序员不是科学家，是工人。（我们是共产主义接班人～唱！）这也是为什么市面上大多数程序员的职位要叫做工程师。</p>
+
+<p>信息工业也是工业。信息工业也是工业。信息工业也是工业。</p>
+
+<p>工业注重的是科学的应用。工业的上游是科研。信息工业的上游是计算机科学。我们作为信息工业的工人，要做的是熟知计算机科学的成果并灵活运用。我们使用的计算机科学成果的子集。计算机科学和我的老本行化学一样是信息工业/化工的上游。说实话市面上大多数的程序员包括我在内并不具备计算机科学的研究能力。可能是因为这些人读的是龙书、虎书和TAOCP吧。</p>
+
+<p>在实际工作中，上手一个项目的难度真的不是很高。技术栈固定下来的情况，只要熟悉流程逐个螺丝拧紧就可以。大多数人需要应对的问题是在面试中证明自己在某些领域的经验以及自己的潜力。虽然有新的东西需要学习，但是基于应用去学习，能够很快抓住主干，其余的部分可以按需学习。比如在学svn的时候，必学commit/push/pull，svn的分支因为很难用，一般不会接触，顶多就是发版的时候合并到主干分支。但到git时分支就是必须要掌握的概念。如果不会分支，就很难灵活通过git来实现一些工作流的控制。但是rebase和cherry-pick就是可选项了，一者用的少，二者可以通过其他方式实现（确实频繁使用不掌握会浪费人力）。</p>
+
+<p>这不是一个偷懒的借口。但从工程角度讲，很多时候，别人能做到的，我们都能。即便想徒手写个新的关系型数据库管理系统也是可能的，因为这是工程，工程是可以复制的。（但相比自己写一个不断优化，更好的实践方法是找到postgresql的源码然后研读先。）《XXX最佳实践》为标题的分享会也有很多，原因是实践是一种技术应用的方法，最佳实践是他觉得这么用最省时省力。</p>
+
+<p>说到这里想起来几年前觉得自己穿着github的文化衫觉得自己很极客，自己很牛逼，自己是程序员，会是改变世界的人。现在看来真的是对这个世界和行业理解的不够深刻。马克思诚不欺我。以后如果我没有上万星的项目是不敢再穿这种文化衫挤地铁了。不过开源真的很棒。如果没有开源，我一个学化学出身的也没有机会跨行业工作。</p>
+
+<p>所以我的观点就是，自己作为程序员其实就是一名流水线上的工人。这条流水线生产的产品比较特殊，因为产品除了直接消费（比如扫雷）以外，还会生产新的数据出来。（生产编译器的人：细思极恐，禁止递归，禁止自举。）</p>
+
+<p>我为什么强调是工人。因为工人的培养成本并不特别高。学会照方抓药真的不难。我现在能做到的，我相信身边很多人即便现在不会，假以时日都能做到。而同质化竞争的后果就是跳楼大甩卖。</p>
+
+<p>所以别管自己的薪水现在是多少，既然已经没有了再认证的机会，不妨继续跟着自己的脚步往前走。对感兴趣的事务继续投入精力研究。不要再拘泥于职位、薪水这些眼前的东西上。不要在执着于证明自己牛逼，用羽川翼的话讲：”我不是什么都知道，我只知道我知道的。”要让自己变得真正牛逼，不仅没必要藏着掖着，更要让别人望尘莫及。我才28岁，吃老底还太早，到40岁中年之前还有12年，整整一轮的时间来沉（用）淀（来）自（挥）己（霍）。因为深切的感受到后生可畏，未来新的工具链是有可能越过旧系统中的坑并大放光彩的。（web方向的java，DevOps思想下的云和Kubernetes的NoOps实践）</p>
+
+<p>不要拘泥于井底。</p>
+
+<p>“学！跟世界冠军学！跟Topson学！”</p>
+
+<p>感谢<a href="https://space.bilibili.com/396822361">阿光</a>。在我去年最迷茫的时期通过<a href="https://www.bilibili.com/video/BV1P4411q78A">Dota2</a>给了我很大鼓励。</p>
+
+  </div><a class="u-url" href="/devops/2020/04/07/learn.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">shine.dev</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">shine.dev</li><li><a class="u-email" href="mailto:me@shine.dev">me@shine.dev</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ShineSmile"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ShineSmile</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Ask the person who know the answer.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

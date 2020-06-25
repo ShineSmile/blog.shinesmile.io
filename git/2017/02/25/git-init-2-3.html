@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Git init 2.3：提交至本地仓库 | shine.dev</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="Git init 2.3：提交至本地仓库" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="查看变更的文件：git status" />
+<meta property="og:description" content="查看变更的文件：git status" />
+<link rel="canonical" href="http://localhost:4000/git/2017/02/25/git-init-2-3.html" />
+<meta property="og:url" content="http://localhost:4000/git/2017/02/25/git-init-2-3.html" />
+<meta property="og:site_name" content="shine.dev" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-02-25T14:00:00+08:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/git/2017/02/25/git-init-2-3.html"},"url":"http://localhost:4000/git/2017/02/25/git-init-2-3.html","headline":"Git init 2.3：提交至本地仓库","dateModified":"2017-02-25T14:00:00+08:00","datePublished":"2017-02-25T14:00:00+08:00","description":"查看变更的文件：git status","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="shine.dev" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">shine.dev</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Git init 2.3：提交至本地仓库</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-02-25T14:00:00+08:00" itemprop="datePublished">Feb 25, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="查看变更的文件git-status">查看变更的文件：git status</h1>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">git status</code>命令会列出当前所在的分支，发生变更的文件，以及相关提示。
+<img src="/assets/img/git-init-2-3/status.png" alt="查看变更" /></p>
+
+<h1 id="添加文件至缓存区git-add">添加文件至缓存区：git add</h1>
+
+<h2 id="添加一个文件">添加一个文件</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add &lt;filename&gt;
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">git add</code>命令会将指定的文件的<strong>当前状态</strong>添加到<strong>暂存区</strong>中。注意这里的<strong>暂存区</strong>与<strong>本地仓库</strong>不是同一个位置。如果与SVN类比，相当于提交过程中对文件的勾选。<strong>只有暂存的文件会在后续的提交中被提交。</strong></p>
+
+<p><img src="/assets/img/git-init-2-3/modify_staged_file.png" alt="添加文件至缓存区" /></p>
+
+<ol>
+  <li>
+    <p>上述过程创建了内容为<em>git add test</em>的txt文本文档。</p>
+  </li>
+  <li>
+    <p>使用<code class="language-plaintext highlighter-rouge">git status</code>表示其为<code class="language-plaintext highlighter-rouge">untracked</code>，即未被版本控制追踪。</p>
+  </li>
+  <li>
+    <p>使用<code class="language-plaintext highlighter-rouge">git add</code>将其添加至缓存区后可以在<code class="language-plaintext highlighter-rouge">git status</code>中观察到其状态为<code class="language-plaintext highlighter-rouge">Changes to be committed</code>，即将被提交的变更。</p>
+  </li>
+  <li>
+    <p>再次修改这个文件，可以看到文件即被缓存，又被修改。首先暂存区只会暂存执行<code class="language-plaintext highlighter-rouge">git add</code>命令时的文件状态，<strong>后续的修改并不会被自动暂存，也不会被后续的提交操作提交。</strong></p>
+  </li>
+  <li>
+    <p>若要将新的变更添加到缓存区，只需再次运行<code class="language-plaintext highlighter-rouge">git add</code>命令即可。</p>
+  </li>
+</ol>
+
+<h2 id="添加所有未被追踪的文件">添加所有未被追踪的文件</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nb">.</span>
+</code></pre></div></div>
+
+<p><img src="/assets/img/git-init-2-3/git_add_all.png" alt="添加所有未被追踪的文件" /></p>
+
+<h1 id="将文件移出暂存区git-rm-cached">将文件移出暂存区：git rm –cached</h1>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git <span class="nb">rm</span> <span class="nt">--cached</span> &lt;filename&gt;
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">git rm</code>命令会移除<strong>暂存区</strong>中指定的文件。不会对文件进行修改。</p>
+
+<p>如果文件在暂存后再次被编辑，需要添加<code class="language-plaintext highlighter-rouge">-f</code>强制执行参数。<code class="language-plaintext highlighter-rouge">git rm -f --cached</code>。同样，命令仅仅会将文件从暂存区移除，文件的编辑结果不会丢失。</p>
+
+<h1 id="提交-git-commit">提交 git commit</h1>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"提交信息"</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">git commit</code>会将暂存区里的数据提交到<strong>本地仓库</strong>。省略<code class="language-plaintext highlighter-rouge">-m</code>参数会调用Vim工具编辑提交信息。</p>
+
+<p><img src="/assets/img/git-init-2-3/git_commit.png" alt="提交文件至本地仓库" /></p>
+
+<h1 id="查看提交历史">查看提交历史</h1>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log
+</code></pre></div></div>
+
+<p>图中<code class="language-plaintext highlighter-rouge">a66c1569559..</code>是版本提交的记录，默认情况下取其<strong>前7位</strong>进行展示，即<code class="language-plaintext highlighter-rouge">a66c156</code>。</p>
+
+<p><img src="/assets/img/git-init-2-3/git_log.png" alt="查看提交历史" /></p>
+
+  </div><a class="u-url" href="/git/2017/02/25/git-init-2-3.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">shine.dev</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">shine.dev</li><li><a class="u-email" href="mailto:me@shine.dev">me@shine.dev</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ShineSmile"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ShineSmile</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Ask the person who know the answer.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

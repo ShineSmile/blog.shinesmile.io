@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>使用U盘安装Windows Server 2016时的问题 | shine.dev</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="使用U盘安装Windows Server 2016时的问题" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="文件大小超过4GB" />
+<meta property="og:description" content="文件大小超过4GB" />
+<link rel="canonical" href="http://localhost:4000/windows/server/ntfs/poweriso/2017/12/12/windows-server-2016-install-trap.html" />
+<meta property="og:url" content="http://localhost:4000/windows/server/ntfs/poweriso/2017/12/12/windows-server-2016-install-trap.html" />
+<meta property="og:site_name" content="shine.dev" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-12-12T13:04:38+08:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/windows/server/ntfs/poweriso/2017/12/12/windows-server-2016-install-trap.html"},"url":"http://localhost:4000/windows/server/ntfs/poweriso/2017/12/12/windows-server-2016-install-trap.html","headline":"使用U盘安装Windows Server 2016时的问题","dateModified":"2017-12-12T13:04:38+08:00","datePublished":"2017-12-12T13:04:38+08:00","description":"文件大小超过4GB","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="shine.dev" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">shine.dev</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">使用U盘安装Windows Server 2016时的问题</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-12-12T13:04:38+08:00" itemprop="datePublished">Dec 12, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="文件大小超过4gb">文件大小超过4GB</h1>
+
+<p>Windows Server 2016的安装镜像中，<code class="language-plaintext highlighter-rouge">install.wim</code>文件大小为4.79 GB。使用UltraISO将server2016的ISO镜像刻录过程默认使用的是FAT32文件系统。此文件系统最大支持文件大小为4GB。因此在安装过程中会出现校验失败等问题。</p>
+
+<h1 id="解决方案">解决方案</h1>
+
+<p>刻录完镜像后，可以使用下述命令将U盘的文件系统从FAT32转换为NTFS，解除单个文件大小的限制。</p>
+
+<pre><code class="language-cmd">convert X: /fs:ntfs
+</code></pre>
+
+<p>其中<code class="language-plaintext highlighter-rouge">X</code>为目标磁盘的盘符。
+执行此命令后，通过挂载光盘镜像，将<code class="language-plaintext highlighter-rouge">/sources/install.wim</code>文件拷贝到U盘对应的目录覆盖即可。</p>
+
+<h1 id="注意事项">注意事项</h1>
+
+<ul>
+  <li><em>convert</em>命令转换至NTFS文件系统是单向不可逆的转换！</li>
+  <li>UEFI引导方式需要FAT32文件系统，使用此方法修改的U盘只能使用Legecy Boot方式启动。两种启动方式在引导、分区表、安全等方面存在差异，详情可参见<a href="https://www.quora.com/What-is-the-difference-between-UEFI-and-Legacy-Mode-which-we-need-to-choose-while-installing-the-OS">quora</a>。</li>
+  <li>2017年12月11日：新版本的UltraISO在刻录Server 2016镜像时会尝试转换目标磁盘的文件系统并且失败。此问题可以通过更换烧录工具<code class="language-plaintext highlighter-rouge">PowerISO</code>来解决。</li>
+  <li>使用PowerISO烧录U盘前可以直接指定其文件系统。</li>
+  <li>NTFS文件系统是针对机械硬盘而设计的，U盘在使用过程中可能会存在损坏U盘的问题。而exFAT是为闪存盘设计的文件系统，机械硬盘在使用时会产生丢失数据的现象。</li>
+  <li>未实际测试是否可以通过使用exFAT文件系统安装Server 2016。</li>
+</ul>
+
+  </div><a class="u-url" href="/windows/server/ntfs/poweriso/2017/12/12/windows-server-2016-install-trap.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">shine.dev</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">shine.dev</li><li><a class="u-email" href="mailto:me@shine.dev">me@shine.dev</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ShineSmile"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ShineSmile</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Ask the person who know the answer.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

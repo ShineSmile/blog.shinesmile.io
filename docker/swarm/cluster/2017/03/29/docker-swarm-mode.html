@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Docker Swarm模式概述 | shine.dev</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="Docker Swarm模式概述" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="本文翻译自：Swarm mode overview" />
+<meta property="og:description" content="本文翻译自：Swarm mode overview" />
+<link rel="canonical" href="http://localhost:4000/docker/swarm/cluster/2017/03/29/docker-swarm-mode.html" />
+<meta property="og:url" content="http://localhost:4000/docker/swarm/cluster/2017/03/29/docker-swarm-mode.html" />
+<meta property="og:site_name" content="shine.dev" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-03-29T15:11:28+08:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/docker/swarm/cluster/2017/03/29/docker-swarm-mode.html"},"url":"http://localhost:4000/docker/swarm/cluster/2017/03/29/docker-swarm-mode.html","headline":"Docker Swarm模式概述","dateModified":"2017-03-29T15:11:28+08:00","datePublished":"2017-03-29T15:11:28+08:00","description":"本文翻译自：Swarm mode overview","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="shine.dev" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">shine.dev</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Docker Swarm模式概述</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-03-29T15:11:28+08:00" itemprop="datePublished">Mar 29, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>本文翻译自：<a href="https://docs.docker.com/engine/swarm/">Swarm mode overview</a></p>
+
+<p>Docker Engine的集群模式，需要通过<a href="https://github.com/docker/docker/releases">Docker releases GitHub repository</a>安装<code class="language-plaintext highlighter-rouge">v1.12.0</code>以上版本。最新的Mac版及Windows Beta版亦可。</p>
+
+<p>Docker引擎1.12包括Docker引擎原生的集群管理工具：swarm。使用Docker命令行接口可以完成创建集群、在集群中部署应用服务、管理集群行为等操作。</p>
+
+<p>使用<code class="language-plaintext highlighter-rouge">v1.12.0</code>一下版本的用户请参见：<a href="https://docs.docker.com/swarm/">Docker Swarm</a>。</p>
+
+<h1 id="功能亮点">功能亮点</h1>
+
+<ul>
+  <li>
+    <p>集群的管理与Docker引擎集成：使用Docker引擎命令行接口来创建部署应用服务的集群。不需要额外的第三方软件。</p>
+  </li>
+  <li>
+    <p>分布式设计：在不同的节点类型中使用相同的部署方式。使用Docker Engine，可以同时在节点、管理节点及工作节点进行部署。整个集群可以通过单个镜像来建立。</p>
+  </li>
+  <li>
+    <p>声明式的服务发布方式：Docker Engine在应用栈中使用声明的方式来定义服务中的不同状态。例如，可以通过描述一个应用由web前端、消息队列服务及后端数据库构成。</p>
+  </li>
+  <li>
+    <p>弹性：为不同的服务声明不同任务数量。当数量上升或下降时，集群管理节点将自动添加或删除节点调整至预期的规模。</p>
+  </li>
+  <li>
+    <p>维持规模：管理节点会持续监控集群的状态，使其实际状态与规划的状态一致。如果一个服务运行的10个容器中有两个发生了故障，管理节点将创建两个新的容器来取代故障的容器。管理节点会自动在计算节点注册并运行可用的新容器。</p>
+  </li>
+  <li>
+    <p>多主机网络：为服务配置详细的网络覆盖。管理节点会自动在容器初始化时、应用更新时自动的注册容器的网络地址。</p>
+  </li>
+  <li>
+    <p>服务发现：管理节点为集群中不同的服务声明唯一的DNS名并对运行中的容器进行负载均衡。通过此DNS名可以对集群中的任意容器进行查询。</p>
+  </li>
+  <li>
+    <p>负载均衡：通过开放统一的端口来实现外部的负载均衡。在服务内部，集群允许指定节点间服务的分发方式。</p>
+  </li>
+  <li>
+    <p>默认的安全配置：集群中的每个节点间强制使用TLS通信。还允许使用自签发根证书或自定义CA根证书。</p>
+  </li>
+  <li>
+    <p>滚动更新：可以步进式对过时的服务进行更新。管理节点允许控制服务部署至不同节点的延迟时间。如果产生任何差池，可以回滚至上一版本。</p>
+  </li>
+</ul>
+
+  </div><a class="u-url" href="/docker/swarm/cluster/2017/03/29/docker-swarm-mode.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">shine.dev</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">shine.dev</li><li><a class="u-email" href="mailto:me@shine.dev">me@shine.dev</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ShineSmile"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ShineSmile</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Ask the person who know the answer.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

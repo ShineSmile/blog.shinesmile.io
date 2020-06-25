@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Git init 0：版本控制的历史及Git的产生 | shine.dev</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="Git init 0：版本控制的历史及Git的产生" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Git读作/ɡɪt/，其中字母G的发音与Got中的G相同。" />
+<meta property="og:description" content="Git读作/ɡɪt/，其中字母G的发音与Got中的G相同。" />
+<link rel="canonical" href="http://localhost:4000/git/2017/02/19/git-init-0.html" />
+<meta property="og:url" content="http://localhost:4000/git/2017/02/19/git-init-0.html" />
+<meta property="og:site_name" content="shine.dev" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-02-19T12:00:00+08:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/git/2017/02/19/git-init-0.html"},"url":"http://localhost:4000/git/2017/02/19/git-init-0.html","headline":"Git init 0：版本控制的历史及Git的产生","dateModified":"2017-02-19T12:00:00+08:00","datePublished":"2017-02-19T12:00:00+08:00","description":"Git读作/ɡɪt/，其中字母G的发音与Got中的G相同。","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="shine.dev" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">shine.dev</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Git init 0：版本控制的历史及Git的产生</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-02-19T12:00:00+08:00" itemprop="datePublished">Feb 19, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Git读作/ɡɪt/，其中字母G的发音与Got中的G相同。</p>
+
+<hr />
+
+<h1 id="版本控制概念及工具的产生">版本控制概念及工具的产生</h1>
+
+<p>版本控制的概念产生自工作中的实际需求。我们希望在保存工作进度的同时能把文件编辑的历史保存下来，并且允许我们可以随时可以返回到文档的任意时间节点。</p>
+
+<p>在版本控制工具出现之前，我们可以使用文件副本将文件保存到不同的路径进行备份。通过diff命令查看两个文件之间的差异，通过patch进行更新。1991-2002年间，Linux内核的代码就是靠这种方法进行维护的。</p>
+
+<p>版本控制工具的产生经历了一下三个时期：</p>
+
+<h2 id="本地版本控制系统">本地版本控制系统</h2>
+
+<p>如：RCS（Revision Control System）</p>
+
+<ul>
+  <li>RCS:实现了文件的自动存储、检索、日志记录、识别、合并修订等功能。然而对单个文件的跟踪使其无法对大型项目进行整体的追踪，本地的特性也导致其对团队协作的支持不够友好。</li>
+</ul>
+
+<p><img src="/assets/img/git-init-0/local.png" alt="本地版本控制系统" /></p>
+
+<hr />
+
+<h2 id="集中式版本控制系统">集中式版本控制系统</h2>
+
+<p>如：CVS（Concurrent Versions System）、SVN（Subversion）、TFS（Team Foundation Server）。</p>
+
+<ul>
+  <li>
+    <p>CVS是基于脚本语言对RCS的封装，之后经过C的重写来保证其性能。CVS提出的提交、说明、检入、检出、标签、分支给后续的版本工具间接制定了标准。其缺陷是文件在提交后不能进行删除、重命名等操作。</p>
+  </li>
+  <li>
+    <p>SVN是这个时期工具中的集大成者，优化了CVS在文件名问题上的缺陷后，提供全局版本号，<code class="language-plaintext highlighter-rouge">.svn</code>文件夹的引入使其部分命令可以离线进行（如：revert）。但SVN在授权、分支管理等方面差强人意。</p>
+  </li>
+  <li>
+    <p>TFS是基于SharePoint的扩展，因此其不仅仅能作为版本控制工具,还可以用于工程管理。TFS的早期版本要求全程联网，为避免冲突，编辑前需要与服务端的文件进行锁定，一旦脱机需要逐个文件重新与服务端进行绑定。基于SharePoint和SQL Server的TFS过于复杂臃肿，除了使用微软服务的大客户外，TFS已经不是版本控制的首选。后续微软提供了基于Azure的Visual Studio Team Service。国内网络状况所限，使用体验并不理想。<strong>现如今，VSTS的继承者——Azure DevOps，已经将git作为其中的一种代码库托管选项。</strong></p>
+  </li>
+</ul>
+
+<p><img src="/assets/img/git-init-0/centralized.png" alt="中央式版本控制系统" /></p>
+
+<hr />
+
+<h2 id="分布式版本控制系统">分布式版本控制系统</h2>
+
+<p>如：Git、Mercurial、Bazaar</p>
+
+<ul>
+  <li>
+    <p>Git使用<code class="language-plaintext highlighter-rouge">.git</code>文件夹作为本地仓库使用。此架构使git的离线提交、回滚等操作提供了基础。另外我们可以不局限于一个远端仓库。通过增加远端仓库来消除远端的单点隐患保证代码的安全。git的分支管理也是一大亮点，我们不在需要将分支建立在一个新的文件夹下，git允许我们将当前工作区切换到任意分支上。廉价的分支管理与合并也会在工作流设计中提供便利。</p>
+  </li>
+  <li>
+    <p>由于后两者没有实际使用过，没办法做详细的功能对比。感兴趣的朋友可以参见<a href="https://www.zhihu.com/question/19877652">知乎：Git、Mercurial、Bazaar 有什么区别？</a></p>
+  </li>
+  <li>
+    <p>严格的讲，Git并不是一套完整的版本控制系统，而是一组版本控制的底层应用集。</p>
+  </li>
+</ul>
+
+<p><img src="/assets/img/git-init-0/distributed.png" alt="本地版本控制系统" /></p>
+
+<hr />
+
+<h1 id="git的产生">Git的产生</h1>
+
+<p>Linux的源代码在2002-2005年间免费托管在BitKeeper上，有逸闻说Samba之父Andrew Tridgell对BitKeeper进行反向工程试图开发一款与BitKeeper交互的开源工具。此举导致BitKeeper的所有者BitMover与Linux社区翻脸，不再继续提供服务。于是Linus像当年一怒之下写出Linux内核一样写出了Git。Git开发的主要历程如下：</p>
+
+<ul>
+  <li>2005年4月3日，开始开发Git。</li>
+  <li>2005年4月6日，项目发布。</li>
+  <li>2005年4月7日，Git就可以作为自身的版本控制工具了。</li>
+  <li>2005年4月18日，发生第一个多分支合并。</li>
+  <li>2005年4月29日，Git的性能达到了Linus的预期。</li>
+  <li>2005年6月16 日，Linux内核2.6.12 发布，那时Git已经在维护Linux核心的源代码了。</li>
+  <li>后续的版本则被Linus交给另外一个Git的主要贡献者 Junio C Hamano。</li>
+</ul>
+
+<hr />
+
+<h1 id="为什么使用git">为什么使用Git</h1>
+
+<ol>
+  <li>
+    <p>容灾。任何系统都有可能在任何方面产生任何故障。<strong>多个远端+本地副本保证了版本库的稳定和高可用。</strong>即便<a href="https://www.oschina.net/news/81493/gitlab-com-back">托管在GitLab上的代码被误删</a>，其他远端的仓库仍然是完整的。</p>
+  </li>
+  <li>
+    <p>离线操作。虽然不是每天都在飞机上办公，但偶尔的网络丢失导致无法与服务器同步这种情况还是常见的。离线操作拓展了版本控制的环境，使版本控制的历史更加完善。</p>
+  </li>
+  <li>
+    <p>廉价易用的分支、标签管理。通过分支我们可以实现<strong>代码审核</strong>、<strong>发布历史管理</strong>以及<strong>现场热修复</strong>等。Git的普及奠定了DevOps文化推广的基础。</p>
+  </li>
+</ol>
+
+<hr />
+
+<h1 id="相关链接">相关链接</h1>
+
+<p>Git的教程有很多，在这里首推官方的<a href="https://git-scm.com/book/zh/v2">《Pro Git》（中文）</a>，包括Git的使用、基于Git的团队协作软件和Git的内部原理等。还有读起来比较轻松的<a href="https://www.amazon.cn/Git权威指南-蒋鑫/dp/B009WMC3QQ/ref=sr_1_1?ie=UTF8&amp;qid=1487507209&amp;sr=8-1&amp;keywords=git权威指南">《Git权威指南》</a>（即《Got Git》）。</p>
+
+<hr />
+
+  </div><a class="u-url" href="/git/2017/02/19/git-init-0.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">shine.dev</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">shine.dev</li><li><a class="u-email" href="mailto:me@shine.dev">me@shine.dev</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ShineSmile"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ShineSmile</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Ask the person who know the answer.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

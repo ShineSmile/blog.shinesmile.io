@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>AWS架构准则 | shine.dev</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="AWS架构准则" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="在这里可以找到AWS相关的白皮书下载链接。 本文内容主要来自于架构师助理培训内容的提纲。 详情参见此文档。" />
+<meta property="og:description" content="在这里可以找到AWS相关的白皮书下载链接。 本文内容主要来自于架构师助理培训内容的提纲。 详情参见此文档。" />
+<link rel="canonical" href="http://localhost:4000/aws/architect/2018/02/28/AWS-Architecture-Principle.html" />
+<meta property="og:url" content="http://localhost:4000/aws/architect/2018/02/28/AWS-Architecture-Principle.html" />
+<meta property="og:site_name" content="shine.dev" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-02-28T11:08:14+08:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/aws/architect/2018/02/28/AWS-Architecture-Principle.html"},"url":"http://localhost:4000/aws/architect/2018/02/28/AWS-Architecture-Principle.html","headline":"AWS架构准则","dateModified":"2018-02-28T11:08:14+08:00","datePublished":"2018-02-28T11:08:14+08:00","description":"在这里可以找到AWS相关的白皮书下载链接。 本文内容主要来自于架构师助理培训内容的提纲。 详情参见此文档。","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="shine.dev" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">shine.dev</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">AWS架构准则</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-02-28T11:08:14+08:00" itemprop="datePublished">Feb 28, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>在<a href="https://amazonaws-china.com/cn/whitepapers/">这里</a>可以找到AWS相关的白皮书下载链接。
+本文内容主要来自于架构师助理培训内容的提纲。
+详情参见此<a href="https://d1.awsstatic-china.com/whitepapers/AWS_Cloud_Best_Practices.pdf">文档</a>。</p>
+
+<p>在撰写、翻译时尽量隐去了对应AWS服务的引用，取而代之的是对应功能的描述。此举不是因为担心为AWS做广告（人家也不需要），是因为好的架构思想应该不应受到平台的限制。经过时间和实践考验过的组件，一定会在其它平台换个名字重新实现。</p>
+
+<h1 id="松耦合使你自由">“松耦合使你自由”</h1>
+
+<ul>
+  <li>基于独立组件设计架构
+    <ol>
+      <li>耦合度越松散，越容易进行横向扩展</li>
+    </ol>
+  </li>
+</ul>
+
+<h2 id="解耦原则">解耦原则</h2>
+
+<ul>
+  <li>不要依赖特定对象，考虑使用：
+    <ol>
+      <li>负载均衡集群</li>
+      <li>DNS域名解析</li>
+      <li>可配置的路由表</li>
+    </ol>
+  </li>
+  <li>不要依赖其他服务的健康状况
+    <ol>
+      <li>使用异步消息代替方法调用</li>
+    </ol>
+  </li>
+</ul>
+
+<h1 id="将组件故障的情况加入到架构考虑的范围内">“将组件故障的情况加入到架构考虑的范围内”</h1>
+
+<blockquote>
+  <p>原文：Design for failure and nothing will fail. 是一句很耐人寻味的话。</p>
+</blockquote>
+
+<ul>
+  <li>在设计每个组件时都要考虑：如果他挂掉了会怎样。多个组件形成资源组后，再次问自己这个问题。</li>
+  <li>设计持续可用、能够自我修复的组件。</li>
+  <li>高可用
+    <ol>
+      <li>架构中的任何一个组件完全崩溃时不能影响整个系统。</li>
+    </ol>
+  </li>
+  <li>容错
+    <ol>
+      <li>架构中的任何一个组件完全崩溃时不能影响整个系统<strong>并且不会降低系统的性能</strong></li>
+    </ol>
+  </li>
+</ul>
+
+<blockquote>
+  <p>从这个角度看，容错是在高可用后进一步需要考虑的问题。例如：某些组件崩溃时，断路器可以减少无效访问的重试次数，节约计算资源及等待时间，并且保证崩溃的组件不会进一步污染整个系统。</p>
+</blockquote>
+
+<h1 id="实现弹性">实现弹性</h1>
+
+<ul>
+  <li>不要假定服务的可用性、健康状态以及位置是一成不变的
+    <ol>
+      <li>使用弹性扩展、弹性IP、可用区</li>
+    </ol>
+  </li>
+  <li>设计可以通过冷/热重启恢复的服务
+    <ol>
+      <li>无状态比有状态好</li>
+      <li>使用弹性负载均衡和云监控检测实例的健康状况</li>
+    </ol>
+  </li>
+  <li>引导实例的启动过程
+    <ol>
+      <li>例如：在启动时传入用户信息判别实例属于个人还是角色</li>
+    </ol>
+  </li>
+  <li>推荐在实例外储存配置及个性化信息
+    <ol>
+      <li>例如Key-Value的NoSQL数据库服务</li>
+    </ol>
+  </li>
+  <li>弹性设计通常有利于节约开支</li>
+</ul>
+
+<h1 id="每个层面都需要考虑安全问题">每个层面都需要考虑安全问题</h1>
+
+<ul>
+  <li>基础设施层</li>
+  <li>计算、网络架构层</li>
+  <li>数据层</li>
+  <li>应用层</li>
+</ul>
+
+<ol>
+  <li>
+    <p>在某些架构模型中，API Gateway还同时提供拦截非法请求的功能，保护网关后服务不被非法访问。当Api Gateway被攻破后，如若后面的服务及设施没有进行安全架构，所有的通信、接口将一览无余。</p>
+  </li>
+  <li>
+    <p>Intel的熔断漏洞波及了几乎所有Intel的用户。有计划的及时安装系统更新是必要的。如果带宽成本高昂请考虑Update Proxy。</p>
+  </li>
+</ol>
+
+<p>1.有些机密数据能提供便利及商业价值，因此黑客总是热衷于拖库。如果不储存这些敏感数据，黑客就无从下手，其他企业和政府也不会威胁和索取这些数据。（据说微信就不会保存用户的聊天记录。）</p>
+
+<ol>
+  <li>尽量不要在版本控制工具中保存凭据及秘钥文件。一旦提交至服务器，这些信息将很难剔除。如果在Github提交了私钥，很快你就会收到潜在安全风险的邮件。可以通过凭据管理服务来进行凭据的管理及获取。</li>
+</ol>
+
+<h2 id="最小授权原则">最小授权原则</h2>
+
+<ul>
+  <li>只付于操作者完成工作的必要权限
+    <ol>
+      <li>必须对个人和进程进行授权</li>
+      <li>只有三类用户可以直接访问资源配置型API
+        <ol>
+          <li>主账号</li>
+          <li>具备管理员角色的授权用户</li>
+          <li>使用安全令牌授权的服务</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ul>
+
+<blockquote>
+  <p>这就是为什么EF Code First无法初始化Aliyun的RDS服务。(:</p>
+</blockquote>
+
+  </div><a class="u-url" href="/aws/architect/2018/02/28/AWS-Architecture-Principle.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">shine.dev</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">shine.dev</li><li><a class="u-email" href="mailto:me@shine.dev">me@shine.dev</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ShineSmile"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ShineSmile</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Ask the person who know the answer.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

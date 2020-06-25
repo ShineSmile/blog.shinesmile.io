@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>使用Jenkins通过FTP进行持续发布 | shine.dev</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="使用Jenkins通过FTP进行持续发布" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="FTP服务的建立" />
+<meta property="og:description" content="FTP服务的建立" />
+<link rel="canonical" href="http://localhost:4000/windows/ftp/2017/12/14/jenkins-for-ftp.html" />
+<meta property="og:url" content="http://localhost:4000/windows/ftp/2017/12/14/jenkins-for-ftp.html" />
+<meta property="og:site_name" content="shine.dev" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-12-14T17:29:03+08:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/windows/ftp/2017/12/14/jenkins-for-ftp.html"},"url":"http://localhost:4000/windows/ftp/2017/12/14/jenkins-for-ftp.html","headline":"使用Jenkins通过FTP进行持续发布","dateModified":"2017-12-14T17:29:03+08:00","datePublished":"2017-12-14T17:29:03+08:00","description":"FTP服务的建立","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="shine.dev" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">shine.dev</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">使用Jenkins通过FTP进行持续发布</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-12-14T17:29:03+08:00" itemprop="datePublished">Dec 14, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="ftp服务的建立">FTP服务的建立</h1>
+
+<p>在Windows系统下建立IIS服务，除了使用IIS外还可以使用<a href="https://filezilla-project.org/">Filezilla</a>，此工具除了会安装windows服务外，还会提供一个对服务进行管理的桌面应用。管理工具默认通过14147端口与服务进行通信。</p>
+
+<h1 id="ftp命令行工具">FTP命令行工具</h1>
+
+<p><a href="https://www.microsoft.com/resources/documentation/windows/xp/all/proddocs/en-us/ftp.mspx?mfr=true">Windows XP Pro 文档</a></p>
+
+<h2 id="语法">语法</h2>
+
+<p>ftp [-v] [-d] [-i] [-n] [-g] [-s:FileName] [-a] [-w:WindowSize] [-A] [Host]</p>
+
+<h2 id="常用参数概述">常用参数概述：</h2>
+
+<p>|参数|说明|
+|—|—|
+|/?|显示帮助。|
+|-v|隐藏FTP服务器的的回复信息。|
+|-d|启动调试，显示所有FTP客户端与服务器之间的命令。|
+|-s:<em>FileName</em>|指定一个包括FTP命令的文本文件，文件中的命令会在ftp命令执行时逐个调用。参数中不能包含空格。可以使用此参数代替流重定向<strong>(&lt;)</strong>。|
+|Host|指定FTP的服务器的计算机名、IP地址。此参数可选且必须作为最后一个参数。|
+<img src="/assets/img/jenkins-for-ftp/ftp_help.png" alt="FTP工具参数" /></p>
+
+<h2 id="子命令">子命令</h2>
+
+<p>启动ftp工具后，会进入ftp的命令行界面，这是输入<em>?</em>会显示命令的提示：
+<img src="/assets/img/jenkins-for-ftp/ftp_subcommand_help.png" alt="FTP工具参数" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>?</td>
+      <td>显示所有子命令</td>
+    </tr>
+    <tr>
+      <td>open <em>Host</em></td>
+      <td>与目标服务器建立连接</td>
+    </tr>
+    <tr>
+      <td>close</td>
+      <td>关闭连接</td>
+    </tr>
+    <tr>
+      <td>quit</td>
+      <td>退出ftp工具不显示提示信息</td>
+    </tr>
+    <tr>
+      <td>!</td>
+      <td>退出ftp工具显示版本号等信息</td>
+    </tr>
+    <tr>
+      <td>cd</td>
+      <td>切换服务端工作目录</td>
+    </tr>
+    <tr>
+      <td>lcd</td>
+      <td>切换本地工作目录</td>
+    </tr>
+    <tr>
+      <td>put</td>
+      <td>上传本地文件至服务器</td>
+    </tr>
+    <tr>
+      <td>mput</td>
+      <td>批量上传本地文件至服务器</td>
+    </tr>
+    <tr>
+      <td>delete</td>
+      <td>删除服务器中的文件</td>
+    </tr>
+    <tr>
+      <td>mdelete</td>
+      <td>批量删除服务器中的文件</td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>显示当前的链接状态</td>
+    </tr>
+    <tr>
+      <td>prompt</td>
+      <td>开关交互模式。关闭此模式命令成功执行时不会显示提示信息。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="自动化脚本举例">自动化脚本举例</h2>
+
+<p>FTP命令：</p>
+
+<pre><code class="language-cmd">ftp -s:upload.src 10.20.30.40
+</code></pre>
+
+<p>upload.src：</p>
+
+<pre><code class="language-plain">user
+pass
+lcd bin
+cd _api/bin
+mdel *
+mput *
+quit
+</code></pre>
+
+<table>
+  <thead>
+    <tr>
+      <th>脚本</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>user</td>
+      <td>ftp用户名</td>
+    </tr>
+    <tr>
+      <td>pass</td>
+      <td>ftp密码</td>
+    </tr>
+    <tr>
+      <td>lcd bin</td>
+      <td>切换至本地bin目录</td>
+    </tr>
+    <tr>
+      <td>cd api/bin</td>
+      <td>切换服务端目录为api/bin文件夹</td>
+    </tr>
+    <tr>
+      <td>mdel *</td>
+      <td>删除服务端当前工作目录的所有文件（不包括文件夹）</td>
+    </tr>
+    <tr>
+      <td>mput *</td>
+      <td>上传本地工作目录的所有文件至服务器（不包括文件夹）</td>
+    </tr>
+    <tr>
+      <td>quit</td>
+      <td>关闭ftp工具</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="ftp的主动模式与被动模式">FTP的主动模式与被动模式</h1>
+
+<p>在部署Jenkins使用Filezilla服务持续发布过程中出现上述提示。现象为FTP可以连接、登陆。但使用命令查询、上传、下载文件时客户端卡住，服务端报425错误。</p>
+
+<pre><code class="language-plain">You appear to be behind a NAT router. Please configure the passive mode settings and forward a range of ports in your router.
+(000156)2017/12/15 11:14:43 - shine (10.134.251.51)&gt; LIST
+(000156)2017/12/15 11:14:43 - shine (10.134.251.51)&gt; 150 Opening data channel for directory listing of "/"
+(000156)2017/12/15 11:14:53 - shine (10.134.251.51)&gt; 425 Can't open data connection for transfer of "/"
+</code></pre>
+
+<p>要想解决此问题需要了解ftp协议的主动模式和被动模式。</p>
+
+<h2 id="主动模式">主动模式</h2>
+
+<ol>
+  <li>FTP服务器命令（21）端口接受客户端任意端口（客户端初始连接）</li>
+  <li>FTP服务器命令（21）端口到客户端端口（&gt;1023）（服务器响应客户端命令）</li>
+  <li>FTP服务器数据（20）端口到客户端端口（&gt;1023）（服务器初始化数据连接到客户端数据端口）</li>
+  <li>FTP服务器数据（20）端口接受客户端端口（&gt;1023）（客户端发送ACK包到服务器的数据端口）</li>
+</ol>
+
+<p>小结：主动模式是客户端与服务端建立命令链接后，服务端会尝试与客户端建立数据连接。</p>
+
+<h2 id="被动模式">被动模式</h2>
+
+<ol>
+  <li>FTP服务器命令（21）端口接受客户端任意端口（客户端初始连接）</li>
+  <li>FTP服务器命令（21）端口到客户端端口（&gt;1023）（服务器响应客户端命令）</li>
+  <li>FTP服务器数据端口（&gt;1023）接受客户端端口（&gt;1023）（客户端初始化数据连接到服务器指定的任意端口）</li>
+  <li>FTP服务器数据端口（&gt;1023）到客户端端口（&gt;1023）（服务器发送ACK响应和数据到客户端的数据端口）</li>
+</ol>
+
+<p>小结：被动模式是客户端与服务端建立命令链接后，服务端会开放数据端口并将相关信息通过命令链接发送给客户端，客户端通过得到的信息与服务端建立数据链接。</p>
+
+<p>Tips：</p>
+
+<ul>
+  <li>主动模式和被动模式都是相对于服务端而言，服务端尝试与客户端建立数据链接就是主动，服务端打开端口等待客户端去链接就是被动。</li>
+  <li>被动模式的产生原因是因为客户端与位于NAT网络时产生的需求。此时，客户端IP地址非公网IP，服务端尝试与客户端建立连接时请求可能会被路由或防火墙屏蔽。</li>
+</ul>
+
+<h3 id="错误425">错误425</h3>
+
+<p>此情景下425问题的产生是主动模式下客户端与服务端建立命令链接后，客户端将命令发布至服务端，服务端响应命令，并尝试与客户端建立数据链接时故障产生的。由于数据链接未建立，客户端会持续的等待直至手动停止或超时。由于数据链接建立在客户端的高位随机端口，因此无法开放防火墙的特定端口解决此问题，临时的解决方案为<strong>临时关闭客户端的防火墙</strong>。因为客户端与服务端同在专用内网，经过权衡无伤大雅。<strong>请勿滥用此临时方案。</strong></p>
+
+<h1 id="小结">小结</h1>
+
+<ul>
+  <li>Windows下的ftp工具不能很好的支持被动模式，否则可以通过被动模式与服务器建立连接。（Filezilla可以限定被动模式的端口使用范围，防火墙仅开放对应端口即可，无需完全开放。）</li>
+  <li>Windows的ftp命令在自动化过程中不能很好的控制流程(执行过程出错不停止)及不能显示返回错误（使用quit退出即返回0），存在健壮性差、含糊的问题。建议用其他方案替换。</li>
+  <li>在Visual Studio使用ftp发布时，是可以通过被动方式发布代码的。然而通过MSBuild的命令行方式却不行。可以认为这是Visual Studio的设计人员的一种引流操作：更希望人们通过Web Deploy而不是FTP的方式发布代码。</li>
+</ul>
+
+  </div><a class="u-url" href="/windows/ftp/2017/12/14/jenkins-for-ftp.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">shine.dev</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">shine.dev</li><li><a class="u-email" href="mailto:me@shine.dev">me@shine.dev</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ShineSmile"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ShineSmile</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Ask the person who know the answer.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

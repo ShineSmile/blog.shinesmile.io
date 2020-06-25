@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Nuget命令行接口 | shine.dev</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="Nuget命令行接口" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="翻译自：NuGet CLI reference 此官方文档过于拖沓，后续将结合实践重写。" />
+<meta property="og:description" content="翻译自：NuGet CLI reference 此官方文档过于拖沓，后续将结合实践重写。" />
+<link rel="canonical" href="http://localhost:4000/nuget/cli/2017/12/28/nuget-cli.html" />
+<meta property="og:url" content="http://localhost:4000/nuget/cli/2017/12/28/nuget-cli.html" />
+<meta property="og:site_name" content="shine.dev" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-12-28T18:53:24+08:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/nuget/cli/2017/12/28/nuget-cli.html"},"url":"http://localhost:4000/nuget/cli/2017/12/28/nuget-cli.html","headline":"Nuget命令行接口","dateModified":"2017-12-28T18:53:24+08:00","datePublished":"2017-12-28T18:53:24+08:00","description":"翻译自：NuGet CLI reference 此官方文档过于拖沓，后续将结合实践重写。","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="shine.dev" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">shine.dev</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Nuget命令行接口</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-12-28T18:53:24+08:00" itemprop="datePublished">Dec 28, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>翻译自：<a href="https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference">NuGet CLI reference</a></p>
+<blockquote>
+  <p>此官方文档过于拖沓，后续将结合实践重写。</p>
+</blockquote>
+
+<h1 id="nuget-cli-概述">NuGet CLI 概述</h1>
+
+<p>Nuget命令行接口<code class="language-plaintext highlighter-rouge">nuget.exe</code>, 提供完整的及管理的功能，可以在在不修改任何工程文件的情况下对包进行安装、创建、 发布。</p>
+
+<p>使用nuget命令只需在命令行窗体或bash shell中运行 <code class="language-plaintext highlighter-rouge">nuget &lt;子命令&gt; &lt;可选参数&gt;</code>即可，例如<code class="language-plaintext highlighter-rouge">nuget help pack</code>(显示pack文件的帮助信息)。</p>
+
+<h1 id="安装">安装</h1>
+
+<ol>
+  <li>在Mac及Linux发行版中，安装<a href="http://www.mono-project.com/docs/getting-started/install/">Mono 4.4.2及以上版本</a>。</li>
+  <li>访问 <a href="https://nuget.org/downloads">nuget.org/downloads</a>选择想使用的版本。</li>
+  <li>下载链接为 <code class="language-plaintext highlighter-rouge">nuget.exe</code> 文件，保存至指定文件夹备用。此文件 <em>不是</em> 安装包; 在文件管理系统中双击执行不会得到任何结果。</li>
+  <li>将放置 <code class="language-plaintext highlighter-rouge">nuget.exe</code> 的文件夹添加至PATH环境变量以便在其他位置方便的使用CLI调用它。</li>
+</ol>
+
+<h1 id="可用性">可用性</h1>
+
+<ul>
+  <li>Windows平台支持所有的命令。</li>
+  <li>除了明确指明的<code class="language-plaintext highlighter-rouge">pack</code>, <code class="language-plaintext highlighter-rouge">restore</code>, 及 <code class="language-plaintext highlighter-rouge">update</code>，All commands work with <a href="../guides/install-nuget.md#mac-osx-and-linux">nuget.exe running on Mono</a></li>
+  <li>Mac及Linux平台同样可以通过<a href="dotnet-Commands.md">dotnet CLI</a> 调用<code class="language-plaintext highlighter-rouge">pack</code>、 <code class="language-plaintext highlighter-rouge">restore</code>、 <code class="language-plaintext highlighter-rouge">delete</code>、 <code class="language-plaintext highlighter-rouge">locals</code>、 和 <code class="language-plaintext highlighter-rouge">push</code> 命令。</li>
+</ul>
+
+<h1 id="命令及适用性">命令及适用性</h1>
+
+<p>命令适用于包的创建、消费以及将其推送至托管服务器等情景：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>普通命令</th>
+      <th>适用情景</th>
+      <th>Nuget版本</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="cli-ref-pack.md">pack</a></td>
+      <td>创建</td>
+      <td>2.7+</td>
+      <td>通过<code class="language-plaintext highlighter-rouge">.nuspec</code> 或工程文件创建nuget包。Mono下不支持通过工程文件创建。</td>
+    </tr>
+    <tr>
+      <td><a href="cli-ref-push.md">push</a></td>
+      <td>推送</td>
+      <td>All</td>
+      <td>将package推送至源服务器。</td>
+    </tr>
+    <tr>
+      <td><a href="cli-ref-config.md">config</a></td>
+      <td>所有</td>
+      <td>All</td>
+      <td>读取或设置Nuget参数配置。</td>
+    </tr>
+    <tr>
+      <td><a href="cli-ref-help.md">help or ?</a></td>
+      <td>所有</td>
+      <td>All</td>
+      <td>显示通用帮助或单条命令的帮助信息。</td>
+    </tr>
+    <tr>
+      <td><a href="cli-ref-locals.md">locals</a></td>
+      <td>消费</td>
+      <td>3.3+</td>
+      <td>清理或列出列出包缓存地址或全局包 or the global packages folder, or identifies those folders.</td>
+    </tr>
+    <tr>
+      <td><a href="cli-ref-restore.md">restore</a></td>
+      <td>Consumption</td>
+      <td>2.7+</td>
+      <td>Restores all packages referenced by the package reference format in use. When running on Mono, restoring packages using the PackageReference format is not supported.</td>
+    </tr>
+    <tr>
+      <td><a href="cli-ref-setapikey.md">setapikey</a></td>
+      <td>Publishing, Consumption</td>
+      <td>All</td>
+      <td>Saves an API key for a given package source when that package source requires a key for access.</td>
+    </tr>
+    <tr>
+      <td><a href="cli-ref-spec.md">spec</a></td>
+      <td>Creation</td>
+      <td>All</td>
+      <td>Generates a <code class="language-plaintext highlighter-rouge">.nuspec</code> file, using tokens if generating the file from a Visual Studio project.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>二级命令</th>
+      <th>适用情景</th>
+      <th>NuGet版本</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="cli-ref-add.md">add</a></td>
+      <td>Publishing</td>
+      <td>3.3+</td>
+      <td>Adds a package to a non-HTTP package source using hierarchical layout. For HTTP sources, use <em>push</em>.</td>
+    </tr>
+    <tr>
+      <td><a href="cli-ref-delete.md">delete</a></td>
+      <td>Publishing</td>
+      <td>All</td>
+      <td>Removes or unlists a package from a package source.</td>
+    </tr>
+    <tr>
+      <td><a href="cli-ref-init.md">init</a></td>
+      <td>Creation</td>
+      <td>3.3+</td>
+      <td>Adds packages from a folder to a package source using hierarchical layout.</td>
+    </tr>
+    <tr>
+      <td><a href="cli-ref-install.md">install</a></td>
+      <td>Consumption</td>
+      <td>All</td>
+      <td>Installs a package into the current project but does not modify projects or reference files.</td>
+    </tr>
+    <tr>
+      <td><a href="cli-ref-list.md">list</a></td>
+      <td>Consumption, perhaps Publishing</td>
+      <td>All</td>
+      <td>Displays packages from a given source.</td>
+    </tr>
+    <tr>
+      <td><a href="cli-ref-mirror.md">mirror</a></td>
+      <td>Publishing</td>
+      <td>Deprecated in 3.2+</td>
+      <td>Mirrors a package and its dependencies from a source to a target repository.</td>
+    </tr>
+    <tr>
+      <td><a href="cli-ref-sources.md">sources</a></td>
+      <td>Consumption, Publishing</td>
+      <td>All</td>
+      <td>Manages package sources in configuration files.</td>
+    </tr>
+    <tr>
+      <td><a href="cli-ref-update.md">update</a></td>
+      <td>Consumption</td>
+      <td>All</td>
+      <td>Updates a project’s packages to the latest available versions. Not supported when running on Mono.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Different commands make use of various <a href="cli-ref-environment-variables.md">Environment variables</a>.</p>
+
+<p>NuGet命令行接口情景分类:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>情景</th>
+      <th>命令</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>消费</td>
+      <td><code class="language-plaintext highlighter-rouge">config</code>, <code class="language-plaintext highlighter-rouge">help</code>, <code class="language-plaintext highlighter-rouge">install</code>, <code class="language-plaintext highlighter-rouge">list</code>, <code class="language-plaintext highlighter-rouge">locals</code>, <code class="language-plaintext highlighter-rouge">restore</code>, <code class="language-plaintext highlighter-rouge">setapikey</code>, <code class="language-plaintext highlighter-rouge">sources</code>, <code class="language-plaintext highlighter-rouge">update</code></td>
+    </tr>
+    <tr>
+      <td>创建</td>
+      <td><code class="language-plaintext highlighter-rouge">config</code>, <code class="language-plaintext highlighter-rouge">help</code>, <code class="language-plaintext highlighter-rouge">init</code>, <code class="language-plaintext highlighter-rouge">pack</code>, <code class="language-plaintext highlighter-rouge">spec</code></td>
+    </tr>
+    <tr>
+      <td>发布</td>
+      <td><code class="language-plaintext highlighter-rouge">add</code>, <code class="language-plaintext highlighter-rouge">config</code>, <code class="language-plaintext highlighter-rouge">delete</code>, <code class="language-plaintext highlighter-rouge">help</code>, <code class="language-plaintext highlighter-rouge">list</code>, <code class="language-plaintext highlighter-rouge">push</code>, <code class="language-plaintext highlighter-rouge">setapikey</code>, <code class="language-plaintext highlighter-rouge">sources</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Developers concerned only with consuming packages, for example, need only understand that subset of NuGet commands.</p>
+
+  </div><a class="u-url" href="/nuget/cli/2017/12/28/nuget-cli.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">shine.dev</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">shine.dev</li><li><a class="u-email" href="mailto:me@shine.dev">me@shine.dev</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ShineSmile"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ShineSmile</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Ask the person who know the answer.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

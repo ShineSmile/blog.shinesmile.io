@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Mac使用技巧 | shine.dev</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="Mac使用技巧" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="这篇文章主要用于记录日常使用Mac的过程中遇到的问题和解决方案。" />
+<meta property="og:description" content="这篇文章主要用于记录日常使用Mac的过程中遇到的问题和解决方案。" />
+<link rel="canonical" href="http://localhost:4000/mac/unix/2017/03/23/skill-of-mac.html" />
+<meta property="og:url" content="http://localhost:4000/mac/unix/2017/03/23/skill-of-mac.html" />
+<meta property="og:site_name" content="shine.dev" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-03-23T19:19:47+08:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/mac/unix/2017/03/23/skill-of-mac.html"},"url":"http://localhost:4000/mac/unix/2017/03/23/skill-of-mac.html","headline":"Mac使用技巧","dateModified":"2017-03-23T19:19:47+08:00","datePublished":"2017-03-23T19:19:47+08:00","description":"这篇文章主要用于记录日常使用Mac的过程中遇到的问题和解决方案。","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="shine.dev" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">shine.dev</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Mac使用技巧</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-03-23T19:19:47+08:00" itemprop="datePublished">Mar 23, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>这篇文章主要用于记录日常使用Mac的过程中遇到的问题和解决方案。</p>
+
+<h1 id="环境变量的设置">环境变量的设置</h1>
+
+<h2 id="修改个人path">修改个人PATH</h2>
+
+<p>用户登录时会执行<code class="language-plaintext highlighter-rouge">~/.bash_profile</code>中的内容，若想简单修改个人的环境变量，可以通过向此文件添加bash命令对环境变量进行调整。</p>
+
+<h2 id="修改本机path">修改本机PATH</h2>
+
+<p>此方法相对友好，仔细观察<code class="language-plaintext highlighter-rouge">~/.bash_profile</code>文件包括以下内容：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">eval</span> <span class="si">$(</span>/usr/libexec/path_helper <span class="nt">-s</span><span class="si">)</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">/usr/libexec/path_helper -s</code>的执行结果就是我们的PATH内容并将其export。</p>
+
+<p>显然上述输出并不是直接写在单个文件中，而是在<code class="language-plaintext highlighter-rouge">/etc/paths.d/</code>目录下，此文件夹可能已有部分文件，用户登录时，上述命令会对文件的内容进行遍历并生成指令，将其添加至PATH中。</p>
+
+<h2 id="修改env环境变量">修改env环境变量</h2>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">/etc/profile</code> 全局（公有）配置，不管是哪个用户，登录时都会读取该文件。不建议修改该文件。</li>
+  <li><code class="language-plaintext highlighter-rouge">/etc/bashrc</code> 全局（公有）配置，bash shell执行时，不管是何种方式，都会读取此文件。可以通过此文件修改全局变量。</li>
+  <li><code class="language-plaintext highlighter-rouge">~/.bash_profile</code> 每个用户都可使用该文件输入专用于自己使用的shell信息,当用户登录时,该文件仅仅执行一次!可以通过此文件修改个人环境变量。</li>
+</ol>
+
+<h2 id="使上述配置文件立即生效">使上述配置文件立即生效</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> ~/.bash_profile
+</code></pre></div></div>
+
+<h2 id="查询最大线程数">查询最大线程数</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sysctl kern.num_threadsd
+sysctl kern.num_taskthreads
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/mac/unix/2017/03/23/skill-of-mac.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">shine.dev</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">shine.dev</li><li><a class="u-email" href="mailto:me@shine.dev">me@shine.dev</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ShineSmile"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ShineSmile</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Ask the person who know the answer.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

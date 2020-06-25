@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Git init 2.2：忽略文件 | shine.dev</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="Git init 2.2：忽略文件" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="忽略文件 .gitignore" />
+<meta property="og:description" content="忽略文件 .gitignore" />
+<link rel="canonical" href="http://localhost:4000/git/gitignore/2017/02/25/git-init-2-2.html" />
+<meta property="og:url" content="http://localhost:4000/git/gitignore/2017/02/25/git-init-2-2.html" />
+<meta property="og:site_name" content="shine.dev" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-02-25T13:00:00+08:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/git/gitignore/2017/02/25/git-init-2-2.html"},"url":"http://localhost:4000/git/gitignore/2017/02/25/git-init-2-2.html","headline":"Git init 2.2：忽略文件","dateModified":"2017-02-25T13:00:00+08:00","datePublished":"2017-02-25T13:00:00+08:00","description":"忽略文件 .gitignore","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="shine.dev" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">shine.dev</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Git init 2.2：忽略文件</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-02-25T13:00:00+08:00" itemprop="datePublished">Feb 25, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="忽略文件-gitignore">忽略文件 .gitignore</h1>
+
+<p>操作系统的运行过程、开发环境的部分配置文件、编译器的编译过程，编译结束后生成的文件通常不需要提交到版本库中进行追踪，一方面此类文件可以通过源代码生成，另一方面反复提交编辑结果会导致版本控制仓库体积的剧增，不利于版本控制工具的维护。</p>
+
+<p>Git使用<code class="language-plaintext highlighter-rouge">.gitignore</code>这个配置文件对不需要提交的文件进行忽略，达到节省开销的目的。</p>
+
+<p><code class="language-plaintext highlighter-rouge">.gitignore</code>文件在编辑时遵循以下原则：</p>
+
+<ul>
+  <li>
+    <p>以斜杠“/”开头表示根目录下的内容；</p>
+  </li>
+  <li>
+    <p>以”/”结尾表示目录；</p>
+  </li>
+  <li>
+    <p>以星号“*”通配多个字符；</p>
+  </li>
+  <li>
+    <p>以问号“?”通配单个字符</p>
+  </li>
+  <li>
+    <p>以方括号“[]”包含单个字符的匹配列表；</p>
+  </li>
+  <li>
+    <p>以叹号“!”表示不忽略(跟踪)匹配到的文件或目录；</p>
+  </li>
+</ul>
+
+<p>需要注意以下几点：</p>
+
+<ul>
+  <li>
+    <p>匹配顺序为自上而下。</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">.gitignore</code>是工作目录的一部分，建议提交时对其进行更新。</p>
+  </li>
+  <li>
+    <p>已经被版本控制追踪的文件无法通过修改<code class="language-plaintext highlighter-rouge">.gitignore</code>文件进行忽略，如果需要在后续版本中忽略，请删除这个文件并把删除行为添加到缓存区进行提交。</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">.gitignore</code>的使用与选择不仅与开发语言有关，还会受到开发环境、编译器、平台等因素的影响。</p>
+  </li>
+  <li>
+    <p>已经添加至缓存的文件，在.gitignore更新后不会被忽略，可以使用<strong>git rm -r –cached .</strong>对缓存进行清除。</p>
+  </li>
+</ul>
+
+<p>Github的<a href="https://github.com/github/gitignore">github/gitignore</a>项目中提供了一些语言及开发环境使用的<code class="language-plaintext highlighter-rouge">.gitignore</code>模板。</p>
+
+<p>下面列出了C++语言使用的<code class="language-plaintext highlighter-rouge">.gitignore</code>模板：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+</code></pre></div></div>
+<p>Python的<code class="language-plaintext highlighter-rouge">.gitignore</code>文件：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+.hypothesis/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# SageMath parsed files
+*.sage.py
+
+# dotenv
+.env
+
+# virtualenv
+.venv
+venv/
+ENV/
+
+# Spyder project settings
+.spyderproject
+
+# Rope project settings
+.ropeproject
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/git/gitignore/2017/02/25/git-init-2-2.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">shine.dev</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">shine.dev</li><li><a class="u-email" href="mailto:me@shine.dev">me@shine.dev</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ShineSmile"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ShineSmile</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Ask the person who know the answer.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

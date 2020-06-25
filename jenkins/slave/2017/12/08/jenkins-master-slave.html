@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>添加Jenkins slave节点 | shine.dev</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="添加Jenkins slave节点" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="jenkins slave节点可以用来扩展jenkins的性能，提高工程编译的并发性。更重要的一点，可以对平台进行扩展，完成master所在节点无法完成的编译工作。 注意：添加slave节点无需在目标服务器安装完整的jenkins服务，连接到slave节点后，master会将slave.jar发送至目标服务器。" />
+<meta property="og:description" content="jenkins slave节点可以用来扩展jenkins的性能，提高工程编译的并发性。更重要的一点，可以对平台进行扩展，完成master所在节点无法完成的编译工作。 注意：添加slave节点无需在目标服务器安装完整的jenkins服务，连接到slave节点后，master会将slave.jar发送至目标服务器。" />
+<link rel="canonical" href="http://localhost:4000/jenkins/slave/2017/12/08/jenkins-master-slave.html" />
+<meta property="og:url" content="http://localhost:4000/jenkins/slave/2017/12/08/jenkins-master-slave.html" />
+<meta property="og:site_name" content="shine.dev" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-12-08T14:07:13+08:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jenkins/slave/2017/12/08/jenkins-master-slave.html"},"url":"http://localhost:4000/jenkins/slave/2017/12/08/jenkins-master-slave.html","headline":"添加Jenkins slave节点","dateModified":"2017-12-08T14:07:13+08:00","datePublished":"2017-12-08T14:07:13+08:00","description":"jenkins slave节点可以用来扩展jenkins的性能，提高工程编译的并发性。更重要的一点，可以对平台进行扩展，完成master所在节点无法完成的编译工作。 注意：添加slave节点无需在目标服务器安装完整的jenkins服务，连接到slave节点后，master会将slave.jar发送至目标服务器。","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="shine.dev" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">shine.dev</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">添加Jenkins slave节点</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-12-08T14:07:13+08:00" itemprop="datePublished">Dec 8, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>jenkins slave节点可以用来扩展jenkins的性能，提高工程编译的并发性。更重要的一点，可以对平台进行扩展，完成master所在节点无法完成的编译工作。
+<strong>注意：添加slave节点无需在目标服务器安装完整的jenkins服务，连接到slave节点后，master会将slave.jar发送至目标服务器。</strong></p>
+
+<h1 id="添加新的linux-slave节点">添加新的Linux slave节点：</h1>
+
+<p>添加linux节点的方式非常简单，只要能通过ssh的方式登录到目标服务器，像下图一样进行简单的配置即可进行连接：
+<img src="/assets/img/jenkins-master-slave/linux_slave_node_config.png" alt="添加linux slave节点" /></p>
+
+<ul>
+  <li>图中模糊的地方分别是指定该节点的标签（Lables）以及使用强度（Usage：尽可能多的使用，只执行标签匹配的任务）.</li>
+  <li>图中Host Key Verification Strategy有四个选项，分别是已知服务器、使用ssh key pair、使用ssh用户名密码、无需认证。连接时需要注意防止中间人攻击。</li>
+  <li>图中的Lables就是节点的标签，若在jenkinsfile中指定了节点的名称，jenkins会在指定的节点执行节点中的任务。</li>
+</ul>
+
+<h1 id="添加windows-slave节点">添加Windows slave节点：</h1>
+
+<p><a href="https://wiki.jenkins.io/display/JENKINS/Step+by+step+guide+to+set+up+master+and+slave+machines+on+Windows">这里</a>有一篇使用jnlp文件的方式添加windows slave节点的官方文档。 在master节点配置好后下载一个slave-agent.jnpl的文件在指定的windows机器上执行即可，非常简单。
+<strong>注意：windows slave节点添加好后，在尝试添加新服务时出现了问题，因此此节点暂时只能通过手动的方式启动。(Jave ver.9.01)</strong></p>
+
+  </div><a class="u-url" href="/jenkins/slave/2017/12/08/jenkins-master-slave.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">shine.dev</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">shine.dev</li><li><a class="u-email" href="mailto:me@shine.dev">me@shine.dev</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ShineSmile"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ShineSmile</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Ask the person who know the answer.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

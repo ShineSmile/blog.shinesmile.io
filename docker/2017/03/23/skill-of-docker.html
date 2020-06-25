@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Docker使用技巧 | shine.dev</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="Docker使用技巧" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="同Ubuntu使用技巧一样，这篇文章也是积累在学习docker中遇到的各种问题及解决方法（可能是临时）。" />
+<meta property="og:description" content="同Ubuntu使用技巧一样，这篇文章也是积累在学习docker中遇到的各种问题及解决方法（可能是临时）。" />
+<link rel="canonical" href="http://localhost:4000/docker/2017/03/23/skill-of-docker.html" />
+<meta property="og:url" content="http://localhost:4000/docker/2017/03/23/skill-of-docker.html" />
+<meta property="og:site_name" content="shine.dev" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-03-23T11:08:52+08:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/docker/2017/03/23/skill-of-docker.html"},"url":"http://localhost:4000/docker/2017/03/23/skill-of-docker.html","headline":"Docker使用技巧","dateModified":"2017-03-23T11:08:52+08:00","datePublished":"2017-03-23T11:08:52+08:00","description":"同Ubuntu使用技巧一样，这篇文章也是积累在学习docker中遇到的各种问题及解决方法（可能是临时）。","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="shine.dev" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">shine.dev</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Docker使用技巧</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-03-23T11:08:52+08:00" itemprop="datePublished">Mar 23, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>同<a href="http://heavensfeel.net/2017/03/22/skill-of-ubuntu/">Ubuntu使用技巧</a>一样，这篇文章也是积累在学习docker中遇到的各种问题及解决方法（可能是临时）。</p>
+
+<p>docker和git有很多相似之处，有一定的git基础对理解docker里的一些概念会有很大帮助。</p>
+
+<p>操作系统为：<strong>Ubuntu 16.04 LTS</strong></p>
+
+<p>Docker版本：</p>
+
+<pre><code class="language-plain">Client:
+ Version:      17.03.0-ce
+ API version:  1.26
+ Go version:   go1.7.5
+ Git commit:   3a232c8
+ Built:        Tue Feb 28 08:01:32 2017
+ OS/Arch:      linux/amd64
+
+Server:
+ Version:      17.03.0-ce
+ API version:  1.26 (minimum version 1.12)
+ Go version:   go1.7.5
+ Git commit:   3a232c8
+ Built:        Tue Feb 28 08:01:32 2017
+ OS/Arch:      linux/amd64
+ Experimental: false
+</code></pre>
+
+<h1 id="概述">概述</h1>
+
+<ul>
+  <li>两端：docker命令客户端和docker守护进程</li>
+  <li>三核心：镜像、容器、仓库</li>
+</ul>
+
+<h1 id="执行docker命令时不使用sudo">执行docker命令时不使用sudo</h1>
+
+<blockquote>
+  <p>docker daemon使用的是Unix socket而不是TCP端口，而属于root的Unix socket在其他用户调用时必须通过sudo来提升用户的权限。<a href="https://docs.docker.com/engine/installation/linux/linux-postinstall/">摘自</a></p>
+</blockquote>
+
+<p>解决方案是添加一个docker用户组，并为当前用户添加至此用户组。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>groupadd docker
+<span class="nb">sudo </span>usermod <span class="nt">-aG</span> docker <span class="nv">$USER</span>
+</code></pre></div></div>
+
+<p>执行上述命令后可能需要注销重新登录重新加载用户配置使配置生效。</p>
+
+<h1 id="设置docker-daemon的代理服务器">设置Docker daemon的代理服务器</h1>
+
+<p>修改docker的推荐方案是修改<code class="language-plaintext highlighter-rouge">/etc/docker.daemon.json</code>配置文件，详细配置参看<a href="https://docs.docker.com/engine/reference/commandline/dockerd//#daemon-configuration-file">这里</a></p>
+
+<p>这里选择的方法是修改deamon的配置项:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> /etc/systemd/system/docker.service.d
+/etc/systemd/system/docker.service.d/http-proxy.conf
+</code></pre></div></div>
+
+<p>内容为：</p>
+
+<pre><code class="language-plain">[Service]
+Environment="HTTP_PROXY=http://proxy.example.com:80/"
+</code></pre>
+
+<p>重载服务参数：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl daemon-reload
+</code></pre></div></div>
+
+<p>验证：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl show <span class="nt">--property</span><span class="o">=</span>Environment docker
+</code></pre></div></div>
+
+<p>重启服务：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl restart docker
+</code></pre></div></div>
+
+<h1 id="docker-子命令">docker 子命令</h1>
+
+<h2 id="镜像相关">镜像相关</h2>
+
+<ul>
+  <li>pull 拉取镜像至本地</li>
+  <li>search 查询远端仓库的共享镜像</li>
+  <li>rmi remove image 删除镜像</li>
+  <li>commit 从容器的改变创建镜像</li>
+  <li>images 查看本地镜像</li>
+  <li>commit 提交新的镜像至本地</li>
+  <li>save 将镜像存储为tar包</li>
+  <li>load 载入tar包中的镜像</li>
+  <li>push 推送镜像</li>
+  <li>create 从Dockerfile创建镜像</li>
+</ul>
+
+<h2 id="容器相关">容器相关</h2>
+
+<ul>
+  <li>create 通过容器创建镜像</li>
+  <li>start 运行制定容器</li>
+  <li>stop 停止容器</li>
+  <li>attach 将终端重新绑定至指定容器</li>
+  <li>kill 强制停止容器</li>
+  <li>run 获取镜像，通过镜像创建容器并运行</li>
+  <li>rm 删除容器</li>
+  <li>export 导出容器</li>
+  <li>import 导入容器</li>
+  <li>inspect 查询容器状态</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker inspect wordpress
+</code></pre></div></div>
+
+<h2 id="仓库相关">仓库相关</h2>
+
+<p>获取第三方镜像仓库的方法：在镜像前添加仓库的url，如：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>docker pull dl.dockerpool.com:5000/ubuntu:12.04
+</code></pre></div></div>
+
+<h1 id="docker-run参数简要说明">docker run参数简要说明</h1>
+
+<ul>
+  <li>-t 让Docker分配一个伪终端（pseudo-tty）并绑定到容器的标准输入上</li>
+  <li>-i 让容器的标准输入保持打开</li>
+  <li>-d 让容器以守护态在后台运行</li>
+  <li>-p 开放容器的端口并映射至本机：<code class="language-plaintext highlighter-rouge">本机端口:容器端口</code>。</li>
+  <li>-v 绑定挂在卷：<code class="language-plaintext highlighter-rouge">本机绝对路径:容器路径(:ro)</code> 如果本地路径不存在docker守护进程会创建指定目录，以这种方式创建的目录可能会有权限问题的风险。</li>
+  <li>-v 指定管理卷的挂载点：<code class="language-plaintext highlighter-rouge">-v /var/lib/cassandra/data</code></li>
+  <li>–link 将目标容器与当前容器进行关联：<code class="language-plaintext highlighter-rouge">目标容器名或id:相对于当前容器的名称</code></li>
+  <li>–read-only 只读容器</li>
+  <li>-e 环境变量<code class="language-plaintext highlighter-rouge">docker run -d -e MYSQL_ROOT_PASSWORD=root mysql</code></li>
+</ul>
+
+<h1 id="无法通过映射的端口访问容器的端口">无法通过映射的端口访问容器的端口</h1>
+
+<p>这个问题很可能不是docker自身导致的，首先要核实服务建立时绑定的IP地址是否是<code class="language-plaintext highlighter-rouge">127.0.0.1</code>或者<code class="language-plaintext highlighter-rouge">localhost</code>，如果是，尝试将地址更换为<code class="language-plaintext highlighter-rouge">0.0.0.0</code>再试。</p>
+
+<p>在使用ASP.NET core时可能会遇到此问题。（绑定由IIS转移至代码及配置文件中。）</p>
+
+<h1 id="通过remote-api访问其他主机中的docker-daemon">通过Remote API访问其他主机中的Docker Daemon</h1>
+
+<p>如果不想在工作中的电脑运行Docker Deamon服务，在开发过程中直接调用服务端的容器，可以开启服务器daemon的tcp访问。<strong>此方法不具有授权及身份认证功能。请自行核对docker及daemon的版本号。</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 查看配置文件位于哪里</span>
+systemctl show <span class="nt">--property</span><span class="o">=</span>FragmentPath docker
+<span class="c"># 编辑配置文件内容，接收所有ip请求</span>
+<span class="nb">sudo </span>vim /lib/systemd/system/docker.service
+</code></pre></div></div>
+
+<p>注释目标行，并追加:</p>
+
+<pre><code class="language-plain">#ExecStart=/usr/bin/dockerd -H fd://
+ExecStart=/usr/bin/dockerd -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375
+</code></pre>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 重新加载配置文件，重启docker daemon</span>
+<span class="nb">sudo </span>systemctl daemon-reload
+<span class="nb">sudo </span>systemctl restart docker
+<span class="c"># 测试</span>
+curl http://localhost:2375/info
+<span class="c"># 开启防火墙</span>
+<span class="nb">sudo </span>ufw allow 2375/tcp
+</code></pre></div></div>
+
+<p>本地计算机修改用户环境变量：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># IP地址为服务器地址</span>
+<span class="nb">export </span><span class="nv">DOCKER_HOST</span><span class="o">=</span><span class="s2">"tcp://192.168.1.100:2375"</span>
+<span class="c"># 测试</span>
+docker ps
+docker version
+</code></pre></div></div>
+
+<p>衍生自：<a href="https://www.zhihu.com/question/24852884/answer/138069968">Docker Remote API 如何使用？</a></p>
+
+<h1 id="通过容器访问deamon所在虚拟机资源">通过容器访问deamon所在虚拟机资源</h1>
+
+<p>在使用docker for windows时，有时我们需要通过直接操作Docker Daemon所在的Linux虚拟机对环境进行调整及配置，有如下几种方法：</p>
+
+<ul>
+  <li>get a privileged container with access to Docker daemon</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">--privileged</span> <span class="nt">-it</span> <span class="nt">--rm</span> <span class="nt">-v</span> /var/run/docker.sock:/var/run/docker.sock <span class="nt">-v</span> /usr/bin/docker:/usr/bin/docker alpine sh
+</code></pre></div></div>
+
+<ul>
+  <li>run a container with full root access to MobyLinuxVM and no seccomp profile (so you can mount stuff)</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">--net</span><span class="o">=</span>host <span class="nt">--ipc</span><span class="o">=</span>host <span class="nt">--uts</span><span class="o">=</span>host <span class="nt">--pid</span><span class="o">=</span>host <span class="nt">-it</span> <span class="nt">--security-opt</span><span class="o">=</span><span class="nv">seccomp</span><span class="o">=</span>unconfined <span class="nt">--privileged</span> <span class="nt">--rm</span> <span class="nt">-v</span> /:/host alpine /bin/sh
+</code></pre></div></div>
+
+<ul>
+  <li>switch to host FS</li>
+</ul>
+
+<p>chroot /host</p>
+
+  </div><a class="u-url" href="/docker/2017/03/23/skill-of-docker.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">shine.dev</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">shine.dev</li><li><a class="u-email" href="mailto:me@shine.dev">me@shine.dev</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ShineSmile"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ShineSmile</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Ask the person who know the answer.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
